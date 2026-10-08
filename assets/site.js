@@ -92,8 +92,9 @@
 
   // "Book" buttons link to booking.html?activity=… : tick that activity in the booking form.
   // Only these known names are accepted, so nothing from the address ends up on the page.
+  // (Rafting has four trips, so "Book rafting" leaves the choice of trip to the visitor.)
   const ACTIVITIES = new Map([
-    ['rafting', 'River rafting'], ['bungee', 'Bungee jumping'], ['zipline', 'Zip line'],
+    ['bungee', 'Bungee jumping'], ['zipline', 'Zip line'],
     ['camps', 'Camps & cottages'], ['hotel', 'Hotel room'], ['other', 'Other activities'],
   ]);
   const preset = ACTIVITIES.get(new URLSearchParams(location.search).get('activity'));
