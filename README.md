@@ -1,9 +1,9 @@
 # Adventure Park — website
 
 **Where Rishikesh gets wild.**
-The website for Adventure Park, an adventure-activities brand in Rishikesh, Uttarakhand, founded by Jagat Singh Bhandari (25+ years of experience, more than 5 lakh people served). The site presents the activities, puts safety first, and lets visitors book a consultation or get in touch.
+The website for Adventure Park, an adventure-activities brand in Rishikesh, Uttarakhand, running since 2006 and founded by Jagat Singh Bhandari (JSB — 25+ years of experience, more than 5 lakh people served). The site presents the activities, stays and prices, puts safety first, and lets visitors book a consultation or get in touch.
 
-> **Status:** the Netlify site is created — **https://adventurepark-rishikesh.netlify.app** (Netlify project `adventurepark-rishikesh`, public, no login needed). It goes live with the first deploy — see [Deploying to Netlify](#deploying-to-netlify).
+> **Status:** not live yet — launch is on hold until all business details are final. The Netlify site is ready at **https://adventurepark-rishikesh.netlify.app** (project `adventurepark-rishikesh`, public, no login needed) and goes live with the first deploy — see [Deploying to Netlify](#deploying-to-netlify). The work is on the branch `claude/adventure-park-tailwind-site-n4xwsv`.
 
 ---
 
@@ -20,7 +20,7 @@ The website for Adventure Park, an adventure-activities brand in Rishikesh, Utta
 
 ## What visitors can do
 
-- **See activities and prices** — rafting (12, 16, 26 and 36 km, 1 to 3 hours), bungee jumping (109 m), zip line, luxury camps & cottages and hotel rooms, all in ₹.
+- **See activities and prices** — rafting (12, 16, 26 and 36 km, 1 to 3 hours), bungee jumping (109 m), zip line, luxury camps & cottages (200 m up from the river, 100 m up from the national highway) and hotel rooms, all in ₹.
 - **See the food menu** — breakfast, buffet lunch (pure veg), evening snacks and buffet dinner (veg & non-veg), included with camp and cottage stays.
 - **Book a consultation** or **send a contact message** — both forms email the details to the park (see [Forms](#forms-formsubmit)).
 - **Chat on WhatsApp** with the floating button on every page (+91 87555 42743).
@@ -62,11 +62,35 @@ A static website: plain HTML, CSS and a little JavaScript. **There is no build s
 
 ---
 
+## Business details used on the site
+
+Every fact the site states, in one place — check these before launch.
+
+| Detail | Value |
+|---|---|
+| Founder | Jagat Singh Bhandari (JSB) |
+| Experience / people served / running since | 25+ years · 5 lakh+ people · since 2006 |
+| Office | Near Shiv Mandir, Badrinath Highway, Shivpuri, Uttarakhand |
+| Phone / WhatsApp | +91 97623 88871, +91 87555 42743 (WhatsApp) |
+| Email / Instagram | adventurepark661@gmail.com · [@adventure_park771](https://www.instagram.com/adventure_park771/) |
+| Rafting (per person) | 12 km Marine Drive → Shivpuri, 1–1.5 hrs, ₹520 · 16 km Shivpuri → Nim Beach, 1.5–2 hrs, ₹720 · 26 km Marine Drive → Nim Beach, 2–2.5 hrs, ₹1,200 · 36 km Kaudiyala → Nim Beach, 2.5–3 hrs, ₹2,400 · peak season (March–June) weekends and crowded days +15–20% |
+| Bungee jumping | 109 m / 360 ft, ₹4,000 per person incl. DSLR video and jump certificate |
+| Zip line | ₹1,800 students, ₹2,000 adults (per person) |
+| Luxury camps & cottages | 200 m up from the river, 100 m up from the national highway · quad/triple ₹1,500–₹1,800, double ₹1,800–₹2,200 per person/night · children 6–11 at 50% · includes three meals, swimming pool, DJ party till 10 pm, attached washroom, fan, charging points · non-AC camps have an air cooler, AC cottages have AC |
+| Hotel rooms (room only) | Non-AC ₹1,200, AC ₹1,600 per room/night · busy days ₹1,600–₹1,800 / ₹2,000–₹2,200 |
+| Meals (camps & cottages) | Breakfast 8:30–10:00 AM · buffet lunch 1:30–3:00 PM (pure veg) · evening snacks 6:00–7:30 PM · buffet dinner 8:30–10:30 PM (veg & non-veg) |
+
+---
+
 ## Editing the site
 
 All content is in the HTML files — open one in any text editor, change the words, save.
 
 **The header, footer, mobile menu and WhatsApp button are repeated in every page.** If you change one of them (for example a phone number), make the same change in `index.html`, `about.html`, `consultation.html`, `contact.html` and `404.html`.
+
+### Headline numbers
+
+The band under the Home hero shows **25+** years of experience, **5 lakh+** people served and **Since 2006 · Founded by JSB**. Edit them in the "NUMBERS" section of `index.html` (the About page has its own band in `about.html`). The `data-count` value is the number that counts up.
 
 ### Prices — where they appear
 
@@ -179,6 +203,7 @@ The site is set up for Netlify (`netlify.toml`): no build command, publish direc
 
 - [x] Real activities and prices (rafting with durations, bungee, zip line), stay options (camps & cottages, hotel rooms) and the food menu.
 - [x] Instagram link in the footer, mobile menu and Contact page.
+- [ ] Confirm whether AC cottages cost the same per person as non-AC camps (the site shows one per-person range for both).
 - [ ] Check every safety statement matches what the team actually does.
 - [x] Netlify site created and set to public (`adventurepark-rishikesh`).
 - [ ] First deploy (link the GitHub repository or drag and drop the folder).
