@@ -56,7 +56,10 @@ A static website: plain HTML, CSS and a little JavaScript. **Netlify publishes t
 ├── sitemap.xml           List of pages for search engines
 ├── llms.txt              Plain-text summary of the business for AI assistants
 ├── site.webmanifest      App name and icons (for "Add to Home screen")
-├── netlify.toml          Netlify settings: security headers, caching
+├── 9ee9e31962946c13c7e1b3c5848a1f03.txt  IndexNow key (lets Bing know the site is ours when we announce updates)
+├── .well-known/
+│   └── security.txt      Where to report a security problem (renew "Expires" every year)
+├── netlify.toml          Netlify settings: security headers, caching, hidden files
 ├── .gitignore            Keeps the temporary node_modules folder out of git
 └── assets/
     ├── theme.css         Colours, fonts, radius, shadows (tweakcn format)
@@ -68,6 +71,7 @@ A static website: plain HTML, CSS and a little JavaScript. **Netlify publishes t
     ├── site.js           Header, mobile menu, scroll reveals, counters, forms
     ├── hero-fx.js        Animated dash ring and glow in the page headers
     ├── preview.js        Device preview tool
+    ├── preview.css       Device preview tool styles
     ├── logo.png          ADVENTURE PARK wordmark (header and footer)
     ├── icon-192.png      App icon
     ├── apple-touch-icon.png  Home-screen icon for iPhone/iPad
@@ -159,6 +163,8 @@ npx tailwindcss -i assets/tailwind.css -o assets/styles.css --minify
 ```
 
 Commit the updated `assets/styles.css` along with the HTML. (Add `--watch` to the second command to rebuild automatically while you edit.)
+
+**Don't use `style="…"` attributes or `<style>` blocks in the pages** — the security policy blocks them. Use a Tailwind class instead (for example `[--d:150ms]` rather than `style="--d:150ms"`), then rebuild.
 
 ### Page labels (emoji)
 
@@ -255,15 +261,20 @@ All crawlers are allowed (`User-agent: *`). These are also named one by one:
 
 | Company | Crawlers |
 |---|---|
-| OpenAI (ChatGPT) | GPTBot, OAI-SearchBot, ChatGPT-User |
+| OpenAI (ChatGPT) | **OAI-SearchBot** (ChatGPT search results), **ChatGPT-User** (pages ChatGPT opens while answering), **GPTBot** (training) |
 | Anthropic (Claude) | ClaudeBot, Claude-SearchBot, Claude-User, anthropic-ai |
 | Perplexity | PerplexityBot, Perplexity-User |
-| Google (Search, Gemini, AI Overviews) | Googlebot, Google-Extended |
+| Google (Search, Gemini, AI Overviews) | Googlebot, Google-Extended, GoogleOther, Google-CloudVertexBot |
 | Microsoft (Bing, Copilot) | Bingbot |
 | Apple (Siri, Apple Intelligence) | Applebot, Applebot-Extended |
-| Others | DuckAssistBot, Amazonbot, meta-externalagent, CCBot (Common Crawl), cohere-ai, MistralAI-User, YouBot |
+| Meta (Meta AI) | meta-externalagent, meta-externalfetcher, FacebookBot |
+| Others | DuckDuckBot, DuckAssistBot, Amazonbot, CCBot (Common Crawl), cohere-ai, MistralAI-User, YouBot, Bytespider, PetalBot, YandexBot, Diffbot |
 
 Only `preview.html` (the device-preview tool) is blocked. To block one of the crawlers above instead, move its `User-agent:` line into a new group of its own with `Disallow: /`.
+
+`robots.txt` also carries a **content signal** ([contentsignals.org](https://contentsignals.org)): `search=yes, ai-input=yes, ai-train=yes` — the site may be shown in search results, used to answer questions in AI assistants and AI search, and used for AI training. To keep the site out of AI training but still in AI answers, change it to `ai-train=no` and move `GPTBot`, `Google-Extended`, `Applebot-Extended` and `CCBot` into a group with `Disallow: /` (ChatGPT search uses OAI-SearchBot, not GPTBot).
+
+**Being listed in ChatGPT search:** OpenAI's OAI-SearchBot is allowed, and ChatGPT search also draws on Bing's index — so the Bing steps below (Webmaster Tools and IndexNow) matter as much as Google's.
 
 ### Keeping it accurate
 
@@ -282,8 +293,11 @@ These steps are done outside the website and make the biggest difference to bein
 
 1. **[Google Business Profile](https://business.google.com)** — create or claim the listing for Adventure Park with the same name, address, phones and website. This drives Google Maps, "near me" searches and many AI answers about local businesses. Add photos and opening hours, and ask happy guests for Google reviews.
 2. **[Google Search Console](https://search.google.com/search-console)** — add the site, then submit `sitemap.xml` under **Sitemaps**.
-3. **[Bing Webmaster Tools](https://www.bing.com/webmasters)** — add the site (it can import from Search Console) and submit the sitemap. Bing's index also feeds Copilot and other AI search tools.
-4. Optional: send the office's exact map coordinates (latitude, longitude) to be added to the structured data.
+3. **[Bing Webmaster Tools](https://www.bing.com/webmasters)** — add the site (it can import from Search Console) and submit the sitemap. Bing's index also feeds ChatGPT search, Copilot and other AI search tools.
+4. **IndexNow** — tell Bing (and Yandex, Seznam, Naver) straight away about new or changed pages. Open this address in a browser after the first deploy, and again after any big update:
+   `https://www.bing.com/indexnow?url=https://adventurepark-rishikesh.netlify.app/&key=9ee9e31962946c13c7e1b3c5848a1f03`
+   (Replace the page address to announce another page. The key file `9ee9e31962946c13c7e1b3c5848a1f03.txt` proves the site is yours — keep it.)
+5. Optional: send the office's exact map coordinates (latitude, longitude) and opening hours to be added to the structured data.
 
 No website can guarantee a place in AI answers. These steps make sure that when AI assistants do look, they can read every page and find correct, consistent facts.
 
@@ -306,17 +320,31 @@ Opening the HTML files directly also works for looking at the design, but the fo
 
 ## Security
 
-`netlify.toml` sends these headers with every page:
+The site has **no server, database, login or payment of its own**. The "backend" is Netlify (hosting) and FormSubmit (emails the two forms), so there is very little to attack: no passwords to steal, no database to break into, no code running on a server.
+
+### Headers (`netlify.toml`)
 
 | Header | What it does |
 |---|---|
-| `Content-Security-Policy` | Only the site's own scripts, styles, fonts and images may load; forms may only send to FormSubmit. Blocks injected scripts and most cross-site attacks |
+| `Content-Security-Policy` | Only the site's own scripts, styles, fonts and images may load — no inline scripts or styles; forms may only send to FormSubmit. Blocks injected scripts and most cross-site attacks |
+| `Strict-Transport-Security` | Browsers always use HTTPS for the site |
 | `X-Frame-Options`, `frame-ancestors` | Other websites can't show these pages inside a frame (stops click-jacking) |
+| `Cross-Origin-Opener-Policy` | Tabs opened from the site (WhatsApp, Instagram, Maps) can't reach back into it |
 | `X-Content-Type-Options` | Browsers don't guess file types |
 | `Referrer-Policy` | Other sites only see the site's address, not the full page address, when a visitor follows a link |
 | `Permissions-Policy` | Camera, microphone, location, payment and USB access are switched off |
 
-**If you add an outside service later** (analytics, an embedded map or video, a chat widget), add its address to `Content-Security-Policy` in `netlify.toml` — otherwise the browser will block it. Netlify serves every page over HTTPS automatically.
+**If you add an outside service later** (analytics, an embedded map or video, a chat widget), add its address to `Content-Security-Policy` in `netlify.toml` — otherwise the browser will block it.
+
+### Other protections
+
+- **Project files are hidden:** `README.md`, `netlify.toml`, `.gitignore`, `.git/` and `assets/tailwind.css` answer "not found" on the live site.
+- **Forms:** a hidden spam trap (`_honey`), length limits on every field, and validation before sending. What visitors type is only ever shown as text, never run as code.
+- **No cookies and no tracking.** The only thing stored in the browser is the light/dark choice.
+- **No secrets in the code:** all 28+ commits were scanned for passwords, API keys and tokens — none.
+- **`/.well-known/security.txt`** tells security researchers how to report a problem (email and phone). It expires each year — update the `Expires` date by then.
+- **Recommended after activating FormSubmit:** FormSubmit emails you a private random address for the form. Replace `adventurepark661@gmail.com` in the two form `action`s with it, so spam bots can't harvest the email from the form (the email stays visible on the Contact page by choice).
+- **Privacy:** the forms collect name, age, gender, phone and email and send them through FormSubmit to your inbox. India's Digital Personal Data Protection Act expects you to tell people what you collect and why — consider adding a short privacy note under the forms or a privacy page.
 
 ---
 
@@ -328,7 +356,7 @@ Tested on a local server that behaves like Netlify (same headers, compression an
 |---|---|
 | **Lighthouse — mobile** (performance / accessibility / best practices / SEO) | 99–100 / 100 / 100 / 100 on all four pages (performance was 78–84 before the styles were pre-built) |
 | **Lighthouse — desktop** | 100 / 100 / 100 / 100 on all four pages |
-| Speed on a slow phone | First text after 1.1–1.7 s (was 2.6–3.0 s), largest content after 1.5–1.8 s (was 3.0–3.3 s), no layout shift, blocking time 0–40 ms (was 220–290 ms) |
+| Speed on a slow phone | First text after 1.1–1.7 s (was 2.6–3.0 s), largest content after 1.6–2.0 s (was 3.0–3.3 s), no layout shift, blocking time 0–60 ms (was 220–290 ms) |
 | Page weight (Home) | 173 KB in 13 requests (was 326 KB in 14). Logo 126 KB → 25 KB with no visible change |
 | HTML and CSS — W3C validator | No errors or warnings on any page |
 | Accessibility — axe-core (WCAG 2.2 AA), light and dark, phone and desktop, menu open | No issues, apart from a report on the faded "01 02 03" step numbers: they are decoration (hidden from screen readers), which WCAG exempts from contrast rules |
@@ -336,10 +364,15 @@ Tested on a local server that behaves like Netlify (same headers, compression an
 | Links | Every internal link and `#section` link works; phone, email, WhatsApp, Instagram and Maps links are correct |
 | Crawlers | `robots.txt` lets every search engine and AI crawler read every page except the preview tool; all key facts (prices, phones, address, founder) are in the page HTML, so crawlers that don't run JavaScript see them too |
 | Forms, menu, dark mode, keyboard, 404, reduced motion | 48 automated checks pass (forms tested with a simulated FormSubmit), under the security policy |
+| **Security — OWASP ZAP** (crawl + active attack scan) | No high-risk findings. Fixed: inline styles allowed by the policy, project files reachable. Remaining reports don't apply: "anti-CSRF tokens" (no logins or sessions to protect), "HTTP to HTTPS form post" and "server version" (only on the plain-HTTP test server; the live site is HTTPS on Netlify), "suspicious comments" (ordinary code comments containing the word "from") |
+| **Security — attack tests** | 41 checks pass: script injection through every form field and the page address (with normal and hostile form-service replies), framing by another website, tab-hijacking through outside links, cookies/storage |
+| **Security — code and history** | No unsafe HTML insertion in the site's JavaScript; no passwords, keys or tokens in any commit. The Tailwind build tool has a reported denial-of-service issue in a file-watching library it uses; it only runs on a computer when rebuilding the styles and is never part of the website |
+| **Lighthouse security audits** | Pass: policy effective against script injection, HTTPS enforced, window isolation, click-jacking protection |
+| **AI and search crawlers** | 30 crawlers named and allowed (OpenAI OAI-SearchBot, ChatGPT-User and GPTBot included) with an explicit content signal; every page, `llms.txt`, the sitemap and images can be fetched; only the preview tool is blocked |
 | Layout | Nothing overflows sideways at 320, 360, 390, 768, 1024 and 1440 px wide |
 | Look | Every page compared pixel by pixel with the previous version, phone and desktop, light and dark: identical, apart from 1 pixel of the compressed logo and the new words "in 2006 … (JSB)" on the About page |
 
-**Not tested here:** Safari on iPhone and Firefox (only Chrome was available), the real FormSubmit service (it needs the live site), and live-network speed. Check these after the first deploy: run the live address through [PageSpeed Insights](https://pagespeed.web.dev), [Security Headers](https://securityheaders.com) and the [Rich Results Test](https://search.google.com/test/rich-results), and try the site on an iPhone and an Android phone.
+**Not tested here (need the live site):** Safari on iPhone and Firefox (only Chrome was available), the real FormSubmit service, Netlify's HTTPS certificate and live headers, and live-network speed. After the first deploy, run the live address through [PageSpeed Insights](https://pagespeed.web.dev), [Security Headers](https://securityheaders.com), [Mozilla Observatory](https://developer.mozilla.org/en-US/observatory), [SSL Labs](https://www.ssllabs.com/ssltest/) and the [Rich Results Test](https://search.google.com/test/rich-results), and try the site on an iPhone and an Android phone.
 
 ---
 
@@ -377,7 +410,12 @@ The site is set up for Netlify (`netlify.toml`): no build command, publish direc
 - [ ] Add the site to Google Search Console and Bing Webmaster Tools and submit `sitemap.xml`.
 - [ ] Share a link on WhatsApp to check the preview picture shows.
 - [x] Pre-launch tests: speed, accessibility, HTML, structured data, links, forms, security headers (see [Test results](#test-results-before-launch)).
-- [ ] After launch: run [PageSpeed Insights](https://pagespeed.web.dev), [Security Headers](https://securityheaders.com) and the [Rich Results Test](https://search.google.com/test/rich-results) on the live address.
+- [ ] After launch: run [PageSpeed Insights](https://pagespeed.web.dev), [Security Headers](https://securityheaders.com), [Mozilla Observatory](https://developer.mozilla.org/en-US/observatory), [SSL Labs](https://www.ssllabs.com/ssltest/) and the [Rich Results Test](https://search.google.com/test/rich-results) on the live address.
+- [x] Security tests (OWASP ZAP, attack tests, secrets scan) and hardening (strict security policy, HTTPS-only, hidden project files, form limits, `security.txt`).
+- [ ] After launch: announce the site to Bing with [IndexNow](#after-launch) (helps ChatGPT search and Copilot).
+- [ ] After activating FormSubmit: replace the email in the form `action`s with FormSubmit's private address.
+- [ ] Consider a short privacy note for the forms.
+- [ ] Before October 2027: update `Expires` in `.well-known/security.txt`.
 
 ---
 
