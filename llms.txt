@@ -13,10 +13,10 @@ Key facts:
 
 ## Pages
 
-- [Home](https://adventurepark-rishikesh.netlify.app/): activities and prices, stays, food menu, safety checklist, how booking works, FAQs
-- [About us](https://adventurepark-rishikesh.netlify.app/about.html): founder story, values and safety promise
-- [Booking](https://adventurepark-rishikesh.netlify.app/booking.html): booking request form — choose activities, group size, experience level, preferred date and contact method
-- [Contact us](https://adventurepark-rishikesh.netlify.app/contact.html): phone, WhatsApp, email, Instagram, office address and map, contact form
+- [Home](https://adventureprk.netlify.app/): activities and prices, stays, food menu, safety checklist, how booking works, FAQs
+- [About us](https://adventureprk.netlify.app/about.html): founder story, values and safety promise
+- [Booking](https://adventureprk.netlify.app/booking.html): booking request form — choose activities, group size, experience level, preferred date and contact method — and UPI payment QR code
+- [Contact us](https://adventureprk.netlify.app/contact.html): phone, WhatsApp, email, Instagram, office address and map, contact form
 
 ## Activities and prices
 
@@ -29,6 +29,13 @@ Key facts:
 - Bungee jumping: 109 m (360 ft), ₹4,000 per person, including a DSLR video of the jump and a jump certificate.
 - Zip line: ₹1,800 per person for students, ₹2,000 per person for adults.
 - Other adventure activities: available on request — contact the team for details and prices.
+
+## Booking and payment
+
+1. Send a booking request on the [Booking page](https://adventureprk.netlify.app/booking.html) (each activity and stay on the home page has its own "Book" button), or call / WhatsApp.
+2. The team confirms the booking and the amount to pay.
+3. Pay by UPI: scan the QR code on the [Booking page](https://adventureprk.netlify.app/booking.html#pay) with PhonePe, Google Pay, Paytm, BHIM or any UPI app. UPI ID: 8755542743@ybl, payee name: M/S ADVENTURE PARK.
+4. Send the payment screenshot on WhatsApp (+91 87555 42743).
 
 ## Stay
 
@@ -59,5 +66,6 @@ Every activity starts with a safety briefing, uses equipment inspected before ea
 - **Are there age or health requirements?** Some activities have age, weight or health requirements. Share your details when you book and we'll tell you what's suitable for everyone in your group.
 - **Do prices change in peak season?** Yes. From March to June, rafting costs 15–20% more on weekends and crowded days, and camping and hotel prices rise with demand. We confirm the exact price when you book.
 - **Are there lower prices for children or students?** Children aged 6–11 pay half the adult price for camping, and students pay ₹1,800 instead of ₹2,000 for the zip line.
+- **How do I book and pay?** Send a booking request first. Once our team confirms your booking and the amount, pay by UPI: scan the QR code on the Booking page with PhonePe, Google Pay, Paytm or any UPI app (UPI ID 8755542743@ybl, name M/S Adventure Park), then send us the payment screenshot on WhatsApp.
 - **What should I bring?** Comfortable clothes, sturdy shoes, sunscreen and a change of clothes for water activities. We'll share a full list for your activities when you book.
 - **When is the best time to visit?** It depends on the activity, as river activities are seasonal. Ask us when you book and we'll suggest the best dates for your trip.

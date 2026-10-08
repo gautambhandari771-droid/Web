@@ -3,7 +3,7 @@
 **Where Rishikesh gets wild.**
 The website for Adventure Park, an adventure-activities brand in Rishikesh, Uttarakhand, running since 2006 and founded by Jagat Singh Bhandari (JSB — 25+ years of experience, more than 5 lakh people served). The site presents the activities, stays and prices, puts safety first, and lets visitors send a booking request or get in touch.
 
-> **Status:** not live yet — launch is on hold until all business details are final. The Netlify site is ready at **https://adventurepark-rishikesh.netlify.app** (project `adventurepark-rishikesh`, public, no login needed) and goes live with the first deploy — see [Deploying to Netlify](#deploying-to-netlify). The work is on the branch `claude/adventure-park-tailwind-site-n4xwsv`.
+> **Status:** live at **https://adventureprk.netlify.app** (Netlify project `adventureprk`). Netlify publishes the `main` branch of this repository automatically — see [Deploying to Netlify](#deploying-to-netlify).
 
 ---
 
@@ -13,7 +13,7 @@ The website for Adventure Park, an adventure-activities brand in Rishikesh, Utta
 |---|---|---|
 | Home | `index.html` | Hero with the tagline, activities and prices, stay (camps & cottages, hotel rooms), food menu, safety checklist, how it works, FAQs |
 | About us | `about.html` | Founder story, numbers, values and safety promise |
-| Booking | `booking.html` | Booking request form (group, experience, activities, dates, health notes). Every "Book now" / "Book your adventure" button leads here |
+| Booking | `booking.html` | Booking request form (group, experience, activities, dates, health notes) and the **Pay by UPI** section with the QR code. Every "Book" button leads here |
 | Contact us | `contact.html` | Contact form (name, age, gender, phone, email), office address, phone, WhatsApp, email |
 | Page not found | `404.html` | Shown for any address that doesn't exist |
 | Device preview | `preview.html` | Tool for checking the site on mobile, tablet and desktop (hidden from search engines) |
@@ -22,7 +22,9 @@ The website for Adventure Park, an adventure-activities brand in Rishikesh, Utta
 
 - **See activities and prices** — rafting (12, 16, 26 and 36 km, 1 to 3 hours), bungee jumping (109 m), zip line, luxury camps & cottages (200 m up from the river, 100 m up from the national highway) and hotel rooms, all in ₹.
 - **See the food menu** — breakfast, buffet lunch (pure veg), evening snacks and buffet dinner (veg & non-veg), included with camp and cottage stays.
+- **Book any activity or stay** — every activity card (rafting, bungee, zip line, more adventures) and both stays (camps & cottages, hotel rooms) has its own **Book** button, which opens the booking form with that activity already ticked.
 - **Send a booking request** or **a contact message** — both forms email the details to the park (see [Forms](#forms-formsubmit)).
+- **Pay by UPI** — the Booking page shows the park's UPI QR code (M/S ADVENTURE PARK, `8755542743@ybl`) with buttons to download the QR, copy the UPI ID and send the payment screenshot on WhatsApp (see [Payment](#payment-upi-qr-code)).
 - **Chat on WhatsApp** with the floating button on every page (+91 87555 42743) — the chat opens with a greeting already typed.
 - **Call or email** — numbers and email are on the Contact page and in every footer.
 - **Find the office** — Near Shiv Mandir, Badrinath Highway, Shivpuri, Uttarakhand, with the [Google Maps location](https://maps.app.goo.gl/CKrMGT2h8CRNrcmi6) linked from the Contact page, every footer and the mobile menu.
@@ -75,7 +77,9 @@ A static website: plain HTML, CSS and a little JavaScript. **Netlify publishes t
     ├── logo.png          ADVENTURE PARK wordmark (header and footer)
     ├── icon-192.png      App icon
     ├── apple-touch-icon.png  Home-screen icon for iPhone/iPad
-    └── og-image.png      Link-preview picture (WhatsApp, Facebook, Google…), 1200×630
+    ├── og-image.png      Link-preview picture (WhatsApp, Facebook, Google…), 1200×630
+    ├── upi-qr.svg        UPI payment QR code shown on the Booking page (sharp at any size)
+    └── upi-qr.png        Same QR code as an image, for the "Download QR code" button
 ```
 
 ---
@@ -96,6 +100,7 @@ Every fact the site states, in one place — check these before launch.
 | Zip line | ₹1,800 students, ₹2,000 adults (per person) |
 | Luxury camps & cottages | 200 m up from the river, 100 m up from the national highway · quad/triple ₹1,500–₹1,800, double ₹1,800–₹2,200 per person/night · children 6–11 at 50% · includes three meals, swimming pool, DJ party till 10 pm, attached washroom, fan, charging points · non-AC camps have an air cooler, AC cottages have AC |
 | Hotel rooms (room only) | Non-AC ₹1,200, AC ₹1,600 per room/night · busy days ₹1,600–₹1,800 / ₹2,000–₹2,200 |
+| UPI payments | M/S ADVENTURE PARK · UPI ID `8755542743@ybl` (PhonePe) · QR code on the Booking page |
 | Meals (camps & cottages) | Breakfast 8:30–10:00 AM · buffet lunch 1:30–3:00 PM (pure veg) · evening snacks 6:00–7:30 PM · buffet dinner 8:30–10:30 PM (veg & non-veg) |
 
 ---
@@ -146,6 +151,16 @@ The activity choices in the booking form are in `booking.html` (search for `name
 3. If the theme uses different fonts, download them as `.woff2` files into `assets/fonts/` (for example from [Google Fonts](https://fonts.google.com) or [Fontsource](https://fontsource.org)), update `assets/fonts.css` and the font `preload` line in each page's `<head>`, then [rebuild the styles](#changing-the-design-rebuilding-the-styles).
 
 The current theme: "life-jacket" orange for buttons, Ganga jade accents, river-navy text; dark mode is "the river at night".
+
+### Payment (UPI QR code)
+
+The **Pay by UPI** section is at the bottom of `booking.html` (`id="pay"`). The QR code was re-created from the owner's PhonePe QR with exactly the same payment details (`upi://pay?pa=8755542743@ybl&pn=M/S ADVENTURE PARK…`) as a standard dark-on-white code, which every UPI app can scan; it was checked with two independent QR readers, on screen at three sharpness levels, in light and dark mode.
+
+How payment works on the site: the visitor sends a booking request, the team confirms the booking and the amount, the visitor pays by scanning the QR code (or by UPI ID), then sends the payment screenshot on WhatsApp. To ask for payment at a different point (for example an advance when booking), change the three steps in the payment section, step 4 of "How it works" on `booking.html`, the "How do I book and pay?" answer in `index.html` and the "Booking and payment" part of `llms.txt`.
+
+**To change the UPI account:** replace `assets/upi-qr.svg` and `assets/upi-qr.png` with QR codes for the new account (dark on white), and replace `8755542743@ybl` everywhere it appears: `booking.html` (the caption, the image description and the `data-copy` value of the "Copy UPI ID" button), the FAQ answer in `index.html`, and `llms.txt`.
+
+The "Book" buttons link to `booking.html?activity=…` (`rafting`, `bungee`, `zipline`, `camps`, `hotel`, `other`); the matching box is ticked by `assets/site.js`.
 
 ### Changing the design (rebuilding the styles)
 
@@ -283,7 +298,7 @@ AI assistants and search engines trust a business more when the same facts appea
 - **A price or a fact on the page** → update the same value in the structured data of `index.html` (search the `<head>` for the old value — prices are written without commas, e.g. `"price": "4000"`) and in `llms.txt`.
 - **Anything on the site** → update `<lastmod>` in `sitemap.xml` (and `"dateModified"` in the structured data) to the date of the change.
 - **The FAQ** → the questions and answers are copied into the structured data of `index.html` and into `llms.txt`.
-- **Moving to your own domain** (e.g. `adventurepark.in`) → find-and-replace `https://adventurepark-rishikesh.netlify.app` with the new address in every `.html` file, `robots.txt`, `sitemap.xml` and `llms.txt`.
+- **Moving to your own domain** (e.g. `adventurepark.in`) → find-and-replace `https://adventureprk.netlify.app` with the new address in every `.html` file, `robots.txt`, `sitemap.xml` and `llms.txt`.
 - **Name, address and phone** should be written exactly the same here, on Google Business Profile, Instagram and any listing sites.
 - To check the structured data, paste a page address into Google's [Rich Results Test](https://search.google.com/test/rich-results) or the [Schema Markup Validator](https://validator.schema.org).
 
@@ -295,7 +310,7 @@ These steps are done outside the website and make the biggest difference to bein
 2. **[Google Search Console](https://search.google.com/search-console)** — add the site, then submit `sitemap.xml` under **Sitemaps**.
 3. **[Bing Webmaster Tools](https://www.bing.com/webmasters)** — add the site (it can import from Search Console) and submit the sitemap. Bing's index also feeds ChatGPT search, Copilot and other AI search tools.
 4. **IndexNow** — tell Bing (and Yandex, Seznam, Naver) straight away about new or changed pages. Open this address in a browser after the first deploy, and again after any big update:
-   `https://www.bing.com/indexnow?url=https://adventurepark-rishikesh.netlify.app/&key=9ee9e31962946c13c7e1b3c5848a1f03`
+   `https://www.bing.com/indexnow?url=https://adventureprk.netlify.app/&key=9ee9e31962946c13c7e1b3c5848a1f03`
    (Replace the page address to announce another page. The key file `9ee9e31962946c13c7e1b3c5848a1f03.txt` proves the site is yours — keep it.)
 5. Optional: send the office's exact map coordinates (latitude, longitude) and opening hours to be added to the structured data.
 
@@ -363,7 +378,7 @@ Tested on a local server that behaves like Netlify (same headers, compression an
 | Structured data — checked against the schema.org vocabulary | No errors |
 | Links | Every internal link and `#section` link works; phone, email, WhatsApp, Instagram and Maps links are correct |
 | Crawlers | `robots.txt` lets every search engine and AI crawler read every page except the preview tool; all key facts (prices, phones, address, founder) are in the page HTML, so crawlers that don't run JavaScript see them too |
-| Forms, menu, dark mode, keyboard, 404, reduced motion | 48 automated checks pass (forms tested with a simulated FormSubmit), under the security policy |
+| Forms, menu, dark mode, keyboard, 404, reduced motion, Book buttons, payment | 64 automated checks pass (forms tested with a simulated FormSubmit), under the security policy — including every Book button ticking the right activity, the UPI QR code loading and decoding to the right account, and "Copy UPI ID" copying exactly `8755542743@ybl` |
 | **Security — OWASP ZAP** (crawl + active attack scan) | No high-risk findings. Fixed: inline styles allowed by the policy, project files reachable. Remaining reports don't apply: "anti-CSRF tokens" (no logins or sessions to protect), "HTTP to HTTPS form post" and "server version" (only on the plain-HTTP test server; the live site is HTTPS on Netlify), "suspicious comments" (ordinary code comments containing the word "from") |
 | **Security — attack tests** | 41 checks pass: script injection through every form field and the page address (with normal and hostile form-service replies), framing by another website, tab-hijacking through outside links, cookies/storage |
 | **Security — code and history** | No unsafe HTML insertion in the site's JavaScript; no passwords, keys or tokens in any commit. The Tailwind build tool has a reported denial-of-service issue in a file-watching library it uses; it only runs on a computer when rebuilding the styles and is never part of the website |
@@ -380,13 +395,11 @@ Tested on a local server that behaves like Netlify (same headers, compression an
 
 The site is set up for Netlify (`netlify.toml`): no build command, publish directory is the project root.
 
-**Recommended — connect the GitHub repository** (updates go live automatically on every push):
+**How it's published:** the Netlify project **`adventureprk`** is linked to this GitHub repository and publishes the `main` branch to **https://adventureprk.netlify.app**. Every change merged into `main` goes live within about a minute, and every pull request gets a private **Deploy Preview** link first (Netlify posts it on the pull request). To undo a change, open the project's **Deploys** page in Netlify and publish an earlier deploy.
 
-1. In Netlify, open the `adventurepark-rishikesh` project → **Site configuration → Build & deploy → Link repository → GitHub**, and choose this repository.
-2. Branch to deploy: `main` (merge the work into `main` first). Leave the build command empty; the publish directory comes from `netlify.toml`.
-3. The site is already named `adventurepark-rishikesh` → https://adventurepark-rishikesh.netlify.app (`adventurepark` and `adventure-park` were taken). Rename it any time under **Site configuration → Change site name**.
+**Other Netlify projects on the account:** `advenpark` is also linked to this repository (it builds every change too, but only team members can open it) and `adventurepark-rishikesh` is empty. Neither is needed — delete them under **Project configuration → General → Danger zone → Delete project** to avoid confusion and duplicate builds.
 
-**Quick alternative — drag and drop:** download this repository as a ZIP from GitHub (**Code → Download ZIP**), unzip it, open the `adventurepark-rishikesh` project in Netlify, go to **Deploys**, and drop the folder onto the upload area. (If you rebuilt the styles on your computer, delete the `node_modules` folder before dropping.)
+**If the site address changes** (a new project name or your own domain): find-and-replace `https://adventureprk.netlify.app` with the new address in every `.html` file, `sitemap.xml`, `robots.txt`, `llms.txt` and `.well-known/security.txt`, and in the IndexNow link above (see [Keeping it accurate](#keeping-it-accurate)).
 
 **After the first deploy:** activate the forms (see above), do the [search and AI steps](#after-launch), and run through the launch checklist.
 
@@ -400,8 +413,8 @@ The site is set up for Netlify (`netlify.toml`): no build command, publish direc
 - [x] Instagram link in the footer, mobile menu and Contact page.
 - [ ] Confirm whether AC cottages cost the same per person as non-AC camps (the site shows one per-person range for both).
 - [ ] Check every safety statement matches what the team actually does.
-- [x] Netlify site created and set to public (`adventurepark-rishikesh`).
-- [ ] First deploy (link the GitHub repository or drag and drop the folder).
+- [x] Netlify site live at https://adventureprk.netlify.app, publishing `main` automatically.
+- [ ] Delete the unused Netlify projects `advenpark` and `adventurepark-rishikesh`.
 - [ ] Submit both forms once and click FormSubmit's activation emails.
 - [x] Google Maps location link from the owner, on the Contact page, footer and mobile menu.
 - [ ] Test on a phone: menu, WhatsApp button, tap-to-call, forms.

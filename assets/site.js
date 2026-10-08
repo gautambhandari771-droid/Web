@@ -90,6 +90,31 @@
     el.min = today.toISOString().slice(0, 10);
   });
 
+  // "Book" buttons link to booking.html?activity=… : tick that activity in the booking form.
+  // Only these known names are accepted, so nothing from the address ends up on the page.
+  const ACTIVITIES = new Map([
+    ['rafting', 'River rafting'], ['bungee', 'Bungee jumping'], ['zipline', 'Zip line'],
+    ['camps', 'Camps & cottages'], ['hotel', 'Hotel room'], ['other', 'Other activities'],
+  ]);
+  const preset = ACTIVITIES.get(new URLSearchParams(location.search).get('activity'));
+  if (preset) {
+    document.querySelectorAll('input[name="activities"]').forEach((box) => {
+      if (box.value === preset) box.checked = true;
+    });
+  }
+
+  // Copy buttons (e.g. the UPI ID); the text stays selectable if copying isn't allowed
+  document.querySelectorAll('[data-copy]').forEach((btn) => {
+    const label = btn.querySelector('[data-copy-label]');
+    const original = label?.textContent;
+    btn.addEventListener('click', async () => {
+      try { await navigator.clipboard.writeText(btn.dataset.copy); } catch { return; }
+      if (!label) return;
+      label.textContent = 'Copied!';
+      setTimeout(() => (label.textContent = original), 2000);
+    });
+  });
+
   // Footer year
   document.querySelectorAll('[data-year]').forEach((el) => (el.textContent = new Date().getFullYear()));
 

@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://adventurepark-rishikesh.netlify.app/</loc>
+    <loc>https://adventureprk.netlify.app/</loc>
     <lastmod>2026-10-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://adventurepark-rishikesh.netlify.app/about.html</loc>
+    <loc>https://adventureprk.netlify.app/about.html</loc>
     <lastmod>2026-10-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://adventurepark-rishikesh.netlify.app/booking.html</loc>
+    <loc>https://adventureprk.netlify.app/booking.html</loc>
     <lastmod>2026-10-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://adventurepark-rishikesh.netlify.app/contact.html</loc>
+    <loc>https://adventureprk.netlify.app/contact.html</loc>
     <lastmod>2026-10-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
