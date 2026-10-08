@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth scroll-pt-20">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Contact Us · Adventure Park</title>
+  <meta name="description" content="Get in touch with Adventure Park, Rishikesh." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
+
+  <!-- Theme colours (tweakcn format) -->
+  <link rel="stylesheet" href="assets/theme.css" />
+  <!-- Colour mode + shared Tailwind config, then Tailwind CSS v4 -->
+  <script src="assets/head.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.3"></script>
+</head>
+<body class="min-h-screen overflow-x-clip antialiased">
+
+  <a href="#main" class="sr-only z-[60] rounded-md bg-primary px-4 py-2 font-semibold text-primary-foreground focus:not-sr-only focus:fixed focus:left-4 focus:top-4">Skip to content</a>
+
+  <!-- ============ HEADER ============ -->
+  <header data-header class="sticky top-[env(safe-area-inset-top,0px)] z-50 w-full border-b border-transparent backdrop-blur-lg transition duration-300 data-scrolled:border-border/60 data-scrolled:bg-background/80 data-scrolled:shadow-sm">
+    <div class="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 md:px-6">
+      <a href="index.html" class="group flex items-center gap-2.5 font-bold tracking-tight">
+        <span class="grid size-9 place-items-center rounded-lg bg-primary text-primary-foreground shadow-sm transition duration-300 group-hover:-rotate-6 group-hover:scale-105">
+          <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-5"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg>
+        </span>
+        <span class="text-lg">Adventure Park</span>
+      </a>
+
+      <nav aria-label="Main" class="hidden items-center gap-1 lg:flex">
+        <a href="index.html" class="relative rounded-md px-3 py-2 text-sm font-medium transition-colors after:absolute after:inset-x-3 after:bottom-1 after:h-0.5 after:origin-left after:rounded-full after:bg-primary after:transition-transform after:duration-300 text-muted-foreground hover:text-foreground after:scale-x-0 hover:after:scale-x-100">Home</a>
+        <a href="index.html#activities" class="relative rounded-md px-3 py-2 text-sm font-medium transition-colors after:absolute after:inset-x-3 after:bottom-1 after:h-0.5 after:origin-left after:rounded-full after:bg-primary after:transition-transform after:duration-300 text-muted-foreground hover:text-foreground after:scale-x-0 hover:after:scale-x-100">Activities</a>
+        <a href="about.html" class="relative rounded-md px-3 py-2 text-sm font-medium transition-colors after:absolute after:inset-x-3 after:bottom-1 after:h-0.5 after:origin-left after:rounded-full after:bg-primary after:transition-transform after:duration-300 text-muted-foreground hover:text-foreground after:scale-x-0 hover:after:scale-x-100">About</a>
+        <a href="consultation.html" class="relative rounded-md px-3 py-2 text-sm font-medium transition-colors after:absolute after:inset-x-3 after:bottom-1 after:h-0.5 after:origin-left after:rounded-full after:bg-primary after:transition-transform after:duration-300 text-muted-foreground hover:text-foreground after:scale-x-0 hover:after:scale-x-100">Consultation</a>
+        <a href="contact.html" aria-current="page" class="relative rounded-md px-3 py-2 text-sm font-medium transition-colors after:absolute after:inset-x-3 after:bottom-1 after:h-0.5 after:origin-left after:rounded-full after:bg-primary after:transition-transform after:duration-300 text-foreground after:scale-x-100">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-2">
+        <button type="button" data-theme-toggle aria-label="Switch between light and dark mode" class="relative grid size-9 place-items-center rounded-full border bg-background/60 transition hover:scale-105 hover:bg-accent">
+          <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute size-4 rotate-90 scale-0 transition duration-300 dark:rotate-0 dark:scale-100"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+          <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute size-4 rotate-0 scale-100 transition duration-300 dark:-rotate-90 dark:scale-0"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+        </button>
+        <a href="consultation.html" class="group hidden h-9 items-center gap-1 rounded-full bg-primary pl-4 pr-3 text-sm font-semibold text-primary-foreground shadow-sm transition hover:scale-[1.03] hover:shadow-md sm:inline-flex">
+          Book a consultation
+          <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4 transition-transform group-hover:translate-x-0.5"><path d="m9 18 6-6-6-6"/></svg>
+        </a>
+        <button id="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menu" class="group grid size-9 place-items-center rounded-full border bg-background/60 transition active:scale-90 lg:hidden">
+          <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4 group-aria-expanded:hidden"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg>
+          <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden size-4 group-aria-expanded:block"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="group invisible absolute inset-x-0 top-16 border-b bg-background opacity-0 shadow-lg transition duration-200 data-open:visible data-open:opacity-100 lg:hidden">
+      <nav aria-label="Mobile" class="mx-auto grid max-w-6xl gap-1 px-4 py-4 md:px-6">
+        <a href="index.html" style="--i:0" class="-translate-x-3 rounded-lg px-3 py-2.5 font-medium opacity-0 transition duration-300 [transition-delay:calc(var(--i)*45ms)] group-data-open:translate-x-0 group-data-open:opacity-100 hover:bg-accent hover:text-accent-foreground">Home</a>
+        <a href="index.html#activities" style="--i:1" class="-translate-x-3 rounded-lg px-3 py-2.5 font-medium opacity-0 transition duration-300 [transition-delay:calc(var(--i)*45ms)] group-data-open:translate-x-0 group-data-open:opacity-100 hover:bg-accent hover:text-accent-foreground">Activities</a>
+        <a href="about.html" style="--i:2" class="-translate-x-3 rounded-lg px-3 py-2.5 font-medium opacity-0 transition duration-300 [transition-delay:calc(var(--i)*45ms)] group-data-open:translate-x-0 group-data-open:opacity-100 hover:bg-accent hover:text-accent-foreground">About</a>
+        <a href="consultation.html" style="--i:3" class="-translate-x-3 rounded-lg px-3 py-2.5 font-medium opacity-0 transition duration-300 [transition-delay:calc(var(--i)*45ms)] group-data-open:translate-x-0 group-data-open:opacity-100 hover:bg-accent hover:text-accent-foreground">Consultation</a>
+        <a href="contact.html" aria-current="page" style="--i:4" class="-translate-x-3 rounded-lg px-3 py-2.5 font-medium opacity-0 transition duration-300 [transition-delay:calc(var(--i)*45ms)] group-data-open:translate-x-0 group-data-open:opacity-100 bg-accent text-accent-foreground">Contact</a>
+        <a href="consultation.html" class="mt-2 inline-flex h-11 items-center justify-center gap-1 rounded-full bg-primary font-semibold text-primary-foreground sm:hidden">
+          Book a consultation <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4"><path d="m9 18 6-6-6-6"/></svg>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ PAGE HERO ============ -->
+    <section class="relative isolate overflow-hidden">
+      <div aria-hidden="true" class="absolute inset-0 -z-10 bg-grid [mask-image:radial-gradient(ellipse_70%_70%_at_50%_0%,#000_45%,transparent_100%)]"></div>
+      <div aria-hidden="true" class="absolute -top-40 left-1/2 -z-10 h-[26rem] w-[44rem] max-w-[150vw] -translate-x-1/2 animate-glow rounded-full bg-primary/20 blur-3xl"></div>
+      <div class="mx-auto max-w-4xl px-4 pb-14 pt-14 text-center md:px-6 md:pb-20 md:pt-24">
+        <p class="inline-flex animate-fade-up items-center gap-2 rounded-full border bg-background/70 px-3 py-1 text-sm font-medium shadow-xs backdrop-blur">
+          <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4 text-primary-ink"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg> Contact us
+        </p>
+        <h1 class="mt-8 animate-fade-up text-4xl font-extrabold tracking-tight [animation-delay:100ms] sm:text-5xl md:text-6xl lg:text-7xl">
+          We'd love to <span class="font-serif font-normal italic text-secondary-foreground">hear from you</span>
+        </h1>
+        <p class="mx-auto mt-6 max-w-2xl animate-fade-up text-lg leading-relaxed text-muted-foreground [animation-delay:200ms] md:text-xl">
+          Questions about an activity, a group trip or your visit? Leave your details and our team will get back to you.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="border-t py-16 md:py-24">
+      <div class="mx-auto grid max-w-6xl gap-12 px-4 md:px-6 lg:grid-cols-[1fr_1.35fr] lg:gap-16">
+
+        <div class="space-y-4">
+          <div class="reveal flex gap-4 rounded-2xl border border-border/60 bg-card/50 p-5">
+            <span class="grid size-11 shrink-0 place-items-center rounded-xl bg-primary/10 text-primary-ink"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-5"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg></span>
+            <div>
+              <h2 class="font-semibold">Visit us</h2>
+              <p class="mt-1 text-muted-foreground">Rishikesh, Uttarakhand, India</p>
+            </div>
+          </div>
+          <!-- TODO: replace the placeholder phone number below with the real one -->
+          <div class="reveal flex gap-4 rounded-2xl border border-border/60 bg-card/50 p-5" style="--d:100ms">
+            <span class="grid size-11 shrink-0 place-items-center rounded-xl bg-primary/10 text-primary-ink"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+            <div>
+              <h2 class="font-semibold">Call us</h2>
+              <p class="mt-1 select-all text-muted-foreground">+91 XXXXX XXXXX</p>
+            </div>
+          </div>
+          <!-- TODO: replace the placeholder email address below with the real one -->
+          <div class="reveal flex gap-4 rounded-2xl border border-border/60 bg-card/50 p-5" style="--d:200ms">
+            <span class="grid size-11 shrink-0 place-items-center rounded-xl bg-primary/10 text-primary-ink"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-5"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span>
+            <div>
+              <h2 class="font-semibold">Email us</h2>
+              <p class="mt-1 select-all text-muted-foreground">hello@example.com</p>
+            </div>
+          </div>
+
+          <a href="consultation.html" class="reveal group mt-8 block overflow-hidden rounded-2xl bg-linear-to-br from-primary to-primary/80 p-6 text-primary-foreground shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl" style="--d:300ms">
+            <span class="grid size-11 place-items-center rounded-xl bg-primary-foreground/15"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-5"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-2.12 6.36-6.36 2.12 2.12-6.36 6.36-2.12z"/></svg></span>
+            <span class="mt-4 block text-xl font-bold">Planning a trip?</span>
+            <span class="mt-1 block opacity-85">Book a consultation and we'll help you choose safe activities for your whole group.</span>
+            <span class="mt-4 inline-flex items-center gap-1.5 font-semibold">Book a consultation <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4 transition-transform group-hover:translate-x-1"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+          </a>
+        </div>
+
+        <!-- Form -->
+        <div class="reveal" style="--d:150ms">
+          <form id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field"
+                data-success="Thanks! Our team will be in touch soon."
+                class="group relative overflow-hidden rounded-2xl border bg-card p-6 shadow-xl sm:p-8">
+            <input type="hidden" name="form-name" value="contact" />
+            <p class="hidden"><label>Don’t fill this out: <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
+
+            <div class="mb-6">
+              <h2 class="text-2xl font-bold tracking-tight">Send us your details</h2>
+              <p class="mt-1 text-sm text-muted-foreground">All fields are required.</p>
+            </div>
+
+            <div class="grid gap-5 sm:grid-cols-2">
+              <div class="sm:col-span-2">
+                <label for="name" class="text-sm font-medium">Full name</label>
+                <input id="name" name="name" type="text" required minlength="2" autocomplete="name" placeholder="Your full name" class="peer field" />
+                <p class="mt-1.5 hidden text-sm text-destructive peer-user-invalid:block">Please enter your name.</p>
+              </div>
+
+              <div>
+                <label for="age" class="text-sm font-medium">Age</label>
+                <input id="age" name="age" type="number" required min="1" max="120" inputmode="numeric" placeholder="e.g. 28" class="peer field" />
+                <p class="mt-1.5 hidden text-sm text-destructive peer-user-invalid:block">Please enter an age between 1 and 120.</p>
+              </div>
+
+              <div>
+                <label for="gender" class="text-sm font-medium">Gender</label>
+                <select id="gender" name="gender" required autocomplete="sex" class="peer field invalid:text-muted-foreground *:text-foreground">
+                  <option value="" disabled selected>Select…</option>
+                  <option>Male</option>
+                  <option>Female</option>
+                  <option>Other</option>
+                  <option>Prefer not to say</option>
+                </select>
+                <p class="mt-1.5 hidden text-sm text-destructive peer-user-invalid:block">Please choose an option.</p>
+              </div>
+
+              <div>
+                <label for="phone" class="text-sm font-medium">Phone number</label>
+                <input id="phone" name="phone" type="tel" required autocomplete="tel" inputmode="tel" pattern="\+?[0-9][0-9 \-]{8,15}" title="At least 10 digits, e.g. +91 98765 43210" placeholder="+91 98765 43210" class="peer field" />
+                <p class="mt-1.5 hidden text-sm text-destructive peer-user-invalid:block">Please enter a valid phone number.</p>
+              </div>
+
+              <div>
+                <label for="email" class="text-sm font-medium">Email address</label>
+                <input id="email" name="email" type="email" required autocomplete="email" placeholder="you@example.com" class="peer field" />
+                <p class="mt-1.5 hidden text-sm text-destructive peer-user-invalid:block">Please enter a valid email address.</p>
+              </div>
+            </div>
+
+            <button type="submit" class="relative mt-7 inline-flex h-12 w-full items-center justify-center gap-2 overflow-hidden rounded-full bg-primary px-7 font-semibold text-primary-foreground shadow-lg transition hover:scale-[1.01] hover:shadow-xl active:scale-[0.98] disabled:cursor-wait disabled:opacity-80">
+              <span aria-hidden="true" class="absolute inset-y-0 left-0 w-1/4 animate-shine bg-linear-to-r from-transparent via-white/40 to-transparent group-data-[state=sending]:hidden"></span>
+              <span aria-hidden="true" class="hidden size-4 animate-spin rounded-full border-2 border-current border-t-transparent group-data-[state=sending]:inline-block"></span>
+              <span class="relative group-data-[state=sending]:hidden">Send message</span>
+              <span class="relative hidden group-data-[state=sending]:inline">Sending…</span>
+            </button>
+            <p data-form-status role="status" class="mt-4 text-sm font-medium text-destructive empty:hidden group-data-[state=sent]:text-chart-4"></p>
+            <p class="mt-4 text-xs text-muted-foreground">We'll only use these details to reply to your enquiry.</p>
+
+            <!-- Success panel -->
+            <div class="invisible absolute inset-0 grid place-items-center bg-card p-8 text-center opacity-0 transition duration-500 group-data-[state=sent]:visible group-data-[state=sent]:opacity-100">
+              <div>
+                <span class="mx-auto grid size-16 place-items-center rounded-full bg-chart-4/15 text-chart-4 group-data-[state=sent]:animate-tick"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="size-8"><path d="M20 6 9 17l-5-5"/></svg></span>
+                <h3 class="mt-5 text-2xl font-bold">Thanks, we've got it!</h3>
+                <p class="mt-2 text-muted-foreground">Our team will be in touch soon.</p>
+                <button type="button" data-form-again class="mt-6 rounded-full border px-5 py-2.5 text-sm font-semibold transition hover:bg-accent hover:text-accent-foreground">Send another message</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="border-t bg-muted/30">
+    <div class="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:grid-cols-2 md:grid-cols-[2fr_1fr_1fr] md:px-6">
+      <div class="sm:col-span-2 md:col-span-1">
+        <a href="index.html" class="flex items-center gap-2.5 font-bold tracking-tight">
+          <span class="grid size-9 place-items-center rounded-lg bg-primary text-primary-foreground"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-5"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg></span>
+          <span class="text-lg">Adventure Park</span>
+        </a>
+        <p class="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">Where Rishikesh gets wild. Adventure activities in Rishikesh, Uttarakhand, with your safety first.</p>
+        <p class="mt-5 inline-flex items-center gap-2 rounded-full border bg-background px-3 py-1 text-xs font-semibold">
+          <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-3.5 text-chart-4"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg> Safety first, always
+        </p>
+      </div>
+        <div>
+          <h2 class="text-sm font-semibold">Explore</h2>
+          <ul class="mt-4 space-y-3 text-sm text-muted-foreground">
+            <li><a href="index.html" class="transition-colors hover:text-foreground">Home</a></li>
+            <li><a href="index.html#activities" class="transition-colors hover:text-foreground">Activities</a></li>
+            <li><a href="index.html#safety" class="transition-colors hover:text-foreground">Safety</a></li>
+            <li><a href="about.html" class="transition-colors hover:text-foreground">About us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="text-sm font-semibold">Get in touch</h2>
+          <ul class="mt-4 space-y-3 text-sm text-muted-foreground">
+            <li><a href="consultation.html" class="transition-colors hover:text-foreground">Book a consultation</a></li>
+            <li><a href="contact.html" class="transition-colors hover:text-foreground">Contact us</a></li>
+            <li><a href="index.html#faq" class="transition-colors hover:text-foreground">FAQs</a></li>
+          </ul>
+        </div>
+    </div>
+    <div class="border-t">
+      <div class="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-6 text-xs text-muted-foreground sm:flex-row sm:justify-between md:px-6">
+        <p>© <span data-year>2026</span> Adventure Park, Rishikesh. All rights reserved.</p>
+        <p>Founded by Jagat Singh Bhandari</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/site.js"></script>
+</body>
+</html>
