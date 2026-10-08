@@ -24,12 +24,21 @@
   const menu = document.getElementById('mobile-menu');
   if (menuBtn && menu) {
     const setMenu = (open) => {
+      if (open === menu.hasAttribute('data-open')) return;
       menu.toggleAttribute('data-open', open);
+      header?.toggleAttribute('data-menu', open);
       menuBtn.setAttribute('aria-expanded', String(open));
+      root.style.overflow = open ? 'hidden' : ''; // keep the page behind from scrolling
+      // Move focus into the menu once its fade-in has made it visible
+      if (open) setTimeout(() => menu.querySelector('a')?.focus({ preventScroll: true }), 50);
     };
     menuBtn.addEventListener('click', () => setMenu(!menu.hasAttribute('data-open')));
     menu.addEventListener('click', (e) => { if (e.target.closest('a')) setMenu(false); });
-    addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
+    addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && menu.hasAttribute('data-open')) { setMenu(false); menuBtn.focus(); }
+    });
+    // The full-screen menu is for small screens only; close it if the window grows
+    matchMedia('(min-width: 64rem)').addEventListener('change', (e) => { if (e.matches) setMenu(false); });
   }
 
   // Count-up numbers
