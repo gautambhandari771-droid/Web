@@ -35,12 +35,13 @@ The website for Adventure Park, an adventure-activities brand in Rishikesh, Utta
 
 ## How it's built
 
-A static website: plain HTML, CSS and a little JavaScript. **There is no build step and nothing to install.**
+A static website: plain HTML, CSS and a little JavaScript. **Netlify publishes the folder as-is — there is no build step on deploy.**
 
-- **Tailwind CSS v4** (browser build from jsDelivr) does the styling directly in the page.
-- **Theme** in the [tweakcn](https://tweakcn.com) / shadcn format, so colours and fonts can be swapped in one file.
-- **Fonts** from Google Fonts: Plus Jakarta Sans and Instrument Serif.
+- **Tailwind CSS v4** styles the site. The styles are built ahead of time into `assets/styles.css`, so pages load fast and nothing is compiled in the visitor's browser. Changing words needs no rebuild; changing the design does (see [Changing the design](#changing-the-design-rebuilding-the-styles)).
+- **Theme** in the [tweakcn](https://tweakcn.com) / shadcn format, so colours can be swapped in one file.
+- **Fonts** (Plus Jakarta Sans and Instrument Serif) are stored on the site itself in `assets/fonts/`, so no request goes to Google when a page loads.
 - **Forms** are delivered by [FormSubmit](https://formsubmit.co) — no server of our own.
+- **Nothing else is loaded from outside the site**, and a security policy in `netlify.toml` enforces that (see [Security](#security)).
 
 ```
 .
@@ -55,12 +56,18 @@ A static website: plain HTML, CSS and a little JavaScript. **There is no build s
 ├── sitemap.xml           List of pages for search engines
 ├── llms.txt              Plain-text summary of the business for AI assistants
 ├── site.webmanifest      App name and icons (for "Add to Home screen")
-├── netlify.toml          Netlify settings
+├── netlify.toml          Netlify settings: security headers, caching
+├── .gitignore            Keeps the temporary node_modules folder out of git
 └── assets/
     ├── theme.css         Colours, fonts, radius, shadows (tweakcn format)
-    ├── head.js           Light/dark mode + shared Tailwind setup and animations
+    ├── tailwind.css      Source of the styles: theme mapping, animations, form fields
+    ├── styles.css        Built styles used by every page (made from tailwind.css — don't edit by hand)
+    ├── fonts.css         Font definitions (included in styles.css; also used by preview.html)
+    ├── fonts/            Font files (woff2)
+    ├── head.js           Sets light/dark mode before the page paints
     ├── site.js           Header, mobile menu, scroll reveals, counters, forms
     ├── hero-fx.js        Animated dash ring and glow in the page headers
+    ├── preview.js        Device preview tool
     ├── logo.png          ADVENTURE PARK wordmark (header and footer)
     ├── icon-192.png      App icon
     ├── apple-touch-icon.png  Home-screen icon for iPhone/iPad
@@ -131,10 +138,27 @@ The activity choices in the booking form are in `booking.html` (search for `name
 ### Colours and fonts (tweakcn)
 
 1. Design a theme at [tweakcn.com](https://tweakcn.com) and open **Code**.
-2. Copy the `:root { … }` and `.dark { … }` blocks and paste them over the same blocks in `assets/theme.css`.
-3. If the theme uses different fonts, update the Google Fonts `<link>` in each page's `<head>`.
+2. Copy the `:root { … }` and `.dark { … }` blocks and paste them over the same blocks in `assets/theme.css`. Colours take effect straight away — no rebuild.
+3. If the theme uses different fonts, download them as `.woff2` files into `assets/fonts/` (for example from [Google Fonts](https://fonts.google.com) or [Fontsource](https://fontsource.org)), update `assets/fonts.css` and the font `preload` line in each page's `<head>`, then [rebuild the styles](#changing-the-design-rebuilding-the-styles).
 
 The current theme: "life-jacket" orange for buttons, Ganga jade accents, river-navy text; dark mode is "the river at night".
+
+### Changing the design (rebuilding the styles)
+
+Pages use the ready-made `assets/styles.css`. It contains the styles for every Tailwind class used in the HTML and JavaScript files.
+
+- **Changing words, prices, links or images** → no rebuild needed.
+- **Changing colours in `theme.css`** → no rebuild needed.
+- **Adding or changing Tailwind classes** in the HTML (e.g. `text-xl`, `bg-primary`), or editing `assets/tailwind.css` → rebuild `styles.css`, otherwise the new classes have no effect.
+
+To rebuild, install [Node.js](https://nodejs.org), open a terminal in this folder and run:
+
+```bash
+npm install --no-save tailwindcss@4.3.3 @tailwindcss/cli@4.3.3
+npx tailwindcss -i assets/tailwind.css -o assets/styles.css --minify
+```
+
+Commit the updated `assets/styles.css` along with the HTML. (Add `--watch` to the second command to rebuild automatically while you edit.)
 
 ### Page labels (emoji)
 
@@ -280,6 +304,45 @@ Opening the HTML files directly also works for looking at the design, but the fo
 
 ---
 
+## Security
+
+`netlify.toml` sends these headers with every page:
+
+| Header | What it does |
+|---|---|
+| `Content-Security-Policy` | Only the site's own scripts, styles, fonts and images may load; forms may only send to FormSubmit. Blocks injected scripts and most cross-site attacks |
+| `X-Frame-Options`, `frame-ancestors` | Other websites can't show these pages inside a frame (stops click-jacking) |
+| `X-Content-Type-Options` | Browsers don't guess file types |
+| `Referrer-Policy` | Other sites only see the site's address, not the full page address, when a visitor follows a link |
+| `Permissions-Policy` | Camera, microphone, location, payment and USB access are switched off |
+
+**If you add an outside service later** (analytics, an embedded map or video, a chat widget), add its address to `Content-Security-Policy` in `netlify.toml` — otherwise the browser will block it. Netlify serves every page over HTTPS automatically.
+
+---
+
+## Test results (before launch)
+
+Tested on a local server that behaves like Netlify (same headers, compression and 404 handling), with Lighthouse's standard slow-phone and desktop settings.
+
+| Check | Result |
+|---|---|
+| **Lighthouse — mobile** (performance / accessibility / best practices / SEO) | 99–100 / 100 / 100 / 100 on all four pages (performance was 78–84 before the styles were pre-built) |
+| **Lighthouse — desktop** | 100 / 100 / 100 / 100 on all four pages |
+| Speed on a slow phone | First text after 1.1–1.7 s (was 2.6–3.0 s), largest content after 1.5–1.8 s (was 3.0–3.3 s), no layout shift, blocking time 0–40 ms (was 220–290 ms) |
+| Page weight (Home) | 173 KB in 13 requests (was 326 KB in 14). Logo 126 KB → 25 KB with no visible change |
+| HTML and CSS — W3C validator | No errors or warnings on any page |
+| Accessibility — axe-core (WCAG 2.2 AA), light and dark, phone and desktop, menu open | No issues, apart from a report on the faded "01 02 03" step numbers: they are decoration (hidden from screen readers), which WCAG exempts from contrast rules |
+| Structured data — checked against the schema.org vocabulary | No errors |
+| Links | Every internal link and `#section` link works; phone, email, WhatsApp, Instagram and Maps links are correct |
+| Crawlers | `robots.txt` lets every search engine and AI crawler read every page except the preview tool; all key facts (prices, phones, address, founder) are in the page HTML, so crawlers that don't run JavaScript see them too |
+| Forms, menu, dark mode, keyboard, 404, reduced motion | 48 automated checks pass (forms tested with a simulated FormSubmit), under the security policy |
+| Layout | Nothing overflows sideways at 320, 360, 390, 768, 1024 and 1440 px wide |
+| Look | Every page compared pixel by pixel with the previous version, phone and desktop, light and dark: identical, apart from 1 pixel of the compressed logo and the new words "in 2006 … (JSB)" on the About page |
+
+**Not tested here:** Safari on iPhone and Firefox (only Chrome was available), the real FormSubmit service (it needs the live site), and live-network speed. Check these after the first deploy: run the live address through [PageSpeed Insights](https://pagespeed.web.dev), [Security Headers](https://securityheaders.com) and the [Rich Results Test](https://search.google.com/test/rich-results), and try the site on an iPhone and an Android phone.
+
+---
+
 ## Deploying to Netlify
 
 The site is set up for Netlify (`netlify.toml`): no build command, publish directory is the project root.
@@ -290,7 +353,7 @@ The site is set up for Netlify (`netlify.toml`): no build command, publish direc
 2. Branch to deploy: `main` (merge the work into `main` first). Leave the build command empty; the publish directory comes from `netlify.toml`.
 3. The site is already named `adventurepark-rishikesh` → https://adventurepark-rishikesh.netlify.app (`adventurepark` and `adventure-park` were taken). Rename it any time under **Site configuration → Change site name**.
 
-**Quick alternative — drag and drop:** download this repository as a ZIP from GitHub (**Code → Download ZIP**), unzip it, open the `adventurepark-rishikesh` project in Netlify, go to **Deploys**, and drop the folder onto the upload area.
+**Quick alternative — drag and drop:** download this repository as a ZIP from GitHub (**Code → Download ZIP**), unzip it, open the `adventurepark-rishikesh` project in Netlify, go to **Deploys**, and drop the folder onto the upload area. (If you rebuilt the styles on your computer, delete the `node_modules` folder before dropping.)
 
 **After the first deploy:** activate the forms (see above), do the [search and AI steps](#after-launch), and run through the launch checklist.
 
@@ -313,6 +376,8 @@ The site is set up for Netlify (`netlify.toml`): no build command, publish direc
 - [ ] Create or claim the Google Business Profile with the same name, address and phones.
 - [ ] Add the site to Google Search Console and Bing Webmaster Tools and submit `sitemap.xml`.
 - [ ] Share a link on WhatsApp to check the preview picture shows.
+- [x] Pre-launch tests: speed, accessibility, HTML, structured data, links, forms, security headers (see [Test results](#test-results-before-launch)).
+- [ ] After launch: run [PageSpeed Insights](https://pagespeed.web.dev), [Security Headers](https://securityheaders.com) and the [Rich Results Test](https://search.google.com/test/rich-results) on the live address.
 
 ---
 
@@ -322,4 +387,4 @@ The site is set up for Netlify (`netlify.toml`): no build command, publish direc
 - Theme format from [tweakcn](https://tweakcn.com) / shadcn/ui.
 - WhatsApp and Instagram icons from [Simple Icons](https://simpleicons.org) (CC0); other icons drawn in the style of [Lucide](https://lucide.dev).
 - Header animation inspired by [antigravity.google](https://antigravity.google).
-- Fonts: Plus Jakarta Sans and Instrument Serif via Google Fonts.
+- Fonts: Plus Jakarta Sans and Instrument Serif (SIL Open Font License), from Google Fonts, stored on the site.

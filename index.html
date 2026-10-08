@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Adventure Park Rishikesh | Rafting, Bungee Jumping &amp; Camps</title>
-  <meta name="description" content="River rafting from ₹520, bungee jumping (109 m) and zip line in Rishikesh, plus luxury camps &amp; cottages in Shivpuri with three meals a day. Safety first, since 2006." />
+  <meta name="description" content="River rafting from ₹520, 109 m bungee jumping and zip line in Rishikesh, plus luxury camps &amp; cottages in Shivpuri with meals. Safety first since 2006." />
   <link rel="canonical" href="https://adventurepark-rishikesh.netlify.app/" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="author" content="Adventure Park, Rishikesh" />
@@ -15,7 +15,7 @@
   <meta property="og:site_name" content="Adventure Park Rishikesh" />
   <meta property="og:locale" content="en_IN" />
   <meta property="og:title" content="Adventure Park Rishikesh | Rafting, Bungee Jumping &amp; Camps" />
-  <meta property="og:description" content="River rafting from ₹520, bungee jumping (109 m) and zip line in Rishikesh, plus luxury camps &amp; cottages in Shivpuri with three meals a day. Safety first, since 2006." />
+  <meta property="og:description" content="River rafting from ₹520, 109 m bungee jumping and zip line in Rishikesh, plus luxury camps &amp; cottages in Shivpuri with meals. Safety first since 2006." />
   <meta property="og:url" content="https://adventurepark-rishikesh.netlify.app/" />
   <meta property="og:image" content="https://adventurepark-rishikesh.netlify.app/assets/og-image.png" />
   <meta property="og:image:width" content="1200" />
@@ -23,7 +23,7 @@
   <meta property="og:image:alt" content="Adventure Park — Where Rishikesh gets wild. River rafting, bungee jumping, zip line, camps &amp; cottages." />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Adventure Park Rishikesh | Rafting, Bungee Jumping &amp; Camps" />
-  <meta name="twitter:description" content="River rafting from ₹520, bungee jumping (109 m) and zip line in Rishikesh, plus luxury camps &amp; cottages in Shivpuri with three meals a day. Safety first, since 2006." />
+  <meta name="twitter:description" content="River rafting from ₹520, 109 m bungee jumping and zip line in Rishikesh, plus luxury camps &amp; cottages in Shivpuri with meals. Safety first since 2006." />
   <meta name="twitter:image" content="https://adventurepark-rishikesh.netlify.app/assets/og-image.png" />
   <link rel="manifest" href="site.webmanifest" />
   <meta name="theme-color" content="#f7fbfc" media="(prefers-color-scheme: light)" />
@@ -375,7 +375,7 @@
       "@id": "https://adventurepark-rishikesh.netlify.app/#webpage",
       "url": "https://adventurepark-rishikesh.netlify.app/",
       "name": "Adventure Park Rishikesh | Rafting, Bungee Jumping & Camps",
-      "description": "River rafting from ₹520, bungee jumping (109 m) and zip line in Rishikesh, plus luxury camps & cottages in Shivpuri with three meals a day. Safety first, since 2006.",
+      "description": "River rafting from ₹520, 109 m bungee jumping and zip line in Rishikesh, plus luxury camps & cottages in Shivpuri with meals. Safety first since 2006.",
       "inLanguage": "en-IN",
       "isPartOf": {
         "@id": "https://adventurepark-rishikesh.netlify.app/#website"
@@ -646,15 +646,14 @@
   <link rel="icon" href="assets/icon-192.png" type="image/png" sizes="192x192" />
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
-
+  <!-- Main font, fetched early so text appears in it straight away -->
+  <link rel="preload" href="assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
   <!-- Theme colours (tweakcn format) -->
   <link rel="stylesheet" href="assets/theme.css" />
-  <!-- Colour mode + shared Tailwind config, then Tailwind CSS v4 -->
+  <!-- Styles and fonts: Tailwind CSS v4, built from assets/tailwind.css -->
+  <link rel="stylesheet" href="assets/styles.css" />
+  <!-- Light/dark mode, set before the page paints -->
   <script src="assets/head.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.3"></script>
 </head>
 <body class="min-h-screen overflow-x-clip antialiased">
 
@@ -1227,7 +1226,7 @@
         <ol class="grid gap-10 md:grid-cols-3 md:gap-8">
           <li class="reveal group relative">
             <div class="relative mb-6">
-              <span class="block text-8xl font-extrabold text-foreground/[0.07] transition-colors duration-500 group-hover:text-primary/20">01</span>
+              <span aria-hidden="true" class="block text-8xl font-extrabold text-foreground/[0.07] transition-colors duration-500 group-hover:text-primary/20">01</span>
               <span class="absolute bottom-4 left-2 h-1 w-12 rounded-full bg-primary"></span>
             </div>
             <h3 class="mb-3 text-2xl font-bold">Send a booking request</h3>
@@ -1235,7 +1234,7 @@
           </li>
           <li class="reveal group relative" style="--d:200ms">
             <div class="relative mb-6">
-              <span class="block text-8xl font-extrabold text-foreground/[0.07] transition-colors duration-500 group-hover:text-primary/20">02</span>
+              <span aria-hidden="true" class="block text-8xl font-extrabold text-foreground/[0.07] transition-colors duration-500 group-hover:text-primary/20">02</span>
               <span class="absolute bottom-4 left-2 h-1 w-12 rounded-full bg-primary"></span>
             </div>
             <h3 class="mb-3 text-2xl font-bold">Get a safe, tailored plan</h3>
@@ -1243,7 +1242,7 @@
           </li>
           <li class="reveal group relative" style="--d:400ms">
             <div class="relative mb-6">
-              <span class="block text-8xl font-extrabold text-foreground/[0.07] transition-colors duration-500 group-hover:text-primary/20">03</span>
+              <span aria-hidden="true" class="block text-8xl font-extrabold text-foreground/[0.07] transition-colors duration-500 group-hover:text-primary/20">03</span>
               <span class="absolute bottom-4 left-2 h-1 w-12 rounded-full bg-primary"></span>
             </div>
             <h3 class="mb-3 text-2xl font-bold">Go wild</h3>
@@ -1361,7 +1360,7 @@
           <h2 class="text-sm font-semibold">Explore</h2>
           <ul class="mt-4 space-y-3 text-sm text-muted-foreground">
             <li><a href="index.html" class="transition-colors hover:text-foreground">Home</a></li>
-            <li><a href="index.html#activities" class="transition-colors hover:text-foreground">Activities & prices</a></li>
+            <li><a href="index.html#activities" class="transition-colors hover:text-foreground">Activities &amp; prices</a></li>
             <li><a href="index.html#stay" class="transition-colors hover:text-foreground">Stay</a></li>
             <li><a href="index.html#food" class="transition-colors hover:text-foreground">Food menu</a></li>
             <li><a href="index.html#safety" class="transition-colors hover:text-foreground">Safety</a></li>
@@ -1395,11 +1394,13 @@
   </footer>
 
   <!-- WhatsApp chat button: a round icon that widens to show its label on hover -->
+  <aside aria-label="WhatsApp chat">
   <a href="https://wa.me/918755542743?text=Hi%20Adventure%20Park!%20I%E2%80%99d%20like%20to%20know%20more%20about%20your%20adventures." target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp (+91 87555 42743)"
      class="group fixed bottom-[calc(1.25rem+env(safe-area-inset-bottom,0px))] right-5 z-30 flex h-14 items-center rounded-full bg-[#25D366] px-4 text-white shadow-lg ring-1 ring-black/5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl">
     <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6 shrink-0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
     <span class="max-w-0 overflow-hidden whitespace-nowrap text-sm font-semibold opacity-0 transition-all duration-300 group-hover:ml-2 group-hover:max-w-40 group-hover:opacity-100 group-focus-visible:ml-2 group-focus-visible:max-w-40 group-focus-visible:opacity-100">Chat on WhatsApp</span>
   </a>
+  </aside>
 
   <script src="assets/hero-fx.js" defer></script>
   <script src="assets/site.js"></script>
