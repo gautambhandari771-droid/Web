@@ -1,7 +1,7 @@
 # Adventure Park — website
 
 **Where Rishikesh gets wild.**
-The website for Adventure Park, an adventure-activities brand in Rishikesh, Uttarakhand, running since 2006 and founded by Jagat Singh Bhandari (JSB — 25+ years of experience, more than 5 lakh people served). The site presents the activities, stays and prices, puts safety first, and lets visitors send a booking request or get in touch.
+The website for Adventure Park, an adventure-activities brand in Rishikesh, Uttarakhand, running since 2006 and founded by Jagat Singh Bhandari (JSB — 25+ years of experience, more than 5 lakh people served). The site presents the activities, stays and prices, puts safety first, and lets visitors book online — pay a 50% advance by UPI and send a booking request with the payment screenshot — or get in touch.
 
 > **Status:** live at **https://adventureprk.netlify.app** (Netlify project `adventureprk`). Netlify publishes the `main` branch of this repository automatically — see [Deploying to Netlify](#deploying-to-netlify).
 
@@ -11,9 +11,9 @@ The website for Adventure Park, an adventure-activities brand in Rishikesh, Utta
 
 | Page | File | What it's for |
 |---|---|---|
-| Home | `index.html` | Hero with the tagline, activities and prices, stay (camps & cottages, hotel rooms), food menu, safety checklist, how it works, FAQs |
+| Home | `index.html` | Hero with the tagline, activities and prices with a **Book** button on each, stay (camps & cottages, hotel rooms), food menu, safety checklist, how booking works, FAQs |
 | About us | `about.html` | Founder story, numbers, values and safety promise |
-| Booking | `booking.html` | Booking request form (group, experience, activities, dates, health notes) and the **Pay by UPI** section with the QR code. Every "Book" button leads here |
+| Booking | `booking.html` | Booking request form (group, experience, activities incl. the four rafting trips, dates, health notes, **required payment screenshot**), the **Pay by UPI** section with the QR code and the 50% advance rule, and the **refund policy**. Every "Book" button leads here |
 | Contact us | `contact.html` | Contact form (name, age, gender, phone, email), office address, phone, WhatsApp, email |
 | Page not found | `404.html` | Shown for any address that doesn't exist |
 | Device preview | `preview.html` | Tool for checking the site on mobile, tablet and desktop (hidden from search engines) |
@@ -24,7 +24,7 @@ The website for Adventure Park, an adventure-activities brand in Rishikesh, Utta
 - **See the food menu** — breakfast, buffet lunch (pure veg), evening snacks and buffet dinner (veg & non-veg), included with camp and cottage stays.
 - **Book any activity or stay** — every activity card (rafting, bungee, zip line, more adventures) and both stays (camps & cottages, hotel rooms) has its own **Book** button, which opens the booking form with that activity already ticked. In the form, rafting offers all four trips (12, 16, 26 and 36 km) with route, duration and price.
 - **Send a booking request** or **a contact message** — both forms email the details to the park (see [Forms](#forms-formsubmit)).
-- **Pay by UPI, then book** — the Booking page shows the park's UPI QR code (M/S ADVENTURE PARK, `8755542743@ybl`) with buttons to download the QR and copy the UPI ID. Visitors pay a 50% advance, then send the booking form with the **payment screenshot attached** — the form can't be sent without it (see [Payment](#payment-upi-qr-code)).
+- **Pay by UPI, then book** — the Booking page shows the park's UPI QR code (M/S ADVENTURE PARK, `8755542743@ybl`) with buttons to download the QR and copy the UPI ID. Visitors pay a 50% advance, then send the booking form with the **payment screenshot attached** — the form can't be sent without it. Cancelling within 36 hours of booking gets the advance refunded (see [Payment](#payment-upi-qr-code)).
 - **Chat on WhatsApp** with the floating button on every page (+91 87555 42743) — the chat opens with a greeting already typed.
 - **Call or email** — numbers and email are on the Contact page and in every footer.
 - **Find the office** — Near Shiv Mandir, Badrinath Highway, Shivpuri, Uttarakhand, with the [Google Maps location](https://maps.app.goo.gl/CKrMGT2h8CRNrcmi6) linked from the Contact page, every footer and the mobile menu.
@@ -49,7 +49,7 @@ A static website: plain HTML, CSS and a little JavaScript. **Netlify publishes t
 .
 ├── index.html            Home
 ├── about.html            About us
-├── booking.html          Booking request form
+├── booking.html          Booking request form, UPI payment, refund policy
 ├── contact.html          Contact form and details
 ├── 404.html              Page not found
 ├── preview.html          Device preview tool
@@ -70,7 +70,7 @@ A static website: plain HTML, CSS and a little JavaScript. **Netlify publishes t
     ├── fonts.css         Font definitions (included in styles.css; also used by preview.html)
     ├── fonts/            Font files (woff2)
     ├── head.js           Sets light/dark mode before the page paints
-    ├── site.js           Header, mobile menu, scroll reveals, counters, forms
+    ├── site.js           Header, mobile menu, scroll reveals, counters, Book buttons, copy button, forms (incl. the screenshot upload)
     ├── hero-fx.js        Animated dash ring and glow in the page headers
     ├── preview.js        Device preview tool
     ├── preview.css       Device preview tool styles
@@ -86,7 +86,7 @@ A static website: plain HTML, CSS and a little JavaScript. **Netlify publishes t
 
 ## Business details used on the site
 
-Every fact the site states, in one place — check these before launch.
+Every fact the site states, in one place — keep these up to date.
 
 | Detail | Value |
 |---|---|
@@ -100,7 +100,7 @@ Every fact the site states, in one place — check these before launch.
 | Zip line | ₹1,800 students, ₹2,000 adults (per person) |
 | Luxury camps & cottages | 200 m up from the river, 100 m up from the national highway · quad/triple ₹1,500–₹1,800, double ₹1,800–₹2,200 per person/night · children 6–11 at 50% · includes three meals, swimming pool, DJ party till 10 pm, attached washroom, fan, charging points · non-AC camps have an air cooler, AC cottages have AC |
 | Hotel rooms (room only) | Non-AC ₹1,200, AC ₹1,600 per room/night · busy days ₹1,600–₹1,800 / ₹2,000–₹2,200 |
-| Booking & payment | A booking is confirmed once a **50% advance** is paid by UPI; the remaining 50% is paid at Adventure Park · M/S ADVENTURE PARK · UPI ID `8755542743@ybl` (PhonePe) · QR code on the Booking page · **Refunds:** only if cancelled within 36 hours of booking (advance refunded); after that the advance is non-refundable |
+| Booking & payment | Visitors pay a **50% advance** by UPI, then send the booking form with the **payment screenshot attached** (required); the team checks the payment and confirms; the remaining 50% is paid at Adventure Park · M/S ADVENTURE PARK · UPI ID `8755542743@ybl` (PhonePe) · QR code on the Booking page · **Refunds:** only if cancelled within 36 hours of booking (advance refunded); after that the advance is non-refundable |
 | Meals (camps & cottages) | Breakfast 8:30–10:00 AM · buffet lunch 1:30–3:00 PM (pure veg) · evening snacks 6:00–7:30 PM · buffet dinner 8:30–10:30 PM (veg & non-veg) |
 
 ---
@@ -136,7 +136,7 @@ The activity choices in the booking form are in `booking.html` (search for `name
 
 | Detail | Where |
 |---|---|
-| Phone numbers, email, address | `contact.html` (cards), footer and mobile menu in every page |
+| Phone numbers, email, address | `contact.html` (cards), footer and mobile menu in every page; the price question and refund policy in the payment section of `booking.html`; the refund FAQ in `index.html` |
 | Google Maps location (https://maps.app.goo.gl/CKrMGT2h8CRNrcmi6) | "Open in Google Maps" on `contact.html`; the address in every footer and the mobile menu |
 | WhatsApp number (+91 87555 42743) | Floating button and footer in every page, WhatsApp card in `contact.html` — links look like `https://wa.me/918755542743` |
 | Instagram (@adventure_park771) | Footer and mobile menu in every page, Instagram card in `contact.html` |
@@ -261,14 +261,14 @@ The site is set up so that Google and Bing (SEO), and AI assistants and answer e
 | Structured data | `<script type="application/ld+json">` in the `<head>` of each main page | Machine-readable facts in the [schema.org](https://schema.org) format (below) |
 | `robots.txt` | site root | Allows every crawler, and names the main AI crawlers one by one so they know they're welcome (below). Points to the sitemap and `llms.txt` |
 | `sitemap.xml` | site root | Lists the four main pages with their last-updated date |
-| `llms.txt` | site root | A plain-text fact sheet in the [llms.txt](https://llmstxt.org) format: the business, every price, the stays, the food menu, safety and the FAQ, so an AI assistant can quote them accurately |
+| `llms.txt` | site root | A plain-text fact sheet in the [llms.txt](https://llmstxt.org) format: the business, every price, the booking, payment and refund rules, the stays, the food menu, safety and the FAQ, so an AI assistant can quote them accurately |
 | `site.webmanifest` | site root | App name, colours and icons |
 
 ### Structured data (schema.org JSON-LD)
 
 | Page | What it describes |
 |---|---|
-| Home | **The business** (`SportsActivityLocation` + `TouristAttraction`): name, tagline, founder, founded in 2006, address, map link, phones, WhatsApp, email, Instagram, price range ₹520–₹4,000 and **a catalogue of all 11 prices** (4 rafting stretches, bungee, zip line ×2, camps ×2, hotel rooms ×2, each in INR). **The FAQ** (all 7 questions and answers), **the camps & cottages** (`Campground` with every amenity) and **the food menu** (4 meals and their dishes, vegetarian dishes marked) |
+| Home | **The business** (`SportsActivityLocation` + `TouristAttraction`): name, tagline, founder, founded in 2006, address, map link, phones, WhatsApp, email, Instagram, price range ₹520–₹4,000, accepted payment (UPI) and **a catalogue of all 11 prices** (4 rafting stretches, bungee, zip line ×2, camps ×2, hotel rooms ×2, each in INR). **The FAQ** (all 9 questions and answers, including booking, payment and refunds), **the camps & cottages** (`Campground` with every amenity) and **the food menu** (4 meals and their dishes, vegetarian dishes marked) |
 | About | The business, the About page and **the founder**, Jagat Singh Bhandari (JSB) |
 | Booking | The business, the Booking page and a "send a booking request" action |
 | Contact | The business and the Contact page |
@@ -359,40 +359,40 @@ The site has **no server, database, login or payment of its own**. The "backend"
 ### Other protections
 
 - **Project files are hidden:** `README.md`, `netlify.toml`, `.gitignore`, `.git/` and `assets/tailwind.css` answer "not found" on the live site.
-- **Forms:** a hidden spam trap (`_honey`), length limits on every field, and validation before sending. What visitors type is only ever shown as text, never run as code.
+- **Forms:** a hidden spam trap (`_honey`), length limits on every field, and validation before sending; the payment screenshot must be an image or PDF of up to 10 MB. What visitors type is only ever shown as text, never run as code.
 - **No cookies and no tracking.** The only thing stored in the browser is the light/dark choice.
-- **No secrets in the code:** all 28+ commits were scanned for passwords, API keys and tokens — none.
+- **No secrets in the code:** every commit was scanned for passwords, API keys and tokens — none.
 - **`/.well-known/security.txt`** tells security researchers how to report a problem (email and phone). It expires each year — update the `Expires` date by then.
 - **Recommended after activating FormSubmit:** FormSubmit emails you a private random address for the form. Replace `adventurepark661@gmail.com` in the two form `action`s with it, so spam bots can't harvest the email from the form (the email stays visible on the Contact page by choice).
-- **Privacy:** the forms collect name, age, gender, phone and email and send them through FormSubmit to your inbox. India's Digital Personal Data Protection Act expects you to tell people what you collect and why — consider adding a short privacy note under the forms or a privacy page.
+- **Privacy:** the forms collect name, age, gender, phone, email and (for bookings) a payment screenshot, and send them through FormSubmit to your inbox. India's Digital Personal Data Protection Act expects you to tell people what you collect and why — consider adding a short privacy note under the forms or a privacy page.
 
 ---
 
-## Test results (before launch)
+## Test results
 
-Tested on a local server that behaves like Netlify (same headers, compression and 404 handling), with Lighthouse's standard slow-phone and desktop settings.
+Tested on a local server that behaves like Netlify (same headers, compression and 404 handling), with Lighthouse's standard slow-phone and desktop settings. Last run after the booking, payment and refund changes.
 
 | Check | Result |
 |---|---|
 | **Lighthouse — mobile** (performance / accessibility / best practices / SEO) | 99–100 / 100 / 100 / 100 on all four pages (performance was 78–84 before the styles were pre-built) |
 | **Lighthouse — desktop** | 100 / 100 / 100 / 100 on all four pages |
-| Speed on a slow phone | First text after 1.1–1.7 s (was 2.6–3.0 s), largest content after 1.6–2.0 s (was 3.0–3.3 s), no layout shift, blocking time 0–60 ms (was 220–290 ms) |
-| Page weight (Home) | 173 KB in 13 requests (was 326 KB in 14). Logo 126 KB → 25 KB with no visible change |
+| Speed on a slow phone | First text after 1.0–1.7 s (was 2.6–3.0 s), largest content after 1.8 s (was 3.0–3.3 s), no layout shift, blocking time 0–110 ms (was 220–290 ms) |
+| Page weight | Home 176 KB in 13 requests (was 326 KB in 14), Booking 168 KB, About and Contact 142 KB. Logo 126 KB → 25 KB with no visible change |
 | HTML and CSS — W3C validator | No errors or warnings on any page |
 | Accessibility — axe-core (WCAG 2.2 AA), light and dark, phone and desktop, menu open | No issues, apart from a report on the faded "01 02 03" step numbers: they are decoration (hidden from screen readers), which WCAG exempts from contrast rules |
 | Structured data — checked against the schema.org vocabulary | No errors |
 | Links | Every internal link and `#section` link works; phone, email, WhatsApp, Instagram and Maps links are correct |
 | Crawlers | `robots.txt` lets every search engine and AI crawler read every page except the preview tool; all key facts (prices, phones, address, founder) are in the page HTML, so crawlers that don't run JavaScript see them too |
-| Forms, menu, dark mode, keyboard, 404, reduced motion, Book buttons, payment | 64 automated checks pass (forms tested with a simulated FormSubmit), under the security policy — including every Book button ticking the right activity, the UPI QR code loading and decoding to the right account, and "Copy UPI ID" copying exactly `8755542743@ybl` |
+| Forms, menu, dark mode, keyboard, 404, reduced motion, booking and payment | 75 automated checks pass (forms tested with a simulated FormSubmit), under the security policy — including every Book button ticking the right activity, all four rafting trips, the booking form refusing to send without a payment screenshot (or with a non-image or over-10 MB file), the screenshot arriving as an attachment and the visitor returning to the thank-you message, the UPI QR code decoding to the right account, "Copy UPI ID" copying exactly `8755542743@ybl`, and the 50% advance and 36-hour refund rules shown everywhere |
 | **Security — OWASP ZAP** (crawl + active attack scan) | No high-risk findings. Fixed: inline styles allowed by the policy, project files reachable. Remaining reports don't apply: "anti-CSRF tokens" (no logins or sessions to protect), "HTTP to HTTPS form post" and "server version" (only on the plain-HTTP test server; the live site is HTTPS on Netlify), "suspicious comments" (ordinary code comments containing the word "from") |
-| **Security — attack tests** | 41 checks pass: script injection through every form field and the page address (with normal and hostile form-service replies), framing by another website, tab-hijacking through outside links, cookies/storage |
+| **Security — attack tests** | 41 checks pass: script injection through every form field (including with an uploaded screenshot) and the page address, with normal and hostile form-service replies; framing by another website; tab-hijacking through outside links; cookies/storage |
 | **Security — code and history** | No unsafe HTML insertion in the site's JavaScript; no passwords, keys or tokens in any commit. The Tailwind build tool has a reported denial-of-service issue in a file-watching library it uses; it only runs on a computer when rebuilding the styles and is never part of the website |
 | **Lighthouse security audits** | Pass: policy effective against script injection, HTTPS enforced, window isolation, click-jacking protection |
 | **AI and search crawlers** | 30 crawlers named and allowed (OpenAI OAI-SearchBot, ChatGPT-User and GPTBot included) with an explicit content signal; every page, `llms.txt`, the sitemap and images can be fetched; only the preview tool is blocked |
 | Layout | Nothing overflows sideways at 320, 360, 390, 768, 1024 and 1440 px wide |
-| Look | Every page compared pixel by pixel with the previous version, phone and desktop, light and dark: identical, apart from 1 pixel of the compressed logo and the new words "in 2006 … (JSB)" on the About page |
+| Look | After the speed and security changes, every page was compared pixel by pixel with the version before them (phone and desktop, light and dark): identical, apart from 1 pixel of the compressed logo and the new words "in 2006 … (JSB)" on the About page. New features (booking, payment, refunds) were checked visually on phone and desktop in both modes |
 
-**Not tested here (need the live site):** Safari on iPhone and Firefox (only Chrome was available), the real FormSubmit service, Netlify's HTTPS certificate and live headers, and live-network speed. After the first deploy, run the live address through [PageSpeed Insights](https://pagespeed.web.dev), [Security Headers](https://securityheaders.com), [Mozilla Observatory](https://developer.mozilla.org/en-US/observatory), [SSL Labs](https://www.ssllabs.com/ssltest/) and the [Rich Results Test](https://search.google.com/test/rich-results), and try the site on an iPhone and an Android phone.
+**Still to check on the live site:** Safari on iPhone and Firefox (only Chrome was available here), the real FormSubmit service (activate both forms and send a test booking with a screenshot), a ₹1 test payment by scanning the QR code, and live-network speed. Netlify reports that every deploy applied all header and hidden-file rules without errors. Run the live address through [PageSpeed Insights](https://pagespeed.web.dev), [Security Headers](https://securityheaders.com), [Mozilla Observatory](https://developer.mozilla.org/en-US/observatory), [SSL Labs](https://www.ssllabs.com/ssltest/) and the [Rich Results Test](https://search.google.com/test/rich-results), and try the site on an iPhone and an Android phone.
 
 ---
 
@@ -406,7 +406,7 @@ The site is set up for Netlify (`netlify.toml`): no build command, publish direc
 
 **If the site address changes** (a new project name or your own domain): find-and-replace `https://adventureprk.netlify.app` with the new address in every `.html` file, `sitemap.xml`, `robots.txt`, `llms.txt` and `.well-known/security.txt`, and in the IndexNow link above (see [Keeping it accurate](#keeping-it-accurate)).
 
-**After the first deploy:** activate the forms (see above), do the [search and AI steps](#after-launch), and run through the launch checklist.
+**Now that the site is live:** activate the forms (see above), do the [search and AI steps](#after-launch), and run through the launch checklist.
 
 **Own domain later:** buy a domain (e.g. `adventurepark.in`), then in Netlify go to **Domain management → Add a domain** and follow the steps. Then replace the Netlify address in the pages and crawler files (see [Keeping it accurate](#keeping-it-accurate)).
 
@@ -420,14 +420,17 @@ The site is set up for Netlify (`netlify.toml`): no build command, publish direc
 - [ ] Check every safety statement matches what the team actually does.
 - [x] Netlify site live at https://adventureprk.netlify.app, publishing `main` automatically.
 - [ ] Delete the unused Netlify projects `advenpark` and `adventurepark-rishikesh`.
-- [ ] Submit both forms once and click FormSubmit's activation emails.
+- [ ] Submit both forms once on the live site (the booking form with any image as the screenshot) and click FormSubmit's activation emails.
+- [x] Book buttons on every activity and stay; four rafting trips in the booking form.
+- [x] UPI payment QR code (M/S ADVENTURE PARK, `8755542743@ybl`), 50% advance rule, required payment screenshot, 36-hour refund policy.
+- [ ] Make a ₹1 test payment by scanning the QR code on the live Booking page, and check the name shows as M/S ADVENTURE PARK.
 - [x] Google Maps location link from the owner, on the Contact page, footer and mobile menu.
 - [ ] Test on a phone: menu, WhatsApp button, tap-to-call, forms.
 - [x] Search and AI setup: titles, descriptions, link previews, structured data, `robots.txt`, `sitemap.xml`, `llms.txt`.
 - [ ] Create or claim the Google Business Profile with the same name, address and phones.
 - [ ] Add the site to Google Search Console and Bing Webmaster Tools and submit `sitemap.xml`.
 - [ ] Share a link on WhatsApp to check the preview picture shows.
-- [x] Pre-launch tests: speed, accessibility, HTML, structured data, links, forms, security headers (see [Test results](#test-results-before-launch)).
+- [x] Pre-launch tests: speed, accessibility, HTML, structured data, links, forms, security headers (see [Test results](#test-results)).
 - [ ] After launch: run [PageSpeed Insights](https://pagespeed.web.dev), [Security Headers](https://securityheaders.com), [Mozilla Observatory](https://developer.mozilla.org/en-US/observatory), [SSL Labs](https://www.ssllabs.com/ssltest/) and the [Rich Results Test](https://search.google.com/test/rich-results) on the live address.
 - [x] Security tests (OWASP ZAP, attack tests, secrets scan) and hardening (strict security policy, HTTPS-only, hidden project files, form limits, `security.txt`).
 - [ ] After launch: announce the site to Bing with [IndexNow](#after-launch) (helps ChatGPT search and Copilot).
