@@ -93,6 +93,7 @@
       --animate-tick: tick 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both;
       --animate-fill: fill 2.4s cubic-bezier(0.65, 0, 0.35, 1) both;
       --animate-wave: wave 2.6s ease-in-out infinite;
+      --animate-climb: climb 3.2s ease-in-out infinite;
 
       @keyframes fade-up {
         from { opacity: 0; transform: translateY(20px); }
@@ -127,6 +128,13 @@
       @keyframes fill {
         from { transform: scaleX(0); }
         to   { transform: scaleX(1); }
+      }
+      @keyframes climb {
+        0%, 100% { transform: translateY(3px) rotate(-6deg); }
+        18%      { transform: translateY(1.5px) rotate(6deg); }
+        36%      { transform: translateY(0) rotate(-6deg); }
+        54%      { transform: translateY(-1.5px) rotate(6deg); }
+        70%, 82% { transform: translateY(-3px) rotate(0deg); }
       }
       @keyframes wave {
         0%, 60%, 100% { transform: rotate(0); }

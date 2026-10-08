@@ -41,6 +41,16 @@
     matchMedia('(min-width: 64rem)').addEventListener('change', (e) => { if (e.matches) setMenu(false); });
   }
 
+  // Looping animations that speed up while their area is hovered (e.g. the climbing emoji).
+  // updatePlaybackRate keeps the current position, so the change never jumps.
+  document.querySelectorAll('[data-hover-speed]').forEach((el) => {
+    const scope = el.closest('[data-speed-scope]') || el;
+    const rate = Number(el.dataset.hoverSpeed) || 2;
+    const setRate = (r) => el.getAnimations().forEach((anim) => anim.updatePlaybackRate(r));
+    scope.addEventListener('pointerenter', () => setRate(rate));
+    scope.addEventListener('pointerleave', () => setRate(1));
+  });
+
   // Count-up numbers
   const countUp = (el) => {
     const target = Number(el.dataset.count);
