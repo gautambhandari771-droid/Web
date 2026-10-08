@@ -11,7 +11,7 @@ The website for Adventure Park, an adventure-activities brand in Rishikesh, Utta
 
 | Page | File | What it's for |
 |---|---|---|
-| Home | `index.html` | Hero with the tagline, activities and prices, stay (camping and hotel rooms), safety checklist, how it works, FAQs |
+| Home | `index.html` | Hero with the tagline, activities and prices, stay (camps & cottages, hotel rooms), food menu, safety checklist, how it works, FAQs |
 | About us | `about.html` | Founder story, numbers, values and safety promise |
 | Consultation | `consultation.html` | Consultation request form (group, experience, activities, dates, health notes) |
 | Contact us | `contact.html` | Contact form (name, age, gender, phone, email), office address, phone, WhatsApp, email |
@@ -20,7 +20,8 @@ The website for Adventure Park, an adventure-activities brand in Rishikesh, Utta
 
 ## What visitors can do
 
-- **See activities and prices** — rafting (12, 16, 26 and 36 km), bungee jumping (109 m), zip line, riverside camping and hotel rooms, all in ₹.
+- **See activities and prices** — rafting (12, 16, 26 and 36 km, 1 to 3 hours), bungee jumping (109 m), zip line, luxury camps & cottages and hotel rooms, all in ₹.
+- **See the food menu** — breakfast, buffet lunch (pure veg), evening snacks and buffet dinner (veg & non-veg), included with camp and cottage stays.
 - **Book a consultation** or **send a contact message** — both forms email the details to the park (see [Forms](#forms-formsubmit)).
 - **Chat on WhatsApp** with the floating button on every page (+91 87555 42743).
 - **Call or email** — numbers and email are on the Contact page and in every footer.
@@ -73,9 +74,10 @@ All prices are in Indian rupees (₹). Update them in these places in `index.htm
 
 | What | Where in `index.html` |
 |---|---|
-| Rafting stretches and prices, peak-season note | **Activities** section, River rafting card |
+| Rafting stretches, durations and prices, peak-season note | **Activities** section, River rafting card |
 | Bungee (₹4,000 incl. DSLR video and certificate), zip line (students/adults) | **Activities** section, Bungee and Zip line cards |
-| Camping (per person / night, children 6–11 at 50%) and hotel rooms (per room / night, busy-day prices) | **Stay** section |
+| Camps & cottages (per person / night, children 6–11 at 50%, what's included, non-AC vs AC) and hotel rooms (per room / night, busy-day prices, room only) | **Stay** section |
+| Meal times and dishes | **Food** section (`id="food"`) |
 | Peak-season and children/student prices in words | **FAQ** section ("Do prices change in peak season?", "Are there lower prices for children or students?") |
 
 The activity choices in the consultation form are in `consultation.html` (search for `name="activities"`).
@@ -175,7 +177,7 @@ The site is set up for Netlify (`netlify.toml`): no build command, publish direc
 
 ## Launch checklist
 
-- [x] Real activities and prices (rafting, bungee, zip line) and stay options (camping, hotel rooms).
+- [x] Real activities and prices (rafting with durations, bungee, zip line), stay options (camps & cottages, hotel rooms) and the food menu.
 - [x] Instagram link in the footer, mobile menu and Contact page.
 - [ ] Check every safety statement matches what the team actually does.
 - [x] Netlify site created and set to public (`adventurepark-rishikesh`).
