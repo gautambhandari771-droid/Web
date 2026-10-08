@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Adventure Park</title>
-  <meta name="description" content="Adventure Park — roller coasters, zip lines, water slides and family fun, open daily." />
+  <title>Adventure Park — Where Rishikesh gets wild</title>
+  <meta name="description" content="Adventure Park, Rishikesh — roller coasters, zip lines, water slides and family fun, open daily." />
 
   <script>document.documentElement.classList.add('js');</script>
 
@@ -35,7 +35,13 @@
       --animate-marquee: marquee 30s linear infinite;
       --animate-gradient: gradient 10s ease-in-out infinite;
       --animate-blob: blob 14s ease-in-out infinite;
+      --animate-draw: draw 0.9s ease-out both;
+      --animate-pop: pop-in 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
 
+      @keyframes draw {
+        from { stroke-dashoffset: 1; }
+        to   { stroke-dashoffset: 0; }
+      }
       @keyframes drop-in {
         0%   { opacity: 0; transform: translateY(-80px) rotate(-12deg); }
         60%  { opacity: 1; transform: translateY(10px) rotate(4deg); }
@@ -92,6 +98,19 @@
       }
     }
 
+    /* Contact form inputs */
+    @utility field {
+      @apply mt-2 block w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 shadow-sm outline-none transition duration-200 placeholder:text-slate-400 hover:border-slate-400 focus:border-orange-500 focus:ring-4 focus:ring-orange-500/20 user-invalid:border-rose-500 user-invalid:ring-4 user-invalid:ring-rose-500/15;
+    }
+    select.field {
+      appearance: none;
+      padding-right: 2.75rem;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%2364748b'%3E%3Cpath fill-rule='evenodd' d='M5.23 7.21a.75.75 0 0 1 1.06.02L10 11.17l3.71-3.94a.75.75 0 1 1 1.08 1.04l-4.25 4.5a.75.75 0 0 1-1.08 0l-4.25-4.5a.75.75 0 0 1 .02-1.06Z' clip-rule='evenodd'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      background-size: 1.25rem;
+    }
+
     /* Scroll-reveal: hidden only when JS is available to reveal it */
     .js .reveal:not(.is-visible) { opacity: 0; }
     .reveal.is-visible {
@@ -121,6 +140,7 @@
         <a href="#rides" class="relative after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-orange-500 after:transition-transform after:duration-300 hover:after:scale-x-100">Rides</a>
         <a href="#stats" class="relative after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-orange-500 after:transition-transform after:duration-300 hover:after:scale-x-100">The Park</a>
         <a href="#tickets" class="relative after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-orange-500 after:transition-transform after:duration-300 hover:after:scale-x-100">Tickets</a>
+        <a href="#contact" class="relative after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-orange-500 after:transition-transform after:duration-300 hover:after:scale-x-100">Contact</a>
       </div>
       <a href="#tickets" class="rounded-full bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white transition hover:scale-105 hover:bg-orange-500 active:scale-95">
         Buy tickets
@@ -221,11 +241,21 @@
           <span aria-hidden="true" class="inline-block animate-park bg-linear-to-r from-amber-300 via-orange-500 to-pink-500 bg-size-[200%_auto] bg-clip-text pb-2 text-transparent drop-shadow-[0_6px_0_#831843]">Park</span>
         </h1>
 
-        <p class="mt-6 max-w-xl animate-fade-up text-lg text-slate-800 [animation-delay:900ms] sm:text-xl">
+        <p class="mt-4 animate-fade-up font-display text-2xl font-semibold text-sky-950 [animation-delay:1000ms] sm:text-3xl">
+          Where Rishikesh gets
+          <span class="relative inline-block text-orange-600">
+            wild
+            <svg aria-hidden="true" viewBox="0 0 100 14" class="absolute -bottom-2 left-0 w-full overflow-visible">
+              <path d="M3 9C16 3 26 3 38 8s24 5 36 0 18-4 23-1" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" pathLength="1" class="animate-draw [animation-delay:1500ms] [stroke-dasharray:1]" />
+            </svg>
+          </span>
+        </p>
+
+        <p class="mt-6 max-w-xl animate-fade-up text-lg text-slate-800 [animation-delay:1150ms] sm:text-xl">
           Coasters that touch the clouds, zip lines over the treetops and splash zones for the whole family — a full day of thrills, just 30 minutes from the city.
         </p>
 
-        <div class="mt-10 flex animate-fade-up flex-wrap items-center gap-4 [animation-delay:1050ms]">
+        <div class="mt-10 flex animate-fade-up flex-wrap items-center gap-4 [animation-delay:1300ms]">
           <a href="#tickets" class="relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-orange-500 px-7 py-4 font-semibold text-white shadow-lg shadow-orange-500/40 transition hover:scale-105 hover:bg-orange-600 active:scale-95">
             <span aria-hidden="true" class="absolute inset-y-0 left-0 w-1/4 animate-shine bg-linear-to-r from-transparent via-white/60 to-transparent"></span>
             <span class="relative">Get your tickets</span>
@@ -237,7 +267,7 @@
           </a>
         </div>
 
-        <ul class="mt-10 flex animate-fade-up flex-wrap gap-x-6 gap-y-2 text-sm font-medium text-slate-700 [animation-delay:1200ms]">
+        <ul class="mt-10 flex animate-fade-up flex-wrap gap-x-6 gap-y-2 text-sm font-medium text-slate-700 [animation-delay:1450ms]">
           <li>⏰ Open daily 9am – 9pm</li>
           <li>⭐ 4.9 from 12k reviews</li>
           <li>🚗 Free parking</li>
@@ -448,6 +478,96 @@
     </div>
   </section>
 
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" class="scroll-mt-20 bg-white py-24 sm:py-32">
+    <div class="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-5 lg:gap-16">
+      <div class="reveal lg:col-span-2">
+        <p class="font-semibold uppercase tracking-widest text-orange-500">Contact us</p>
+        <h2 class="mt-3 font-display text-4xl font-bold sm:text-5xl">Let’s plan your adventure</h2>
+        <p class="mt-4 text-lg text-slate-600">Group booking, birthday party or just a question? Leave your details and our team will get back to you.</p>
+        <ul class="mt-10 space-y-5">
+          <li class="group flex items-center gap-4">
+            <span class="grid size-12 place-items-center rounded-2xl bg-orange-100 text-2xl transition duration-300 group-hover:-rotate-12 group-hover:scale-110">📍</span>
+            <span><span class="block font-semibold">Find us</span><span class="text-slate-600">Rishikesh, Uttarakhand</span></span>
+          </li>
+          <li class="group flex items-center gap-4">
+            <span class="grid size-12 place-items-center rounded-2xl bg-sky-100 text-2xl transition duration-300 group-hover:-rotate-12 group-hover:scale-110">⏰</span>
+            <span><span class="block font-semibold">Opening hours</span><span class="text-slate-600">Every day, 9am – 9pm</span></span>
+          </li>
+          <li class="group flex items-center gap-4">
+            <span class="grid size-12 place-items-center rounded-2xl bg-emerald-100 text-2xl transition duration-300 group-hover:-rotate-12 group-hover:scale-110">💬</span>
+            <span><span class="block font-semibold">Quick replies</span><span class="text-slate-600">Usually within one working day</span></span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="reveal lg:col-span-3" style="--d:150ms">
+        <form id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field"
+              class="group relative overflow-hidden rounded-3xl bg-amber-50 p-6 shadow-xl shadow-slate-900/5 ring-1 ring-slate-900/5 sm:p-10">
+          <input type="hidden" name="form-name" value="contact" />
+          <p class="hidden"><label>Don’t fill this out: <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
+
+          <div class="grid gap-6 sm:grid-cols-2">
+            <div class="sm:col-span-2">
+              <label for="name" class="font-medium text-slate-800">Full name</label>
+              <input id="name" name="name" type="text" required minlength="2" autocomplete="name" placeholder="Your full name" class="peer field" />
+              <p class="mt-1.5 hidden text-sm text-rose-600 peer-user-invalid:block">Please enter your name.</p>
+            </div>
+
+            <div>
+              <label for="age" class="font-medium text-slate-800">Age</label>
+              <input id="age" name="age" type="number" required min="1" max="120" inputmode="numeric" placeholder="e.g. 28" class="peer field" />
+              <p class="mt-1.5 hidden text-sm text-rose-600 peer-user-invalid:block">Please enter an age between 1 and 120.</p>
+            </div>
+
+            <div>
+              <label for="gender" class="font-medium text-slate-800">Gender</label>
+              <select id="gender" name="gender" required autocomplete="sex" class="peer field invalid:text-slate-400 *:text-slate-900">
+                <option value="" disabled selected>Select…</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+                <option>Prefer not to say</option>
+              </select>
+              <p class="mt-1.5 hidden text-sm text-rose-600 peer-user-invalid:block">Please choose an option.</p>
+            </div>
+
+            <div>
+              <label for="phone" class="font-medium text-slate-800">Phone number</label>
+              <input id="phone" name="phone" type="tel" required autocomplete="tel" inputmode="tel" pattern="\+?[0-9][0-9 \-]{8,15}" title="At least 10 digits, e.g. +91 98765 43210" placeholder="+91 98765 43210" class="peer field" />
+              <p class="mt-1.5 hidden text-sm text-rose-600 peer-user-invalid:block">Please enter a valid phone number.</p>
+            </div>
+
+            <div>
+              <label for="email" class="font-medium text-slate-800">Email address</label>
+              <input id="email" name="email" type="email" required autocomplete="email" placeholder="you@example.com" class="peer field" />
+              <p class="mt-1.5 hidden text-sm text-rose-600 peer-user-invalid:block">Please enter a valid email address.</p>
+            </div>
+          </div>
+
+          <button type="submit" class="relative mt-8 inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-full bg-orange-500 px-8 py-4 font-semibold text-white shadow-lg shadow-orange-500/30 transition hover:scale-[1.02] hover:bg-orange-600 active:scale-95 disabled:cursor-wait disabled:opacity-80 sm:w-auto">
+            <span aria-hidden="true" class="absolute inset-y-0 left-0 w-1/4 animate-shine bg-linear-to-r from-transparent via-white/60 to-transparent group-data-[state=sending]:hidden"></span>
+            <span aria-hidden="true" class="hidden size-5 animate-spin rounded-full border-2 border-white/40 border-t-white group-data-[state=sending]:inline-block"></span>
+            <span class="relative group-data-[state=sending]:hidden">Send message</span>
+            <span class="relative hidden group-data-[state=sending]:inline">Sending…</span>
+          </button>
+          <p id="form-status" role="status" class="mt-4 text-sm font-medium text-rose-600 empty:hidden group-data-[state=sent]:text-emerald-700"></p>
+          <p class="mt-4 text-sm text-slate-500">We’ll only use these details to reply to your enquiry.</p>
+
+          <!-- Success panel -->
+          <div class="invisible absolute inset-0 grid place-items-center bg-amber-50 p-8 text-center opacity-0 transition duration-500 group-data-[state=sent]:visible group-data-[state=sent]:opacity-100">
+            <div>
+              <span aria-hidden="true" class="inline-grid size-20 place-items-center rounded-full bg-emerald-100 text-4xl group-data-[state=sent]:animate-pop">🎉</span>
+              <h3 class="mt-6 font-display text-3xl font-bold">Thanks, we got it!</h3>
+              <p class="mt-2 text-slate-600">Our team will be in touch soon. Get ready to go wild!</p>
+              <button type="button" id="send-another" class="mt-6 rounded-full bg-slate-900 px-6 py-3 font-semibold text-white transition hover:bg-slate-700 active:scale-95">Send another</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ FOOTER ============ -->
   <footer class="bg-slate-900 text-slate-400">
     <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-4 py-10 sm:flex-row sm:px-6">
@@ -493,6 +613,41 @@
       });
     }, { threshold: 0.15 });
     document.querySelectorAll('.reveal, [data-count]').forEach((el) => observer.observe(el));
+
+    // Contact form: the browser validates fields first, then we post it in the background
+    // (Netlify Forms picks this up automatically when the site is hosted on Netlify).
+    const form = document.getElementById('contact-form');
+    const formStatus = document.getElementById('form-status');
+    const submitBtn = form.querySelector('[type="submit"]');
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const body = new URLSearchParams(new FormData(form)).toString();
+      form.dataset.state = 'sending';
+      submitBtn.disabled = true;
+      formStatus.textContent = '';
+      try {
+        const res = await fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body,
+        });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        form.reset();
+        form.dataset.state = 'sent';
+        formStatus.textContent = 'Thanks, we got it! Our team will be in touch soon.';
+        document.getElementById('send-another').focus();
+      } catch {
+        form.dataset.state = 'error';
+        formStatus.textContent = 'Sorry, we couldn’t send your message. Please try again in a moment.';
+      } finally {
+        submitBtn.disabled = false;
+      }
+    });
+    document.getElementById('send-another').addEventListener('click', () => {
+      form.dataset.state = '';
+      formStatus.textContent = '';
+      document.getElementById('name').focus();
+    });
   </script>
 </body>
 </html>
