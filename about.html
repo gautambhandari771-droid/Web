@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us — Adventure Park</title>
+  <meta name="description" content="Adventure Park, Rishikesh was founded by Jagat Singh Bhandari, who has 25 years of experience and has served more than 5 lakh people." />
+
+  <script>document.documentElement.classList.add('js');</script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS v4 (browser build) -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.3"></script>
+
+  <style type="text/tailwindcss">
+    @theme {
+      --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+      --font-display: "Fredoka", ui-rounded, ui-sans-serif, system-ui, sans-serif;
+
+      --animate-fade-up: fade-up 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+      --animate-float: float 6s ease-in-out infinite;
+      --animate-drift: drift 60s linear infinite;
+      --animate-glow: glow 4s ease-in-out infinite;
+      --animate-border-spin: turn 4s linear infinite;
+      --animate-wiggle: wiggle 3s ease-in-out infinite;
+      --animate-shine: shine 3s ease-in-out infinite;
+      --animate-gradient: gradient 10s ease-in-out infinite;
+      --animate-blob: blob 14s ease-in-out infinite;
+
+      @keyframes fade-up {
+        from { opacity: 0; transform: translateY(2rem); }
+        to   { opacity: 1; transform: none; }
+      }
+      @keyframes float {
+        0%, 100% { transform: translateY(0) rotate(-2deg); }
+        50%      { transform: translateY(-16px) rotate(2deg); }
+      }
+      @keyframes drift {
+        from { transform: translateX(-20vw); }
+        to   { transform: translateX(110vw); }
+      }
+      @keyframes glow {
+        0%, 100% { transform: scale(1);    box-shadow: 0 0 60px 20px rgb(252 211 77 / 0.55); }
+        50%      { transform: scale(1.06); box-shadow: 0 0 110px 45px rgb(252 211 77 / 0.7); }
+      }
+      @keyframes turn {
+        to { transform: rotate(360deg); }
+      }
+      @keyframes wiggle {
+        0%, 70%, 100% { transform: rotate(0); }
+        75% { transform: rotate(-14deg); }
+        85% { transform: rotate(10deg); }
+        95% { transform: rotate(-4deg); }
+      }
+      @keyframes shine {
+        0%        { transform: translateX(-150%) skewX(-20deg); }
+        60%, 100% { transform: translateX(450%) skewX(-20deg); }
+      }
+      @keyframes gradient {
+        0%, 100% { background-position: 0% 50%; }
+        50%      { background-position: 100% 50%; }
+      }
+      @keyframes blob {
+        0%, 100% { transform: translate(0, 0) scale(1); }
+        33%      { transform: translate(40px, -60px) scale(1.15); }
+        66%      { transform: translate(-30px, 30px) scale(0.9); }
+      }
+    }
+
+    /* Scroll-reveal: hidden only when JS is available to reveal it */
+    .js .reveal:not(.is-visible) { opacity: 0; }
+    .reveal.is-visible {
+      animation: var(--animate-fade-up);
+      animation-delay: var(--d, 0ms);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-amber-50 font-sans text-slate-900 antialiased">
+
+  <!-- ============ NAV ============ -->
+  <nav id="nav" class="fixed inset-x-0 top-0 z-50 transition duration-300 data-scrolled:bg-white/80 data-scrolled:shadow-lg data-scrolled:shadow-slate-900/5 data-scrolled:backdrop-blur-lg">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6">
+      <a href="index.html" class="flex items-center gap-2 font-display text-xl font-bold">
+        <span class="inline-block animate-wiggle">🎢</span> Adventure Park
+      </a>
+      <div class="hidden items-center gap-6 font-medium text-slate-800 md:flex lg:gap-8">
+        <a href="index.html#rides" class="relative after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-orange-500 after:transition-transform after:duration-300 hover:after:scale-x-100">Rides</a>
+        <a href="index.html#stats" class="relative after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-orange-500 after:transition-transform after:duration-300 hover:after:scale-x-100">The Park</a>
+        <a href="index.html#tickets" class="relative after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-orange-500 after:transition-transform after:duration-300 hover:after:scale-x-100">Tickets</a>
+        <a href="about.html" aria-current="page" class="relative text-orange-600 after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-full after:rounded-full after:bg-orange-500">About</a>
+        <a href="index.html#contact" class="relative after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-orange-500 after:transition-transform after:duration-300 hover:after:scale-x-100">Contact</a>
+      </div>
+      <div class="flex items-center gap-2">
+        <a href="index.html#tickets" class="rounded-full bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white transition hover:scale-105 hover:bg-orange-500 active:scale-95">
+          <span class="sm:hidden">Tickets</span><span class="hidden sm:inline">Buy tickets</span>
+        </a>
+        <button id="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menu" class="group grid size-10 place-items-center rounded-full bg-white/70 ring-1 ring-slate-900/10 backdrop-blur transition active:scale-90 md:hidden">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="size-5 group-aria-expanded:hidden"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="hidden size-5 group-aria-expanded:block"><path d="M6 6l12 12M18 6 6 18" /></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="invisible absolute inset-x-4 top-full -translate-y-2 rounded-2xl bg-white p-2 opacity-0 shadow-xl ring-1 ring-slate-900/5 transition duration-200 data-open:visible data-open:translate-y-0 data-open:opacity-100 md:hidden">
+        <a href="index.html#rides" class="block rounded-xl px-4 py-3 font-medium transition hover:bg-amber-50">Rides</a>
+        <a href="index.html#stats" class="block rounded-xl px-4 py-3 font-medium transition hover:bg-amber-50">The Park</a>
+        <a href="index.html#tickets" class="block rounded-xl px-4 py-3 font-medium transition hover:bg-amber-50">Tickets</a>
+        <a href="about.html" aria-current="page" class="block rounded-xl bg-orange-50 px-4 py-3 font-medium text-orange-600">About</a>
+        <a href="index.html#contact" class="block rounded-xl px-4 py-3 font-medium transition hover:bg-amber-50">Contact</a>
+    </div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <header class="relative isolate overflow-hidden bg-linear-to-b from-sky-400 via-sky-300 to-amber-100 pb-48 pt-36 sm:pb-56 sm:pt-44">
+    <!-- Sun -->
+    <div aria-hidden="true" class="absolute right-6 top-24 size-16 animate-glow rounded-full bg-amber-300 sm:right-[14%] sm:size-24"></div>
+
+    <!-- Drifting clouds -->
+    <div aria-hidden="true">
+      <div class="absolute left-0 top-28 animate-drift opacity-90 [animation-delay:-20s]">
+        <div class="relative h-10 w-36 rounded-full bg-white before:absolute before:-top-6 before:left-5 before:size-14 before:rounded-full before:bg-white after:absolute after:-top-9 after:left-14 after:size-18 after:rounded-full after:bg-white"></div>
+      </div>
+      <div class="absolute left-0 top-64 animate-drift opacity-75 [animation-delay:-50s] [animation-duration:85s]">
+        <div class="relative h-8 w-28 rounded-full bg-white before:absolute before:-top-5 before:left-4 before:size-12 before:rounded-full before:bg-white after:absolute after:-top-8 after:left-12 after:size-16 after:rounded-full after:bg-white"></div>
+      </div>
+    </div>
+
+    <!-- Hills, fading into the page -->
+    <svg aria-hidden="true" viewBox="0 0 1440 320" preserveAspectRatio="none" class="absolute inset-x-0 bottom-0 h-36 w-full sm:h-48">
+      <path fill="#34d399" d="M0 160C240 80 480 80 720 140s480-20 720-40v220H0Z" />
+      <path fill="#059669" d="M0 230c300-60 520 30 820-10 260-35 440 20 620-10v110H0Z" />
+      <path fill="#fffbeb" d="M0 290c360-30 720 10 1080-5 160-7 280-5 360 0v35H0Z" />
+    </svg>
+
+    <div class="relative mx-auto max-w-3xl px-4 text-center sm:px-6">
+      <p class="inline-flex animate-fade-up items-center gap-2 rounded-full bg-white/70 px-4 py-1.5 text-sm font-semibold text-slate-800 shadow-sm ring-1 ring-white backdrop-blur">
+        <span aria-hidden="true">🏔️</span> About us
+      </p>
+      <h1 class="mt-6 animate-fade-up font-display text-5xl font-bold leading-[1.05] tracking-tight text-white [animation-delay:150ms] [text-shadow:0_5px_0_#0c4a6e] sm:text-7xl">
+        Built on 25 years of
+        <span class="animate-gradient bg-linear-to-r from-amber-300 via-orange-500 to-pink-500 bg-size-[200%_auto] bg-clip-text text-transparent drop-shadow-[0_5px_0_#831843] [text-shadow:none]">adventure</span>
+      </h1>
+      <p class="mx-auto mt-6 max-w-xl animate-fade-up text-lg text-slate-800 [animation-delay:300ms] sm:text-xl">
+        Every great adventure starts with someone who loves it. Ours starts with our founder, Jagat Singh Bhandari.
+      </p>
+    </div>
+  </header>
+
+  <!-- ============ FOUNDER ============ -->
+  <section class="py-20 sm:py-28">
+    <div class="mx-auto grid max-w-7xl items-center gap-16 px-4 sm:px-6 lg:grid-cols-2">
+      <!-- Portrait (initials until a photo is added) -->
+      <div class="reveal relative mx-auto w-fit">
+        <div class="relative size-64 overflow-hidden rounded-full p-1.5 shadow-2xl shadow-orange-500/30 sm:size-80">
+          <div aria-hidden="true" class="absolute inset-0 animate-border-spin bg-[conic-gradient(from_0deg,#f97316,#ec4899,#8b5cf6,#06b6d4,#f97316)]"></div>
+          <div class="relative grid size-full place-items-center rounded-full bg-linear-to-br from-sky-100 via-white to-amber-100">
+            <span aria-hidden="true" class="font-display text-7xl font-bold text-slate-900 sm:text-8xl">JSB</span>
+          </div>
+        </div>
+        <div class="absolute -left-4 top-4 animate-float rounded-2xl bg-white px-4 py-3 shadow-xl ring-1 ring-slate-900/5 sm:-left-10">
+          <p class="font-display text-2xl font-bold text-orange-500">25 years</p>
+          <p class="text-xs font-medium text-slate-500">of experience</p>
+        </div>
+        <div class="absolute -right-4 bottom-4 animate-float rounded-2xl bg-white px-4 py-3 shadow-xl ring-1 ring-slate-900/5 [animation-delay:-3s] sm:-right-10">
+          <p class="font-display text-2xl font-bold text-pink-500">5 lakh+</p>
+          <p class="text-xs font-medium text-slate-500">people served</p>
+        </div>
+      </div>
+
+      <div class="reveal" style="--d:150ms">
+        <p class="font-semibold uppercase tracking-widest text-orange-500">Meet our founder</p>
+        <h2 class="mt-3 font-display text-4xl font-bold sm:text-5xl">Jagat Singh Bhandari</h2>
+        <p class="mt-2 font-semibold text-slate-500">Founder, Adventure Park</p>
+        <div class="mt-8 space-y-5 text-lg leading-relaxed text-slate-600">
+          <p>
+            Adventure Park was founded by <strong class="text-slate-900">Jagat Singh Bhandari</strong>, who has
+            <strong class="text-slate-900">25 years of experience</strong> and has served
+            <strong class="text-slate-900">more than 5 lakh people</strong>.
+          </p>
+          <p>
+            That experience is at the heart of everything here — from the adventures we offer to the welcome every guest receives at our gates.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ NUMBERS ============ -->
+  <section class="animate-gradient bg-linear-to-br from-violet-700 via-fuchsia-600 to-orange-500 bg-size-[200%_200%] py-20 text-white">
+    <div class="mx-auto grid max-w-3xl gap-12 px-4 sm:grid-cols-2 sm:px-6">
+      <div class="reveal text-center">
+        <p class="font-display text-6xl font-bold sm:text-7xl"><span data-count="25">25</span></p>
+        <p class="mt-2 text-lg text-white/85">Years of experience</p>
+      </div>
+      <div class="reveal text-center" style="--d:150ms">
+        <p class="font-display text-6xl font-bold sm:text-7xl"><span data-count="5">5</span> lakh+</p>
+        <p class="mt-2 text-lg text-white/85">People served</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VALUES ============ -->
+  <section class="py-24 sm:py-32">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <div class="reveal mx-auto max-w-2xl text-center">
+        <p class="font-semibold uppercase tracking-widest text-orange-500">What we care about</p>
+        <h2 class="mt-3 font-display text-4xl font-bold sm:text-5xl">Our promise to every guest</h2>
+      </div>
+
+      <div class="mt-16 grid gap-8 md:grid-cols-3">
+        <div class="reveal group relative transition duration-500 hover:-translate-y-2">
+          <div aria-hidden="true" class="absolute -inset-1 rounded-3xl bg-linear-to-br from-orange-400 via-pink-500 to-violet-500 opacity-0 blur-lg transition duration-500 group-hover:opacity-60"></div>
+          <article class="relative h-full rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-900/5">
+            <span class="grid size-16 place-items-center rounded-2xl bg-orange-100 text-4xl transition duration-500 group-hover:-rotate-12 group-hover:scale-110">🎢</span>
+            <h3 class="mt-6 font-display text-2xl font-semibold">Thrills for everyone</h3>
+            <p class="mt-2 text-slate-600">From first-timers to thrill-seekers, there’s an adventure here for every age.</p>
+          </article>
+        </div>
+
+        <div class="reveal group relative transition duration-500 hover:-translate-y-2" style="--d:100ms">
+          <div aria-hidden="true" class="absolute -inset-1 rounded-3xl bg-linear-to-br from-lime-400 via-emerald-500 to-teal-500 opacity-0 blur-lg transition duration-500 group-hover:opacity-60"></div>
+          <article class="relative h-full rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-900/5">
+            <span class="grid size-16 place-items-center rounded-2xl bg-emerald-100 text-4xl transition duration-500 group-hover:-rotate-12 group-hover:scale-110">🛡️</span>
+            <h3 class="mt-6 font-display text-2xl font-semibold">Safety, always</h3>
+            <p class="mt-2 text-slate-600">Fun only works when everyone feels safe, so safety comes first in everything we do.</p>
+          </article>
+        </div>
+
+        <div class="reveal group relative transition duration-500 hover:-translate-y-2" style="--d:200ms">
+          <div aria-hidden="true" class="absolute -inset-1 rounded-3xl bg-linear-to-br from-cyan-400 via-sky-500 to-blue-500 opacity-0 blur-lg transition duration-500 group-hover:opacity-60"></div>
+          <article class="relative h-full rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-900/5">
+            <span class="grid size-16 place-items-center rounded-2xl bg-sky-100 text-4xl transition duration-500 group-hover:-rotate-12 group-hover:scale-110">🏔️</span>
+            <h3 class="mt-6 font-display text-2xl font-semibold">Rooted in Rishikesh</h3>
+            <p class="mt-2 text-slate-600">We’re proud to call the Himalayan foothills home, and to share them with every guest.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="relative isolate overflow-hidden bg-white py-24 sm:py-28">
+    <div aria-hidden="true" class="absolute inset-0 -z-10">
+      <div class="absolute -left-20 top-0 size-80 animate-blob rounded-full bg-pink-300 opacity-40 mix-blend-multiply blur-3xl"></div>
+      <div class="absolute bottom-0 right-0 size-96 animate-blob rounded-full bg-sky-300 opacity-40 mix-blend-multiply blur-3xl [animation-delay:-6s]"></div>
+    </div>
+    <div class="reveal mx-auto max-w-2xl px-4 text-center sm:px-6">
+      <h2 class="font-display text-4xl font-bold sm:text-5xl">Ready to go wild?</h2>
+      <p class="mt-4 text-lg text-slate-600">Come and see what 25 years of experience feels like.</p>
+      <div class="mt-10 flex flex-wrap justify-center gap-4">
+        <a href="index.html#tickets" class="relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-orange-500 px-7 py-4 font-semibold text-white shadow-lg shadow-orange-500/40 transition hover:scale-105 hover:bg-orange-600 active:scale-95">
+          <span aria-hidden="true" class="absolute inset-y-0 left-0 w-1/4 animate-shine bg-linear-to-r from-transparent via-white/60 to-transparent"></span>
+          <span class="relative">Get your tickets</span>
+          <span class="relative" aria-hidden="true">🎟️</span>
+        </a>
+        <a href="index.html#contact" class="group inline-flex items-center gap-2 rounded-full bg-slate-900 px-7 py-4 font-semibold text-white transition hover:bg-slate-700 active:scale-95">
+          Contact us
+          <span aria-hidden="true" class="transition-transform group-hover:translate-x-1">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="bg-slate-900 text-slate-400">
+    <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-4 py-10 sm:flex-row sm:px-6">
+      <a href="index.html" class="flex items-center gap-2 font-display text-xl font-bold text-white">
+        <span class="inline-block animate-wiggle">🎢</span> Adventure Park
+      </a>
+      <p class="text-sm">© 2026 Adventure Park · Open daily 9am – 9pm</p>
+    </div>
+  </footer>
+
+  <script>
+    const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Nav gets a frosted background once you scroll
+    const nav = document.getElementById('nav');
+    const onScroll = () => nav.toggleAttribute('data-scrolled', scrollY > 20);
+    addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // Mobile menu
+    const menuBtn = document.getElementById('menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    const setMenu = (open) => {
+      menu.toggleAttribute('data-open', open);
+      menuBtn.setAttribute('aria-expanded', open);
+    };
+    menuBtn.addEventListener('click', () => setMenu(!menu.hasAttribute('data-open')));
+    menu.addEventListener('click', (e) => { if (e.target.closest('a')) setMenu(false); });
+    addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
+
+    // Count-up numbers
+    const countUp = (el) => {
+      const target = Number(el.dataset.count);
+      if (reduceMotion) { el.textContent = target; return; }
+      const start = performance.now();
+      const duration = 1600;
+      const tick = (now) => {
+        const p = Math.min((now - start) / duration, 1);
+        el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    };
+    if (!reduceMotion) document.querySelectorAll('[data-count]').forEach((el) => (el.textContent = '0'));
+
+    // Reveal sections and start counters as they scroll into view
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(({ isIntersecting, target }) => {
+        if (!isIntersecting) return;
+        if (target.dataset.count) countUp(target);
+        else target.classList.add('is-visible');
+        observer.unobserve(target);
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal, [data-count]').forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>

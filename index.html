@@ -136,15 +136,31 @@
       <a href="#" class="flex items-center gap-2 font-display text-xl font-bold">
         <span class="inline-block animate-wiggle">🎢</span> Adventure Park
       </a>
-      <div class="hidden items-center gap-8 font-medium text-slate-800 md:flex">
+      <div class="hidden items-center gap-6 font-medium text-slate-800 md:flex lg:gap-8">
         <a href="#rides" class="relative after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-orange-500 after:transition-transform after:duration-300 hover:after:scale-x-100">Rides</a>
         <a href="#stats" class="relative after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-orange-500 after:transition-transform after:duration-300 hover:after:scale-x-100">The Park</a>
         <a href="#tickets" class="relative after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-orange-500 after:transition-transform after:duration-300 hover:after:scale-x-100">Tickets</a>
+        <a href="about.html" class="relative after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-orange-500 after:transition-transform after:duration-300 hover:after:scale-x-100">About</a>
         <a href="#contact" class="relative after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-orange-500 after:transition-transform after:duration-300 hover:after:scale-x-100">Contact</a>
       </div>
-      <a href="#tickets" class="rounded-full bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white transition hover:scale-105 hover:bg-orange-500 active:scale-95">
-        Buy tickets
-      </a>
+      <div class="flex items-center gap-2">
+        <a href="#tickets" class="rounded-full bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white transition hover:scale-105 hover:bg-orange-500 active:scale-95">
+          <span class="sm:hidden">Tickets</span><span class="hidden sm:inline">Buy tickets</span>
+        </a>
+        <button id="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menu" class="group grid size-10 place-items-center rounded-full bg-white/70 ring-1 ring-slate-900/10 backdrop-blur transition active:scale-90 md:hidden">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="size-5 group-aria-expanded:hidden"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="hidden size-5 group-aria-expanded:block"><path d="M6 6l12 12M18 6 6 18" /></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="invisible absolute inset-x-4 top-full -translate-y-2 rounded-2xl bg-white p-2 opacity-0 shadow-xl ring-1 ring-slate-900/5 transition duration-200 data-open:visible data-open:translate-y-0 data-open:opacity-100 md:hidden">
+        <a href="#rides" class="block rounded-xl px-4 py-3 font-medium transition hover:bg-amber-50">Rides</a>
+        <a href="#stats" class="block rounded-xl px-4 py-3 font-medium transition hover:bg-amber-50">The Park</a>
+        <a href="#tickets" class="block rounded-xl px-4 py-3 font-medium transition hover:bg-amber-50">Tickets</a>
+        <a href="about.html" class="block rounded-xl px-4 py-3 font-medium transition hover:bg-amber-50">About</a>
+        <a href="#contact" class="block rounded-xl px-4 py-3 font-medium transition hover:bg-amber-50">Contact</a>
     </div>
   </nav>
 
@@ -586,6 +602,17 @@
     const onScroll = () => nav.toggleAttribute('data-scrolled', scrollY > 20);
     addEventListener('scroll', onScroll, { passive: true });
     onScroll();
+
+    // Mobile menu
+    const menuBtn = document.getElementById('menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    const setMenu = (open) => {
+      menu.toggleAttribute('data-open', open);
+      menuBtn.setAttribute('aria-expanded', open);
+    };
+    menuBtn.addEventListener('click', () => setMenu(!menu.hasAttribute('data-open')));
+    menu.addEventListener('click', (e) => { if (e.target.closest('a')) setMenu(false); });
+    addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
 
     // Count-up numbers
     const counters = document.querySelectorAll('[data-count]');
