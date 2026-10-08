@@ -1,498 +1,1408 @@
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="en-IN" class="scroll-smooth scroll-pt-20">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Adventure Park</title>
-  <meta name="description" content="Adventure Park — roller coasters, zip lines, water slides and family fun, open daily." />
-
-  <script>document.documentElement.classList.add('js');</script>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-
-  <!-- Tailwind CSS v4 (browser build) -->
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.3"></script>
-
-  <style type="text/tailwindcss">
-    @theme {
-      --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-      --font-display: "Fredoka", ui-rounded, ui-sans-serif, system-ui, sans-serif;
-
-      --animate-drop-in: drop-in 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) both;
-      --animate-park: pop-in 0.9s 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) both, gradient 6s ease-in-out infinite;
-      --animate-fade-up: fade-up 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both;
-      --animate-float: float 6s ease-in-out infinite;
-      --animate-drift: drift 60s linear infinite;
-      --animate-glow: glow 4s ease-in-out infinite;
-      --animate-wheel: turn 24s linear infinite;
-      --animate-wheel-reverse: turn 24s linear infinite reverse;
-      --animate-border-spin: turn 4s linear infinite;
-      --animate-twinkle: twinkle 1.6s ease-in-out infinite;
-      --animate-wiggle: wiggle 3s ease-in-out infinite;
-      --animate-shine: shine 3s ease-in-out infinite;
-      --animate-marquee: marquee 30s linear infinite;
-      --animate-gradient: gradient 10s ease-in-out infinite;
-      --animate-blob: blob 14s ease-in-out infinite;
-
-      @keyframes drop-in {
-        0%   { opacity: 0; transform: translateY(-80px) rotate(-12deg); }
-        60%  { opacity: 1; transform: translateY(10px) rotate(4deg); }
-        100% { opacity: 1; transform: none; }
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Adventure Park Rishikesh | Rafting, Bungee Jumping &amp; Camps</title>
+  <meta name="description" content="River rafting from ₹520, 109 m bungee jumping and zip line in Rishikesh, plus luxury camps &amp; cottages in Shivpuri with meals. Safety first since 2006." />
+  <link rel="canonical" href="https://adventurepark-rishikesh.netlify.app/" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="author" content="Adventure Park, Rishikesh" />
+  <meta name="geo.region" content="IN-UT" />
+  <meta name="geo.placename" content="Shivpuri, Rishikesh, Uttarakhand" />
+  <!-- Link previews (WhatsApp, Facebook, X, LinkedIn…) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Adventure Park Rishikesh" />
+  <meta property="og:locale" content="en_IN" />
+  <meta property="og:title" content="Adventure Park Rishikesh | Rafting, Bungee Jumping &amp; Camps" />
+  <meta property="og:description" content="River rafting from ₹520, 109 m bungee jumping and zip line in Rishikesh, plus luxury camps &amp; cottages in Shivpuri with meals. Safety first since 2006." />
+  <meta property="og:url" content="https://adventurepark-rishikesh.netlify.app/" />
+  <meta property="og:image" content="https://adventurepark-rishikesh.netlify.app/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Adventure Park — Where Rishikesh gets wild. River rafting, bungee jumping, zip line, camps &amp; cottages." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Adventure Park Rishikesh | Rafting, Bungee Jumping &amp; Camps" />
+  <meta name="twitter:description" content="River rafting from ₹520, 109 m bungee jumping and zip line in Rishikesh, plus luxury camps &amp; cottages in Shivpuri with meals. Safety first since 2006." />
+  <meta name="twitter:image" content="https://adventurepark-rishikesh.netlify.app/assets/og-image.png" />
+  <link rel="manifest" href="site.webmanifest" />
+  <meta name="theme-color" content="#f7fbfc" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0b151c" media="(prefers-color-scheme: dark)" />
+  <!-- Structured data (schema.org JSON-LD) for search engines and AI assistants -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": [
+        "SportsActivityLocation",
+        "TouristAttraction"
+      ],
+      "@id": "https://adventurepark-rishikesh.netlify.app/#business",
+      "name": "Adventure Park",
+      "alternateName": [
+        "Adventure Park Rishikesh",
+        "Adventure Park Shivpuri"
+      ],
+      "slogan": "Where Rishikesh gets wild",
+      "description": "Adventure activities and stays in Shivpuri, Rishikesh: river rafting on the Ganga (12–36 km), bungee jumping from 109 m, zip line, luxury camps & cottages with meals, and hotel rooms. Safety first, always.",
+      "url": "https://adventurepark-rishikesh.netlify.app/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://adventurepark-rishikesh.netlify.app/assets/logo.png",
+        "width": 454,
+        "height": 192
+      },
+      "image": [
+        "https://adventurepark-rishikesh.netlify.app/assets/og-image.png",
+        "https://adventurepark-rishikesh.netlify.app/assets/logo.png"
+      ],
+      "telephone": "+91-97623-88871",
+      "email": "adventurepark661@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Near Shiv Mandir, Badrinath Highway",
+        "addressLocality": "Shivpuri, Rishikesh",
+        "addressRegion": "Uttarakhand",
+        "addressCountry": "IN"
+      },
+      "hasMap": "https://maps.app.goo.gl/CKrMGT2h8CRNrcmi6",
+      "areaServed": {
+        "@type": "City",
+        "name": "Rishikesh",
+        "containedInPlace": {
+          "@type": "State",
+          "name": "Uttarakhand"
+        }
+      },
+      "sameAs": [
+        "https://www.instagram.com/adventure_park771/"
+      ],
+      "founder": {
+        "@id": "https://adventurepark-rishikesh.netlify.app/about.html#founder"
+      },
+      "foundingDate": "2006",
+      "priceRange": "₹520–₹4,000",
+      "currenciesAccepted": "INR",
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+91-97623-88871",
+          "contactType": "customer service",
+          "areaServed": "IN"
+        },
+        {
+          "@type": "ContactPoint",
+          "telephone": "+91-87555-42743",
+          "contactType": "reservations",
+          "areaServed": "IN",
+          "description": "Phone and WhatsApp",
+          "url": "https://wa.me/918755542743"
+        }
+      ],
+      "knowsAbout": [
+        "River rafting",
+        "White-water rafting on the Ganga",
+        "Bungee jumping",
+        "Zip line",
+        "Camping",
+        "Adventure tourism in Rishikesh"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Adventure activities and stays (prices in INR)",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "River rafting – 12 km, Marine Drive to Shivpuri",
+            "description": "About 1–1.5 hours on the Ganga with an experienced guide on every raft. Peak season (March–June): weekends and crowded days cost 15–20% more.",
+            "priceCurrency": "INR",
+            "url": "https://adventurepark-rishikesh.netlify.app/booking.html",
+            "availability": "https://schema.org/InStock",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "River rafting – 12 km, Marine Drive to Shivpuri",
+              "provider": {
+                "@id": "https://adventurepark-rishikesh.netlify.app/#business"
+              }
+            },
+            "price": "520",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "priceCurrency": "INR",
+              "unitText": "per person",
+              "price": "520"
+            }
+          },
+          {
+            "@type": "Offer",
+            "name": "River rafting – 16 km, Shivpuri to Nim Beach",
+            "description": "About 1.5–2 hours on the Ganga. Peak season (March–June): weekends and crowded days cost 15–20% more.",
+            "priceCurrency": "INR",
+            "url": "https://adventurepark-rishikesh.netlify.app/booking.html",
+            "availability": "https://schema.org/InStock",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "River rafting – 16 km, Shivpuri to Nim Beach",
+              "provider": {
+                "@id": "https://adventurepark-rishikesh.netlify.app/#business"
+              }
+            },
+            "price": "720",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "priceCurrency": "INR",
+              "unitText": "per person",
+              "price": "720"
+            }
+          },
+          {
+            "@type": "Offer",
+            "name": "River rafting – 26 km, Marine Drive to Nim Beach",
+            "description": "About 2–2.5 hours on the Ganga. Peak season (March–June): weekends and crowded days cost 15–20% more.",
+            "priceCurrency": "INR",
+            "url": "https://adventurepark-rishikesh.netlify.app/booking.html",
+            "availability": "https://schema.org/InStock",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "River rafting – 26 km, Marine Drive to Nim Beach",
+              "provider": {
+                "@id": "https://adventurepark-rishikesh.netlify.app/#business"
+              }
+            },
+            "price": "1200",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "priceCurrency": "INR",
+              "unitText": "per person",
+              "price": "1200"
+            }
+          },
+          {
+            "@type": "Offer",
+            "name": "River rafting – 36 km, Kaudiyala to Nim Beach",
+            "description": "About 2.5–3 hours on the Ganga. Peak season (March–June): weekends and crowded days cost 15–20% more.",
+            "priceCurrency": "INR",
+            "url": "https://adventurepark-rishikesh.netlify.app/booking.html",
+            "availability": "https://schema.org/InStock",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "River rafting – 36 km, Kaudiyala to Nim Beach",
+              "provider": {
+                "@id": "https://adventurepark-rishikesh.netlify.app/#business"
+              }
+            },
+            "price": "2400",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "priceCurrency": "INR",
+              "unitText": "per person",
+              "price": "2400"
+            }
+          },
+          {
+            "@type": "Offer",
+            "name": "Bungee jumping – 109 m (360 ft)",
+            "description": "Includes a DSLR video of the jump and a jump certificate. Full safety briefing first.",
+            "priceCurrency": "INR",
+            "url": "https://adventurepark-rishikesh.netlify.app/booking.html",
+            "availability": "https://schema.org/InStock",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Bungee jumping – 109 m (360 ft)",
+              "provider": {
+                "@id": "https://adventurepark-rishikesh.netlify.app/#business"
+              }
+            },
+            "price": "4000",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "priceCurrency": "INR",
+              "unitText": "per person",
+              "price": "4000"
+            }
+          },
+          {
+            "@type": "Offer",
+            "name": "Zip line – students",
+            "description": "Zip line across the valley, clipped in and checked by the team.",
+            "priceCurrency": "INR",
+            "url": "https://adventurepark-rishikesh.netlify.app/booking.html",
+            "availability": "https://schema.org/InStock",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Zip line – students",
+              "provider": {
+                "@id": "https://adventurepark-rishikesh.netlify.app/#business"
+              }
+            },
+            "price": "1800",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "priceCurrency": "INR",
+              "unitText": "per person",
+              "price": "1800"
+            }
+          },
+          {
+            "@type": "Offer",
+            "name": "Zip line – adults",
+            "description": "Zip line across the valley, clipped in and checked by the team.",
+            "priceCurrency": "INR",
+            "url": "https://adventurepark-rishikesh.netlify.app/booking.html",
+            "availability": "https://schema.org/InStock",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Zip line – adults",
+              "provider": {
+                "@id": "https://adventurepark-rishikesh.netlify.app/#business"
+              }
+            },
+            "price": "2000",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "priceCurrency": "INR",
+              "unitText": "per person",
+              "price": "2000"
+            }
+          },
+          {
+            "@type": "Offer",
+            "name": "Luxury camps & cottages – quad or triple sharing",
+            "description": "Includes three meals a day, swimming pool and DJ party until 10 pm. Children aged 6–11 pay 50% of the adult price.",
+            "priceCurrency": "INR",
+            "url": "https://adventurepark-rishikesh.netlify.app/booking.html",
+            "availability": "https://schema.org/InStock",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Luxury camps & cottages – quad or triple sharing",
+              "provider": {
+                "@id": "https://adventurepark-rishikesh.netlify.app/#business"
+              }
+            },
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "priceCurrency": "INR",
+              "unitText": "per person per night",
+              "minPrice": "1500",
+              "maxPrice": "1800"
+            }
+          },
+          {
+            "@type": "Offer",
+            "name": "Luxury camps & cottages – double sharing",
+            "description": "Includes three meals a day, swimming pool and DJ party until 10 pm. Children aged 6–11 pay 50% of the adult price.",
+            "priceCurrency": "INR",
+            "url": "https://adventurepark-rishikesh.netlify.app/booking.html",
+            "availability": "https://schema.org/InStock",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Luxury camps & cottages – double sharing",
+              "provider": {
+                "@id": "https://adventurepark-rishikesh.netlify.app/#business"
+              }
+            },
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "priceCurrency": "INR",
+              "unitText": "per person per night",
+              "minPrice": "1800",
+              "maxPrice": "2200"
+            }
+          },
+          {
+            "@type": "Offer",
+            "name": "Hotel room – non-AC",
+            "description": "Room only. Busy days: ₹1,600–₹1,800 per room per night.",
+            "priceCurrency": "INR",
+            "url": "https://adventurepark-rishikesh.netlify.app/booking.html",
+            "availability": "https://schema.org/InStock",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Hotel room – non-AC",
+              "provider": {
+                "@id": "https://adventurepark-rishikesh.netlify.app/#business"
+              }
+            },
+            "price": "1200",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "priceCurrency": "INR",
+              "unitText": "per room per night",
+              "price": "1200"
+            }
+          },
+          {
+            "@type": "Offer",
+            "name": "Hotel room – AC",
+            "description": "Room only. Busy days: ₹2,000–₹2,200 per room per night.",
+            "priceCurrency": "INR",
+            "url": "https://adventurepark-rishikesh.netlify.app/booking.html",
+            "availability": "https://schema.org/InStock",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Hotel room – AC",
+              "provider": {
+                "@id": "https://adventurepark-rishikesh.netlify.app/#business"
+              }
+            },
+            "price": "1600",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "priceCurrency": "INR",
+              "unitText": "per room per night",
+              "price": "1600"
+            }
+          }
+        ]
+      },
+      "subOrganization": {
+        "@id": "https://adventurepark-rishikesh.netlify.app/#camps"
       }
-      @keyframes pop-in {
-        0%   { opacity: 0; transform: scale(0.4) rotate(-6deg); }
-        100% { opacity: 1; transform: none; }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://adventurepark-rishikesh.netlify.app/#website",
+      "url": "https://adventurepark-rishikesh.netlify.app/",
+      "name": "Adventure Park Rishikesh",
+      "alternateName": "Adventure Park",
+      "inLanguage": "en-IN",
+      "publisher": {
+        "@id": "https://adventurepark-rishikesh.netlify.app/#business"
       }
-      @keyframes fade-up {
-        from { opacity: 0; transform: translateY(2rem); }
-        to   { opacity: 1; transform: none; }
-      }
-      @keyframes float {
-        0%, 100% { transform: translateY(0) rotate(-2deg); }
-        50%      { transform: translateY(-24px) rotate(2deg); }
-      }
-      @keyframes drift {
-        from { transform: translateX(-20vw); }
-        to   { transform: translateX(110vw); }
-      }
-      @keyframes glow {
-        0%, 100% { transform: scale(1);    box-shadow: 0 0 60px 20px rgb(252 211 77 / 0.55); }
-        50%      { transform: scale(1.06); box-shadow: 0 0 110px 45px rgb(252 211 77 / 0.7); }
-      }
-      @keyframes turn {
-        to { transform: rotate(360deg); }
-      }
-      @keyframes twinkle {
-        0%, 100% { opacity: 1; }
-        50%      { opacity: 0.2; }
-      }
-      @keyframes wiggle {
-        0%, 70%, 100% { transform: rotate(0); }
-        75% { transform: rotate(-14deg); }
-        85% { transform: rotate(10deg); }
-        95% { transform: rotate(-4deg); }
-      }
-      @keyframes shine {
-        0%        { transform: translateX(-150%) skewX(-20deg); }
-        60%, 100% { transform: translateX(450%) skewX(-20deg); }
-      }
-      @keyframes marquee {
-        to { transform: translateX(-50%); }
-      }
-      @keyframes gradient {
-        0%, 100% { background-position: 0% 50%; }
-        50%      { background-position: 100% 50%; }
-      }
-      @keyframes blob {
-        0%, 100% { transform: translate(0, 0) scale(1); }
-        33%      { transform: translate(40px, -60px) scale(1.15); }
-        66%      { transform: translate(-30px, 30px) scale(0.9); }
-      }
+    },
+    {
+      "@id": "https://adventurepark-rishikesh.netlify.app/#webpage",
+      "url": "https://adventurepark-rishikesh.netlify.app/",
+      "name": "Adventure Park Rishikesh | Rafting, Bungee Jumping & Camps",
+      "description": "River rafting from ₹520, 109 m bungee jumping and zip line in Rishikesh, plus luxury camps & cottages in Shivpuri with meals. Safety first since 2006.",
+      "inLanguage": "en-IN",
+      "isPartOf": {
+        "@id": "https://adventurepark-rishikesh.netlify.app/#website"
+      },
+      "about": {
+        "@id": "https://adventurepark-rishikesh.netlify.app/#business"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://adventurepark-rishikesh.netlify.app/assets/og-image.png",
+        "width": 1200,
+        "height": 630
+      },
+      "dateModified": "2026-10-08",
+      "@type": [
+        "WebPage",
+        "FAQPage"
+      ],
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Do I need any experience?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not at all. Many of our activities are beginner friendly, and our team will recommend the right ones for you when you book."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you keep guests safe?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Every activity starts with a safety briefing, uses equipment that's inspected before each use and is led by experienced guides. If the weather or river conditions aren't safe, we reschedule."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are there age or health requirements?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Some activities have age, weight or health requirements. Share your details when you book and we'll tell you what's suitable for everyone in your group."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do prices change in peak season?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. From March to June, rafting costs 15–20% more on weekends and crowded days, and camping and hotel prices rise with demand. We confirm the exact price when you book."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are there lower prices for children or students?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Children aged 6–11 pay half the adult price for camping, and students pay ₹1,800 instead of ₹2,000 for the zip line."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What should I bring?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Comfortable clothes, sturdy shoes, sunscreen and a change of clothes for water activities. We'll share a full list for your activities when you book."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "When is the best time to visit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It depends on the activity, as river activities are seasonal. Ask us when you book and we'll suggest the best dates for your trip."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Campground",
+      "@id": "https://adventurepark-rishikesh.netlify.app/#camps",
+      "name": "Adventure Park luxury camps & cottages",
+      "description": "Luxury camps and cottages 200 m up from the river and 100 m up from the national highway in Shivpuri, Rishikesh. Non-AC camps have an air cooler; AC cottages have air conditioning. Three meals a day, swimming pool and DJ party until 10 pm included.",
+      "url": "https://adventurepark-rishikesh.netlify.app/#stay",
+      "parentOrganization": {
+        "@id": "https://adventurepark-rishikesh.netlify.app/#business"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Near Shiv Mandir, Badrinath Highway",
+        "addressLocality": "Shivpuri, Rishikesh",
+        "addressRegion": "Uttarakhand",
+        "addressCountry": "IN"
+      },
+      "hasMap": "https://maps.app.goo.gl/CKrMGT2h8CRNrcmi6",
+      "telephone": "+91-87555-42743",
+      "priceRange": "₹1,500–₹2,200 per person per night",
+      "amenityFeature": [
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Three meals a day",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Swimming pool",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "DJ party until 10 pm",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Attached washroom",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Fan",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Charging points",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Air cooler (non-AC camps)",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Air conditioning (AC cottages)",
+          "value": true
+        }
+      ]
+    },
+    {
+      "@type": "Menu",
+      "@id": "https://adventurepark-rishikesh.netlify.app/#menu",
+      "name": "Adventure Park camp menu",
+      "inLanguage": "en-IN",
+      "description": "Three meals a day plus evening snacks, included with every camp and cottage stay.",
+      "url": "https://adventurepark-rishikesh.netlify.app/#food",
+      "hasMenuSection": [
+        {
+          "@type": "MenuSection",
+          "name": "Breakfast",
+          "description": "Served 8:30 – 10:00 AM",
+          "hasMenuItem": [
+            {
+              "@type": "MenuItem",
+              "name": "Hot drinks",
+              "description": "Masala tea, coffee, milk"
+            },
+            {
+              "@type": "MenuItem",
+              "name": "Main dishes",
+              "description": "Aloo or gobhi parathas with butter, dahi and pickle, or puri bhaji"
+            },
+            {
+              "@type": "MenuItem",
+              "name": "Continental & light",
+              "description": "Eggs to order (omelette, boiled or scrambled), bread toast with butter and jam, poha or veg upma"
+            }
+          ]
+        },
+        {
+          "@type": "MenuSection",
+          "name": "Buffet lunch",
+          "description": "Served 1:30 – 3:00 PM · 100% pure vegetarian",
+          "hasMenuItem": [
+            {
+              "@type": "MenuItem",
+              "name": "Main veg curry",
+              "description": "Matar paneer / Shahi paneer / Kadhai paneer",
+              "suitableForDiet": "https://schema.org/VegetarianDiet"
+            },
+            {
+              "@type": "MenuItem",
+              "name": "Dry veg",
+              "description": "Mix veg / Jeera aloo / Bhindi fry",
+              "suitableForDiet": "https://schema.org/VegetarianDiet"
+            },
+            {
+              "@type": "MenuItem",
+              "name": "Dal",
+              "description": "Dal tadka / Yellow dal fry",
+              "suitableForDiet": "https://schema.org/VegetarianDiet"
+            },
+            {
+              "@type": "MenuItem",
+              "name": "Rice & breads",
+              "description": "Steamed basmati rice / Jeera rice, tawa roti / chapati",
+              "suitableForDiet": "https://schema.org/VegetarianDiet"
+            },
+            {
+              "@type": "MenuItem",
+              "name": "Sides",
+              "description": "Green salad, boondi raita, papad, mixed pickle",
+              "suitableForDiet": "https://schema.org/VegetarianDiet"
+            }
+          ]
+        },
+        {
+          "@type": "MenuSection",
+          "name": "Evening snacks",
+          "description": "Served 6:00 – 7:30 PM",
+          "hasMenuItem": [
+            {
+              "@type": "MenuItem",
+              "name": "Snacks",
+              "description": "Hot veg pakoras (paneer, aloo or mix veg) or French fries"
+            },
+            {
+              "@type": "MenuItem",
+              "name": "Drinks",
+              "description": "Masala tea and coffee"
+            },
+            {
+              "@type": "MenuItem",
+              "name": "Optional add-on",
+              "description": "Live BBQ: chicken tikka and paneer tikka, for groups who request it in advance"
+            }
+          ]
+        },
+        {
+          "@type": "MenuSection",
+          "name": "Buffet dinner",
+          "description": "Served 8:30 – 10:30 PM",
+          "hasMenuItem": [
+            {
+              "@type": "MenuItem",
+              "name": "Non-veg main",
+              "description": "Chicken curry / Kadhai chicken / Butter chicken"
+            },
+            {
+              "@type": "MenuItem",
+              "name": "Veg main",
+              "description": "Kadhai paneer / Palak paneer / Dum aloo",
+              "suitableForDiet": "https://schema.org/VegetarianDiet"
+            },
+            {
+              "@type": "MenuItem",
+              "name": "Dal",
+              "description": "Dal makhani / Panchmel dal"
+            },
+            {
+              "@type": "MenuItem",
+              "name": "Rice & breads",
+              "description": "Peas pulao / Veg biryani, fresh tawa roti"
+            },
+            {
+              "@type": "MenuItem",
+              "name": "Sides & dessert",
+              "description": "Green salad, papad, pickle; gulab jamun / kheer / sewaiyan"
+            }
+          ]
+        }
+      ]
     }
+  ]
+}
+  </script>
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="icon" href="assets/icon-192.png" type="image/png" sizes="192x192" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
 
-    /* Scroll-reveal: hidden only when JS is available to reveal it */
-    .js .reveal:not(.is-visible) { opacity: 0; }
-    .reveal.is-visible {
-      animation: var(--animate-fade-up);
-      animation-delay: var(--d, 0ms);
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation: none !important;
-        transition: none !important;
-        scroll-behavior: auto !important;
-      }
-    }
-  </style>
+  <!-- Main font, fetched early so text appears in it straight away -->
+  <link rel="preload" href="assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <!-- Theme colours (tweakcn format) -->
+  <link rel="stylesheet" href="assets/theme.css" />
+  <!-- Styles and fonts: Tailwind CSS v4, built from assets/tailwind.css -->
+  <link rel="stylesheet" href="assets/styles.css" />
+  <!-- Light/dark mode, set before the page paints -->
+  <script src="assets/head.js"></script>
 </head>
+<body class="min-h-screen overflow-x-clip antialiased">
 
-<body class="bg-amber-50 font-sans text-slate-900 antialiased">
+  <a href="#main" class="sr-only z-[60] rounded-md bg-primary px-4 py-2 font-semibold text-primary-foreground focus:not-sr-only focus:fixed focus:left-4 focus:top-4">Skip to content</a>
 
-  <!-- ============ NAV ============ -->
-  <nav id="nav" class="fixed inset-x-0 top-0 z-50 transition duration-300 data-scrolled:bg-white/80 data-scrolled:shadow-lg data-scrolled:shadow-slate-900/5 data-scrolled:backdrop-blur-lg">
-    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6">
-      <a href="#" class="flex items-center gap-2 font-display text-xl font-bold">
-        <span class="inline-block animate-wiggle">🎢</span> Adventure Park
+  <!-- ============ HEADER ============ -->
+  <header data-header class="sticky top-[env(safe-area-inset-top,0px)] z-50 w-full border-b border-transparent backdrop-blur-lg transition duration-300 data-scrolled:border-border/60 data-scrolled:bg-background/80 data-scrolled:shadow-sm data-menu:border-border/60 data-menu:bg-background data-menu:shadow-none">
+    <div class="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 md:px-6">
+      <a href="index.html" class="group flex shrink-0 items-center rounded-lg transition dark:bg-foreground dark:px-2 dark:py-1">
+        <img src="assets/logo.png" alt="Adventure Park" width="454" height="192" class="h-11 w-auto transition duration-300 group-hover:scale-[1.03] sm:h-12" />
       </a>
-      <div class="hidden items-center gap-8 font-medium text-slate-800 md:flex">
-        <a href="#rides" class="relative after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-orange-500 after:transition-transform after:duration-300 hover:after:scale-x-100">Rides</a>
-        <a href="#stats" class="relative after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-orange-500 after:transition-transform after:duration-300 hover:after:scale-x-100">The Park</a>
-        <a href="#tickets" class="relative after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-orange-500 after:transition-transform after:duration-300 hover:after:scale-x-100">Tickets</a>
-      </div>
-      <a href="#tickets" class="rounded-full bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white transition hover:scale-105 hover:bg-orange-500 active:scale-95">
-        Buy tickets
-      </a>
-    </div>
-  </nav>
 
-  <!-- ============ HERO ============ -->
-  <header class="relative isolate flex min-h-svh items-center overflow-hidden bg-linear-to-b from-sky-400 via-sky-300 to-amber-100">
+      <nav aria-label="Main" class="hidden items-center gap-1 lg:flex">
+        <a href="index.html" aria-current="page" class="relative rounded-md px-3 py-2 text-sm font-medium transition-colors after:absolute after:inset-x-3 after:bottom-1 after:h-0.5 after:origin-left after:rounded-full after:bg-primary after:transition-transform after:duration-300 text-foreground after:scale-x-100">Home</a>
+        <a href="index.html#activities" class="relative rounded-md px-3 py-2 text-sm font-medium transition-colors after:absolute after:inset-x-3 after:bottom-1 after:h-0.5 after:origin-left after:rounded-full after:bg-primary after:transition-transform after:duration-300 text-muted-foreground hover:text-foreground after:scale-x-0 hover:after:scale-x-100">Activities</a>
+        <a href="index.html#stay" class="relative rounded-md px-3 py-2 text-sm font-medium transition-colors after:absolute after:inset-x-3 after:bottom-1 after:h-0.5 after:origin-left after:rounded-full after:bg-primary after:transition-transform after:duration-300 text-muted-foreground hover:text-foreground after:scale-x-0 hover:after:scale-x-100">Stay</a>
+        <a href="about.html" class="relative rounded-md px-3 py-2 text-sm font-medium transition-colors after:absolute after:inset-x-3 after:bottom-1 after:h-0.5 after:origin-left after:rounded-full after:bg-primary after:transition-transform after:duration-300 text-muted-foreground hover:text-foreground after:scale-x-0 hover:after:scale-x-100">About</a>
+        <a href="booking.html" class="relative rounded-md px-3 py-2 text-sm font-medium transition-colors after:absolute after:inset-x-3 after:bottom-1 after:h-0.5 after:origin-left after:rounded-full after:bg-primary after:transition-transform after:duration-300 text-muted-foreground hover:text-foreground after:scale-x-0 hover:after:scale-x-100">Booking</a>
+        <a href="contact.html" class="relative rounded-md px-3 py-2 text-sm font-medium transition-colors after:absolute after:inset-x-3 after:bottom-1 after:h-0.5 after:origin-left after:rounded-full after:bg-primary after:transition-transform after:duration-300 text-muted-foreground hover:text-foreground after:scale-x-0 hover:after:scale-x-100">Contact</a>
+      </nav>
 
-    <!-- Sun -->
-    <div aria-hidden="true" class="absolute right-6 top-24 size-16 animate-glow rounded-full bg-amber-300 sm:right-[14%] sm:top-28 sm:size-28"></div>
-
-    <!-- Drifting clouds -->
-    <div aria-hidden="true">
-      <div class="absolute left-0 top-28 animate-drift opacity-90 [animation-delay:-12s]">
-        <div class="relative h-10 w-36 rounded-full bg-white before:absolute before:-top-6 before:left-5 before:size-14 before:rounded-full before:bg-white after:absolute after:-top-9 after:left-14 after:size-18 after:rounded-full after:bg-white"></div>
-      </div>
-      <div class="absolute left-0 top-56 animate-drift opacity-80 [animation-delay:-38s] [animation-duration:80s]">
-        <div class="relative h-8 w-28 scale-75 rounded-full bg-white before:absolute before:-top-5 before:left-4 before:size-12 before:rounded-full before:bg-white after:absolute after:-top-8 after:left-12 after:size-16 after:rounded-full after:bg-white"></div>
-      </div>
-      <div class="absolute left-0 top-40 animate-drift opacity-70 [animation-delay:-55s] [animation-duration:95s]">
-        <div class="relative h-10 w-40 rounded-full bg-white before:absolute before:-top-6 before:left-6 before:size-16 before:rounded-full before:bg-white after:absolute after:-top-10 after:left-18 after:size-20 after:rounded-full after:bg-white"></div>
+      <div class="flex items-center gap-2">
+        <button type="button" data-theme-toggle aria-label="Switch between light and dark mode" class="relative grid size-9 place-items-center rounded-full border bg-background/60 transition hover:scale-105 hover:bg-accent">
+          <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute size-4 rotate-90 scale-0 transition duration-300 dark:rotate-0 dark:scale-100"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+          <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute size-4 rotate-0 scale-100 transition duration-300 dark:-rotate-90 dark:scale-0"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+        </button>
+        <a href="booking.html" class="group hidden h-9 items-center gap-1 rounded-full bg-primary pl-4 pr-3 text-sm font-semibold text-primary-foreground shadow-sm transition hover:scale-[1.03] hover:shadow-md sm:inline-flex">
+          Book now
+          <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4 transition-transform group-hover:translate-x-0.5"><path d="m9 18 6-6-6-6"/></svg>
+        </a>
+        <button id="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menu" class="group grid size-9 place-items-center rounded-full border bg-background/60 transition active:scale-90 lg:hidden">
+          <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4 group-aria-expanded:hidden"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg>
+          <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden size-4 group-aria-expanded:block"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
       </div>
     </div>
 
-    <!-- Hot-air balloons -->
-    <svg aria-hidden="true" viewBox="0 0 60 90" class="absolute left-[55%] top-32 hidden w-16 animate-float text-rose-500 sm:block">
-      <path fill="currentColor" d="M30 2C12 2 2 16 2 30c0 16 16 26 22 34h12c6-8 22-18 22-34C58 16 48 2 30 2Z" />
-      <path fill="#fff" d="M30 2c-8 0-12 14-12 28 0 16 8 26 10 34h4c2-8 10-18 10-34C42 16 38 2 30 2Z" />
-      <path stroke="#78350f" stroke-width="1.5" d="M25 64v10M35 64v10" />
-      <rect x="23" y="74" width="14" height="10" rx="2" fill="#92400e" />
-    </svg>
-    <svg aria-hidden="true" viewBox="0 0 60 90" class="absolute right-[36%] top-[48%] hidden w-10 animate-float text-violet-500 [animation-delay:-3s] [animation-duration:8s] xl:block">
-      <path fill="currentColor" d="M30 2C12 2 2 16 2 30c0 16 16 26 22 34h12c6-8 22-18 22-34C58 16 48 2 30 2Z" />
-      <path fill="#facc15" d="M30 2c-8 0-12 14-12 28 0 16 8 26 10 34h4c2-8 10-18 10-34C42 16 38 2 30 2Z" />
-      <path stroke="#78350f" stroke-width="1.5" d="M25 64v10M35 64v10" />
-      <rect x="23" y="74" width="14" height="10" rx="2" fill="#92400e" />
-    </svg>
-
-    <!-- Back hill -->
-    <svg aria-hidden="true" viewBox="0 0 1440 320" preserveAspectRatio="none" class="absolute inset-x-0 bottom-0 h-40 w-full sm:h-56">
-      <path fill="#34d399" d="M0 160C240 80 480 80 720 140s480-20 720-40v220H0Z" />
-    </svg>
-
-    <!-- Ferris wheel (spins; cabins counter-rotate to stay upright) -->
-    <svg aria-hidden="true" viewBox="0 0 240 260" class="absolute bottom-20 right-[3%] hidden w-72 lg:block xl:right-[6%] xl:w-[26rem]">
-      <path stroke="#334155" stroke-width="7" stroke-linecap="round" d="M120 120 60 250M120 120l60 130M40 250h160" />
-      <g class="origin-[120px_120px] animate-wheel [transform-box:view-box]">
-        <circle cx="120" cy="120" r="100" fill="none" stroke="#ec4899" stroke-width="5" />
-        <circle cx="120" cy="120" r="88" fill="none" stroke="#fff" stroke-width="2" stroke-dasharray="3 9" />
-        <path stroke="#f472b6" stroke-width="3" d="M120 120h100M120 120l70.7 70.7M120 120v100M120 120l-70.7 70.7M120 120H20M120 120 49.3 49.3M120 120V20M120 120l70.7-70.7" />
-        <g fill="#fde047">
-          <circle class="animate-twinkle" cx="212.4" cy="158.3" r="3.5" />
-          <circle class="animate-twinkle [animation-delay:-0.4s]" cx="158.3" cy="212.4" r="3.5" />
-          <circle class="animate-twinkle [animation-delay:-0.8s]" cx="81.7" cy="212.4" r="3.5" />
-          <circle class="animate-twinkle [animation-delay:-1.2s]" cx="27.6" cy="158.3" r="3.5" />
-          <circle class="animate-twinkle" cx="27.6" cy="81.7" r="3.5" />
-          <circle class="animate-twinkle [animation-delay:-0.4s]" cx="81.7" cy="27.6" r="3.5" />
-          <circle class="animate-twinkle [animation-delay:-0.8s]" cx="158.3" cy="27.6" r="3.5" />
-          <circle class="animate-twinkle [animation-delay:-1.2s]" cx="212.4" cy="81.7" r="3.5" />
-        </g>
-        <g class="*:origin-top *:animate-wheel-reverse *:[transform-box:fill-box]" stroke="#334155" stroke-width="2">
-          <g><path d="M220 120v8" /><rect x="209" y="128" width="22" height="18" rx="5" fill="#f97316" /></g>
-          <g><path d="M190.7 190.7v8" /><rect x="179.7" y="198.7" width="22" height="18" rx="5" fill="#8b5cf6" /></g>
-          <g><path d="M120 220v8" /><rect x="109" y="228" width="22" height="18" rx="5" fill="#22d3ee" /></g>
-          <g><path d="M49.3 190.7v8" /><rect x="38.3" y="198.7" width="22" height="18" rx="5" fill="#facc15" /></g>
-          <g><path d="M20 120v8" /><rect x="9" y="128" width="22" height="18" rx="5" fill="#f97316" /></g>
-          <g><path d="M49.3 49.3v8" /><rect x="38.3" y="57.3" width="22" height="18" rx="5" fill="#8b5cf6" /></g>
-          <g><path d="M120 20v8" /><rect x="109" y="28" width="22" height="18" rx="5" fill="#22d3ee" /></g>
-          <g><path d="M190.7 49.3v8" /><rect x="179.7" y="57.3" width="22" height="18" rx="5" fill="#facc15" /></g>
-        </g>
-      </g>
-      <circle cx="120" cy="120" r="10" fill="#334155" />
-      <circle cx="120" cy="120" r="4" fill="#fde047" />
-    </svg>
-
-    <!-- Front hill -->
-    <svg aria-hidden="true" viewBox="0 0 1440 320" preserveAspectRatio="none" class="absolute inset-x-0 bottom-0 h-40 w-full sm:h-56">
-      <path fill="#059669" d="M0 230c300-60 520 30 820-10 260-35 440 20 620-10v110H0Z" />
-    </svg>
-
-    <!-- Hero content -->
-    <div class="relative mx-auto w-full max-w-7xl px-4 pb-48 pt-32 sm:px-6 sm:pb-56">
-      <div class="max-w-2xl">
-        <p class="inline-flex animate-fade-up items-center gap-2 rounded-full bg-white/70 px-4 py-1.5 text-sm font-semibold text-slate-800 shadow-sm ring-1 ring-white backdrop-blur">
-          <span class="relative flex size-2.5">
-            <span class="absolute inline-flex size-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
-            <span class="relative inline-flex size-2.5 rounded-full bg-emerald-500"></span>
-          </span>
-          Now open for the 2026 season
-        </p>
-
-        <h1 aria-label="Adventure Park" class="mt-6 font-display text-6xl font-bold leading-[0.95] tracking-tight sm:text-7xl lg:text-8xl">
-          <span aria-hidden="true" class="block text-white [text-shadow:0_6px_0_#0c4a6e] *:inline-block *:animate-drop-in *:[animation-delay:calc(var(--i)*70ms)]">
-            <span style="--i:0">A</span><span style="--i:1">d</span><span style="--i:2">v</span><span style="--i:3">e</span><span style="--i:4">n</span><span style="--i:5">t</span><span style="--i:6">u</span><span style="--i:7">r</span><span style="--i:8">e</span>
-          </span>
-          <span aria-hidden="true" class="inline-block animate-park bg-linear-to-r from-amber-300 via-orange-500 to-pink-500 bg-size-[200%_auto] bg-clip-text pb-2 text-transparent drop-shadow-[0_6px_0_#831843]">Park</span>
-        </h1>
-
-        <p class="mt-6 max-w-xl animate-fade-up text-lg text-slate-800 [animation-delay:900ms] sm:text-xl">
-          Coasters that touch the clouds, zip lines over the treetops and splash zones for the whole family — a full day of thrills, just 30 minutes from the city.
-        </p>
-
-        <div class="mt-10 flex animate-fade-up flex-wrap items-center gap-4 [animation-delay:1050ms]">
-          <a href="#tickets" class="relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-orange-500 px-7 py-4 font-semibold text-white shadow-lg shadow-orange-500/40 transition hover:scale-105 hover:bg-orange-600 active:scale-95">
-            <span aria-hidden="true" class="absolute inset-y-0 left-0 w-1/4 animate-shine bg-linear-to-r from-transparent via-white/60 to-transparent"></span>
-            <span class="relative">Get your tickets</span>
-            <span class="relative" aria-hidden="true">🎟️</span>
-          </a>
-          <a href="#rides" class="group inline-flex items-center gap-2 rounded-full bg-white/70 px-7 py-4 font-semibold text-slate-900 ring-1 ring-white backdrop-blur transition hover:bg-white">
-            Explore rides
-            <span aria-hidden="true" class="transition-transform group-hover:translate-x-1">→</span>
-          </a>
-        </div>
-
-        <ul class="mt-10 flex animate-fade-up flex-wrap gap-x-6 gap-y-2 text-sm font-medium text-slate-700 [animation-delay:1200ms]">
-          <li>⏰ Open daily 9am – 9pm</li>
-          <li>⭐ 4.9 from 12k reviews</li>
-          <li>🚗 Free parking</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Scroll cue -->
-    <a href="#rides" aria-label="Scroll to rides" class="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce">
-      <span class="flex h-10 w-6 justify-center rounded-full border-2 border-white/90 pt-2">
-        <span class="h-2 w-1 rounded-full bg-white"></span>
-      </span>
-    </a>
   </header>
 
-  <!-- ============ MARQUEE ============ -->
-  <div class="overflow-hidden bg-slate-900 py-5 text-amber-300 [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
-    <div class="flex w-max animate-marquee hover:[animation-play-state:paused]">
-      <ul class="flex shrink-0 items-center gap-10 pr-10 font-display text-2xl font-semibold *:whitespace-nowrap">
-        <li>🎢 Roller Coasters</li><li class="text-pink-400">✦</li>
-        <li>🌊 Water Slides</li><li class="text-pink-400">✦</li>
-        <li>🌲 Zip Lines</li><li class="text-pink-400">✦</li>
-        <li>🎡 Sky Wheel</li><li class="text-pink-400">✦</li>
-        <li>🧗 Climbing Walls</li><li class="text-pink-400">✦</li>
-        <li>🍦 Treats &amp; Eats</li><li class="text-pink-400">✦</li>
-        <li>🎆 Night Fireworks</li><li class="text-pink-400">✦</li>
+  <!-- Mobile menu: full screen below the header (kept outside the header, whose blur would confine it) -->
+  <div id="mobile-menu" class="group invisible fixed inset-x-0 bottom-0 top-[calc(4rem+env(safe-area-inset-top,0px))] z-40 overflow-y-auto overscroll-contain bg-background opacity-0 transition-[opacity,visibility] duration-300 data-open:visible data-open:opacity-100 lg:hidden">
+    <div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10 bg-grid [mask-image:radial-gradient(ellipse_90%_55%_at_50%_0%,#000_35%,transparent_100%)]"></div>
+    <div aria-hidden="true" class="pointer-events-none absolute -top-24 left-1/2 -z-10 h-72 w-[36rem] max-w-[160vw] -translate-x-1/2 rounded-full bg-primary/15 blur-3xl"></div>
+    <nav aria-label="Mobile" class="mx-auto flex min-h-full max-w-6xl flex-col px-4 pb-[calc(2rem+env(safe-area-inset-bottom,0px))] pt-4 md:px-6">
+      <ul>
+          <li><a href="index.html" aria-current="page" class="[--i:0] group/link flex -translate-x-6 items-center justify-between gap-4 border-b py-4 text-3xl font-bold tracking-tight opacity-0 transition duration-500 [transition-delay:calc(var(--i)*60ms+60ms)] group-data-open:translate-x-0 group-data-open:opacity-100 text-primary-ink"><span class="flex items-center gap-3">Home<span class="size-2 rounded-full bg-primary" aria-hidden="true"></span></span><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-6 shrink-0 text-muted-foreground transition-transform duration-300 group-hover/link:translate-x-1 group-hover/link:text-primary-ink"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></li>
+          <li><a href="index.html#activities" class="[--i:1] group/link flex -translate-x-6 items-center justify-between gap-4 border-b py-4 text-3xl font-bold tracking-tight opacity-0 transition duration-500 [transition-delay:calc(var(--i)*60ms+60ms)] group-data-open:translate-x-0 group-data-open:opacity-100 hover:text-primary-ink"><span class="flex items-center gap-3">Activities</span><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-6 shrink-0 text-muted-foreground transition-transform duration-300 group-hover/link:translate-x-1 group-hover/link:text-primary-ink"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></li>
+          <li><a href="index.html#stay" class="[--i:2] group/link flex -translate-x-6 items-center justify-between gap-4 border-b py-4 text-3xl font-bold tracking-tight opacity-0 transition duration-500 [transition-delay:calc(var(--i)*60ms+60ms)] group-data-open:translate-x-0 group-data-open:opacity-100 hover:text-primary-ink"><span class="flex items-center gap-3">Stay</span><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-6 shrink-0 text-muted-foreground transition-transform duration-300 group-hover/link:translate-x-1 group-hover/link:text-primary-ink"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></li>
+          <li><a href="about.html" class="[--i:3] group/link flex -translate-x-6 items-center justify-between gap-4 border-b py-4 text-3xl font-bold tracking-tight opacity-0 transition duration-500 [transition-delay:calc(var(--i)*60ms+60ms)] group-data-open:translate-x-0 group-data-open:opacity-100 hover:text-primary-ink"><span class="flex items-center gap-3">About</span><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-6 shrink-0 text-muted-foreground transition-transform duration-300 group-hover/link:translate-x-1 group-hover/link:text-primary-ink"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></li>
+          <li><a href="booking.html" class="[--i:4] group/link flex -translate-x-6 items-center justify-between gap-4 border-b py-4 text-3xl font-bold tracking-tight opacity-0 transition duration-500 [transition-delay:calc(var(--i)*60ms+60ms)] group-data-open:translate-x-0 group-data-open:opacity-100 hover:text-primary-ink"><span class="flex items-center gap-3">Booking</span><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-6 shrink-0 text-muted-foreground transition-transform duration-300 group-hover/link:translate-x-1 group-hover/link:text-primary-ink"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></li>
+          <li><a href="contact.html" class="[--i:5] group/link flex -translate-x-6 items-center justify-between gap-4 border-b py-4 text-3xl font-bold tracking-tight opacity-0 transition duration-500 [transition-delay:calc(var(--i)*60ms+60ms)] group-data-open:translate-x-0 group-data-open:opacity-100 hover:text-primary-ink"><span class="flex items-center gap-3">Contact</span><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-6 shrink-0 text-muted-foreground transition-transform duration-300 group-hover/link:translate-x-1 group-hover/link:text-primary-ink"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></li>
       </ul>
-      <ul aria-hidden="true" class="flex shrink-0 items-center gap-10 pr-10 font-display text-2xl font-semibold *:whitespace-nowrap">
-        <li>🎢 Roller Coasters</li><li class="text-pink-400">✦</li>
-        <li>🌊 Water Slides</li><li class="text-pink-400">✦</li>
-        <li>🌲 Zip Lines</li><li class="text-pink-400">✦</li>
-        <li>🎡 Sky Wheel</li><li class="text-pink-400">✦</li>
-        <li>🧗 Climbing Walls</li><li class="text-pink-400">✦</li>
-        <li>🍦 Treats &amp; Eats</li><li class="text-pink-400">✦</li>
-        <li>🎆 Night Fireworks</li><li class="text-pink-400">✦</li>
-      </ul>
-    </div>
+      <div class="mt-auto translate-y-4 pt-10 opacity-0 transition duration-500 [transition-delay:380ms] group-data-open:translate-y-0 group-data-open:opacity-100">
+        <a href="booking.html" class="group/cta flex h-14 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground shadow-lg transition active:scale-[0.98]">
+          Book now <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-5 transition-transform group-hover/cta:translate-x-0.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+        <div class="mt-8 grid gap-3 text-sm text-muted-foreground">
+          <p class="flex items-center gap-2.5"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4 shrink-0 text-primary-ink"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <a href="tel:+919762388871" class="font-medium text-foreground">+91 97623 88871</a><span aria-hidden="true">·</span><a href="tel:+918755542743" class="font-medium text-foreground">+91 87555 42743</a></p>
+          <p class="flex items-center gap-2.5"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4 shrink-0 text-primary-ink"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            <a href="mailto:adventurepark661@gmail.com" class="break-all font-medium text-foreground">adventurepark661@gmail.com</a></p>
+          <p class="flex items-center gap-2.5"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4 shrink-0 text-primary-ink"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+            <a href="https://maps.app.goo.gl/CKrMGT2h8CRNrcmi6" target="_blank" rel="noopener" class="font-medium text-foreground">Shivpuri, Badrinath Highway, Uttarakhand</a></p>
+          <p class="flex items-center gap-2.5"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-4 shrink-0 text-primary-ink"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg>
+            <a href="https://www.instagram.com/adventure_park771/" target="_blank" rel="noopener" class="font-medium text-foreground">@adventure_park771</a></p>
+        </div>
+      </div>
+    </nav>
   </div>
 
-  <!-- ============ ATTRACTIONS ============ -->
-  <section id="rides" class="scroll-mt-20 py-24 sm:py-32">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6">
-      <div class="reveal mx-auto max-w-2xl text-center">
-        <p class="font-semibold uppercase tracking-widest text-orange-500">Attractions</p>
-        <h2 class="mt-3 font-display text-4xl font-bold sm:text-5xl">Pick your adventure</h2>
-        <p class="mt-4 text-lg text-slate-600">From heart-pounding drops to gentle family rides, there’s something for every kind of explorer.</p>
-      </div>
+  <main id="main">
 
-      <div class="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        <!-- Card -->
-        <div class="reveal group relative transition duration-500 hover:-translate-y-2" style="--d:0ms">
-          <div aria-hidden="true" class="absolute -inset-1 rounded-3xl bg-linear-to-br from-orange-400 via-pink-500 to-violet-500 opacity-0 blur-lg transition duration-500 group-hover:opacity-60"></div>
-          <article class="relative h-full rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-900/5">
-            <div class="flex items-start justify-between">
-              <span class="grid size-16 place-items-center rounded-2xl bg-orange-100 text-4xl transition duration-500 group-hover:-rotate-12 group-hover:scale-110">🎢</span>
-              <span class="rounded-full bg-rose-100 px-3 py-1 text-xs font-semibold text-rose-700">Extreme</span>
-            </div>
-            <h3 class="mt-6 font-display text-2xl font-semibold">Thunder Loop</h3>
-            <p class="mt-2 text-slate-600">Our tallest coaster: a 62 m drop, three inversions and speeds up to 110 km/h.</p>
-          </article>
+    <!-- ============ HERO ============ -->
+    <section data-hero class="relative isolate overflow-hidden">
+      <div aria-hidden="true" class="absolute inset-0 -z-10 bg-grid [mask-image:radial-gradient(ellipse_70%_60%_at_50%_0%,#000_50%,transparent_100%)]"></div>
+      <!-- Hover effects (assets/hero-fx.js): the glow drifts toward the pointer, dashes gather around it -->
+      <div data-hero-glow aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10 transition-transform duration-[1400ms] ease-out will-change-transform [transform:translate3d(var(--gx,0px),var(--gy,0px),0)]">
+        <div class="absolute -top-40 left-1/2 h-[30rem] w-[50rem] max-w-[150vw] -translate-x-1/2 rounded-full bg-primary/20 blur-3xl"></div>
+        <div class="absolute -right-24 top-48 size-80 rounded-full bg-chart-2/20 blur-3xl"></div>
+      </div>
+      <canvas data-hero-canvas aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10 size-full"></canvas>
+
+      <div class="mx-auto max-w-6xl px-4 pb-14 pt-14 text-center md:px-6 md:pb-20 md:pt-24">
+        <a href="#safety" data-speed-scope class="group inline-flex animate-fade-up items-center gap-2 rounded-full border bg-background/70 py-1 pl-1 pr-3 text-sm font-medium shadow-xs backdrop-blur transition hover:bg-accent hover:text-accent-foreground">
+          <span aria-hidden="true" class="grid size-7 place-items-center rounded-full bg-secondary text-base leading-none transition-transform duration-300 group-hover:scale-110"><span data-hover-speed="2" class="inline-block animate-climb">🧗</span></span>
+          Safety-first adventures in Rishikesh
+          <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4 text-muted-foreground transition-transform group-hover:translate-x-0.5"><path d="m9 18 6-6-6-6"/></svg>
+        </a>
+
+        <h1 class="mx-auto mt-8 max-w-4xl animate-fade-up text-5xl font-extrabold tracking-tight [animation-delay:100ms] sm:text-6xl md:text-7xl lg:text-8xl">
+          <span class="bg-linear-to-b from-foreground to-foreground/60 bg-clip-text pb-2 text-transparent">Adventure Park</span>
+        </h1>
+        <p class="mt-3 animate-fade-up text-2xl font-semibold tracking-tight [animation-delay:200ms] sm:text-3xl md:text-4xl">
+          Where <span class="font-serif text-[1.15em] font-normal italic text-secondary-foreground">Rishikesh</span> gets
+          <span class="relative inline-block text-primary-ink">
+            <span aria-hidden="true" class="absolute -inset-x-3 -inset-y-1 -z-10 rounded-full bg-primary/25 blur-xl"></span>
+            wild
+            <svg aria-hidden="true" viewBox="0 0 100 14" class="absolute -bottom-2 left-0 w-full overflow-visible">
+              <path d="M3 9C16 3 26 3 38 8s24 5 36 0 18-4 23-1" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" pathLength="1" class="animate-draw [animation-delay:900ms] [stroke-dasharray:1]" />
+            </svg>
+          </span>
+        </p>
+
+        <p class="mx-auto mt-8 max-w-2xl animate-fade-up text-lg leading-relaxed text-muted-foreground [animation-delay:300ms] md:text-xl">
+          River rafting, bungee jumping, zip lining, camping and more, led by an experienced team that puts your safety first on every trip.
+        </p>
+
+        <div class="mt-10 flex animate-fade-up flex-col items-center justify-center gap-3 [animation-delay:400ms] sm:flex-row">
+          <a href="booking.html" class="group relative inline-flex h-12 items-center gap-2 overflow-hidden rounded-full bg-primary px-7 font-semibold text-primary-foreground shadow-lg transition hover:scale-[1.03] hover:shadow-xl">
+            <span aria-hidden="true" class="absolute inset-y-0 left-0 w-1/4 bg-linear-to-r from-transparent via-white/45 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-shine-once"></span>
+            <span class="relative">Book your adventure</span>
+            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="relative size-4 transition-transform group-hover:translate-x-0.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+          <a href="#activities" class="inline-flex h-12 items-center gap-2 rounded-full border bg-background/60 px-7 font-semibold backdrop-blur transition hover:bg-accent hover:text-accent-foreground">
+            Explore activities
+          </a>
         </div>
 
-        <div class="reveal group relative transition duration-500 hover:-translate-y-2" style="--d:100ms">
-          <div aria-hidden="true" class="absolute -inset-1 rounded-3xl bg-linear-to-br from-cyan-400 via-sky-500 to-blue-500 opacity-0 blur-lg transition duration-500 group-hover:opacity-60"></div>
-          <article class="relative h-full rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-900/5">
-            <div class="flex items-start justify-between">
-              <span class="grid size-16 place-items-center rounded-2xl bg-cyan-100 text-4xl transition duration-500 group-hover:-rotate-12 group-hover:scale-110">🌊</span>
-              <span class="rounded-full bg-sky-100 px-3 py-1 text-xs font-semibold text-sky-700">All ages</span>
-            </div>
-            <h3 class="mt-6 font-display text-2xl font-semibold">Splash Canyon</h3>
-            <p class="mt-2 text-slate-600">Twelve water slides, a wave pool and a lazy river winding through the canyon.</p>
-          </article>
-        </div>
-
-        <div class="reveal group relative transition duration-500 hover:-translate-y-2" style="--d:200ms">
-          <div aria-hidden="true" class="absolute -inset-1 rounded-3xl bg-linear-to-br from-lime-400 via-emerald-500 to-teal-500 opacity-0 blur-lg transition duration-500 group-hover:opacity-60"></div>
-          <article class="relative h-full rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-900/5">
-            <div class="flex items-start justify-between">
-              <span class="grid size-16 place-items-center rounded-2xl bg-emerald-100 text-4xl transition duration-500 group-hover:-rotate-12 group-hover:scale-110">🌲</span>
-              <span class="rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-700">Thrilling</span>
-            </div>
-            <h3 class="mt-6 font-display text-2xl font-semibold">Canopy Zip Line</h3>
-            <p class="mt-2 text-slate-600">Fly 1.2 km across the treetops on the longest zip line in the region.</p>
-          </article>
-        </div>
-
-        <div class="reveal group relative transition duration-500 hover:-translate-y-2" style="--d:0ms">
-          <div aria-hidden="true" class="absolute -inset-1 rounded-3xl bg-linear-to-br from-pink-400 via-fuchsia-500 to-purple-500 opacity-0 blur-lg transition duration-500 group-hover:opacity-60"></div>
-          <article class="relative h-full rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-900/5">
-            <div class="flex items-start justify-between">
-              <span class="grid size-16 place-items-center rounded-2xl bg-pink-100 text-4xl transition duration-500 group-hover:-rotate-12 group-hover:scale-110">🎡</span>
-              <span class="rounded-full bg-sky-100 px-3 py-1 text-xs font-semibold text-sky-700">All ages</span>
-            </div>
-            <h3 class="mt-6 font-display text-2xl font-semibold">Sky Wheel</h3>
-            <p class="mt-2 text-slate-600">Glide 55 m above the park for sweeping views — magical at sunset.</p>
-          </article>
-        </div>
-
-        <div class="reveal group relative transition duration-500 hover:-translate-y-2" style="--d:100ms">
-          <div aria-hidden="true" class="absolute -inset-1 rounded-3xl bg-linear-to-br from-amber-400 via-orange-500 to-red-500 opacity-0 blur-lg transition duration-500 group-hover:opacity-60"></div>
-          <article class="relative h-full rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-900/5">
-            <div class="flex items-start justify-between">
-              <span class="grid size-16 place-items-center rounded-2xl bg-amber-100 text-4xl transition duration-500 group-hover:-rotate-12 group-hover:scale-110">🧗</span>
-              <span class="rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-700">Thrilling</span>
-            </div>
-            <h3 class="mt-6 font-display text-2xl font-semibold">Summit Wall</h3>
-            <p class="mt-2 text-slate-600">Twenty climbing routes from beginner to expert, with friendly guides on hand.</p>
-          </article>
-        </div>
-
-        <div class="reveal group relative transition duration-500 hover:-translate-y-2" style="--d:200ms">
-          <div aria-hidden="true" class="absolute -inset-1 rounded-3xl bg-linear-to-br from-violet-400 via-indigo-500 to-blue-600 opacity-0 blur-lg transition duration-500 group-hover:opacity-60"></div>
-          <article class="relative h-full rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-900/5">
-            <div class="flex items-start justify-between">
-              <span class="grid size-16 place-items-center rounded-2xl bg-violet-100 text-4xl transition duration-500 group-hover:-rotate-12 group-hover:scale-110">🎆</span>
-              <span class="rounded-full bg-sky-100 px-3 py-1 text-xs font-semibold text-sky-700">All ages</span>
-            </div>
-            <h3 class="mt-6 font-display text-2xl font-semibold">Night Lights</h3>
-            <p class="mt-2 text-slate-600">Every evening the park glows with a parade, light show and fireworks finale.</p>
-          </article>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ STATS ============ -->
-  <section id="stats" class="scroll-mt-20 animate-gradient bg-linear-to-br from-violet-700 via-fuchsia-600 to-orange-500 bg-size-[200%_200%] py-20 text-white">
-    <div class="mx-auto grid max-w-7xl grid-cols-2 gap-10 px-4 sm:px-6 lg:grid-cols-4">
-      <div class="reveal text-center" style="--d:0ms">
-        <p class="font-display text-5xl font-bold sm:text-6xl"><span data-count="42">42</span>+</p>
-        <p class="mt-2 text-white/85">Rides &amp; attractions</p>
-      </div>
-      <div class="reveal text-center" style="--d:100ms">
-        <p class="font-display text-5xl font-bold sm:text-6xl"><span data-count="250">250</span></p>
-        <p class="mt-2 text-white/85">Acres of adventure</p>
-      </div>
-      <div class="reveal text-center" style="--d:200ms">
-        <p class="font-display text-5xl font-bold sm:text-6xl"><span data-count="18">18</span></p>
-        <p class="mt-2 text-white/85">Places to eat</p>
-      </div>
-      <div class="reveal text-center" style="--d:300ms">
-        <p class="font-display text-5xl font-bold sm:text-6xl"><span data-count="98">98</span>%</p>
-        <p class="mt-2 text-white/85">Guests who come back</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ TICKETS ============ -->
-  <section id="tickets" class="relative isolate scroll-mt-20 overflow-hidden py-24 sm:py-32">
-    <!-- Morphing blobs -->
-    <div aria-hidden="true" class="absolute inset-0 -z-10">
-      <div class="absolute -left-20 top-10 size-80 animate-blob rounded-full bg-pink-300 opacity-50 mix-blend-multiply blur-3xl"></div>
-      <div class="absolute right-0 top-40 size-96 animate-blob rounded-full bg-sky-300 opacity-50 mix-blend-multiply blur-3xl [animation-delay:-5s]"></div>
-      <div class="absolute bottom-0 left-1/3 size-80 animate-blob rounded-full bg-amber-300 opacity-50 mix-blend-multiply blur-3xl [animation-delay:-9s]"></div>
-    </div>
-
-    <div class="mx-auto max-w-7xl px-4 sm:px-6">
-      <div class="reveal mx-auto max-w-2xl text-center">
-        <p class="font-semibold uppercase tracking-widest text-orange-500">Tickets</p>
-        <h2 class="mt-3 font-display text-4xl font-bold sm:text-5xl">Ready when you are</h2>
-        <p class="mt-4 text-lg text-slate-600">Skip the queue at the gate — book online and head straight for the rides.</p>
+        <ul class="mt-10 flex animate-fade-up flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm font-medium text-muted-foreground [animation-delay:500ms]">
+          <li class="flex items-center gap-2"><span class="grid size-5 place-items-center rounded-full bg-primary/15 text-primary-ink"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="size-3"><path d="M20 6 9 17l-5-5"/></svg></span>25+ years of experience</li>
+          <li class="flex items-center gap-2"><span class="grid size-5 place-items-center rounded-full bg-primary/15 text-primary-ink"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="size-3"><path d="M20 6 9 17l-5-5"/></svg></span>5 lakh+ people served</li>
+          <li class="flex items-center gap-2"><span class="grid size-5 place-items-center rounded-full bg-primary/15 text-primary-ink"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="size-3"><path d="M20 6 9 17l-5-5"/></svg></span>Safety briefing before every activity</li>
+        </ul>
       </div>
 
-      <div class="mt-16 grid items-center gap-8 lg:grid-cols-3">
-        <div class="reveal rounded-3xl bg-white/80 p-8 shadow-sm ring-1 ring-slate-900/5 backdrop-blur" style="--d:0ms">
-          <h3 class="font-display text-2xl font-semibold">Day Pass</h3>
-          <p class="mt-4"><span class="font-display text-5xl font-bold">$49</span> <span class="text-slate-500">/ person</span></p>
-          <ul class="mt-6 space-y-3 text-slate-600">
-            <li>✅ Unlimited rides all day</li>
-            <li>✅ Splash Canyon access</li>
-            <li>✅ Evening light show</li>
-          </ul>
-          <a href="#" class="mt-8 block rounded-full bg-slate-900 py-3 text-center font-semibold text-white transition hover:bg-slate-700 active:scale-95">Choose Day Pass</a>
-        </div>
-
-        <!-- Featured card with spinning gradient border -->
-        <div class="reveal relative overflow-hidden rounded-3xl p-[3px] shadow-2xl shadow-fuchsia-500/30" style="--d:150ms">
-          <div aria-hidden="true" class="absolute inset-[-50%] animate-border-spin bg-[conic-gradient(from_0deg,#f97316,#ec4899,#8b5cf6,#06b6d4,#f97316)]"></div>
-          <div class="relative rounded-[calc(1.5rem-3px)] bg-white p-8 lg:py-12">
-            <div class="flex items-center justify-between">
-              <h3 class="font-display text-2xl font-semibold">Family Pack</h3>
-              <span class="rounded-full bg-linear-to-r from-orange-500 to-pink-500 px-3 py-1 text-xs font-semibold text-white">Most popular</span>
-            </div>
-            <p class="mt-4"><span class="font-display text-5xl font-bold">$169</span> <span class="text-slate-500">/ 4 people</span></p>
-            <ul class="mt-6 space-y-3 text-slate-600">
-              <li>✅ Everything in Day Pass</li>
-              <li>✅ Fast-track on 5 rides</li>
-              <li>✅ Lunch for the whole family</li>
+      <!-- Activity marquee -->
+      <div class="mx-auto max-w-6xl animate-scale-in px-4 pb-16 [animation-delay:550ms] md:px-6 md:pb-24">
+        <div class="overflow-hidden [mask-image:linear-gradient(to_right,transparent,#000_12%,#000_88%,transparent)]">
+          <div class="flex w-max animate-marquee hover:[animation-play-state:paused]">
+            <ul class="flex shrink-0 gap-3 pr-3 *:inline-flex *:items-center *:gap-2 *:whitespace-nowrap *:rounded-full *:border *:bg-card *:px-4 *:py-2 *:text-sm *:font-medium *:shadow-xs">
+              <li><span class="size-2.5 rounded-full bg-chart-2"></span>River rafting</li>
+              <li><span class="size-2.5 rounded-full bg-chart-1"></span>Bungee jumping · 109 m</li>
+              <li><span class="size-2.5 rounded-full bg-chart-3"></span>Zip line</li>
+              <li><span class="size-2.5 rounded-full bg-chart-4"></span>Luxury camps &amp; cottages</li>
+              <li><span class="size-2.5 rounded-full bg-chart-5"></span>Hotel rooms</li>
+              <li><span class="size-2.5 rounded-full bg-chart-2"></span>Rafting up to 36 km</li>
+              <li><span class="size-2.5 rounded-full bg-chart-1"></span>Three meals a day</li>
+              <li><span class="size-2.5 rounded-full bg-chart-2"></span>DSLR jump videos</li>
+              <li><span class="size-2.5 rounded-full bg-chart-3"></span>Group trips</li>
+              <li><span class="size-2.5 rounded-full bg-chart-4"></span>Safety briefings</li>
+              <li><span class="size-2.5 rounded-full bg-chart-5"></span>Expert guides</li>
             </ul>
-            <a href="#" class="relative mt-8 block overflow-hidden rounded-full bg-orange-500 py-3 text-center font-semibold text-white shadow-lg shadow-orange-500/30 transition hover:bg-orange-600 active:scale-95">
-              <span aria-hidden="true" class="absolute inset-y-0 left-0 w-1/4 animate-shine bg-linear-to-r from-transparent via-white/60 to-transparent"></span>
-              <span class="relative">Choose Family Pack</span>
-            </a>
+            <ul aria-hidden="true" class="flex shrink-0 gap-3 pr-3 *:inline-flex *:items-center *:gap-2 *:whitespace-nowrap *:rounded-full *:border *:bg-card *:px-4 *:py-2 *:text-sm *:font-medium *:shadow-xs">
+              <li><span class="size-2.5 rounded-full bg-chart-2"></span>River rafting</li>
+              <li><span class="size-2.5 rounded-full bg-chart-1"></span>Bungee jumping · 109 m</li>
+              <li><span class="size-2.5 rounded-full bg-chart-3"></span>Zip line</li>
+              <li><span class="size-2.5 rounded-full bg-chart-4"></span>Luxury camps &amp; cottages</li>
+              <li><span class="size-2.5 rounded-full bg-chart-5"></span>Hotel rooms</li>
+              <li><span class="size-2.5 rounded-full bg-chart-2"></span>Rafting up to 36 km</li>
+              <li><span class="size-2.5 rounded-full bg-chart-1"></span>Three meals a day</li>
+              <li><span class="size-2.5 rounded-full bg-chart-2"></span>DSLR jump videos</li>
+              <li><span class="size-2.5 rounded-full bg-chart-3"></span>Group trips</li>
+              <li><span class="size-2.5 rounded-full bg-chart-4"></span>Safety briefings</li>
+              <li><span class="size-2.5 rounded-full bg-chart-5"></span>Expert guides</li>
+            </ul>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="reveal rounded-3xl bg-white/80 p-8 shadow-sm ring-1 ring-slate-900/5 backdrop-blur" style="--d:300ms">
-          <h3 class="font-display text-2xl font-semibold">Season Pass</h3>
-          <p class="mt-4"><span class="font-display text-5xl font-bold">$199</span> <span class="text-slate-500">/ person</span></p>
-          <ul class="mt-6 space-y-3 text-slate-600">
-            <li>✅ Unlimited visits all season</li>
-            <li>✅ 20% off food &amp; shops</li>
-            <li>✅ Members-only early hours</li>
-          </ul>
-          <a href="#" class="mt-8 block rounded-full bg-slate-900 py-3 text-center font-semibold text-white transition hover:bg-slate-700 active:scale-95">Choose Season Pass</a>
+    <!-- ============ NUMBERS ============ -->
+    <section aria-label="Adventure Park in numbers" class="border-y bg-muted/30">
+      <div class="mx-auto grid max-w-6xl divide-y px-4 sm:grid-cols-3 sm:divide-x sm:divide-y-0 md:px-6">
+        <div class="reveal px-6 py-10 text-center">
+          <p class="text-5xl font-extrabold tracking-tight tabular-nums"><span data-count="25">25</span>+</p>
+          <p class="mt-2 text-sm font-medium text-muted-foreground">Years of experience</p>
+        </div>
+        <div class="reveal px-6 py-10 text-center [--d:100ms]">
+          <p class="text-5xl font-extrabold tracking-tight tabular-nums"><span data-count="5">5</span> lakh+</p>
+          <p class="mt-2 text-sm font-medium text-muted-foreground">People served</p>
+        </div>
+        <div class="reveal px-6 py-10 text-center [--d:200ms]">
+          <p class="text-5xl font-extrabold tracking-tight tabular-nums"><span class="text-2xl font-semibold text-muted-foreground">Since</span> 2006</p>
+          <p class="mt-2 text-sm font-medium text-muted-foreground">Founded by <abbr title="Jagat Singh Bhandari" class="cursor-help no-underline">JSB</abbr></p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- ============ ACTIVITIES ============ -->
+    <section id="activities" class="relative isolate py-20 md:py-32">
+      <div aria-hidden="true" class="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,color-mix(in_oklab,var(--primary)_7%,transparent),transparent_70%)]"></div>
+      <div class="mx-auto grid max-w-6xl gap-12 px-4 md:px-6 lg:grid-cols-[1fr_2fr]">
+        <div class="reveal flex flex-col justify-center gap-4 lg:sticky lg:top-28 lg:self-start">
+          <p class="text-sm font-semibold uppercase tracking-wider text-primary-ink">Activities &amp; prices</p>
+          <h2 class="text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
+            Adventures for every <span class="font-serif font-normal italic text-muted-foreground">kind of brave</span>
+          </h2>
+          <p class="max-w-[400px] text-lg text-muted-foreground">Whether it's your first time on the river or your first leap, we'll match you with the right adventure.</p>
+          <p class="max-w-[400px] text-sm text-muted-foreground">All prices are in Indian rupees, per person unless stated.</p>
+          <a href="booking.html" class="group inline-flex items-center gap-1.5 font-semibold text-primary-ink">
+            Not sure where to start? Ask us
+            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4 transition-transform group-hover:translate-x-1"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <div class="grid gap-6 sm:grid-cols-2">
+          <!-- Rafting -->
+          <article class="reveal group h-full rounded-2xl border border-border/60 bg-card/50 p-6 transition duration-300 hover:-translate-y-1 hover:bg-card hover:shadow-lg sm:col-span-2">
+            <div class="mb-4 flex items-start justify-between gap-3">
+              <span class="flex size-12 items-center justify-center rounded-xl bg-primary/10 text-primary-ink transition-colors group-hover:bg-primary group-hover:text-primary-foreground"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-6"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></svg></span>
+              <span class="rounded-full bg-secondary px-2.5 py-0.5 text-xs font-semibold text-secondary-foreground">Beginner friendly</span>
+            </div>
+            <h3 class="mb-2 text-xl font-bold">River rafting</h3>
+            <p class="text-muted-foreground">Take on the rapids of the Ganga with an experienced guide on every raft. Pick a stretch, from a quick first run to up to 3 hours on the water.</p>
+            <ul class="mt-5 divide-y rounded-xl border bg-background/60 text-sm">
+              <li class="flex items-center gap-3 px-4 py-3">
+                <span class="w-14 shrink-0 font-bold tabular-nums">12 km</span>
+                <span class="min-w-0 flex-1"><span class="block text-muted-foreground">Marine Drive → Shivpuri</span><span class="mt-0.5 flex items-center gap-1 text-xs text-muted-foreground"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-3 shrink-0"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 1–1.5 hrs</span></span>
+                <span class="text-right"><span class="font-bold tabular-nums">₹520</span><span class="block text-xs text-muted-foreground">per person</span></span>
+              </li>
+              <li class="flex items-center gap-3 px-4 py-3">
+                <span class="w-14 shrink-0 font-bold tabular-nums">16 km</span>
+                <span class="min-w-0 flex-1"><span class="block text-muted-foreground">Shivpuri → Nim Beach</span><span class="mt-0.5 flex items-center gap-1 text-xs text-muted-foreground"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-3 shrink-0"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 1.5–2 hrs</span></span>
+                <span class="text-right"><span class="font-bold tabular-nums">₹720</span><span class="block text-xs text-muted-foreground">per person</span></span>
+              </li>
+              <li class="flex items-center gap-3 px-4 py-3">
+                <span class="w-14 shrink-0 font-bold tabular-nums">26 km</span>
+                <span class="min-w-0 flex-1"><span class="block text-muted-foreground">Marine Drive → Nim Beach</span><span class="mt-0.5 flex items-center gap-1 text-xs text-muted-foreground"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-3 shrink-0"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 2–2.5 hrs</span></span>
+                <span class="text-right"><span class="font-bold tabular-nums">₹1,200</span><span class="block text-xs text-muted-foreground">per person</span></span>
+              </li>
+              <li class="flex items-center gap-3 px-4 py-3">
+                <span class="w-14 shrink-0 font-bold tabular-nums">36 km</span>
+                <span class="min-w-0 flex-1"><span class="block text-muted-foreground">Kaudiyala → Nim Beach</span><span class="mt-0.5 flex items-center gap-1 text-xs text-muted-foreground"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-3 shrink-0"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 2.5–3 hrs</span></span>
+                <span class="text-right"><span class="font-bold tabular-nums">₹2,400</span><span class="block text-xs text-muted-foreground">per person</span></span>
+              </li>
+            </ul>
+            <p class="mt-3 flex gap-2 text-xs text-muted-foreground"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-px size-3.5 shrink-0"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg> Peak season (March–June): weekends and crowded days cost 15–20% more.</p>
+            <div class="mt-5 flex items-center gap-3 text-xs font-medium text-muted-foreground">
+              <span>Thrill level</span>
+              <span role="img" aria-label="3 out of 5" class="flex gap-1 *:h-1.5 *:w-5 *:rounded-full"><span class="bg-primary"></span><span class="bg-primary"></span><span class="bg-primary"></span><span class="bg-muted"></span><span class="bg-muted"></span></span>
+            </div>
+          </article>
+
+          <!-- Bungee -->
+          <article class="reveal group flex h-full flex-col rounded-2xl border border-border/60 bg-card/50 p-6 transition duration-300 hover:-translate-y-1 hover:bg-card hover:shadow-lg">
+            <div class="mb-4 flex items-start justify-between gap-3">
+              <span class="flex size-12 items-center justify-center rounded-xl bg-primary/10 text-primary-ink transition-colors group-hover:bg-primary group-hover:text-primary-foreground"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-6"><path d="M19 3H5"/><path d="M12 21V7"/><path d="m6 15 6 6 6-6"/></svg></span>
+              <span class="rounded-full bg-secondary px-2.5 py-0.5 text-xs font-semibold text-secondary-foreground">Thrill seekers</span>
+            </div>
+            <h3 class="mb-2 text-xl font-bold">Bungee jumping</h3>
+            <p class="text-muted-foreground">The ultimate leap from <strong class="font-semibold text-foreground">109 m (360 ft)</strong>. Every harness is checked and double-checked, and every jumper gets a full briefing first.</p>
+            <p class="mt-5"><span class="text-3xl font-extrabold tracking-tight tabular-nums">₹4,000</span> <span class="text-sm text-muted-foreground">per person</span></p>
+            <ul class="mt-3 grid gap-2 text-sm">
+              <li class="flex items-center gap-2"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4 shrink-0 text-primary-ink"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg> DSLR video of your jump</li>
+              <li class="flex items-center gap-2"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4 shrink-0 text-primary-ink"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg> Jump certificate</li>
+            </ul>
+            <div class="mt-auto flex items-center gap-3 pt-5 text-xs font-medium text-muted-foreground">
+              <span>Thrill level</span>
+              <span role="img" aria-label="5 out of 5" class="flex gap-1 *:h-1.5 *:w-5 *:rounded-full"><span class="bg-primary"></span><span class="bg-primary"></span><span class="bg-primary"></span><span class="bg-primary"></span><span class="bg-primary"></span></span>
+            </div>
+          </article>
+
+          <!-- Zip line -->
+          <article class="reveal group flex h-full flex-col rounded-2xl border border-border/60 bg-card/50 p-6 transition duration-300 hover:-translate-y-1 hover:bg-card hover:shadow-lg [--d:100ms]">
+            <div class="mb-4 flex items-start justify-between gap-3">
+              <span class="flex size-12 items-center justify-center rounded-xl bg-primary/10 text-primary-ink transition-colors group-hover:bg-primary group-hover:text-primary-foreground"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-6"><path d="M2 4l20 7"/><path d="M11 7.6V12"/><path d="M8 12h6l-1 6h-4z"/></svg></span>
+              <span class="rounded-full bg-secondary px-2.5 py-0.5 text-xs font-semibold text-secondary-foreground">Quick thrill</span>
+            </div>
+            <h3 class="mb-2 text-xl font-bold">Zip line</h3>
+            <p class="text-muted-foreground">Fly across the valley on a zip line, clipped in and checked by our team before you take off.</p>
+            <ul class="mt-5 divide-y rounded-xl border bg-background/60 text-sm">
+              <li class="flex items-center justify-between gap-3 px-4 py-3">
+                <span class="text-muted-foreground">Students</span>
+                <span><span class="font-bold tabular-nums">₹1,800</span> <span class="text-xs text-muted-foreground">per person</span></span>
+              </li>
+              <li class="flex items-center justify-between gap-3 px-4 py-3">
+                <span class="text-muted-foreground">Adults</span>
+                <span><span class="font-bold tabular-nums">₹2,000</span> <span class="text-xs text-muted-foreground">per person</span></span>
+              </li>
+            </ul>
+            <div class="mt-auto flex items-center gap-3 pt-5 text-xs font-medium text-muted-foreground">
+              <span>Thrill level</span>
+              <span role="img" aria-label="3 out of 5" class="flex gap-1 *:h-1.5 *:w-5 *:rounded-full"><span class="bg-primary"></span><span class="bg-primary"></span><span class="bg-primary"></span><span class="bg-muted"></span><span class="bg-muted"></span></span>
+            </div>
+          </article>
+
+          <!-- Other activities -->
+          <article class="reveal flex flex-col gap-4 rounded-2xl border border-dashed bg-muted/30 p-6 sm:col-span-2 sm:flex-row sm:items-center">
+            <span class="flex size-12 shrink-0 items-center justify-center rounded-xl bg-secondary text-secondary-foreground"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-6"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg></span>
+            <div class="flex-1">
+              <h3 class="text-lg font-bold">More adventures</h3>
+              <p class="mt-1 text-muted-foreground">We arrange other adventure activities too. Ask us for details and prices.</p>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <a href="https://wa.me/918755542743?text=Hi%20Adventure%20Park!%20I%E2%80%99d%20like%20to%20know%20more%20about%20your%20adventures." target="_blank" rel="noopener" class="inline-flex h-10 items-center gap-2 rounded-full bg-[#25D366] px-4 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:shadow-md"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-4"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> WhatsApp us</a>
+              <a href="contact.html" class="inline-flex h-10 items-center rounded-full border bg-background px-4 text-sm font-semibold transition hover:bg-accent hover:text-accent-foreground">Contact us</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STAY ============ -->
+    <section id="stay" class="border-t py-20 md:py-28">
+      <div class="mx-auto max-w-6xl px-4 md:px-6">
+        <div class="reveal mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+          <div>
+            <p class="text-sm font-semibold uppercase tracking-wider text-primary-ink">Stay</p>
+            <h2 class="mt-3 text-3xl font-bold tracking-tight md:text-5xl">Unwind after the <span class="font-serif font-normal italic text-secondary-foreground">rapids</span></h2>
+            <p class="mt-4 max-w-[600px] text-lg text-muted-foreground">Our luxury camps and cottages are 200 m up from the river and 100 m up from the national highway, with three meals a day, a swimming pool and music in the evening. Or book a simple hotel room.</p>
+          </div>
+          <a href="https://wa.me/918755542743?text=Hi%20Adventure%20Park!%20I%E2%80%99d%20like%20to%20know%20more%20about%20your%20adventures." target="_blank" rel="noopener" class="group inline-flex h-11 shrink-0 items-center gap-2 self-start rounded-full border px-5 font-semibold transition hover:bg-accent hover:text-accent-foreground md:self-auto">
+            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-4 text-[#128C7E] dark:text-[#25D366]"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> Check availability
+          </a>
+        </div>
+
+        <div class="grid gap-6 lg:grid-cols-[1.45fr_1fr]">
+          <!-- Camps & cottages -->
+          <article class="reveal group flex min-w-0 h-full flex-col rounded-2xl border bg-card p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg sm:p-8">
+            <div class="flex items-start justify-between gap-4">
+              <div class="flex items-start gap-4">
+                <span class="flex size-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary-ink transition-colors group-hover:bg-primary group-hover:text-primary-foreground"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-6"><path d="M3.5 21 14 3"/><path d="M20.5 21 10 3"/><path d="M15.5 21 12 15l-3.5 6"/><path d="M2 21h20"/></svg></span>
+                <div>
+                  <h3 class="text-xl font-bold">Luxury camps &amp; cottages</h3>
+                  <p class="text-sm text-muted-foreground">200 m up from the river · 100 m up from the national highway</p>
+                </div>
+              </div>
+              <span class="hidden shrink-0 rounded-full bg-secondary px-2.5 py-0.5 text-xs font-semibold text-secondary-foreground sm:inline">Meals included</span>
+            </div>
+
+            <ul class="mt-6 divide-y rounded-xl border bg-background/60 text-sm">
+              <li class="flex items-center justify-between gap-3 px-4 py-3">
+                <span class="text-muted-foreground">Quad or triple sharing</span>
+                <span class="text-right"><span class="whitespace-nowrap font-bold tabular-nums">₹1,500–₹1,800</span><span class="block whitespace-nowrap text-xs text-muted-foreground">per person / night</span></span>
+              </li>
+              <li class="flex items-center justify-between gap-3 px-4 py-3">
+                <span class="text-muted-foreground">Double sharing</span>
+                <span class="text-right"><span class="whitespace-nowrap font-bold tabular-nums">₹1,800–₹2,200</span><span class="block whitespace-nowrap text-xs text-muted-foreground">per person / night</span></span>
+              </li>
+            </ul>
+
+            <h4 class="mt-6 text-sm font-semibold">Included with every camp and cottage</h4>
+            <ul class="mt-3 grid gap-x-6 gap-y-2.5 text-sm sm:grid-cols-2">
+              <li class="flex items-center gap-2.5"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4 shrink-0 text-primary-ink"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg> <span>Three meals a day (<a href="#food" class="font-medium underline decoration-border underline-offset-4 hover:decoration-current">see the menu</a>)</span></li>
+              <li class="flex items-center gap-2.5"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4 shrink-0 text-primary-ink"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></svg> Swimming pool</li>
+              <li class="flex items-center gap-2.5"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4 shrink-0 text-primary-ink"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg> DJ party until 10 pm</li>
+              <li class="flex items-center gap-2.5"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4 shrink-0 text-primary-ink"><path d="M10 4 8 6"/><path d="M17 19v2"/><path d="M2 12h20"/><path d="M7 19v2"/><path d="M9 5 7.621 3.621A2.121 2.121 0 0 0 4 5v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"/></svg> Attached washroom</li>
+              <li class="flex items-center gap-2.5"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4 shrink-0 text-primary-ink"><path d="M10.827 16.379a6.082 6.082 0 0 1-8.618-7.002l5.412 1.45a6.082 6.082 0 0 1 7.002-8.618l-1.45 5.412a6.082 6.082 0 0 1 8.618 7.002l-5.412-1.45a6.082 6.082 0 0 1-7.002 8.618l1.45-5.412Z"/><path d="M12 12v.01"/></svg> Fan</li>
+              <li class="flex items-center gap-2.5"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4 shrink-0 text-primary-ink"><path d="M15 7h1a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-2"/><path d="M6 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h1"/><path d="m11 7-3 5h4l-3 5"/><path d="M22 11v2"/></svg> Charging points</li>
+            </ul>
+            <div class="mt-4 grid gap-3 sm:grid-cols-2">
+              <p class="flex items-center gap-3 rounded-xl border bg-background/60 px-4 py-3 text-sm">
+                <span class="grid size-8 shrink-0 place-items-center rounded-lg bg-secondary text-secondary-foreground"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4"><path d="M12.8 19.6A2 2 0 1 0 14 16H2"/><path d="M17.5 8a2.5 2.5 0 1 1 2 4H2"/><path d="M9.8 4.4A2 2 0 1 1 11 8H2"/></svg></span>
+                <span><span class="block font-semibold">Non-AC camps</span><span class="text-muted-foreground">with an air cooler</span></span>
+              </p>
+              <p class="flex items-center gap-3 rounded-xl border bg-background/60 px-4 py-3 text-sm">
+                <span class="grid size-8 shrink-0 place-items-center rounded-lg bg-secondary text-secondary-foreground"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4"><path d="M12 2v20"/><path d="m4.93 4.93 14.14 14.14"/><path d="M2 12h20"/><path d="m19.07 4.93-14.14 14.14"/><path d="m9 4 3 3 3-3"/><path d="m9 20 3-3 3 3"/></svg></span>
+                <span><span class="block font-semibold">AC cottages</span><span class="text-muted-foreground">with air conditioning</span></span>
+              </p>
+            </div>
+
+            <ul class="mt-5 grid gap-2 text-sm text-muted-foreground">
+              <li class="flex gap-2"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 size-4 shrink-0 text-primary-ink"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> Children aged 6–11 pay 50% of the adult price.</li>
+              <li class="flex gap-2"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 size-4 shrink-0 text-primary-ink"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg> The exact price depends on the season and weekend demand.</li>
+            </ul>
+          </article>
+
+          <!-- Hotel rooms -->
+          <article class="reveal group flex min-w-0 h-full flex-col rounded-2xl border bg-card p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg sm:p-8 [--d:100ms]">
+            <div class="flex items-start justify-between gap-4">
+              <div class="flex items-start gap-4">
+                <span class="flex size-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary-ink transition-colors group-hover:bg-primary group-hover:text-primary-foreground"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-6"><path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 2 2v10"/><path d="M2 17h20"/><path d="M6 8v9"/></svg></span>
+                <div>
+                  <h3 class="text-xl font-bold">Hotel rooms</h3>
+                  <p class="text-sm text-muted-foreground">Prices per room, per night</p>
+                </div>
+              </div>
+              <span class="hidden shrink-0 rounded-full border px-2.5 py-0.5 text-xs font-semibold text-muted-foreground sm:inline">Room only</span>
+            </div>
+            <ul class="mt-6 divide-y rounded-xl border bg-background/60 text-sm">
+              <li class="flex items-center justify-between gap-3 px-4 py-3">
+                <span class="text-muted-foreground">Non-AC room</span>
+                <span class="text-right"><span class="whitespace-nowrap font-bold tabular-nums">₹1,200</span> <span class="text-xs text-muted-foreground">per room / night</span><span class="block whitespace-nowrap text-xs text-muted-foreground">Busy days: ₹1,600–₹1,800</span></span>
+              </li>
+              <li class="flex items-center justify-between gap-3 px-4 py-3">
+                <span class="text-muted-foreground">AC room</span>
+                <span class="text-right"><span class="whitespace-nowrap font-bold tabular-nums">₹1,600</span> <span class="text-xs text-muted-foreground">per room / night</span><span class="block whitespace-nowrap text-xs text-muted-foreground">Busy days: ₹2,000–₹2,200</span></span>
+              </li>
+            </ul>
+            <ul class="mt-5 grid gap-2 text-sm text-muted-foreground">
+              <li class="flex gap-2"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 size-4 shrink-0 text-primary-ink"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg> Prices rise with demand at the busiest times. We confirm the final price when you book.</li>
+              <li class="flex gap-2"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 size-4 shrink-0 text-primary-ink"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg> Meals, the swimming pool and the DJ party come with camps and cottages, not hotel rooms.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FOOD ============ -->
+    <section id="food" class="border-t bg-muted/30 py-20 md:py-28">
+      <div class="mx-auto max-w-6xl px-4 md:px-6">
+        <div class="reveal mb-12 max-w-2xl">
+          <p class="text-sm font-semibold uppercase tracking-wider text-primary-ink">Food</p>
+          <h2 class="mt-3 text-3xl font-bold tracking-tight md:text-5xl">What's on the <span class="font-serif font-normal italic text-secondary-foreground">menu</span></h2>
+          <p class="mt-4 text-lg text-muted-foreground">Three meals a day come with every camp and cottage stay, plus evening snacks around the bonfire.</p>
+          <p class="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-muted-foreground">
+            <span class="inline-flex items-center gap-2"><span role="img" aria-label="Vegetarian" class="inline-grid size-3.5 shrink-0 place-items-center rounded-[3px] border-[1.5px] border-[#1B8A3A] dark:border-[#3FB65F]"><span class="size-1.5 rounded-full bg-[#1B8A3A] dark:bg-[#3FB65F]"></span></span> Vegetarian</span>
+            <span class="inline-flex items-center gap-2"><span role="img" aria-label="Non-vegetarian" class="inline-grid size-3.5 shrink-0 place-items-center rounded-[3px] border-[1.5px] border-[#9A3412] dark:border-[#E07A4F]"><span class="size-0 border-x-[3.5px] border-b-[6px] border-x-transparent border-b-[#9A3412] dark:border-b-[#E07A4F]"></span></span> Non-vegetarian</span>
+          </p>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-2">
+          <!-- Breakfast -->
+          <article class="reveal min-w-0 rounded-2xl border bg-card p-6 shadow-sm sm:p-7">
+            <div class="flex items-center gap-3">
+              <span aria-hidden="true" class="grid size-10 shrink-0 place-items-center rounded-full bg-secondary text-xl leading-none">🌅</span>
+              <div class="min-w-0 flex-1">
+                <h3 class="text-lg font-bold">Breakfast</h3>
+                <p class="text-sm tabular-nums text-muted-foreground">8:30 – 10:00 AM</p>
+              </div>
+            </div>
+            <dl class="mt-5 divide-y text-sm">
+              <div class="grid gap-1 py-3 sm:grid-cols-[9rem_1fr] sm:gap-4"><dt class="font-semibold">Hot drinks</dt><dd class="text-muted-foreground">Masala tea, coffee, milk</dd></div>
+              <div class="grid gap-1 py-3 sm:grid-cols-[9rem_1fr] sm:gap-4"><dt class="font-semibold">Main dishes</dt><dd class="text-muted-foreground">Aloo or gobhi parathas with butter, dahi and pickle, <em>or</em> puri bhaji</dd></div>
+              <div class="grid gap-1 py-3 sm:grid-cols-[9rem_1fr] sm:gap-4"><dt class="font-semibold">Continental &amp; light</dt><dd class="text-muted-foreground">Eggs to order (omelette, boiled or scrambled), bread toast with butter and jam, poha or veg upma</dd></div>
+            </dl>
+          </article>
+
+          <!-- Lunch -->
+          <article class="reveal min-w-0 rounded-2xl border bg-card p-6 shadow-sm sm:p-7 [--d:100ms]">
+            <div class="flex items-center gap-3">
+              <span aria-hidden="true" class="grid size-10 shrink-0 place-items-center rounded-full bg-secondary text-xl leading-none">🥗</span>
+              <div class="min-w-0 flex-1">
+                <h3 class="text-lg font-bold">Buffet lunch</h3>
+                <p class="text-sm tabular-nums text-muted-foreground">1:30 – 3:00 PM</p>
+              </div>
+              <span class="inline-flex shrink-0 items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-semibold"><span role="img" aria-label="Vegetarian" class="inline-grid size-3.5 shrink-0 place-items-center rounded-[3px] border-[1.5px] border-[#1B8A3A] dark:border-[#3FB65F]"><span class="size-1.5 rounded-full bg-[#1B8A3A] dark:bg-[#3FB65F]"></span></span> 100% pure veg</span>
+            </div>
+            <dl class="mt-5 divide-y text-sm">
+              <div class="grid gap-1 py-3 sm:grid-cols-[9rem_1fr] sm:gap-4"><dt class="font-semibold">Main veg curry</dt><dd class="text-muted-foreground">Matar paneer / Shahi paneer / Kadhai paneer</dd></div>
+              <div class="grid gap-1 py-3 sm:grid-cols-[9rem_1fr] sm:gap-4"><dt class="font-semibold">Dry veg</dt><dd class="text-muted-foreground">Mix veg / Jeera aloo / Bhindi fry</dd></div>
+              <div class="grid gap-1 py-3 sm:grid-cols-[9rem_1fr] sm:gap-4"><dt class="font-semibold">Dal</dt><dd class="text-muted-foreground">Dal tadka / Yellow dal fry</dd></div>
+              <div class="grid gap-1 py-3 sm:grid-cols-[9rem_1fr] sm:gap-4"><dt class="font-semibold">Rice &amp; breads</dt><dd class="text-muted-foreground">Steamed basmati rice / Jeera rice, tawa roti / chapati</dd></div>
+              <div class="grid gap-1 py-3 sm:grid-cols-[9rem_1fr] sm:gap-4"><dt class="font-semibold">Sides</dt><dd class="text-muted-foreground">Green salad, boondi raita, papad, mixed pickle</dd></div>
+            </dl>
+          </article>
+
+          <!-- Evening snacks -->
+          <article class="reveal min-w-0 rounded-2xl border bg-card p-6 shadow-sm sm:p-7">
+            <div class="flex items-center gap-3">
+              <span aria-hidden="true" class="grid size-10 shrink-0 place-items-center rounded-full bg-secondary text-xl leading-none">☕</span>
+              <div class="min-w-0 flex-1">
+                <h3 class="text-lg font-bold">Evening snacks</h3>
+                <p class="text-sm tabular-nums text-muted-foreground">6:00 – 7:30 PM</p>
+              </div>
+            </div>
+            <p class="mt-4 text-sm text-muted-foreground">Served on the central lawn during the bonfire and music.</p>
+            <dl class="mt-2 divide-y text-sm">
+              <div class="grid gap-1 py-3 sm:grid-cols-[9rem_1fr] sm:gap-4"><dt class="font-semibold">Snacks</dt><dd class="text-muted-foreground">Hot veg pakoras (paneer, aloo or mix veg) <em>or</em> French fries</dd></div>
+              <div class="grid gap-1 py-3 sm:grid-cols-[9rem_1fr] sm:gap-4"><dt class="font-semibold">Drinks</dt><dd class="text-muted-foreground">Masala tea and coffee</dd></div>
+              <div class="grid gap-1 py-3 sm:grid-cols-[9rem_1fr] sm:gap-4"><dt class="flex items-center gap-2 font-semibold">Optional add-on</dt><dd class="text-muted-foreground">Live BBQ: chicken tikka and paneer tikka, for groups who request it in advance</dd></div>
+            </dl>
+          </article>
+
+          <!-- Dinner -->
+          <article class="reveal min-w-0 rounded-2xl border bg-card p-6 shadow-sm sm:p-7 [--d:100ms]">
+            <div class="flex items-center gap-3">
+              <span aria-hidden="true" class="grid size-10 shrink-0 place-items-center rounded-full bg-secondary text-xl leading-none">🍛</span>
+              <div class="min-w-0 flex-1">
+                <h3 class="text-lg font-bold">Buffet dinner</h3>
+                <p class="text-sm tabular-nums text-muted-foreground">8:30 – 10:30 PM</p>
+              </div>
+              <span class="inline-flex shrink-0 items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-semibold"><span role="img" aria-label="Vegetarian" class="inline-grid size-3.5 shrink-0 place-items-center rounded-[3px] border-[1.5px] border-[#1B8A3A] dark:border-[#3FB65F]"><span class="size-1.5 rounded-full bg-[#1B8A3A] dark:bg-[#3FB65F]"></span></span><span role="img" aria-label="Non-vegetarian" class="inline-grid size-3.5 shrink-0 place-items-center rounded-[3px] border-[1.5px] border-[#9A3412] dark:border-[#E07A4F]"><span class="size-0 border-x-[3.5px] border-b-[6px] border-x-transparent border-b-[#9A3412] dark:border-b-[#E07A4F]"></span></span> Veg &amp; non-veg</span>
+            </div>
+            <dl class="mt-5 divide-y text-sm">
+              <div class="grid gap-1 py-3 sm:grid-cols-[9rem_1fr] sm:gap-4"><dt class="flex items-center gap-2 font-semibold"><span role="img" aria-label="Non-vegetarian" class="inline-grid size-3.5 shrink-0 place-items-center rounded-[3px] border-[1.5px] border-[#9A3412] dark:border-[#E07A4F]"><span class="size-0 border-x-[3.5px] border-b-[6px] border-x-transparent border-b-[#9A3412] dark:border-b-[#E07A4F]"></span></span> Non-veg main</dt><dd class="text-muted-foreground">Chicken curry / Kadhai chicken / Butter chicken</dd></div>
+              <div class="grid gap-1 py-3 sm:grid-cols-[9rem_1fr] sm:gap-4"><dt class="flex items-center gap-2 font-semibold"><span role="img" aria-label="Vegetarian" class="inline-grid size-3.5 shrink-0 place-items-center rounded-[3px] border-[1.5px] border-[#1B8A3A] dark:border-[#3FB65F]"><span class="size-1.5 rounded-full bg-[#1B8A3A] dark:bg-[#3FB65F]"></span></span> Veg main</dt><dd class="text-muted-foreground">Kadhai paneer / Palak paneer / Dum aloo</dd></div>
+              <div class="grid gap-1 py-3 sm:grid-cols-[9rem_1fr] sm:gap-4"><dt class="font-semibold">Dal</dt><dd class="text-muted-foreground">Dal makhani / Panchmel dal</dd></div>
+              <div class="grid gap-1 py-3 sm:grid-cols-[9rem_1fr] sm:gap-4"><dt class="font-semibold">Rice &amp; breads</dt><dd class="text-muted-foreground">Peas pulao / Veg biryani, fresh tawa roti</dd></div>
+              <div class="grid gap-1 py-3 sm:grid-cols-[9rem_1fr] sm:gap-4"><dt class="font-semibold">Sides &amp; dessert</dt><dd class="text-muted-foreground">Green salad, papad, pickle; gulab jamun / kheer / sewaiyan</dd></div>
+            </dl>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SAFETY ============ -->
+    <section id="safety" class="overflow-x-clip border-y bg-muted/30 py-20 md:py-32">
+      <div class="mx-auto grid max-w-6xl items-center gap-14 px-4 md:px-6 lg:grid-cols-2 lg:gap-16">
+        <div class="reveal">
+          <p class="text-sm font-semibold uppercase tracking-wider text-primary-ink">Safety first</p>
+          <h2 class="mt-3 text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
+            Every adventure starts with a <span class="font-serif font-normal italic text-secondary-foreground">safety check</span>
+          </h2>
+          <p class="mt-4 max-w-xl text-lg text-muted-foreground">Adventure should feel wild, never reckless. Before anyone gets on the water, into a harness or onto a trail, our team works through the same checks, every time.</p>
+
+          <ul class="mt-10 grid gap-6 sm:grid-cols-2">
+            <li class="flex gap-4">
+              <span class="grid size-10 shrink-0 place-items-center rounded-lg bg-secondary text-secondary-foreground"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-5"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg></span>
+              <div><h3 class="font-semibold">Experienced guides</h3><p class="mt-1 text-sm text-muted-foreground">A team backed by 25 years of adventure experience.</p></div>
+            </li>
+            <li class="flex gap-4">
+              <span class="grid size-10 shrink-0 place-items-center rounded-lg bg-secondary text-secondary-foreground"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-5"><path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5"/><path d="M14 6a6 6 0 0 1 6 6v3"/><path d="M4 15v-3a6 6 0 0 1 6-6"/><rect x="2" y="15" width="20" height="4" rx="1"/></svg></span>
+              <div><h3 class="font-semibold">Quality-checked gear</h3><p class="mt-1 text-sm text-muted-foreground">Helmets, life jackets and harnesses are inspected before every use.</p></div>
+            </li>
+            <li class="flex gap-4">
+              <span class="grid size-10 shrink-0 place-items-center rounded-lg bg-secondary text-secondary-foreground"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-5"><rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></svg></span>
+              <div><h3 class="font-semibold">Briefing for everyone</h3><p class="mt-1 text-sm text-muted-foreground">Every guest learns what to expect and what to do before starting.</p></div>
+            </li>
+            <li class="flex gap-4">
+              <span class="grid size-10 shrink-0 place-items-center rounded-lg bg-secondary text-secondary-foreground"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-5"><path d="M12 2v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="M20 12h2"/><path d="m19.07 4.93-1.41 1.41"/><path d="M15.947 12.65a4 4 0 0 0-5.925-4.128"/><path d="M13 22H7a5 5 0 1 1 4.9-6H13a3 3 0 0 1 0 6Z"/></svg></span>
+              <div><h3 class="font-semibold">Conditions checked</h3><p class="mt-1 text-sm text-muted-foreground">We watch the weather and river levels, and reschedule if it isn't safe.</p></div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Animated checklist -->
+        <div data-play-scope class="reveal group relative mx-auto w-full max-w-md [--d:150ms]">
+          <div aria-hidden="true" class="absolute -inset-6 -z-10 rounded-[2rem] bg-linear-to-br from-chart-2/25 via-transparent to-primary/25 blur-2xl"></div>
+          <div class="rounded-2xl border bg-card p-6 shadow-xl sm:p-8">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <p class="font-mono text-xs uppercase tracking-wider text-muted-foreground">Pre-activity checklist</p>
+                <p class="mt-1 text-lg font-bold">River rafting</p>
+              </div>
+              <span class="inline-flex items-center gap-1.5 rounded-full bg-secondary px-2.5 py-1 text-xs font-semibold text-secondary-foreground">
+                <span data-play-on-hover class="size-1.5 animate-pulse rounded-full bg-chart-4"></span> All clear
+              </span>
+            </div>
+            <ul class="mt-6 divide-y">
+              <li class="flex items-center gap-3 py-3">
+                <span class="grid size-6 shrink-0 place-items-center rounded-full bg-chart-4 text-white group-[.is-visible]:animate-tick group-[.is-visible]:[animation-delay:400ms]"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="size-3.5"><path d="M20 6 9 17l-5-5"/></svg></span>
+                <span class="text-sm font-medium">Safety briefing for the whole group</span>
+              </li>
+              <li class="flex items-center gap-3 py-3">
+                <span class="grid size-6 shrink-0 place-items-center rounded-full bg-chart-4 text-white group-[.is-visible]:animate-tick group-[.is-visible]:[animation-delay:750ms]"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="size-3.5"><path d="M20 6 9 17l-5-5"/></svg></span>
+                <span class="text-sm font-medium">Helmets fitted for every rafter</span>
+              </li>
+              <li class="flex items-center gap-3 py-3">
+                <span class="grid size-6 shrink-0 place-items-center rounded-full bg-chart-4 text-white group-[.is-visible]:animate-tick group-[.is-visible]:[animation-delay:1100ms]"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="size-3.5"><path d="M20 6 9 17l-5-5"/></svg></span>
+                <span class="text-sm font-medium">Life jackets buckled and checked</span>
+              </li>
+              <li class="flex items-center gap-3 py-3">
+                <span class="grid size-6 shrink-0 place-items-center rounded-full bg-chart-4 text-white group-[.is-visible]:animate-tick group-[.is-visible]:[animation-delay:1450ms]"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="size-3.5"><path d="M20 6 9 17l-5-5"/></svg></span>
+                <span class="text-sm font-medium">Raft, paddles and rescue gear inspected</span>
+              </li>
+              <li class="flex items-center gap-3 py-3">
+                <span class="grid size-6 shrink-0 place-items-center rounded-full bg-chart-4 text-white group-[.is-visible]:animate-tick group-[.is-visible]:[animation-delay:1800ms]"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="size-3.5"><path d="M20 6 9 17l-5-5"/></svg></span>
+                <span class="text-sm font-medium">River level and weather checked</span>
+              </li>
+            </ul>
+            <div class="mt-6">
+              <div class="flex justify-between text-xs font-semibold"><span>Ready to go</span><span class="font-mono">5 / 5</span></div>
+              <div class="mt-2 h-2 overflow-hidden rounded-full bg-muted">
+                <div class="h-full origin-left rounded-full bg-linear-to-r from-chart-2 to-chart-4 group-[.is-visible]:animate-fill group-[.is-visible]:[animation-delay:300ms]"></div>
+              </div>
+            </div>
+          </div>
+          <div data-play-on-hover class="absolute -bottom-6 -left-2 animate-float rounded-xl border bg-card px-4 py-3 shadow-lg sm:-left-8">
+            <p class="text-xs text-muted-foreground">Our rule</p>
+            <p class="font-bold">No check, no go</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HOW IT WORKS ============ -->
+    <section class="py-24 md:py-32">
+      <div class="mx-auto max-w-6xl px-4 md:px-6">
+        <div class="reveal mb-16 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+          <div>
+            <h2 class="mb-4 text-3xl font-bold tracking-tight md:text-5xl">Plan your adventure in <span class="text-primary-ink">three steps</span></h2>
+            <p class="max-w-[600px] text-lg text-muted-foreground md:text-xl">From your first question to your first splash, we guide you all the way.</p>
+          </div>
+          <a href="booking.html" class="group inline-flex h-11 shrink-0 items-center gap-2 self-start rounded-full border px-5 font-semibold transition hover:bg-accent hover:text-accent-foreground md:self-auto">
+            Start your booking
+            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4 transition-transform group-hover:translate-x-0.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+        <ol class="grid gap-10 md:grid-cols-3 md:gap-8">
+          <li class="reveal group relative">
+            <div class="relative mb-6">
+              <span aria-hidden="true" class="block text-8xl font-extrabold text-foreground/[0.07] transition-colors duration-500 group-hover:text-primary/20">01</span>
+              <span class="absolute bottom-4 left-2 h-1 w-12 rounded-full bg-primary"></span>
+            </div>
+            <h3 class="mb-3 text-2xl font-bold">Send a booking request</h3>
+            <p class="text-lg leading-relaxed text-muted-foreground">Tell us who's coming, what you'd love to try and anything we should know about health or fitness.</p>
+          </li>
+          <li class="reveal group relative [--d:200ms]">
+            <div class="relative mb-6">
+              <span aria-hidden="true" class="block text-8xl font-extrabold text-foreground/[0.07] transition-colors duration-500 group-hover:text-primary/20">02</span>
+              <span class="absolute bottom-4 left-2 h-1 w-12 rounded-full bg-primary"></span>
+            </div>
+            <h3 class="mb-3 text-2xl font-bold">Get a safe, tailored plan</h3>
+            <p class="text-lg leading-relaxed text-muted-foreground">We recommend activities that suit your group's age, fitness and experience, with clear safety guidance.</p>
+          </li>
+          <li class="reveal group relative [--d:400ms]">
+            <div class="relative mb-6">
+              <span aria-hidden="true" class="block text-8xl font-extrabold text-foreground/[0.07] transition-colors duration-500 group-hover:text-primary/20">03</span>
+              <span class="absolute bottom-4 left-2 h-1 w-12 rounded-full bg-primary"></span>
+            </div>
+            <h3 class="mb-3 text-2xl font-bold">Go wild</h3>
+            <p class="text-lg leading-relaxed text-muted-foreground">Show up, gear up and enjoy. Our team handles the checks so you can focus on the fun.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section id="faq" class="border-t py-24 md:py-32">
+      <div class="mx-auto grid max-w-6xl gap-12 px-4 md:px-6 lg:grid-cols-12">
+        <div class="reveal lg:col-span-4">
+          <h2 class="text-3xl font-bold tracking-tight md:text-4xl">Questions, answered</h2>
+          <p class="mt-4 text-lg text-muted-foreground">Can't find what you need? <a href="contact.html" class="font-semibold text-primary-ink underline-offset-4 hover:underline">Get in touch</a> and we'll help.</p>
+        </div>
+        <div class="space-y-4 lg:col-span-8">
+          <details name="faq" class="reveal group rounded-lg border bg-muted/20 px-4 transition-colors open:bg-card">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 py-5 text-lg font-medium [&::-webkit-details-marker]:hidden">
+              Do I need any experience?
+              <span class="grid size-7 shrink-0 place-items-center rounded-full border transition-transform duration-300 group-open:rotate-45"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4"><path d="M5 12h14"/><path d="M12 5v14"/></svg></span>
+            </summary>
+            <p class="pb-5 text-base text-muted-foreground group-open:animate-fade-up">Not at all. Many of our activities are beginner friendly, and our team will recommend the right ones for you when you book.</p>
+          </details>
+          <details name="faq" class="reveal group rounded-lg border bg-muted/20 px-4 transition-colors open:bg-card [--d:50ms]">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 py-5 text-lg font-medium [&::-webkit-details-marker]:hidden">
+              How do you keep guests safe?
+              <span class="grid size-7 shrink-0 place-items-center rounded-full border transition-transform duration-300 group-open:rotate-45"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4"><path d="M5 12h14"/><path d="M12 5v14"/></svg></span>
+            </summary>
+            <p class="pb-5 text-base text-muted-foreground group-open:animate-fade-up">Every activity starts with a safety briefing, uses equipment that's inspected before each use and is led by experienced guides. If the weather or river conditions aren't safe, we reschedule.</p>
+          </details>
+          <details name="faq" class="reveal group rounded-lg border bg-muted/20 px-4 transition-colors open:bg-card [--d:100ms]">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 py-5 text-lg font-medium [&::-webkit-details-marker]:hidden">
+              Are there age or health requirements?
+              <span class="grid size-7 shrink-0 place-items-center rounded-full border transition-transform duration-300 group-open:rotate-45"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4"><path d="M5 12h14"/><path d="M12 5v14"/></svg></span>
+            </summary>
+            <p class="pb-5 text-base text-muted-foreground group-open:animate-fade-up">Some activities have age, weight or health requirements. Share your details when you book and we'll tell you what's suitable for everyone in your group.</p>
+          </details>
+          <details name="faq" class="reveal group rounded-lg border bg-muted/20 px-4 transition-colors open:bg-card [--d:150ms]">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 py-5 text-lg font-medium [&::-webkit-details-marker]:hidden">
+              Do prices change in peak season?
+              <span class="grid size-7 shrink-0 place-items-center rounded-full border transition-transform duration-300 group-open:rotate-45"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4"><path d="M5 12h14"/><path d="M12 5v14"/></svg></span>
+            </summary>
+            <p class="pb-5 text-base text-muted-foreground group-open:animate-fade-up">Yes. From March to June, rafting costs 15–20% more on weekends and crowded days, and camping and hotel prices rise with demand. We confirm the exact price when you book.</p>
+          </details>
+          <details name="faq" class="reveal group rounded-lg border bg-muted/20 px-4 transition-colors open:bg-card [--d:150ms]">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 py-5 text-lg font-medium [&::-webkit-details-marker]:hidden">
+              Are there lower prices for children or students?
+              <span class="grid size-7 shrink-0 place-items-center rounded-full border transition-transform duration-300 group-open:rotate-45"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4"><path d="M5 12h14"/><path d="M12 5v14"/></svg></span>
+            </summary>
+            <p class="pb-5 text-base text-muted-foreground group-open:animate-fade-up">Children aged 6–11 pay half the adult price for camping, and students pay ₹1,800 instead of ₹2,000 for the zip line.</p>
+          </details>
+          <details name="faq" class="reveal group rounded-lg border bg-muted/20 px-4 transition-colors open:bg-card [--d:150ms]">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 py-5 text-lg font-medium [&::-webkit-details-marker]:hidden">
+              What should I bring?
+              <span class="grid size-7 shrink-0 place-items-center rounded-full border transition-transform duration-300 group-open:rotate-45"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4"><path d="M5 12h14"/><path d="M12 5v14"/></svg></span>
+            </summary>
+            <p class="pb-5 text-base text-muted-foreground group-open:animate-fade-up">Comfortable clothes, sturdy shoes, sunscreen and a change of clothes for water activities. We'll share a full list for your activities when you book.</p>
+          </details>
+          <details name="faq" class="reveal group rounded-lg border bg-muted/20 px-4 transition-colors open:bg-card [--d:200ms]">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 py-5 text-lg font-medium [&::-webkit-details-marker]:hidden">
+              When is the best time to visit?
+              <span class="grid size-7 shrink-0 place-items-center rounded-full border transition-transform duration-300 group-open:rotate-45"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4"><path d="M5 12h14"/><path d="M12 5v14"/></svg></span>
+            </summary>
+            <p class="pb-5 text-base text-muted-foreground group-open:animate-fade-up">It depends on the activity, as river activities are seasonal. Ask us when you book and we'll suggest the best dates for your trip.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CTA ============ -->
+    <section data-hero data-play-scope class="relative isolate overflow-hidden bg-linear-to-br from-primary to-primary/80 py-20 text-primary-foreground md:py-28">
+      <div aria-hidden="true" class="absolute inset-0 -z-10 bg-grid opacity-60 [--border:color-mix(in_oklab,var(--primary-foreground)_10%,transparent)] [--grid-size:4rem]"></div>
+      <!-- Hover effects (assets/hero-fx.js): the glows drift toward the pointer -->
+      <div data-hero-glow aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10 transition-transform duration-[1400ms] ease-out will-change-transform [transform:translate3d(var(--gx,0px),var(--gy,0px),0)]">
+        <div class="absolute -left-20 -top-24 size-80 rounded-full bg-white/20 blur-3xl"></div>
+        <div class="absolute -bottom-24 -right-20 size-80 rounded-full bg-white/15 blur-3xl"></div>
+      </div>
+      <div class="reveal mx-auto flex max-w-3xl flex-col items-center gap-6 px-4 text-center md:px-6">
+        <p class="inline-flex items-center gap-2 rounded-full border border-primary-foreground/25 bg-primary-foreground/10 py-1 pl-1 pr-3.5 text-sm font-semibold backdrop-blur">
+          <span aria-hidden="true" class="grid size-7 place-items-center rounded-full bg-background text-base leading-none"><span data-play-on-hover class="inline-block origin-[70%_70%] animate-wave">👋</span></span>
+          Get in touch
+        </p>
+        <h2 class="text-3xl font-bold tracking-tight md:text-5xl">Ready to go wild, safely?</h2>
+        <p class="max-w-xl text-lg opacity-85">Talk to our team and get an adventure plan that fits your group, your fitness and your idea of fun.</p>
+        <div class="flex w-full flex-col justify-center gap-3 sm:w-auto sm:flex-row">
+          <a href="booking.html" class="group inline-flex h-12 items-center justify-center gap-2 rounded-full bg-foreground px-7 font-semibold text-background shadow-lg transition hover:-translate-y-0.5">
+            Book now
+            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4 transition-transform group-hover:translate-x-0.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+          <a href="contact.html" class="inline-flex h-12 items-center justify-center rounded-full border border-primary-foreground/30 px-7 font-semibold transition hover:-translate-y-0.5 hover:bg-primary-foreground/10">Contact us</a>
+        </div>
+        <p class="text-sm opacity-75">Rishikesh, Uttarakhand · 25+ years of experience</p>
+      </div>
+    </section>
+  </main>
 
   <!-- ============ FOOTER ============ -->
-  <footer class="bg-slate-900 text-slate-400">
-    <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-4 py-10 sm:flex-row sm:px-6">
-      <a href="#" class="flex items-center gap-2 font-display text-xl font-bold text-white">
-        <span class="inline-block animate-wiggle">🎢</span> Adventure Park
-      </a>
-      <p class="text-sm">© 2026 Adventure Park · Open daily 9am – 9pm</p>
+  <footer class="border-t bg-muted/30">
+    <div class="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:grid-cols-2 md:grid-cols-[1.5fr_1fr_1.5fr] md:px-6">
+      <div class="sm:col-span-2 md:col-span-1">
+        <a href="index.html" class="inline-flex rounded-xl dark:bg-foreground dark:p-2.5">
+          <img src="assets/logo.png" alt="Adventure Park" width="454" height="192" loading="lazy" class="h-16 w-auto" />
+        </a>
+        <p class="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">Where Rishikesh gets wild. Adventure activities in Rishikesh, Uttarakhand, with your safety first.</p>
+        <div class="mt-5 flex flex-wrap items-center gap-3">
+          <p class="inline-flex items-center gap-2 rounded-full border bg-background px-3 py-1 text-xs font-semibold">
+            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-3.5 text-chart-4"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg> Safety first, always
+          </p>
+          <a href="https://www.instagram.com/adventure_park771/" target="_blank" rel="noopener" aria-label="Adventure Park on Instagram (@adventure_park771)" class="grid size-9 place-items-center rounded-full border bg-background text-muted-foreground transition hover:-translate-y-0.5 hover:text-foreground"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-4"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg></a>
+          <a href="https://wa.me/918755542743?text=Hi%20Adventure%20Park!%20I%E2%80%99d%20like%20to%20know%20more%20about%20your%20adventures." target="_blank" rel="noopener" aria-label="Chat on WhatsApp" class="grid size-9 place-items-center rounded-full border bg-background text-muted-foreground transition hover:-translate-y-0.5 hover:text-foreground"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-4"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></a>
+        </div>
+      </div>
+        <div>
+          <h2 class="text-sm font-semibold">Explore</h2>
+          <ul class="mt-4 space-y-3 text-sm text-muted-foreground">
+            <li><a href="index.html" class="transition-colors hover:text-foreground">Home</a></li>
+            <li><a href="index.html#activities" class="transition-colors hover:text-foreground">Activities &amp; prices</a></li>
+            <li><a href="index.html#stay" class="transition-colors hover:text-foreground">Stay</a></li>
+            <li><a href="index.html#food" class="transition-colors hover:text-foreground">Food menu</a></li>
+            <li><a href="index.html#safety" class="transition-colors hover:text-foreground">Safety</a></li>
+            <li><a href="about.html" class="transition-colors hover:text-foreground">About us</a></li>
+            <li><a href="booking.html" class="transition-colors hover:text-foreground">Booking</a></li>
+            <li><a href="index.html#faq" class="transition-colors hover:text-foreground">FAQs</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="text-sm font-semibold">Contact</h2>
+          <ul class="mt-4 space-y-4 text-sm text-muted-foreground">
+            <li class="flex gap-2.5"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 size-4 shrink-0 text-primary-ink"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span class="grid gap-1"><a href="tel:+919762388871" class="transition-colors hover:text-foreground">+91 97623 88871</a><a href="tel:+918755542743" class="transition-colors hover:text-foreground">+91 87555 42743</a></span></li>
+            <li class="flex gap-2.5"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="mt-0.5 size-4 shrink-0 text-primary-ink"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+              <a href="https://wa.me/918755542743?text=Hi%20Adventure%20Park!%20I%E2%80%99d%20like%20to%20know%20more%20about%20your%20adventures." target="_blank" rel="noopener" class="transition-colors hover:text-foreground">WhatsApp +91 87555 42743</a></li>
+            <li class="flex gap-2.5"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="mt-0.5 size-4 shrink-0 text-primary-ink"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg>
+              <a href="https://www.instagram.com/adventure_park771/" target="_blank" rel="noopener" class="transition-colors hover:text-foreground">Instagram @adventure_park771</a></li>
+            <li class="flex gap-2.5"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 size-4 shrink-0 text-primary-ink"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              <a href="mailto:adventurepark661@gmail.com" class="break-all transition-colors hover:text-foreground">adventurepark661@gmail.com</a></li>
+            <li class="flex gap-2.5"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 size-4 shrink-0 text-primary-ink"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+              <a href="https://maps.app.goo.gl/CKrMGT2h8CRNrcmi6" target="_blank" rel="noopener" class="transition-colors hover:text-foreground">Near Shiv Mandir, Badrinath Highway, Shivpuri, Uttarakhand</a></li>
+          </ul>
+        </div>
+    </div>
+    <div class="border-t">
+      <div class="mx-auto flex max-w-6xl flex-col gap-2 px-4 pb-24 pt-6 text-xs text-muted-foreground sm:flex-row sm:justify-between sm:pb-6 md:px-6">
+        <p>© <span data-year>2026</span> Adventure Park, Rishikesh. All rights reserved.</p>
+        <p>Founded by Jagat Singh Bhandari</p>
+      </div>
     </div>
   </footer>
 
-  <script>
-    const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  <!-- WhatsApp chat button: a round icon that widens to show its label on hover -->
+  <aside aria-label="WhatsApp chat">
+  <a href="https://wa.me/918755542743?text=Hi%20Adventure%20Park!%20I%E2%80%99d%20like%20to%20know%20more%20about%20your%20adventures." target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp (+91 87555 42743)"
+     class="group fixed bottom-[calc(1.25rem+env(safe-area-inset-bottom,0px))] right-5 z-30 flex h-14 items-center rounded-full bg-[#25D366] px-4 text-white shadow-lg ring-1 ring-black/5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl">
+    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6 shrink-0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    <span class="max-w-0 overflow-hidden whitespace-nowrap text-sm font-semibold opacity-0 transition-all duration-300 group-hover:ml-2 group-hover:max-w-40 group-hover:opacity-100 group-focus-visible:ml-2 group-focus-visible:max-w-40 group-focus-visible:opacity-100">Chat on WhatsApp</span>
+  </a>
+  </aside>
 
-    // Nav gets a frosted background once you scroll
-    const nav = document.getElementById('nav');
-    const onScroll = () => nav.toggleAttribute('data-scrolled', scrollY > 20);
-    addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-
-    // Count-up numbers
-    const counters = document.querySelectorAll('[data-count]');
-    const countUp = (el) => {
-      const target = Number(el.dataset.count);
-      if (reduceMotion) { el.textContent = target; return; }
-      const start = performance.now();
-      const duration = 1600;
-      const tick = (now) => {
-        const p = Math.min((now - start) / duration, 1);
-        el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
-        if (p < 1) requestAnimationFrame(tick);
-      };
-      requestAnimationFrame(tick);
-    };
-    if (!reduceMotion) counters.forEach((el) => (el.textContent = '0'));
-
-    // Reveal sections and start counters as they scroll into view
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(({ isIntersecting, target }) => {
-        if (!isIntersecting) return;
-        if (target.dataset.count) countUp(target);
-        else target.classList.add('is-visible');
-        observer.unobserve(target);
-      });
-    }, { threshold: 0.15 });
-    document.querySelectorAll('.reveal, [data-count]').forEach((el) => observer.observe(el));
-  </script>
+  <script src="assets/hero-fx.js" defer></script>
+  <script src="assets/site.js"></script>
 </body>
 </html>
