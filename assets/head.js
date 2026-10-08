@@ -91,6 +91,7 @@
       --animate-spin-slow: turn 6s linear infinite;
       --animate-float: float 6s ease-in-out infinite;
       --animate-shine: shine 3.5s ease-in-out infinite;
+      --animate-shine-once: shine 1.1s cubic-bezier(0.4, 0, 0.2, 1) both;
       --animate-tick: tick 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both;
       --animate-fill: fill 2.4s cubic-bezier(0.65, 0, 0.35, 1) both;
       --animate-wave: wave 2.6s ease-in-out infinite;

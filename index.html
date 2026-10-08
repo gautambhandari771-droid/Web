@@ -86,10 +86,14 @@
   <main id="main">
 
     <!-- ============ HERO ============ -->
-    <section class="relative isolate overflow-hidden">
+    <section data-hero class="relative isolate overflow-hidden">
       <div aria-hidden="true" class="absolute inset-0 -z-10 bg-grid [mask-image:radial-gradient(ellipse_70%_60%_at_50%_0%,#000_50%,transparent_100%)]"></div>
-      <div aria-hidden="true" class="absolute -top-40 left-1/2 -z-10 h-[30rem] w-[50rem] max-w-[150vw] -translate-x-1/2 animate-glow rounded-full bg-primary/20 blur-3xl"></div>
-      <div aria-hidden="true" class="absolute -right-24 top-48 -z-10 size-80 animate-glow rounded-full bg-chart-2/20 blur-3xl [animation-delay:-3.5s]"></div>
+      <!-- Hover effects (assets/hero-fx.js): the glow drifts toward the pointer, dashes gather around it -->
+      <div data-hero-glow aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10 transition-transform duration-[1400ms] ease-out will-change-transform [transform:translate3d(var(--gx,0px),var(--gy,0px),0)]">
+        <div class="absolute -top-40 left-1/2 h-[30rem] w-[50rem] max-w-[150vw] -translate-x-1/2 rounded-full bg-primary/20 blur-3xl"></div>
+        <div class="absolute -right-24 top-48 size-80 rounded-full bg-chart-2/20 blur-3xl"></div>
+      </div>
+      <canvas data-hero-canvas aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10 size-full"></canvas>
 
       <div class="mx-auto max-w-6xl px-4 pb-14 pt-14 text-center md:px-6 md:pb-20 md:pt-24">
         <a href="#safety" class="group inline-flex animate-fade-up items-center gap-2 rounded-full border bg-background/70 py-1 pl-1 pr-3 text-sm font-medium shadow-xs backdrop-blur transition hover:bg-accent hover:text-accent-foreground">
@@ -118,7 +122,7 @@
 
         <div class="mt-10 flex animate-fade-up flex-col items-center justify-center gap-3 [animation-delay:400ms] sm:flex-row">
           <a href="consultation.html" class="group relative inline-flex h-12 items-center gap-2 overflow-hidden rounded-full bg-primary px-7 font-semibold text-primary-foreground shadow-lg transition hover:scale-[1.03] hover:shadow-xl">
-            <span aria-hidden="true" class="absolute inset-y-0 left-0 w-1/4 animate-shine bg-linear-to-r from-transparent via-white/45 to-transparent"></span>
+            <span aria-hidden="true" class="absolute inset-y-0 left-0 w-1/4 bg-linear-to-r from-transparent via-white/45 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-shine-once"></span>
             <span class="relative">Book a consultation</span>
             <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="relative size-4 transition-transform group-hover:translate-x-0.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
           </a>
@@ -475,6 +479,7 @@
       </div>
     </section>
   </main>
+  <script src="assets/hero-fx.js" defer></script>
 
   <!-- ============ FOOTER ============ -->
   <footer class="border-t bg-muted/30">
