@@ -11,6 +11,7 @@ Key facts:
 - Instagram: https://www.instagram.com/adventure_park771/
 - All prices are in Indian rupees (INR, ₹), per person unless stated.
 - Booking: pay a 50% advance by UPI, then send the booking form with the payment screenshot attached (requests without a payment screenshot are not accepted). The team checks the payment and confirms the booking. The remaining 50% is paid at Adventure Park.
+- Refund policy: cancel within 36 hours of booking (from when the booking request is sent) for a refund of the advance; after 36 hours the advance is non-refundable. Cancel by phone (+91 97623 88871) or WhatsApp (+91 87555 42743).
 
 ## Pages
 
@@ -37,6 +38,7 @@ Key facts:
 2. Send the booking request on the [Booking page](https://adventureprk.netlify.app/booking.html) (each activity and stay on the home page has its own "Book" button) with the payment screenshot attached. Requests without a payment screenshot are not accepted.
 3. The team checks the payment and confirms the booking.
 4. The remaining 50% is paid at Adventure Park.
+5. Refunds: cancel within 36 hours of booking for a refund of the advance. After 36 hours, the advance is non-refundable. [Refund policy](https://adventureprk.netlify.app/booking.html#refund-policy)
 
 ## Stay
 
@@ -68,5 +70,6 @@ Every activity starts with a safety briefing, uses equipment inspected before ea
 - **Do prices change in peak season?** Yes. From March to June, rafting costs 15–20% more on weekends and crowded days, and camping and hotel prices rise with demand. We confirm the exact price when you book.
 - **Are there lower prices for children or students?** Children aged 6–11 pay half the adult price for camping, and students pay ₹1,800 instead of ₹2,000 for the zip line.
 - **How do I book and pay?** Pay a 50% advance by UPI first: scan the QR code on the Booking page with PhonePe, Google Pay, Paytm or any UPI app (UPI ID 8755542743@ybl, name M/S Adventure Park). Then send the booking form with the payment screenshot attached – requests without a payment screenshot are not accepted. We check your payment and confirm your booking, and the remaining 50% is paid at Adventure Park. Not sure of the exact price? Call or WhatsApp us before paying.
+- **What is your refund policy?** You can cancel within 36 hours of booking (from when you send your booking request) and we'll refund your 50% advance. After 36 hours, the advance is non-refundable. To cancel, call +91 97623 88871 or WhatsApp +91 87555 42743. Refund policy
 - **What should I bring?** Comfortable clothes, sturdy shoes, sunscreen and a change of clothes for water activities. We'll share a full list for your activities when you book.
 - **When is the best time to visit?** It depends on the activity, as river activities are seasonal. Ask us when you book and we'll suggest the best dates for your trip.

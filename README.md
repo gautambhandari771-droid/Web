@@ -100,7 +100,7 @@ Every fact the site states, in one place — check these before launch.
 | Zip line | ₹1,800 students, ₹2,000 adults (per person) |
 | Luxury camps & cottages | 200 m up from the river, 100 m up from the national highway · quad/triple ₹1,500–₹1,800, double ₹1,800–₹2,200 per person/night · children 6–11 at 50% · includes three meals, swimming pool, DJ party till 10 pm, attached washroom, fan, charging points · non-AC camps have an air cooler, AC cottages have AC |
 | Hotel rooms (room only) | Non-AC ₹1,200, AC ₹1,600 per room/night · busy days ₹1,600–₹1,800 / ₹2,000–₹2,200 |
-| Booking & payment | A booking is confirmed once a **50% advance** is paid by UPI; the remaining 50% is paid at Adventure Park · M/S ADVENTURE PARK · UPI ID `8755542743@ybl` (PhonePe) · QR code on the Booking page |
+| Booking & payment | A booking is confirmed once a **50% advance** is paid by UPI; the remaining 50% is paid at Adventure Park · M/S ADVENTURE PARK · UPI ID `8755542743@ybl` (PhonePe) · QR code on the Booking page · **Refunds:** only if cancelled within 36 hours of booking (advance refunded); after that the advance is non-refundable |
 | Meals (camps & cottages) | Breakfast 8:30–10:00 AM · buffet lunch 1:30–3:00 PM (pure veg) · evening snacks 6:00–7:30 PM · buffet dinner 8:30–10:30 PM (veg & non-veg) |
 
 ---
@@ -159,6 +159,8 @@ The **Pay by UPI** section is at the bottom of `booking.html` (`id="pay"`). The 
 How booking and payment work on the site: the visitor pays a **50% advance** by scanning the QR code (or by UPI ID), then sends the booking form with the **payment screenshot attached** — the form can't be sent without a screenshot (an image or PDF of up to 10 MB). The team checks the payment and confirms the booking; the remaining 50% is paid at Adventure Park. Visitors unsure of the exact price (peak season, busy days) are asked to call or WhatsApp before paying.
 
 The 50% rule and the screenshot requirement appear in: the highlighted note, price reminder and three steps of the payment section, the four "How it works" steps, the payment-screenshot field of the booking form and the thank-you message (all in `booking.html`); steps 1–2 of "Plan your adventure" and the "How do I book and pay?" answer in `index.html`; and `llms.txt`. Change them together if the rule changes.
+
+**Refund policy** — cancel within 36 hours of booking (from when the booking request is sent) for a refund of the advance; after 36 hours the advance is non-refundable. It appears in the "Refund policy" note of the payment section (`id="refund-policy"`, linked from every footer), under the payment-screenshot field and in the thank-you message (`booking.html`), in the FAQ "What is your refund policy?" (`index.html`) and in `llms.txt`. Change them together if the policy changes.
 
 **To change the UPI account:** replace `assets/upi-qr.svg` and `assets/upi-qr.png` with QR codes for the new account (dark on white), and replace `8755542743@ybl` everywhere it appears: `booking.html` (the caption, the image description and the `data-copy` value of the "Copy UPI ID" button), the FAQ answer in `index.html`, and `llms.txt`.
 
