@@ -22,7 +22,7 @@ The website for Adventure Park, an adventure-activities brand in Rishikesh, Utta
 
 - **See activities and prices** — rafting (12, 16, 26 and 36 km, 1 to 3 hours), bungee jumping (109 m), zip line, luxury camps & cottages (200 m up from the river, 100 m up from the national highway) and hotel rooms, all in ₹.
 - **See the food menu** — breakfast, buffet lunch (pure veg), evening snacks and buffet dinner (veg & non-veg), included with camp and cottage stays.
-- **Book any activity or stay** — every activity card (rafting, bungee, zip line, more adventures) and both stays (camps & cottages, hotel rooms) has its own **Book** button, which opens the booking form with that activity already ticked.
+- **Book any activity or stay** — every activity card (rafting, bungee, zip line, more adventures) and both stays (camps & cottages, hotel rooms) has its own **Book** button, which opens the booking form with that activity already ticked. In the form, rafting offers all four trips (12, 16, 26 and 36 km) with route, duration and price.
 - **Send a booking request** or **a contact message** — both forms email the details to the park (see [Forms](#forms-formsubmit)).
 - **Pay by UPI** — the Booking page shows the park's UPI QR code (M/S ADVENTURE PARK, `8755542743@ybl`) with buttons to download the QR, copy the UPI ID and send the payment screenshot on WhatsApp (see [Payment](#payment-upi-qr-code)).
 - **Chat on WhatsApp** with the floating button on every page (+91 87555 42743) — the chat opens with a greeting already typed.
@@ -100,7 +100,7 @@ Every fact the site states, in one place — check these before launch.
 | Zip line | ₹1,800 students, ₹2,000 adults (per person) |
 | Luxury camps & cottages | 200 m up from the river, 100 m up from the national highway · quad/triple ₹1,500–₹1,800, double ₹1,800–₹2,200 per person/night · children 6–11 at 50% · includes three meals, swimming pool, DJ party till 10 pm, attached washroom, fan, charging points · non-AC camps have an air cooler, AC cottages have AC |
 | Hotel rooms (room only) | Non-AC ₹1,200, AC ₹1,600 per room/night · busy days ₹1,600–₹1,800 / ₹2,000–₹2,200 |
-| UPI payments | M/S ADVENTURE PARK · UPI ID `8755542743@ybl` (PhonePe) · QR code on the Booking page |
+| Booking & payment | A booking is confirmed once a **40% advance** is paid by UPI; the remaining 60% is paid at Adventure Park · M/S ADVENTURE PARK · UPI ID `8755542743@ybl` (PhonePe) · QR code on the Booking page |
 | Meals (camps & cottages) | Breakfast 8:30–10:00 AM · buffet lunch 1:30–3:00 PM (pure veg) · evening snacks 6:00–7:30 PM · buffet dinner 8:30–10:30 PM (veg & non-veg) |
 
 ---
@@ -130,7 +130,7 @@ All prices are in Indian rupees (₹). Update them in these places in `index.htm
 | Peak-season and children/student prices in words | **FAQ** section ("Do prices change in peak season?", "Are there lower prices for children or students?") |
 | Copies for search engines and AI assistants | the `<script type="application/ld+json">` block in the `<head>` of `index.html` (`"price"`, `"minPrice"`, `"maxPrice"`, `"priceRange"`), the description `<meta>` tags of `index.html` ("from ₹520"), and `llms.txt` |
 
-The activity choices in the booking form are in `booking.html` (search for `name="activities"`).
+The activity choices in the booking form are in `booking.html` (search for `name="activities"`). The four rafting trips there (12, 16, 26 and 36 km) show their route, duration and price — update them together with the rafting card on the home page.
 
 ### Contact details — where they appear
 
@@ -156,11 +156,13 @@ The current theme: "life-jacket" orange for buttons, Ganga jade accents, river-n
 
 The **Pay by UPI** section is at the bottom of `booking.html` (`id="pay"`). The QR code was re-created from the owner's PhonePe QR with exactly the same payment details (`upi://pay?pa=8755542743@ybl&pn=M/S ADVENTURE PARK…`) as a standard dark-on-white code, which every UPI app can scan; it was checked with two independent QR readers, on screen at three sharpness levels, in light and dark mode.
 
-How payment works on the site: the visitor sends a booking request, the team confirms the booking and the amount, the visitor pays by scanning the QR code (or by UPI ID), then sends the payment screenshot on WhatsApp. To ask for payment at a different point (for example an advance when booking), change the three steps in the payment section, step 4 of "How it works" on `booking.html`, the "How do I book and pay?" answer in `index.html` and the "Booking and payment" part of `llms.txt`.
+How payment works on the site: the visitor sends a booking request, the team confirms availability and the total price, the visitor pays a **40% advance** by scanning the QR code (or by UPI ID) and sends the payment screenshot on WhatsApp — the booking is confirmed once the advance arrives. The remaining 60% is paid at Adventure Park.
+
+The 40% rule appears in: the highlighted note and three steps of the payment section, steps 3–4 of "How it works", the note under the booking form and the thank-you message (all in `booking.html`); step 2 of "Plan your adventure" and the "How do I book and pay?" answer in `index.html`; the ready-made WhatsApp "I've paid" message; and `llms.txt`. Change all of them together if the rule changes.
 
 **To change the UPI account:** replace `assets/upi-qr.svg` and `assets/upi-qr.png` with QR codes for the new account (dark on white), and replace `8755542743@ybl` everywhere it appears: `booking.html` (the caption, the image description and the `data-copy` value of the "Copy UPI ID" button), the FAQ answer in `index.html`, and `llms.txt`.
 
-The "Book" buttons link to `booking.html?activity=…` (`rafting`, `bungee`, `zipline`, `camps`, `hotel`, `other`); the matching box is ticked by `assets/site.js`.
+The "Book" buttons link to `booking.html?activity=…` (`bungee`, `zipline`, `camps`, `hotel`, `other`); the matching box is ticked by `assets/site.js`. "Book rafting" opens the form without a preset, because the visitor picks one of the four rafting trips there.
 
 ### Changing the design (rebuilding the styles)
 
