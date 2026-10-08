@@ -3,7 +3,7 @@
 **Where Rishikesh gets wild.**
 The website for Adventure Park, an adventure-activities brand in Rishikesh, Uttarakhand, founded by Jagat Singh Bhandari (25+ years of experience, more than 5 lakh people served). The site presents the activities, puts safety first, and lets visitors book a consultation or get in touch.
 
-> **Status:** ready for launch on Netlify at **adventurepark.netlify.app** (the exact address is confirmed when the site is created). Launch is waiting on the real activity list — see the [launch checklist](#launch-checklist).
+> **Status:** the Netlify site is created — **https://adventurepark-rishikesh.netlify.app** (Netlify project `adventurepark-rishikesh`, public, no login needed). It goes live with the first deploy — see [Deploying to Netlify](#deploying-to-netlify).
 
 ---
 
@@ -161,11 +161,11 @@ The site is set up for Netlify (`netlify.toml`): no build command, publish direc
 
 **Recommended — connect the GitHub repository** (updates go live automatically on every push):
 
-1. In Netlify: **Add new site → Import an existing project → GitHub**, and choose this repository.
+1. In Netlify, open the `adventurepark-rishikesh` project → **Site configuration → Build & deploy → Link repository → GitHub**, and choose this repository.
 2. Branch to deploy: `main` (merge the work into `main` first). Leave the build command empty; the publish directory comes from `netlify.toml`.
-3. **Site configuration → Change site name** to `adventurepark` → https://adventurepark.netlify.app (or the closest free name).
+3. The site is already named `adventurepark-rishikesh` → https://adventurepark-rishikesh.netlify.app (`adventurepark` and `adventure-park` were taken). Rename it any time under **Site configuration → Change site name**.
 
-**Quick alternative — drag and drop:** open https://app.netlify.com/drop and drop this folder onto the page.
+**Quick alternative — drag and drop:** download this repository as a ZIP from GitHub (**Code → Download ZIP**), unzip it, open the `adventurepark-rishikesh` project in Netlify, go to **Deploys**, and drop the folder onto the upload area.
 
 **After the first deploy:** activate the forms (see above) and run through the launch checklist.
 
@@ -178,7 +178,8 @@ The site is set up for Netlify (`netlify.toml`): no build command, publish direc
 - [x] Real activities and prices (rafting, bungee, zip line) and stay options (camping, hotel rooms).
 - [x] Instagram link in the footer, mobile menu and Contact page.
 - [ ] Check every safety statement matches what the team actually does.
-- [ ] Deploy to Netlify and set the site name.
+- [x] Netlify site created and set to public (`adventurepark-rishikesh`).
+- [ ] First deploy (link the GitHub repository or drag and drop the folder).
 - [ ] Submit both forms once and click FormSubmit's activation emails.
 - [ ] Check the Google Maps link on the Contact page opens the right place.
 - [ ] Test on a phone: menu, WhatsApp button, tap-to-call, forms.
