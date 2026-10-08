@@ -24,7 +24,7 @@ The website for Adventure Park, an adventure-activities brand in Rishikesh, Utta
 - **See the food menu** — breakfast, buffet lunch (pure veg), evening snacks and buffet dinner (veg & non-veg), included with camp and cottage stays.
 - **Book any activity or stay** — every activity card (rafting, bungee, zip line, more adventures) and both stays (camps & cottages, hotel rooms) has its own **Book** button, which opens the booking form with that activity already ticked. In the form, rafting offers all four trips (12, 16, 26 and 36 km) with route, duration and price.
 - **Send a booking request** or **a contact message** — both forms email the details to the park (see [Forms](#forms-formsubmit)).
-- **Pay by UPI** — the Booking page shows the park's UPI QR code (M/S ADVENTURE PARK, `8755542743@ybl`) with buttons to download the QR, copy the UPI ID and send the payment screenshot on WhatsApp (see [Payment](#payment-upi-qr-code)).
+- **Pay by UPI, then book** — the Booking page shows the park's UPI QR code (M/S ADVENTURE PARK, `8755542743@ybl`) with buttons to download the QR and copy the UPI ID. Visitors pay a 50% advance, then send the booking form with the **payment screenshot attached** — the form can't be sent without it (see [Payment](#payment-upi-qr-code)).
 - **Chat on WhatsApp** with the floating button on every page (+91 87555 42743) — the chat opens with a greeting already typed.
 - **Call or email** — numbers and email are on the Contact page and in every footer.
 - **Find the office** — Near Shiv Mandir, Badrinath Highway, Shivpuri, Uttarakhand, with the [Google Maps location](https://maps.app.goo.gl/CKrMGT2h8CRNrcmi6) linked from the Contact page, every footer and the mobile menu.
@@ -156,9 +156,9 @@ The current theme: "life-jacket" orange for buttons, Ganga jade accents, river-n
 
 The **Pay by UPI** section is at the bottom of `booking.html` (`id="pay"`). The QR code was re-created from the owner's PhonePe QR with exactly the same payment details (`upi://pay?pa=8755542743@ybl&pn=M/S ADVENTURE PARK…`) as a standard dark-on-white code, which every UPI app can scan; it was checked with two independent QR readers, on screen at three sharpness levels, in light and dark mode.
 
-How payment works on the site: the visitor sends a booking request, the team confirms availability and the total price, the visitor pays a **50% advance** by scanning the QR code (or by UPI ID) and sends the payment screenshot on WhatsApp — the booking is confirmed once the advance arrives. The remaining 50% is paid at Adventure Park.
+How booking and payment work on the site: the visitor pays a **50% advance** by scanning the QR code (or by UPI ID), then sends the booking form with the **payment screenshot attached** — the form can't be sent without a screenshot (an image or PDF of up to 10 MB). The team checks the payment and confirms the booking; the remaining 50% is paid at Adventure Park. Visitors unsure of the exact price (peak season, busy days) are asked to call or WhatsApp before paying.
 
-The 50% rule appears in: the highlighted note and three steps of the payment section, steps 3–4 of "How it works", the note under the booking form and the thank-you message (all in `booking.html`); step 2 of "Plan your adventure" and the "How do I book and pay?" answer in `index.html`; the ready-made WhatsApp "I've paid" message; and `llms.txt`. Change all of them together if the rule changes.
+The 50% rule and the screenshot requirement appear in: the highlighted note, price reminder and three steps of the payment section, the four "How it works" steps, the payment-screenshot field of the booking form and the thank-you message (all in `booking.html`); steps 1–2 of "Plan your adventure" and the "How do I book and pay?" answer in `index.html`; and `llms.txt`. Change them together if the rule changes.
 
 **To change the UPI account:** replace `assets/upi-qr.svg` and `assets/upi-qr.png` with QR codes for the new account (dark on white), and replace `8755542743@ybl` everywhere it appears: `booking.html` (the caption, the image description and the `data-copy` value of the "Copy UPI ID" button), the FAQ answer in `index.html`, and `llms.txt`.
 
@@ -225,17 +225,18 @@ Both forms send their details by email through FormSubmit to **adventurepark661@
 | Form | Email subject | Fields |
 |---|---|---|
 | Contact (`contact.html`) | New contact form message – Adventure Park website | name, age, gender, phone, email |
-| Booking (`booking.html`) | New booking request – Adventure Park website | name, phone, email, group size, experience, preferred date, contact by, activities, health and notes |
+| Booking (`booking.html`) | New booking request – Adventure Park website | name, phone, email, group size, experience, preferred date, contact by, activities (incl. the rafting trip), health and notes, and the **payment screenshot as an email attachment** |
 
 **One-time activation (after the site is live):**
 
-1. Submit the contact form once on the live site.
-2. FormSubmit emails an **"Activate Form"** link to adventurepark661@gmail.com — click it. (Check spam. If an activation email arrives for each form, click both.)
+1. Submit the contact form once on the live site, and the booking form once (with any image as the screenshot).
+2. FormSubmit emails an **"Activate Form"** link to adventurepark661@gmail.com — click it. (Check spam. If an activation email arrives for each form, click both.) Until then, the booking form shows FormSubmit's own "activate" page instead of the site's thank-you message.
 3. From then on, every submission arrives as a neat table in the inbox.
 
 Good to know:
 
-- Visitors stay on the page and see a "Thanks" message; if sending fails they're asked to try again or call.
+- **Contact form:** visitors stay on the page and see a "Thanks" message; if sending fails they're asked to try again or call.
+- **Booking form:** because it carries the payment screenshot, it is sent as a normal file upload (FormSubmit only emails attachments from such uploads). FormSubmit then sends the visitor back to the Booking page, which shows the thank-you message. Files can be up to 10 MB in total; FormSubmit emails them and does not keep a copy, so keep the email.
 - A hidden `_honey` field catches spam bots; FormSubmit's captcha page is switched off for a smoother experience.
 - Forms **don't send** from a file opened directly on your computer or from the claude.ai preview — they need the live website.
 - **To change the receiving email**, replace `adventurepark661@gmail.com` in the `action="https://formsubmit.co/…"` of both forms, then activate again. After activation FormSubmit may also send a private code that can replace the email address in the form.
