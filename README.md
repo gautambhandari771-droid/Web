@@ -29,6 +29,7 @@ The website for Adventure Park, an adventure-activities brand in Rishikesh, Utta
 - **Follow on Instagram** — [@adventure_park771](https://www.instagram.com/adventure_park771/), linked in the footer, the mobile menu and the Contact page.
 - **Use it on a phone** — a full-screen menu with big links, a "Book now" button and tap-to-call, WhatsApp, email and map links.
 - **Switch light/dark mode** — follows the visitor's device setting by default.
+- **Find the park on Google and in AI assistants** — every page carries search, link-preview and structured data, and the site is open to search engines and AI crawlers (see [Search engines and AI assistants](#search-engines-and-ai-assistants-seo-geo-aio)).
 
 ---
 
@@ -50,6 +51,10 @@ A static website: plain HTML, CSS and a little JavaScript. **There is no build s
 ├── 404.html              Page not found
 ├── preview.html          Device preview tool
 ├── favicon.ico           Browser-tab icon (AP monogram)
+├── robots.txt            Tells search engines and AI crawlers they may read the site
+├── sitemap.xml           List of pages for search engines
+├── llms.txt              Plain-text summary of the business for AI assistants
+├── site.webmanifest      App name and icons (for "Add to Home screen")
 ├── netlify.toml          Netlify settings
 └── assets/
     ├── theme.css         Colours, fonts, radius, shadows (tweakcn format)
@@ -58,7 +63,8 @@ A static website: plain HTML, CSS and a little JavaScript. **There is no build s
     ├── hero-fx.js        Animated dash ring and glow in the page headers
     ├── logo.png          ADVENTURE PARK wordmark (header and footer)
     ├── icon-192.png      App icon
-    └── apple-touch-icon.png  Home-screen icon for iPhone/iPad
+    ├── apple-touch-icon.png  Home-screen icon for iPhone/iPad
+    └── og-image.png      Link-preview picture (WhatsApp, Facebook, Google…), 1200×630
 ```
 
 ---
@@ -89,6 +95,8 @@ All content is in the HTML files — open one in any text editor, change the wor
 
 **The header, footer, mobile menu and WhatsApp button are repeated in every page.** If you change one of them (for example a phone number), make the same change in `index.html`, `about.html`, `booking.html`, `contact.html` and `404.html`.
 
+**Search and AI copies of the facts.** Prices, phone numbers, the address and the FAQ also appear in the structured data at the top of each page and in `llms.txt`. When a fact changes on the page, change it there too — see [Keeping it accurate](#keeping-it-accurate).
+
 ### Headline numbers
 
 The band under the Home hero shows **25+** years of experience, **5 lakh+** people served and **Since 2006 · Founded by JSB**. Edit them in the "NUMBERS" section of `index.html` (the About page has its own band in `about.html`). The `data-count` value is the number that counts up.
@@ -104,6 +112,7 @@ All prices are in Indian rupees (₹). Update them in these places in `index.htm
 | Camps & cottages (per person / night, children 6–11 at 50%, what's included, non-AC vs AC) and hotel rooms (per room / night, busy-day prices, room only) | **Stay** section |
 | Meal times and dishes | **Food** section (`id="food"`) |
 | Peak-season and children/student prices in words | **FAQ** section ("Do prices change in peak season?", "Are there lower prices for children or students?") |
+| Copies for search engines and AI assistants | the `<script type="application/ld+json">` block in the `<head>` of `index.html` (`"price"`, `"minPrice"`, `"maxPrice"`, `"priceRange"`), the description `<meta>` tags of `index.html` ("from ₹520"), and `llms.txt` |
 
 The activity choices in the booking form are in `booking.html` (search for `name="activities"`).
 
@@ -117,6 +126,7 @@ The activity choices in the booking form are in `booking.html` (search for `name
 | Instagram (@adventure_park771) | Footer and mobile menu in every page, Instagram card in `contact.html` |
 | Phone number in form error messages | `PHONE` at the top of the forms section in `assets/site.js` |
 | Form email address | the `action` of both forms (see [Forms](#forms-formsubmit)) |
+| Copies for search engines and AI assistants | the `<script type="application/ld+json">` block in the `<head>` of `index.html`, `about.html`, `booking.html` and `contact.html`; the description `<meta>` tags of `contact.html`; `llms.txt` |
 
 ### Colours and fonts (tweakcn)
 
@@ -145,6 +155,7 @@ Change the emoji or text inside that pill at the top of each page's first sectio
 
 - `assets/logo.png` — the wordmark (transparent background; shown on a light plate in dark mode).
 - `favicon.ico`, `assets/icon-192.png`, `assets/apple-touch-icon.png` — made from the AP monogram.
+- `assets/og-image.png` — the 1200×630 picture shown when a link to the site is shared (logo, tagline, activities, "Since 2006").
 
 Replace a file with one of the same name and size to update it.
 
@@ -184,6 +195,76 @@ Good to know:
 
 ---
 
+## Search engines and AI assistants (SEO, GEO, AIO)
+
+The site is set up so that Google and Bing (SEO), and AI assistants and answer engines such as ChatGPT, Claude, Perplexity, Gemini and Copilot (GEO / AIO — generative-engine and AI optimisation), can find it, read it and describe the park correctly. Nothing here changes how the pages look.
+
+### What's in place
+
+| What | Where | What it does |
+|---|---|---|
+| Page titles and descriptions | `<title>` and `<meta name="description">` in each page | The headline and snippet shown in search results, written around what people search for (rafting, bungee jumping, camps in Rishikesh) |
+| Canonical address | `<link rel="canonical">` in each page | Tells search engines the one official address of each page |
+| Robots tags | `<meta name="robots">` in each page | Lets search engines index the four main pages and show large image previews and full snippets; the 404 page and the device preview are kept out of search |
+| Link previews | `og:` and `twitter:` `<meta>` tags, `assets/og-image.png` | The title, text and picture shown when a link is shared on WhatsApp, Instagram, Facebook, X or LinkedIn |
+| Location tags | `geo.region` (IN-UT) and `geo.placename` `<meta>` tags; page language `en-IN` | Ties the site to Shivpuri, Rishikesh, Uttarakhand, India |
+| Structured data | `<script type="application/ld+json">` in the `<head>` of each main page | Machine-readable facts in the [schema.org](https://schema.org) format (below) |
+| `robots.txt` | site root | Allows every crawler, and names the main AI crawlers one by one so they know they're welcome (below). Points to the sitemap and `llms.txt` |
+| `sitemap.xml` | site root | Lists the four main pages with their last-updated date |
+| `llms.txt` | site root | A plain-text fact sheet in the [llms.txt](https://llmstxt.org) format: the business, every price, the stays, the food menu, safety and the FAQ, so an AI assistant can quote them accurately |
+| `site.webmanifest` | site root | App name, colours and icons |
+
+### Structured data (schema.org JSON-LD)
+
+| Page | What it describes |
+|---|---|
+| Home | **The business** (`SportsActivityLocation` + `TouristAttraction`): name, tagline, founder, founded in 2006, address, map link, phones, WhatsApp, email, Instagram, price range ₹520–₹4,000 and **a catalogue of all 11 prices** (4 rafting stretches, bungee, zip line ×2, camps ×2, hotel rooms ×2, each in INR). **The FAQ** (all 7 questions and answers), **the camps & cottages** (`Campground` with every amenity) and **the food menu** (4 meals and their dishes, vegetarian dishes marked) |
+| About | The business, the About page and **the founder**, Jagat Singh Bhandari (JSB) |
+| Booking | The business, the Booking page and a "send a booking request" action |
+| Contact | The business and the Contact page |
+
+About, Booking and Contact also have a breadcrumb trail (Home › page). The 404 page has no structured data.
+
+### Crawlers allowed in `robots.txt`
+
+All crawlers are allowed (`User-agent: *`). These are also named one by one:
+
+| Company | Crawlers |
+|---|---|
+| OpenAI (ChatGPT) | GPTBot, OAI-SearchBot, ChatGPT-User |
+| Anthropic (Claude) | ClaudeBot, Claude-SearchBot, Claude-User, anthropic-ai |
+| Perplexity | PerplexityBot, Perplexity-User |
+| Google (Search, Gemini, AI Overviews) | Googlebot, Google-Extended |
+| Microsoft (Bing, Copilot) | Bingbot |
+| Apple (Siri, Apple Intelligence) | Applebot, Applebot-Extended |
+| Others | DuckAssistBot, Amazonbot, meta-externalagent, CCBot (Common Crawl), cohere-ai, MistralAI-User, YouBot |
+
+Only `preview.html` (the device-preview tool) is blocked. To block one of the crawlers above instead, move its `User-agent:` line into a new group of its own with `Disallow: /`.
+
+### Keeping it accurate
+
+AI assistants and search engines trust a business more when the same facts appear everywhere. When something changes:
+
+- **A price or a fact on the page** → update the same value in the structured data of `index.html` (search the `<head>` for the old value — prices are written without commas, e.g. `"price": "4000"`) and in `llms.txt`.
+- **Anything on the site** → update `<lastmod>` in `sitemap.xml` (and `"dateModified"` in the structured data) to the date of the change.
+- **The FAQ** → the questions and answers are copied into the structured data of `index.html` and into `llms.txt`.
+- **Moving to your own domain** (e.g. `adventurepark.in`) → find-and-replace `https://adventurepark-rishikesh.netlify.app` with the new address in every `.html` file, `robots.txt`, `sitemap.xml` and `llms.txt`.
+- **Name, address and phone** should be written exactly the same here, on Google Business Profile, Instagram and any listing sites.
+- To check the structured data, paste a page address into Google's [Rich Results Test](https://search.google.com/test/rich-results) or the [Schema Markup Validator](https://validator.schema.org).
+
+### After launch
+
+These steps are done outside the website and make the biggest difference to being found:
+
+1. **[Google Business Profile](https://business.google.com)** — create or claim the listing for Adventure Park with the same name, address, phones and website. This drives Google Maps, "near me" searches and many AI answers about local businesses. Add photos and opening hours, and ask happy guests for Google reviews.
+2. **[Google Search Console](https://search.google.com/search-console)** — add the site, then submit `sitemap.xml` under **Sitemaps**.
+3. **[Bing Webmaster Tools](https://www.bing.com/webmasters)** — add the site (it can import from Search Console) and submit the sitemap. Bing's index also feeds Copilot and other AI search tools.
+4. Optional: send the office's exact map coordinates (latitude, longitude) to be added to the structured data.
+
+No website can guarantee a place in AI answers. These steps make sure that when AI assistants do look, they can read every page and find correct, consistent facts.
+
+---
+
 ## Previewing
 
 **On your computer** — run a small local web server from this folder, then open the address it prints:
@@ -211,9 +292,9 @@ The site is set up for Netlify (`netlify.toml`): no build command, publish direc
 
 **Quick alternative — drag and drop:** download this repository as a ZIP from GitHub (**Code → Download ZIP**), unzip it, open the `adventurepark-rishikesh` project in Netlify, go to **Deploys**, and drop the folder onto the upload area.
 
-**After the first deploy:** activate the forms (see above) and run through the launch checklist.
+**After the first deploy:** activate the forms (see above), do the [search and AI steps](#after-launch), and run through the launch checklist.
 
-**Own domain later:** buy a domain (e.g. `adventurepark.in`), then in Netlify go to **Domain management → Add a domain** and follow the steps. Nothing in the site needs to change.
+**Own domain later:** buy a domain (e.g. `adventurepark.in`), then in Netlify go to **Domain management → Add a domain** and follow the steps. Then replace the Netlify address in the pages and crawler files (see [Keeping it accurate](#keeping-it-accurate)).
 
 ---
 
@@ -228,6 +309,10 @@ The site is set up for Netlify (`netlify.toml`): no build command, publish direc
 - [ ] Submit both forms once and click FormSubmit's activation emails.
 - [x] Google Maps location link from the owner, on the Contact page, footer and mobile menu.
 - [ ] Test on a phone: menu, WhatsApp button, tap-to-call, forms.
+- [x] Search and AI setup: titles, descriptions, link previews, structured data, `robots.txt`, `sitemap.xml`, `llms.txt`.
+- [ ] Create or claim the Google Business Profile with the same name, address and phones.
+- [ ] Add the site to Google Search Console and Bing Webmaster Tools and submit `sitemap.xml`.
+- [ ] Share a link on WhatsApp to check the preview picture shows.
 
 ---
 
