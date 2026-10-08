@@ -13,10 +13,10 @@ Key facts:
 
 ## Pages
 
-- [Home](https://adventurepark-rishikesh.netlify.app/): activities and prices, stays, food menu, safety checklist, how booking works, FAQs
-- [About us](https://adventurepark-rishikesh.netlify.app/about.html): founder story, values and safety promise
-- [Booking](https://adventurepark-rishikesh.netlify.app/booking.html): booking request form — choose activities, group size, experience level, preferred date and contact method — and UPI payment QR code
-- [Contact us](https://adventurepark-rishikesh.netlify.app/contact.html): phone, WhatsApp, email, Instagram, office address and map, contact form
+- [Home](https://adventureprk.netlify.app/): activities and prices, stays, food menu, safety checklist, how booking works, FAQs
+- [About us](https://adventureprk.netlify.app/about.html): founder story, values and safety promise
+- [Booking](https://adventureprk.netlify.app/booking.html): booking request form — choose activities, group size, experience level, preferred date and contact method — and UPI payment QR code
+- [Contact us](https://adventureprk.netlify.app/contact.html): phone, WhatsApp, email, Instagram, office address and map, contact form
 
 ## Activities and prices
 
@@ -32,9 +32,9 @@ Key facts:
 
 ## Booking and payment
 
-1. Send a booking request on the [Booking page](https://adventurepark-rishikesh.netlify.app/booking.html) (each activity and stay on the home page has its own "Book" button), or call / WhatsApp.
+1. Send a booking request on the [Booking page](https://adventureprk.netlify.app/booking.html) (each activity and stay on the home page has its own "Book" button), or call / WhatsApp.
 2. The team confirms the booking and the amount to pay.
-3. Pay by UPI: scan the QR code on the [Booking page](https://adventurepark-rishikesh.netlify.app/booking.html#pay) with PhonePe, Google Pay, Paytm, BHIM or any UPI app. UPI ID: 8755542743@ybl, payee name: M/S ADVENTURE PARK.
+3. Pay by UPI: scan the QR code on the [Booking page](https://adventureprk.netlify.app/booking.html#pay) with PhonePe, Google Pay, Paytm, BHIM or any UPI app. UPI ID: 8755542743@ybl, payee name: M/S ADVENTURE PARK.
 4. Send the payment screenshot on WhatsApp (+91 87555 42743).
 
 ## Stay

@@ -2,4 +2,4 @@ Contact: mailto:adventurepark661@gmail.com
 Contact: tel:+91-97623-88871
 Expires: 2027-10-01T00:00:00.000Z
 Preferred-Languages: en, hi
-Canonical: https://adventurepark-rishikesh.netlify.app/.well-known/security.txt
+Canonical: https://adventureprk.netlify.app/.well-known/security.txt

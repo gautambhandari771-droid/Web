@@ -1,5 +1,5 @@
 # Adventure Park Rishikesh - search engines and AI assistants are welcome to read this site.
-# Plain-text summary for AI assistants: https://adventurepark-rishikesh.netlify.app/llms.txt
+# Plain-text summary for AI assistants: https://adventureprk.netlify.app/llms.txt
 #
 # Content-Signal says what the content may be used for:
 #   search   - show the site in search results, with links and snippets
@@ -46,4 +46,4 @@ Content-Signal: search=yes, ai-input=yes, ai-train=yes
 Allow: /
 Disallow: /preview.html
 
-Sitemap: https://adventurepark-rishikesh.netlify.app/sitemap.xml
+Sitemap: https://adventureprk.netlify.app/sitemap.xml

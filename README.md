@@ -3,7 +3,7 @@
 **Where Rishikesh gets wild.**
 The website for Adventure Park, an adventure-activities brand in Rishikesh, Uttarakhand, running since 2006 and founded by Jagat Singh Bhandari (JSB — 25+ years of experience, more than 5 lakh people served). The site presents the activities, stays and prices, puts safety first, and lets visitors send a booking request or get in touch.
 
-> **Status:** not live yet — launch is on hold until all business details are final. The Netlify site is ready at **https://adventurepark-rishikesh.netlify.app** (project `adventurepark-rishikesh`, public, no login needed) and goes live with the first deploy — see [Deploying to Netlify](#deploying-to-netlify). The work is on the branch `claude/adventure-park-tailwind-site-n4xwsv`.
+> **Status:** live at **https://adventureprk.netlify.app** (Netlify project `adventureprk`). Netlify publishes the `main` branch of this repository automatically — see [Deploying to Netlify](#deploying-to-netlify).
 
 ---
 
@@ -298,7 +298,7 @@ AI assistants and search engines trust a business more when the same facts appea
 - **A price or a fact on the page** → update the same value in the structured data of `index.html` (search the `<head>` for the old value — prices are written without commas, e.g. `"price": "4000"`) and in `llms.txt`.
 - **Anything on the site** → update `<lastmod>` in `sitemap.xml` (and `"dateModified"` in the structured data) to the date of the change.
 - **The FAQ** → the questions and answers are copied into the structured data of `index.html` and into `llms.txt`.
-- **Moving to your own domain** (e.g. `adventurepark.in`) → find-and-replace `https://adventurepark-rishikesh.netlify.app` with the new address in every `.html` file, `robots.txt`, `sitemap.xml` and `llms.txt`.
+- **Moving to your own domain** (e.g. `adventurepark.in`) → find-and-replace `https://adventureprk.netlify.app` with the new address in every `.html` file, `robots.txt`, `sitemap.xml` and `llms.txt`.
 - **Name, address and phone** should be written exactly the same here, on Google Business Profile, Instagram and any listing sites.
 - To check the structured data, paste a page address into Google's [Rich Results Test](https://search.google.com/test/rich-results) or the [Schema Markup Validator](https://validator.schema.org).
 
@@ -310,7 +310,7 @@ These steps are done outside the website and make the biggest difference to bein
 2. **[Google Search Console](https://search.google.com/search-console)** — add the site, then submit `sitemap.xml` under **Sitemaps**.
 3. **[Bing Webmaster Tools](https://www.bing.com/webmasters)** — add the site (it can import from Search Console) and submit the sitemap. Bing's index also feeds ChatGPT search, Copilot and other AI search tools.
 4. **IndexNow** — tell Bing (and Yandex, Seznam, Naver) straight away about new or changed pages. Open this address in a browser after the first deploy, and again after any big update:
-   `https://www.bing.com/indexnow?url=https://adventurepark-rishikesh.netlify.app/&key=9ee9e31962946c13c7e1b3c5848a1f03`
+   `https://www.bing.com/indexnow?url=https://adventureprk.netlify.app/&key=9ee9e31962946c13c7e1b3c5848a1f03`
    (Replace the page address to announce another page. The key file `9ee9e31962946c13c7e1b3c5848a1f03.txt` proves the site is yours — keep it.)
 5. Optional: send the office's exact map coordinates (latitude, longitude) and opening hours to be added to the structured data.
 
@@ -395,13 +395,11 @@ Tested on a local server that behaves like Netlify (same headers, compression an
 
 The site is set up for Netlify (`netlify.toml`): no build command, publish directory is the project root.
 
-**Recommended — connect the GitHub repository** (updates go live automatically on every push):
+**How it's published:** the Netlify project **`adventureprk`** is linked to this GitHub repository and publishes the `main` branch to **https://adventureprk.netlify.app**. Every change merged into `main` goes live within about a minute, and every pull request gets a private **Deploy Preview** link first (Netlify posts it on the pull request). To undo a change, open the project's **Deploys** page in Netlify and publish an earlier deploy.
 
-1. In Netlify, open the `adventurepark-rishikesh` project → **Site configuration → Build & deploy → Link repository → GitHub**, and choose this repository.
-2. Branch to deploy: `main` (merge the work into `main` first). Leave the build command empty; the publish directory comes from `netlify.toml`.
-3. The site is already named `adventurepark-rishikesh` → https://adventurepark-rishikesh.netlify.app (`adventurepark` and `adventure-park` were taken). Rename it any time under **Site configuration → Change site name**.
+**Other Netlify projects on the account:** `advenpark` is also linked to this repository (it builds every change too, but only team members can open it) and `adventurepark-rishikesh` is empty. Neither is needed — delete them under **Project configuration → General → Danger zone → Delete project** to avoid confusion and duplicate builds.
 
-**Quick alternative — drag and drop:** download this repository as a ZIP from GitHub (**Code → Download ZIP**), unzip it, open the `adventurepark-rishikesh` project in Netlify, go to **Deploys**, and drop the folder onto the upload area. (If you rebuilt the styles on your computer, delete the `node_modules` folder before dropping.)
+**If the site address changes** (a new project name or your own domain): find-and-replace `https://adventureprk.netlify.app` with the new address in every `.html` file, `sitemap.xml`, `robots.txt`, `llms.txt` and `.well-known/security.txt`, and in the IndexNow link above (see [Keeping it accurate](#keeping-it-accurate)).
 
 **After the first deploy:** activate the forms (see above), do the [search and AI steps](#after-launch), and run through the launch checklist.
 
@@ -415,8 +413,8 @@ The site is set up for Netlify (`netlify.toml`): no build command, publish direc
 - [x] Instagram link in the footer, mobile menu and Contact page.
 - [ ] Confirm whether AC cottages cost the same per person as non-AC camps (the site shows one per-person range for both).
 - [ ] Check every safety statement matches what the team actually does.
-- [x] Netlify site created and set to public (`adventurepark-rishikesh`).
-- [ ] First deploy (link the GitHub repository or drag and drop the folder).
+- [x] Netlify site live at https://adventureprk.netlify.app, publishing `main` automatically.
+- [ ] Delete the unused Netlify projects `advenpark` and `adventurepark-rishikesh`.
 - [ ] Submit both forms once and click FormSubmit's activation emails.
 - [x] Google Maps location link from the owner, on the Contact page, footer and mobile menu.
 - [ ] Test on a phone: menu, WhatsApp button, tap-to-call, forms.
