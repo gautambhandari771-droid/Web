@@ -11,7 +11,7 @@ The website for Adventure Park, an adventure-activities brand in Rishikesh, Utta
 
 | Page | File | What it's for |
 |---|---|---|
-| Home | `index.html` | Hero with the tagline, activities, safety checklist, how it works, FAQs |
+| Home | `index.html` | Hero with the tagline, activities and prices, stay (camping and hotel rooms), safety checklist, how it works, FAQs |
 | About us | `about.html` | Founder story, numbers, values and safety promise |
 | Consultation | `consultation.html` | Consultation request form (group, experience, activities, dates, health notes) |
 | Contact us | `contact.html` | Contact form (name, age, gender, phone, email), office address, phone, WhatsApp, email |
@@ -20,10 +20,12 @@ The website for Adventure Park, an adventure-activities brand in Rishikesh, Utta
 
 ## What visitors can do
 
+- **See activities and prices** — rafting (12, 16, 26 and 36 km), bungee jumping (109 m), zip line, riverside camping and hotel rooms, all in ₹.
 - **Book a consultation** or **send a contact message** — both forms email the details to the park (see [Forms](#forms-formsubmit)).
 - **Chat on WhatsApp** with the floating button on every page (+91 87555 42743).
 - **Call or email** — numbers and email are on the Contact page and in every footer.
 - **Find the office** — Near Shiv Mandir, Badrinath Highway, Shivpuri, Uttarakhand (with a Google Maps link).
+- **Follow on Instagram** — [@adventure_park771](https://www.instagram.com/adventure_park771/), linked in the footer, the mobile menu and the Contact page.
 - **Switch light/dark mode** — follows the visitor's device setting by default.
 
 ---
@@ -65,12 +67,26 @@ All content is in the HTML files — open one in any text editor, change the wor
 
 **The header, footer, mobile menu and WhatsApp button are repeated in every page.** If you change one of them (for example a phone number), make the same change in `index.html`, `about.html`, `consultation.html`, `contact.html` and `404.html`.
 
+### Prices — where they appear
+
+All prices are in Indian rupees (₹). Update them in these places in `index.html`:
+
+| What | Where in `index.html` |
+|---|---|
+| Rafting stretches and prices, peak-season note | **Activities** section, River rafting card |
+| Bungee (₹4,000 incl. DSLR video and certificate), zip line (students/adults) | **Activities** section, Bungee and Zip line cards |
+| Camping (per person / night, children 6–11 at 50%) and hotel rooms (per room / night, busy-day prices) | **Stay** section |
+| Peak-season and children/student prices in words | **FAQ** section ("Do prices change in peak season?", "Are there lower prices for children or students?") |
+
+The activity choices in the consultation form are in `consultation.html` (search for `name="activities"`).
+
 ### Contact details — where they appear
 
 | Detail | Where |
 |---|---|
 | Phone numbers, email, address | `contact.html` (cards), footer and mobile menu in every page |
 | WhatsApp number (+91 87555 42743) | Floating button and footer in every page, WhatsApp card in `contact.html` — links look like `https://wa.me/918755542743` |
+| Instagram (@adventure_park771) | Footer and mobile menu in every page, Instagram card in `contact.html` |
 | Phone number in form error messages | `PHONE` at the top of the forms section in `assets/site.js` |
 | Form email address | the `action` of both forms (see [Forms](#forms-formsubmit)) |
 
@@ -159,8 +175,8 @@ The site is set up for Netlify (`netlify.toml`): no build command, publish direc
 
 ## Launch checklist
 
-- [ ] Replace the six example activities on the Home page with the real list (names, descriptions, who they suit, prices if wanted) — also update the activity chips in `consultation.html` and the moving activity strip in `index.html`.
-- [ ] Add social media links (Instagram, Facebook, YouTube…) to the footer.
+- [x] Real activities and prices (rafting, bungee, zip line) and stay options (camping, hotel rooms).
+- [x] Instagram link in the footer, mobile menu and Contact page.
 - [ ] Check every safety statement matches what the team actually does.
 - [ ] Deploy to Netlify and set the site name.
 - [ ] Submit both forms once and click FormSubmit's activation emails.
@@ -173,6 +189,6 @@ The site is set up for Netlify (`netlify.toml`): no build command, publish direc
 
 - [Tailwind CSS](https://tailwindcss.com) (MIT) for styling.
 - Theme format from [tweakcn](https://tweakcn.com) / shadcn/ui.
-- WhatsApp icon from [Simple Icons](https://simpleicons.org) (CC0); other icons drawn in the style of [Lucide](https://lucide.dev).
+- WhatsApp and Instagram icons from [Simple Icons](https://simpleicons.org) (CC0); other icons drawn in the style of [Lucide](https://lucide.dev).
 - Header animation inspired by [antigravity.google](https://antigravity.google).
 - Fonts: Plus Jakarta Sans and Instrument Serif via Google Fonts.
