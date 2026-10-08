@@ -1,7 +1,7 @@
 # Adventure Park — website
 
 **Where Rishikesh gets wild.**
-The website for Adventure Park, an adventure-activities brand in Rishikesh, Uttarakhand, running since 2006 and founded by Jagat Singh Bhandari (JSB — 25+ years of experience, more than 5 lakh people served). The site presents the activities, stays and prices, puts safety first, and lets visitors book a consultation or get in touch.
+The website for Adventure Park, an adventure-activities brand in Rishikesh, Uttarakhand, running since 2006 and founded by Jagat Singh Bhandari (JSB — 25+ years of experience, more than 5 lakh people served). The site presents the activities, stays and prices, puts safety first, and lets visitors send a booking request or get in touch.
 
 > **Status:** not live yet — launch is on hold until all business details are final. The Netlify site is ready at **https://adventurepark-rishikesh.netlify.app** (project `adventurepark-rishikesh`, public, no login needed) and goes live with the first deploy — see [Deploying to Netlify](#deploying-to-netlify). The work is on the branch `claude/adventure-park-tailwind-site-n4xwsv`.
 
@@ -13,7 +13,7 @@ The website for Adventure Park, an adventure-activities brand in Rishikesh, Utta
 |---|---|---|
 | Home | `index.html` | Hero with the tagline, activities and prices, stay (camps & cottages, hotel rooms), food menu, safety checklist, how it works, FAQs |
 | About us | `about.html` | Founder story, numbers, values and safety promise |
-| Consultation | `consultation.html` | Consultation request form (group, experience, activities, dates, health notes) |
+| Booking | `booking.html` | Booking request form (group, experience, activities, dates, health notes) |
 | Contact us | `contact.html` | Contact form (name, age, gender, phone, email), office address, phone, WhatsApp, email |
 | Page not found | `404.html` | Shown for any address that doesn't exist |
 | Device preview | `preview.html` | Tool for checking the site on mobile, tablet and desktop (hidden from search engines) |
@@ -22,7 +22,7 @@ The website for Adventure Park, an adventure-activities brand in Rishikesh, Utta
 
 - **See activities and prices** — rafting (12, 16, 26 and 36 km, 1 to 3 hours), bungee jumping (109 m), zip line, luxury camps & cottages (200 m up from the river, 100 m up from the national highway) and hotel rooms, all in ₹.
 - **See the food menu** — breakfast, buffet lunch (pure veg), evening snacks and buffet dinner (veg & non-veg), included with camp and cottage stays.
-- **Book a consultation** or **send a contact message** — both forms email the details to the park (see [Forms](#forms-formsubmit)).
+- **Send a booking request** or **a contact message** — both forms email the details to the park (see [Forms](#forms-formsubmit)).
 - **Chat on WhatsApp** with the floating button on every page (+91 87555 42743).
 - **Call or email** — numbers and email are on the Contact page and in every footer.
 - **Find the office** — Near Shiv Mandir, Badrinath Highway, Shivpuri, Uttarakhand (with a Google Maps link).
@@ -44,7 +44,7 @@ A static website: plain HTML, CSS and a little JavaScript. **There is no build s
 .
 ├── index.html            Home
 ├── about.html            About us
-├── consultation.html     Consultation form
+├── booking.html          Booking request form
 ├── contact.html          Contact form and details
 ├── 404.html              Page not found
 ├── preview.html          Device preview tool
@@ -86,7 +86,7 @@ Every fact the site states, in one place — check these before launch.
 
 All content is in the HTML files — open one in any text editor, change the words, save.
 
-**The header, footer, mobile menu and WhatsApp button are repeated in every page.** If you change one of them (for example a phone number), make the same change in `index.html`, `about.html`, `consultation.html`, `contact.html` and `404.html`.
+**The header, footer, mobile menu and WhatsApp button are repeated in every page.** If you change one of them (for example a phone number), make the same change in `index.html`, `about.html`, `booking.html`, `contact.html` and `404.html`.
 
 ### Headline numbers
 
@@ -104,7 +104,7 @@ All prices are in Indian rupees (₹). Update them in these places in `index.htm
 | Meal times and dishes | **Food** section (`id="food"`) |
 | Peak-season and children/student prices in words | **FAQ** section ("Do prices change in peak season?", "Are there lower prices for children or students?") |
 
-The activity choices in the consultation form are in `consultation.html` (search for `name="activities"`).
+The activity choices in the booking form are in `booking.html` (search for `name="activities"`).
 
 ### Contact details — where they appear
 
@@ -149,7 +149,7 @@ Both forms send their details by email through FormSubmit to **adventurepark661@
 | Form | Email subject | Fields |
 |---|---|---|
 | Contact (`contact.html`) | New contact form message – Adventure Park website | name, age, gender, phone, email |
-| Consultation (`consultation.html`) | New consultation request – Adventure Park website | name, phone, email, group size, experience, preferred date, contact by, activities, health and notes |
+| Booking (`booking.html`) | New booking request – Adventure Park website | name, phone, email, group size, experience, preferred date, contact by, activities, health and notes |
 
 **One-time activation (after the site is live):**
 
