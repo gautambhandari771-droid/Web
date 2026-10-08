@@ -13,7 +13,7 @@ The website for Adventure Park, an adventure-activities brand in Rishikesh, Utta
 |---|---|---|
 | Home | `index.html` | Hero with the tagline, activities and prices, stay (camps & cottages, hotel rooms), food menu, safety checklist, how it works, FAQs |
 | About us | `about.html` | Founder story, numbers, values and safety promise |
-| Booking | `booking.html` | Booking request form (group, experience, activities, dates, health notes) |
+| Booking | `booking.html` | Booking request form (group, experience, activities, dates, health notes). Every "Book now" / "Book your adventure" button leads here |
 | Contact us | `contact.html` | Contact form (name, age, gender, phone, email), office address, phone, WhatsApp, email |
 | Page not found | `404.html` | Shown for any address that doesn't exist |
 | Device preview | `preview.html` | Tool for checking the site on mobile, tablet and desktop (hidden from search engines) |
@@ -23,10 +23,11 @@ The website for Adventure Park, an adventure-activities brand in Rishikesh, Utta
 - **See activities and prices** — rafting (12, 16, 26 and 36 km, 1 to 3 hours), bungee jumping (109 m), zip line, luxury camps & cottages (200 m up from the river, 100 m up from the national highway) and hotel rooms, all in ₹.
 - **See the food menu** — breakfast, buffet lunch (pure veg), evening snacks and buffet dinner (veg & non-veg), included with camp and cottage stays.
 - **Send a booking request** or **a contact message** — both forms email the details to the park (see [Forms](#forms-formsubmit)).
-- **Chat on WhatsApp** with the floating button on every page (+91 87555 42743).
+- **Chat on WhatsApp** with the floating button on every page (+91 87555 42743) — the chat opens with a greeting already typed.
 - **Call or email** — numbers and email are on the Contact page and in every footer.
 - **Find the office** — Near Shiv Mandir, Badrinath Highway, Shivpuri, Uttarakhand, with the [Google Maps location](https://maps.app.goo.gl/yNx38Quouv5dsdkH8) linked from the Contact page, every footer and the mobile menu.
 - **Follow on Instagram** — [@adventure_park771](https://www.instagram.com/adventure_park771/), linked in the footer, the mobile menu and the Contact page.
+- **Use it on a phone** — a full-screen menu with big links, a "Book now" button and tap-to-call, WhatsApp, email and map links.
 - **Switch light/dark mode** — follows the visitor's device setting by default.
 
 ---
@@ -125,6 +126,21 @@ The activity choices in the booking form are in `booking.html` (search for `name
 
 The current theme: "life-jacket" orange for buttons, Ganga jade accents, river-navy text; dark mode is "the river at night".
 
+### Page labels (emoji)
+
+Each page opens with a small label in a pill above the heading, with its own emoji:
+
+| Page | Label |
+|---|---|
+| Home | 🧗 Safety-first adventures in Rishikesh |
+| About | 🏔️ About us |
+| Booking | 📅 Booking |
+| Contact | 📞 Contact us |
+| Page not found | 🗺️ Error 404 |
+| "Get in touch" bands (Home, About) | 👋 Get in touch |
+
+Change the emoji or text inside that pill at the top of each page's first section.
+
 ### Logo and icons
 
 - `assets/logo.png` — the wordmark (transparent background; shown on a light plate in dark mode).
@@ -137,7 +153,8 @@ Replace a file with one of the same name and size to update it.
 Animation is kept subtle and fast:
 
 - **Page headers:** a ring of short dashes drifts slowly on its own and follows the mouse on hover; the background glow follows it. Tune the numbers at the top of `assets/hero-fx.js` (`RADIUS`, `IDLE_LEVEL`, …).
-- **Everything else** (founder portrait, safety checklist, "Get in touch" bands, button shine) moves only on hover.
+- **The 🧗 on the Home label** climbs on a gentle loop and climbs faster while hovered.
+- **Everything else** (founder portrait, safety checklist, "Get in touch" bands and their 👋, button shine) moves only on hover.
 - The header animation pauses when it's off screen, runs at half speed on phones, and costs about 0.2 ms per frame.
 - **Visitors who turn on "reduce motion"** in their device settings see a completely still site.
 
