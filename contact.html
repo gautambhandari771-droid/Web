@@ -132,11 +132,14 @@
 
         <!-- Form -->
         <div class="reveal" style="--d:150ms">
-          <form id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field"
+          <form id="contact-form" action="https://formsubmit.co/adventurepark661@gmail.com" method="POST" data-formsubmit
                 data-success="Thanks! Our team will be in touch soon."
                 class="group relative overflow-hidden rounded-2xl border bg-card p-6 shadow-xl sm:p-8">
-            <input type="hidden" name="form-name" value="contact" />
-            <p class="hidden"><label>Don’t fill this out: <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
+            <!-- FormSubmit settings: email subject, table layout, no captcha page, spam trap -->
+            <input type="hidden" name="_subject" value="New contact form message – Adventure Park website" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_captcha" value="false" />
+            <p class="hidden"><label>Leave this empty: <input type="text" name="_honey" tabindex="-1" autocomplete="off" /></label></p>
 
             <div class="mb-6">
               <h2 class="text-2xl font-bold tracking-tight">Send us your details</h2>

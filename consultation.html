@@ -143,11 +143,14 @@
 
         <!-- Form -->
         <div class="reveal lg:sticky lg:top-24 lg:self-start" style="--d:150ms">
-          <form id="consultation-form" name="consultation" method="POST" data-netlify="true" netlify-honeypot="bot-field"
+          <form id="consultation-form" action="https://formsubmit.co/adventurepark661@gmail.com" method="POST" data-formsubmit
                 data-success="Thanks! Our team will get in touch to plan your adventure."
                 class="group relative overflow-hidden rounded-2xl border bg-card p-6 shadow-xl sm:p-8">
-            <input type="hidden" name="form-name" value="consultation" />
-            <p class="hidden"><label>Don’t fill this out: <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
+            <!-- FormSubmit settings: email subject, table layout, no captcha page, spam trap -->
+            <input type="hidden" name="_subject" value="New consultation request – Adventure Park website" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_captcha" value="false" />
+            <p class="hidden"><label>Leave this empty: <input type="text" name="_honey" tabindex="-1" autocomplete="off" /></label></p>
 
             <div class="mb-6">
               <h2 class="text-2xl font-bold tracking-tight">Book a consultation</h2>
@@ -175,7 +178,7 @@
 
               <div>
                 <label for="c-group" class="text-sm font-medium">Group size <span class="text-destructive">*</span></label>
-                <input id="c-group" name="group_size" type="number" required min="1" max="200" inputmode="numeric" placeholder="e.g. 4" class="peer field" />
+                <input id="c-group" name="group size" type="number" required min="1" max="200" inputmode="numeric" placeholder="e.g. 4" class="peer field" />
                 <p class="mt-1.5 hidden text-sm text-destructive peer-user-invalid:block">Please enter how many people are coming.</p>
               </div>
 
@@ -193,13 +196,13 @@
 
               <div>
                 <label for="c-date" class="text-sm font-medium">Preferred date</label>
-                <input id="c-date" name="preferred_date" type="date" data-min-today class="peer field" />
+                <input id="c-date" name="preferred date" type="date" data-min-today class="peer field" />
                 <p class="mt-1.5 hidden text-sm text-destructive peer-user-invalid:block">Please choose a date from today onwards.</p>
               </div>
 
               <div>
                 <label for="c-contact" class="text-sm font-medium">How should we contact you?</label>
-                <select id="c-contact" name="contact_method" class="field">
+                <select id="c-contact" name="contact by" class="field">
                   <option>Phone call</option>
                   <option>WhatsApp</option>
                   <option>Email</option>
@@ -249,7 +252,7 @@
 
               <div class="sm:col-span-2">
                 <label for="c-notes" class="text-sm font-medium">Health conditions or anything else we should know</label>
-                <textarea id="c-notes" name="notes" rows="4" placeholder="e.g. one of us has a knee injury, travelling with kids aged 10 and 12…" class="field resize-y"></textarea>
+                <textarea id="c-notes" name="health and notes" rows="4" placeholder="e.g. one of us has a knee injury, travelling with kids aged 10 and 12…" class="field resize-y"></textarea>
                 <p class="mt-1.5 text-xs text-muted-foreground">This helps us recommend activities that are safe for everyone in your group.</p>
               </div>
             </div>

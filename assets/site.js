@@ -74,28 +74,43 @@
   // Footer year
   document.querySelectorAll('[data-year]').forEach((el) => (el.textContent = new Date().getFullYear()));
 
-  // Enquiry forms: the browser validates fields first, then we post in the background.
-  // Netlify Forms receives these automatically when the site is hosted on Netlify.
-  document.querySelectorAll('form[data-netlify]').forEach((form) => {
+  // Enquiry forms are emailed to the park by FormSubmit (formsubmit.co).
+  // The browser validates fields first, then we send them in the background to
+  // FormSubmit's AJAX endpoint, so visitors stay on the page. Without JavaScript the
+  // form still posts to the normal FormSubmit address in its action attribute.
+  const PHONE = '+91 97623 88871';
+  document.querySelectorAll('form[data-formsubmit]').forEach((form) => {
     const status = form.querySelector('[data-form-status]');
     const submit = form.querySelector('[type="submit"]');
     const again = form.querySelector('[data-form-again]');
+    const endpoint = form.action.replace('://formsubmit.co/', '://formsubmit.co/ajax/');
 
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
-      const body = new URLSearchParams(new FormData(form)).toString();
+      // Checkbox groups (e.g. activities) arrive as one comma-separated line
+      const payload = {};
+      for (const [key, value] of new FormData(form)) {
+        payload[key] = key in payload ? `${payload[key]}, ${value}` : value;
+      }
       form.dataset.state = 'sending';
       submit.disabled = true;
       status.textContent = '';
       try {
-        const res = await fetch('/', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body,
-        });
-        if (!res.ok) {
-          const unavailable = [404, 405, 501].includes(res.status);
-          throw new Error(unavailable ? 'unavailable' : 'failed');
+        let res;
+        try {
+          res = await fetch(endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+            body: JSON.stringify(payload),
+          });
+        } catch {
+          throw new Error('network');
+        }
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok || String(data.success) !== 'true') {
+          // e.g. FormSubmit asking the owner to activate the form by email
+          console.warn('FormSubmit:', res.status, data.message || data);
+          throw new Error('failed');
         }
         form.reset();
         form.dataset.state = 'sent';
@@ -104,11 +119,9 @@
       } catch (err) {
         form.dataset.state = 'error';
         status.textContent =
-          err.message === 'unavailable'
-            ? 'Online sending isn’t switched on for this site yet. Please call or email us instead.'
-            : err.message === 'failed'
-              ? 'Something went wrong while sending. Please try again in a moment.'
-              : 'We couldn’t reach the server. Check your connection and try again.';
+          err.message === 'network'
+            ? 'We couldn’t reach the server. Check your internet connection and try again.'
+            : `We couldn’t send your details just now. Please try again, or call us on ${PHONE}.`;
       } finally {
         submit.disabled = false;
       }
@@ -117,7 +130,7 @@
     again?.addEventListener('click', () => {
       form.dataset.state = '';
       status.textContent = '';
-      form.querySelector('input:not([type="hidden"]):not([name="bot-field"])')?.focus();
+      form.querySelector('input:not([type="hidden"]):not([name="_honey"])')?.focus();
     });
   });
 })();
