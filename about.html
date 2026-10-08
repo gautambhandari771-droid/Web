@@ -86,9 +86,13 @@
   <main id="main">
 
     <!-- ============ PAGE HERO ============ -->
-    <section class="relative isolate overflow-hidden">
+    <section data-hero class="relative isolate overflow-hidden">
       <div aria-hidden="true" class="absolute inset-0 -z-10 bg-grid [mask-image:radial-gradient(ellipse_70%_70%_at_50%_0%,#000_45%,transparent_100%)]"></div>
-      <div aria-hidden="true" class="absolute -top-40 left-1/2 -z-10 h-[26rem] w-[44rem] max-w-[150vw] -translate-x-1/2 animate-glow rounded-full bg-primary/20 blur-3xl"></div>
+      <!-- Hover effects (assets/hero-fx.js): the glow drifts toward the pointer, dashes gather around it -->
+      <div data-hero-glow aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10 transition-transform duration-[1400ms] ease-out will-change-transform [transform:translate3d(var(--gx,0px),var(--gy,0px),0)]">
+        <div class="absolute -top-40 left-1/2 h-[26rem] w-[44rem] max-w-[150vw] -translate-x-1/2 rounded-full bg-primary/20 blur-3xl"></div>
+      </div>
+      <canvas data-hero-canvas aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10 size-full"></canvas>
       <div class="mx-auto max-w-4xl px-4 pb-20 pt-14 text-center md:px-6 md:pb-28 md:pt-24">
         <p class="group inline-flex animate-fade-up items-center gap-2 rounded-full border bg-background/70 py-1 pl-1 pr-3.5 text-sm font-medium shadow-xs backdrop-blur">
           <span aria-hidden="true" class="grid size-7 place-items-center rounded-full bg-secondary text-base leading-none transition-transform duration-300 group-hover:-rotate-12 group-hover:scale-110">🏔️</span>
@@ -106,19 +110,19 @@
     <!-- ============ FOUNDER ============ -->
     <section class="border-t py-20 md:py-28">
       <div class="mx-auto grid max-w-6xl items-center gap-16 px-4 md:px-6 lg:grid-cols-2">
-        <div class="reveal relative mx-auto w-fit">
+        <div data-play-scope class="reveal relative mx-auto w-fit">
           <div class="relative size-64 overflow-hidden rounded-full p-1.5 shadow-2xl sm:size-80">
-            <div aria-hidden="true" class="absolute inset-0 animate-spin-slow bg-[conic-gradient(from_0deg,var(--chart-1),var(--chart-5),var(--chart-2),var(--chart-3),var(--chart-1))]"></div>
+            <div data-play-on-hover aria-hidden="true" class="absolute inset-0 animate-spin-slow bg-[conic-gradient(from_0deg,var(--chart-1),var(--chart-5),var(--chart-2),var(--chart-3),var(--chart-1))]"></div>
             <div class="relative grid size-full place-items-center rounded-full bg-card">
               <div aria-hidden="true" class="absolute inset-6 rounded-full bg-grid opacity-60 [mask-image:radial-gradient(circle,#000_40%,transparent_70%)]"></div>
               <span aria-hidden="true" class="relative font-serif text-8xl italic sm:text-9xl">JSB</span>
             </div>
           </div>
-          <div class="absolute -left-4 top-4 animate-float rounded-xl border bg-card px-4 py-3 shadow-lg sm:-left-12">
+          <div data-play-on-hover class="absolute -left-4 top-4 animate-float rounded-xl border bg-card px-4 py-3 shadow-lg sm:-left-12">
             <p class="text-2xl font-extrabold text-primary-ink">25+ years</p>
             <p class="text-xs font-medium text-muted-foreground">of experience</p>
           </div>
-          <div class="absolute -right-4 bottom-4 animate-float rounded-xl border bg-card px-4 py-3 shadow-lg [animation-delay:-3s] sm:-right-12">
+          <div data-play-on-hover class="absolute -right-4 bottom-4 animate-float rounded-xl border bg-card px-4 py-3 shadow-lg [animation-delay:-3s] sm:-right-12">
             <p class="text-2xl font-extrabold text-secondary-foreground">5 lakh+</p>
             <p class="text-xs font-medium text-muted-foreground">people served</p>
           </div>
@@ -221,13 +225,16 @@
     </section>
 
     <!-- ============ CTA ============ -->
-    <section class="relative isolate overflow-hidden bg-linear-to-br from-primary to-primary/80 py-20 text-primary-foreground md:py-28">
+    <section data-hero data-play-scope class="relative isolate overflow-hidden bg-linear-to-br from-primary to-primary/80 py-20 text-primary-foreground md:py-28">
       <div aria-hidden="true" class="absolute inset-0 -z-10 bg-grid opacity-60 [--border:color-mix(in_oklab,var(--primary-foreground)_10%,transparent)] [--grid-size:4rem]"></div>
-      <div aria-hidden="true" class="absolute -left-20 -top-24 -z-10 size-80 animate-glow rounded-full bg-white/20 blur-3xl"></div>
-      <div aria-hidden="true" class="absolute -bottom-24 -right-20 -z-10 size-80 animate-glow rounded-full bg-white/15 blur-3xl [animation-delay:-3.5s]"></div>
+      <!-- Hover effects (assets/hero-fx.js): the glows drift toward the pointer -->
+      <div data-hero-glow aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10 transition-transform duration-[1400ms] ease-out will-change-transform [transform:translate3d(var(--gx,0px),var(--gy,0px),0)]">
+        <div class="absolute -left-20 -top-24 size-80 rounded-full bg-white/20 blur-3xl"></div>
+        <div class="absolute -bottom-24 -right-20 size-80 rounded-full bg-white/15 blur-3xl"></div>
+      </div>
       <div class="reveal mx-auto flex max-w-3xl flex-col items-center gap-6 px-4 text-center md:px-6">
         <p class="inline-flex items-center gap-2 rounded-full border border-primary-foreground/25 bg-primary-foreground/10 py-1 pl-1 pr-3.5 text-sm font-semibold backdrop-blur">
-          <span aria-hidden="true" class="grid size-7 place-items-center rounded-full bg-background text-base leading-none"><span class="inline-block origin-[70%_70%] animate-wave">👋</span></span>
+          <span aria-hidden="true" class="grid size-7 place-items-center rounded-full bg-background text-base leading-none"><span data-play-on-hover class="inline-block origin-[70%_70%] animate-wave">👋</span></span>
           Get in touch
         </p>
         <h2 class="text-3xl font-bold tracking-tight md:text-5xl">Come and see what 25 years of experience feels like</h2>
@@ -286,6 +293,7 @@
     </div>
   </footer>
 
+  <script src="assets/hero-fx.js" defer></script>
   <script src="assets/site.js"></script>
 </body>
 </html>

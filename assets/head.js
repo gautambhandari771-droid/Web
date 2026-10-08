@@ -86,11 +86,9 @@
       --animate-fade-up: fade-up 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both;
       --animate-scale-in: scale-in 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both;
       --animate-marquee: marquee 45s linear infinite;
-      --animate-glow: glow 7s ease-in-out infinite;
       --animate-draw: draw 0.9s ease-out both;
       --animate-spin-slow: turn 6s linear infinite;
       --animate-float: float 6s ease-in-out infinite;
-      --animate-shine: shine 3.5s ease-in-out infinite;
       --animate-shine-once: shine 1.1s cubic-bezier(0.4, 0, 0.2, 1) both;
       --animate-tick: tick 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both;
       --animate-fill: fill 2.4s cubic-bezier(0.65, 0, 0.35, 1) both;
@@ -106,10 +104,6 @@
       }
       @keyframes marquee {
         to { transform: translateX(-50%); }
-      }
-      @keyframes glow {
-        0%, 100% { opacity: 0.55; transform: scale(1); }
-        50%      { opacity: 0.9;  transform: scale(1.12); }
       }
       @keyframes draw {
         from { stroke-dashoffset: 1; }
@@ -176,6 +170,10 @@
       background-position: right 0.75rem center;
       background-size: 1.25rem;
     }
+
+    /* Looping decorations stay still until their area is hovered (or focused) */
+    [data-play-on-hover] { animation-play-state: paused; }
+    [data-play-scope]:is(:hover, :focus-within) [data-play-on-hover] { animation-play-state: running; }
 
     /* Scroll-reveal: hidden only when JS is available to reveal it */
     .js .reveal:not(.is-visible) { opacity: 0; }

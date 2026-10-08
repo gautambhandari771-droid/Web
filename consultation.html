@@ -86,9 +86,13 @@
   <main id="main">
 
     <!-- ============ PAGE HERO ============ -->
-    <section class="relative isolate overflow-hidden">
+    <section data-hero class="relative isolate overflow-hidden">
       <div aria-hidden="true" class="absolute inset-0 -z-10 bg-grid [mask-image:radial-gradient(ellipse_70%_70%_at_50%_0%,#000_45%,transparent_100%)]"></div>
-      <div aria-hidden="true" class="absolute -top-40 left-1/2 -z-10 h-[26rem] w-[44rem] max-w-[150vw] -translate-x-1/2 animate-glow rounded-full bg-chart-2/20 blur-3xl"></div>
+      <!-- Hover effects (assets/hero-fx.js): the glow drifts toward the pointer, dashes gather around it -->
+      <div data-hero-glow aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10 transition-transform duration-[1400ms] ease-out will-change-transform [transform:translate3d(var(--gx,0px),var(--gy,0px),0)]">
+        <div class="absolute -top-40 left-1/2 h-[26rem] w-[44rem] max-w-[150vw] -translate-x-1/2 rounded-full bg-chart-2/20 blur-3xl"></div>
+      </div>
+      <canvas data-hero-canvas aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10 size-full"></canvas>
       <div class="mx-auto max-w-4xl px-4 pb-14 pt-14 text-center md:px-6 md:pb-20 md:pt-24">
         <p class="group inline-flex animate-fade-up items-center gap-2 rounded-full border bg-background/70 py-1 pl-1 pr-3.5 text-sm font-medium shadow-xs backdrop-blur">
           <span aria-hidden="true" class="grid size-7 place-items-center rounded-full bg-secondary text-base leading-none transition-transform duration-300 group-hover:-rotate-12 group-hover:scale-110">🧭</span>
@@ -271,8 +275,8 @@
               </div>
             </div>
 
-            <button type="submit" class="relative mt-7 inline-flex h-12 w-full items-center justify-center gap-2 overflow-hidden rounded-full bg-primary px-7 font-semibold text-primary-foreground shadow-lg transition hover:scale-[1.01] hover:shadow-xl active:scale-[0.98] disabled:cursor-wait disabled:opacity-80">
-              <span aria-hidden="true" class="absolute inset-y-0 left-0 w-1/4 animate-shine bg-linear-to-r from-transparent via-white/40 to-transparent group-data-[state=sending]:hidden"></span>
+            <button type="submit" class="group/btn relative mt-7 inline-flex h-12 w-full items-center justify-center gap-2 overflow-hidden rounded-full bg-primary px-7 font-semibold text-primary-foreground shadow-lg transition hover:scale-[1.01] hover:shadow-xl active:scale-[0.98] disabled:cursor-wait disabled:opacity-80">
+              <span aria-hidden="true" class="absolute inset-y-0 left-0 w-1/4 bg-linear-to-r from-transparent via-white/40 to-transparent opacity-0 group-hover/btn:opacity-100 group-hover/btn:animate-shine-once group-data-[state=sending]:hidden"></span>
               <span aria-hidden="true" class="hidden size-4 animate-spin rounded-full border-2 border-current border-t-transparent group-data-[state=sending]:inline-block"></span>
               <span class="relative group-data-[state=sending]:hidden">Book my consultation</span>
               <span class="relative hidden group-data-[state=sending]:inline">Sending…</span>
@@ -338,6 +342,7 @@
     </div>
   </footer>
 
+  <script src="assets/hero-fx.js" defer></script>
   <script src="assets/site.js"></script>
 </body>
 </html>
