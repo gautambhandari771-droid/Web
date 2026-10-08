@@ -93,6 +93,7 @@
       --animate-shine: shine 3.5s ease-in-out infinite;
       --animate-tick: tick 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both;
       --animate-fill: fill 2.4s cubic-bezier(0.65, 0, 0.35, 1) both;
+      --animate-wave: wave 2.6s ease-in-out infinite;
 
       @keyframes fade-up {
         from { opacity: 0; transform: translateY(20px); }
@@ -131,6 +132,13 @@
       @keyframes fill {
         from { transform: scaleX(0); }
         to   { transform: scaleX(1); }
+      }
+      @keyframes wave {
+        0%, 60%, 100% { transform: rotate(0); }
+        10%, 30% { transform: rotate(16deg); }
+        20% { transform: rotate(-8deg); }
+        40% { transform: rotate(-4deg); }
+        50% { transform: rotate(10deg); }
       }
     }
 
