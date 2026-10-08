@@ -1,5 +1,5 @@
 // Shared behaviour for every page: header, colour mode, mobile menu,
-// scroll reveals, count-up numbers and the enquiry forms.
+// scroll reveals, count-up numbers, Book buttons, copy buttons and the forms.
 (() => {
   const root = document.documentElement;
   const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -175,6 +175,60 @@
     again?.addEventListener('click', () => {
       form.dataset.state = '';
       status.textContent = '';
+      form.querySelector('input:not([type="hidden"]):not([name="_honey"])')?.focus();
+    });
+  });
+
+  // The booking form carries the payment screenshot, so it is sent as a normal upload:
+  // FormSubmit emails files only from multipart form posts. Afterwards FormSubmit sends
+  // the visitor back here with ?sent=1, which shows the thank-you panel.
+  document.querySelectorAll('form[data-upload]').forEach((form) => {
+    const submit = form.querySelector('[type="submit"]');
+    const file = form.querySelector('input[type="file"]');
+    const next = form.querySelector('input[name="_next"]');
+    const again = form.querySelector('[data-form-again]');
+    const boxes = [...form.querySelectorAll('input[type="checkbox"][name="activities"]')];
+    const MAX_BYTES = 10 * 1024 * 1024; // FormSubmit's limit for all files together
+
+    const checkFile = () => {
+      const f = file?.files[0];
+      let problem = '';
+      if (f && !/^image\/|^application\/pdf$/.test(f.type)) problem = 'Please attach the payment screenshot as an image (JPG or PNG) or a PDF.';
+      else if (f && f.size > MAX_BYTES) problem = 'This file is larger than 10 MB. Please attach a smaller screenshot.';
+      file?.setCustomValidity(problem);
+    };
+    file?.addEventListener('change', checkFile);
+
+    // Ticked activities arrive as one comma-separated line (sent instead of the separate boxes)
+    const joined = document.createElement('input');
+    joined.type = 'hidden';
+    joined.name = 'activities';
+
+    form.addEventListener('submit', () => {
+      // Return to this page at whatever address it is served from (live site or a preview)
+      if (next) next.value = `${location.origin}${location.pathname}?sent=1#booking-form`;
+      joined.value = boxes.filter((b) => b.checked).map((b) => b.value).join(', ');
+      form.append(joined);
+      boxes.forEach((b) => (b.disabled = true));
+      form.dataset.state = 'sending';
+      submit.disabled = true;
+    });
+
+    // Coming back with the browser's Back button after sending: make the form usable again
+    addEventListener('pageshow', (event) => {
+      if (!event.persisted || form.dataset.state !== 'sending') return;
+      boxes.forEach((b) => (b.disabled = false));
+      joined.remove();
+      form.dataset.state = '';
+      submit.disabled = false;
+    });
+
+    if (new URLSearchParams(location.search).get('sent') === '1') form.dataset.state = 'sent';
+
+    again?.addEventListener('click', () => {
+      form.reset();
+      form.dataset.state = '';
+      history.replaceState(null, '', `${location.pathname}#booking-form`);
       form.querySelector('input:not([type="hidden"]):not([name="_honey"])')?.focus();
     });
   });
