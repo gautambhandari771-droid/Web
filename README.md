@@ -25,7 +25,7 @@ The website for Adventure Park, an adventure-activities brand in Rishikesh, Utta
 - **Send a booking request** or **a contact message** — both forms email the details to the park (see [Forms](#forms-formsubmit)).
 - **Chat on WhatsApp** with the floating button on every page (+91 87555 42743).
 - **Call or email** — numbers and email are on the Contact page and in every footer.
-- **Find the office** — Near Shiv Mandir, Badrinath Highway, Shivpuri, Uttarakhand (with a Google Maps link).
+- **Find the office** — Near Shiv Mandir, Badrinath Highway, Shivpuri, Uttarakhand, with the [Google Maps location](https://maps.app.goo.gl/yNx38Quouv5dsdkH8) linked from the Contact page, every footer and the mobile menu.
 - **Follow on Instagram** — [@adventure_park771](https://www.instagram.com/adventure_park771/), linked in the footer, the mobile menu and the Contact page.
 - **Switch light/dark mode** — follows the visitor's device setting by default.
 
@@ -70,7 +70,7 @@ Every fact the site states, in one place — check these before launch.
 |---|---|
 | Founder | Jagat Singh Bhandari (JSB) |
 | Experience / people served / running since | 25+ years · 5 lakh+ people · since 2006 |
-| Office | Near Shiv Mandir, Badrinath Highway, Shivpuri, Uttarakhand |
+| Office | Near Shiv Mandir, Badrinath Highway, Shivpuri, Uttarakhand · [Google Maps](https://maps.app.goo.gl/yNx38Quouv5dsdkH8) |
 | Phone / WhatsApp | +91 97623 88871, +91 87555 42743 (WhatsApp) |
 | Email / Instagram | adventurepark661@gmail.com · [@adventure_park771](https://www.instagram.com/adventure_park771/) |
 | Rafting (per person) | 12 km Marine Drive → Shivpuri, 1–1.5 hrs, ₹520 · 16 km Shivpuri → Nim Beach, 1.5–2 hrs, ₹720 · 26 km Marine Drive → Nim Beach, 2–2.5 hrs, ₹1,200 · 36 km Kaudiyala → Nim Beach, 2.5–3 hrs, ₹2,400 · peak season (March–June) weekends and crowded days +15–20% |
@@ -111,6 +111,7 @@ The activity choices in the booking form are in `booking.html` (search for `name
 | Detail | Where |
 |---|---|
 | Phone numbers, email, address | `contact.html` (cards), footer and mobile menu in every page |
+| Google Maps location (https://maps.app.goo.gl/yNx38Quouv5dsdkH8) | "Open in Google Maps" on `contact.html`; the address in every footer and the mobile menu |
 | WhatsApp number (+91 87555 42743) | Floating button and footer in every page, WhatsApp card in `contact.html` — links look like `https://wa.me/918755542743` |
 | Instagram (@adventure_park771) | Footer and mobile menu in every page, Instagram card in `contact.html` |
 | Phone number in form error messages | `PHONE` at the top of the forms section in `assets/site.js` |
@@ -208,7 +209,7 @@ The site is set up for Netlify (`netlify.toml`): no build command, publish direc
 - [x] Netlify site created and set to public (`adventurepark-rishikesh`).
 - [ ] First deploy (link the GitHub repository or drag and drop the folder).
 - [ ] Submit both forms once and click FormSubmit's activation emails.
-- [ ] Check the Google Maps link on the Contact page opens the right place.
+- [x] Google Maps location link from the owner, on the Contact page, footer and mobile menu.
 - [ ] Test on a phone: menu, WhatsApp button, tap-to-call, forms.
 
 ---
