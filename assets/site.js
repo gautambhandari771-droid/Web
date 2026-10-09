@@ -116,6 +116,48 @@
     });
   });
 
+  // Photo galleries: swipe on touch screens, or use the arrow buttons (they wrap around);
+  // the dots show which photo is in view
+  document.querySelectorAll('[data-gallery]').forEach((gallery) => {
+    const track = gallery.querySelector('[data-gallery-track]');
+    const slides = [...track.children];
+    const dots = [...gallery.querySelectorAll('[data-gallery-dot]')];
+    const count = slides.length;
+    const current = () => Math.round(track.scrollLeft / track.clientWidth);
+    // Photos after the first wait in data-src / data-srcset / data-sizes, so the page
+    // doesn't download them up front: the second loads once the gallery is near the
+    // screen, the rest as soon as the visitor starts browsing
+    const load = (img) => {
+      if (!img.dataset.src) return;
+      if (img.dataset.sizes) img.sizes = img.dataset.sizes;
+      if (img.dataset.srcset) img.srcset = img.dataset.srcset;
+      img.src = img.dataset.src;
+      delete img.dataset.src;
+      delete img.dataset.srcset;
+      delete img.dataset.sizes;
+    };
+    const loadAll = () => slides.forEach(load);
+    const show = (i) => {
+      loadAll();
+      track.scrollTo({ left: ((i + count) % count) * track.clientWidth, behavior: reduceMotion ? 'auto' : 'smooth' });
+    };
+    const update = () => dots.forEach((dot, i) => dot.toggleAttribute('data-current', i === current()));
+    gallery.querySelector('[data-gallery-prev]')?.addEventListener('click', () => show(current() - 1));
+    gallery.querySelector('[data-gallery-next]')?.addEventListener('click', () => show(current() + 1));
+    track.addEventListener('scroll', () => { loadAll(); requestAnimationFrame(update); }, { passive: true });
+    if ('IntersectionObserver' in window) {
+      const near = new IntersectionObserver((entries) => {
+        if (!entries.some((e) => e.isIntersecting)) return;
+        if (slides[1]) load(slides[1]);
+        near.disconnect();
+      }, { rootMargin: '200px' });
+      near.observe(gallery);
+    } else {
+      loadAll();
+    }
+    update();
+  });
+
   // Footer year
   document.querySelectorAll('[data-year]').forEach((el) => (el.textContent = new Date().getFullYear()));
 
