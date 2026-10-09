@@ -484,6 +484,11 @@ The site is set up for Netlify (`netlify.toml`): no build command, publish direc
 
 **How it's published:** the Netlify project **`adventureprk`** is linked to this GitHub repository and publishes the `main` branch to **https://adventureprk.netlify.app**. Every change merged into `main` goes live within about a minute, and every pull request gets a private **Deploy Preview** link first (Netlify posts it on the pull request). To undo a change, open the project's **Deploys** page in Netlify and publish an earlier deploy.
 
+**If a change doesn't go live** (the merge is on GitHub, but a few minutes later the site still shows the old version): open the project's **Deploys** page in Netlify.
+- If there's no new deploy at the top, Netlify missed the signal from GitHub: click **Trigger deploy → Deploy site**.
+- If the deploy shows as failed or blocked, open it and read the message.
+- If Netlify says the team has used up its free allowance, production deploys wait until the monthly reset or an upgrade (**Team → Usage** shows where it stands). Every project linked to this repository uses some of the allowance for each change, so delete projects you don't use.
+
 **Other Netlify projects on the account:** `advenpark` is also linked to this repository (it builds every change too, but only team members can open it) and `adventurepark-rishikesh` is empty. Neither is needed — delete them under **Project configuration → General → Danger zone → Delete project** to avoid confusion and duplicate builds.
 
 **If the site address changes** (a new project name or your own domain): find-and-replace `https://adventureprk.netlify.app` with the new address in every `.html` file, `sitemap.xml`, `robots.txt`, `llms.txt` and `.well-known/security.txt`, and in the IndexNow link above (see [Keeping it accurate](#keeping-it-accurate)).
