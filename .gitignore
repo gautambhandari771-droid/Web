@@ -1,1 +1,3 @@
 node_modules/
+# Built WordPress theme (python3 wordpress-theme/make_theme.py --zip)
+wordpress-theme/*.zip

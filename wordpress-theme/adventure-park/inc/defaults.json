@@ -1,0 +1,407 @@
+{
+ "settings": {
+  "phone_main": "+91 97623 88871",
+  "phone_wa": "+91 87555 42743",
+  "email": "adventurepark661@gmail.com",
+  "street": "Near Shiv Mandir, Badrinath Highway",
+  "town": "Shivpuri",
+  "region": "Uttarakhand",
+  "address_short": "Shivpuri, Badrinath Highway, Uttarakhand",
+  "map_url": "https://maps.app.goo.gl/CKrMGT2h8CRNrcmi6",
+  "instagram": "adventure_park771",
+  "wa_message": "Hi Adventure Park! I’d like to know more about your adventures.",
+  "upi_id": "8755542743@ybl",
+  "upi_name": "M/S Adventure Park",
+  "advance": 50,
+  "refund_hours": 36,
+  "rafting_12": 520,
+  "rafting_16": 720,
+  "rafting_26": 1200,
+  "rafting_36": 2400,
+  "bungee": 4000,
+  "zip_student": 1800,
+  "zip_adult": 2000,
+  "camp_shared_min": 1500,
+  "camp_shared_max": 1800,
+  "camp_double_min": 1800,
+  "camp_double_max": 2200,
+  "room_nonac": 1200,
+  "room_nonac_busy_min": 1600,
+  "room_nonac_busy_max": 1800,
+  "room_ac": 1600,
+  "room_ac_busy_min": 2000,
+  "room_ac_busy_max": 2200,
+  "zip_representative": true,
+  "strict_csp": true
+ },
+ "fields": {
+  "home": [
+   {
+    "key": "hero_badge",
+    "label": "Badge above the headline",
+    "type": "text",
+    "default": "Safety-first adventures in Rishikesh"
+   },
+   {
+    "key": "hero_title",
+    "label": "Headline",
+    "type": "text",
+    "default": "Adventure Park"
+   },
+   {
+    "key": "hero_intro",
+    "label": "Intro under the headline",
+    "type": "textarea",
+    "default": "River rafting, bungee jumping, zip lining, camping and more, led by an experienced team that puts your safety first on every trip."
+   },
+   {
+    "key": "step1_title",
+    "label": "\"Plan your adventure\", step 1: title",
+    "type": "text",
+    "default": "Send a booking request"
+   },
+   {
+    "key": "step1_text",
+    "label": "\"Plan your adventure\", step 1: text",
+    "type": "textarea",
+    "default": "Pay a {advance}% advance by UPI, then tell us who's coming and what you'd love to try, with the payment screenshot attached."
+   },
+   {
+    "key": "step2_title",
+    "label": "\"Plan your adventure\", step 2: title",
+    "type": "text",
+    "default": "Get a safe, tailored plan"
+   },
+   {
+    "key": "step2_text",
+    "label": "\"Plan your adventure\", step 2: text",
+    "type": "textarea",
+    "default": "We check your payment, confirm your booking and recommend activities that suit your group's age, fitness and experience, with clear safety guidance."
+   },
+   {
+    "key": "step3_title",
+    "label": "\"Plan your adventure\", step 3: title",
+    "type": "text",
+    "default": "Go wild"
+   },
+   {
+    "key": "step3_text",
+    "label": "\"Plan your adventure\", step 3: text",
+    "type": "textarea",
+    "default": "Show up, gear up and enjoy. Our team handles the checks so you can focus on the fun."
+   },
+   {
+    "key": "seo_title",
+    "label": "Title in Google and browser tabs",
+    "type": "text",
+    "default": "Adventure Park Rishikesh | Rafting, Bungee Jumping & Camps",
+    "group": "search"
+   },
+   {
+    "key": "seo_description",
+    "label": "Description in Google and link previews",
+    "type": "textarea",
+    "default": "River rafting from {rafting_12}, 109 m bungee jumping and zip line in Rishikesh, plus luxury camps & cottages in Shivpuri with meals. Safety first since {founded}.",
+    "group": "search"
+   }
+  ],
+  "about": [
+   {
+    "key": "hero_title",
+    "label": "Headline",
+    "type": "text",
+    "default": "{years} years of adventure, built on"
+   },
+   {
+    "key": "hero_title_accent",
+    "label": "Headline, last words (in italics)",
+    "type": "text",
+    "default": "safety"
+   },
+   {
+    "key": "hero_intro",
+    "label": "Intro under the headline",
+    "type": "textarea",
+    "default": "Adventure Park is a Rishikesh adventure brand with one focus: giving you the best adventure activities, run with your safety first."
+   },
+   {
+    "key": "years",
+    "label": "Years of experience",
+    "type": "number",
+    "default": "25",
+    "help": "Shown as \"25+ years\" on the Home and About pages."
+   },
+   {
+    "key": "people",
+    "label": "People served (in lakh)",
+    "type": "number",
+    "default": "5",
+    "help": "Shown as \"5 lakh+ people served\"."
+   },
+   {
+    "key": "founded",
+    "label": "Year founded",
+    "type": "number",
+    "default": "2006"
+   },
+   {
+    "key": "seo_title",
+    "label": "Title in Google and browser tabs",
+    "type": "text",
+    "default": "About Adventure Park | Founded by Jagat Singh Bhandari",
+    "group": "search"
+   },
+   {
+    "key": "seo_description",
+    "label": "Description in Google and link previews",
+    "type": "textarea",
+    "default": "Founded in {founded} by Jagat Singh Bhandari (JSB), Adventure Park in Shivpuri, Rishikesh has served more than {people} lakh people, with {years}+ years of experience.",
+    "group": "search"
+   }
+  ],
+  "booking": [
+   {
+    "key": "hero_title",
+    "label": "Headline",
+    "type": "text",
+    "default": "Book your next"
+   },
+   {
+    "key": "hero_title_accent",
+    "label": "Headline, last word (in italics)",
+    "type": "text",
+    "default": "adventure"
+   },
+   {
+    "key": "hero_intro",
+    "label": "Intro under the headline",
+    "type": "textarea",
+    "default": "Tell us who's coming, what you'd like to do and when. We'll confirm availability and prices, and help you choose activities that suit your group's age and fitness."
+   },
+   {
+    "key": "step1_title",
+    "label": "\"How it works\", step 1: title",
+    "type": "text",
+    "default": "Pay {advance}% in advance"
+   },
+   {
+    "key": "step1_text",
+    "label": "\"How it works\", step 1: text",
+    "type": "textarea",
+    "default": "Pay {advance}% of the price by <a href=\"#pay\">UPI</a>. Not sure of the exact price? Ask us first."
+   },
+   {
+    "key": "step2_title",
+    "label": "\"How it works\", step 2: title",
+    "type": "text",
+    "default": "Send your booking request"
+   },
+   {
+    "key": "step2_text",
+    "label": "\"How it works\", step 2: text",
+    "type": "textarea",
+    "default": "Fill in the form with your group, activities and dates, and attach your payment screenshot."
+   },
+   {
+    "key": "step3_title",
+    "label": "\"How it works\", step 3: title",
+    "type": "text",
+    "default": "We confirm your booking"
+   },
+   {
+    "key": "step3_text",
+    "label": "\"How it works\", step 3: text",
+    "type": "textarea",
+    "default": "We check your payment and get in touch the way you prefer, with clear safety guidance."
+   },
+   {
+    "key": "step4_title",
+    "label": "\"How it works\", step 4: title",
+    "type": "text",
+    "default": "Enjoy your adventure"
+   },
+   {
+    "key": "step4_text",
+    "label": "\"How it works\", step 4: text",
+    "type": "textarea",
+    "default": "The remaining {remaining}% is paid at Adventure Park."
+   },
+   {
+    "key": "seo_title",
+    "label": "Title in Google and browser tabs",
+    "type": "text",
+    "default": "Book Rafting, Bungee & Camps in Rishikesh | Adventure Park",
+    "group": "search"
+   },
+   {
+    "key": "seo_description",
+    "label": "Description in Google and link previews",
+    "type": "textarea",
+    "default": "Request a booking for river rafting, bungee jumping, zip line, luxury camps & cottages or hotel rooms in Rishikesh. We confirm availability and prices.",
+    "group": "search"
+   }
+  ],
+  "contact": [
+   {
+    "key": "hero_title",
+    "label": "Headline",
+    "type": "text",
+    "default": "We'd love to"
+   },
+   {
+    "key": "hero_title_accent",
+    "label": "Headline, last words (in italics)",
+    "type": "text",
+    "default": "hear from you"
+   },
+   {
+    "key": "hero_intro",
+    "label": "Intro under the headline",
+    "type": "textarea",
+    "default": "Questions about an activity, a group trip or your visit? Leave your details and our team will get back to you."
+   },
+   {
+    "key": "opening_hours",
+    "label": "Opening hours",
+    "type": "textarea",
+    "default": "",
+    "help": "Optional. When filled in, shown as \"Opening hours\" with your address and phone numbers, e.g. \"Every day, 8 AM – 8 PM\"."
+   },
+   {
+    "key": "seo_title",
+    "label": "Title in Google and browser tabs",
+    "type": "text",
+    "default": "Contact Adventure Park | Shivpuri, Rishikesh",
+    "group": "search"
+   },
+   {
+    "key": "seo_description",
+    "label": "Description in Google and link previews",
+    "type": "textarea",
+    "default": "Call {phone}, WhatsApp {whatsapp} or email {email}. Office near Shiv Mandir, Badrinath Highway, Shivpuri, Uttarakhand.",
+    "group": "search"
+   }
+  ]
+ },
+ "faq": [
+  [
+   "Do I need any experience?",
+   "Not at all. Many of our activities are beginner friendly, and our team will recommend the right ones for you when you book."
+  ],
+  [
+   "How do you keep guests safe?",
+   "Every activity starts with a safety briefing, uses equipment that's inspected before each use and is led by experienced guides. If the weather or river conditions aren't safe, we reschedule."
+  ],
+  [
+   "Are there age or health requirements?",
+   "Some activities have age, weight or health requirements. Share your details when you book and we'll tell you what's suitable for everyone in your group."
+  ],
+  [
+   "Do prices change in peak season?",
+   "Yes. From March to June, rafting costs 15–20% more on weekends and crowded days, and camping and hotel prices rise with demand. We confirm the exact price when you book."
+  ],
+  [
+   "Are there lower prices for children or students?",
+   "Children aged 6–11 pay half the adult price for camping, and students pay {zip_student} instead of {zip_adult} for the zip line."
+  ],
+  [
+   "How do I book and pay?",
+   "Pay a {advance}% advance by UPI first: scan the <a href=\"{url:booking}#pay\">QR code on the Booking page</a> with PhonePe, Google Pay, Paytm or any UPI app (UPI ID {upi_id}, name {upi_name}). Then send the booking form with the payment screenshot attached – requests without a payment screenshot are not accepted. We check your payment and confirm your booking, and the remaining {remaining}% is paid at Adventure Park. Not sure of the exact price? Call or WhatsApp us before paying."
+  ],
+  [
+   "What is your refund policy?",
+   "You can cancel within {refund_hours} hours of booking (from when you send your booking request) and we'll refund your {advance}% advance. After {refund_hours} hours, the advance is non-refundable. To cancel, call {phone} or WhatsApp {whatsapp}. <a href=\"{url:booking}#refund-policy\">Refund policy</a>"
+  ],
+  [
+   "What should I bring?",
+   "Comfortable clothes, sturdy shoes, sunscreen and a change of clothes for water activities. We'll share a full list for your activities when you book."
+  ],
+  [
+   "When is the best time to visit?",
+   "It depends on the activity, as river activities are seasonal. Ask us when you book and we'll suggest the best dates for your trip."
+  ]
+ ],
+ "about_story": [
+  "Adventure Park was founded in {founded} by <strong>Jagat Singh Bhandari</strong> (JSB), who has <strong>{years} years of experience</strong> and has served <strong>more than {people} lakh people</strong>.",
+  "That experience shapes everything we do: carefully chosen adventure activities, run by a team that treats every guest's safety as the first priority."
+ ],
+ "nav": {
+  "desktop_class": "relative rounded-md px-3 py-2 text-sm font-medium transition-colors after:absolute after:inset-x-3 after:bottom-1 after:h-0.5 after:origin-left after:rounded-full after:bg-primary after:transition-transform after:duration-300 text-foreground after:scale-x-100",
+  "desktop_class_off": "relative rounded-md px-3 py-2 text-sm font-medium transition-colors after:absolute after:inset-x-3 after:bottom-1 after:h-0.5 after:origin-left after:rounded-full after:bg-primary after:transition-transform after:duration-300 text-muted-foreground hover:text-foreground after:scale-x-0 hover:after:scale-x-100",
+  "mobile_class": "[--i:__I__] group/link flex -translate-x-6 items-center justify-between gap-4 border-b py-4 text-3xl font-bold tracking-tight opacity-0 transition duration-500 [transition-delay:calc(var(--i)*60ms+60ms)] group-data-open:translate-x-0 group-data-open:opacity-100 text-primary-ink",
+  "mobile_class_off": "[--i:__I__] group/link flex -translate-x-6 items-center justify-between gap-4 border-b py-4 text-3xl font-bold tracking-tight opacity-0 transition duration-500 [transition-delay:calc(var(--i)*60ms+60ms)] group-data-open:translate-x-0 group-data-open:opacity-100 hover:text-primary-ink",
+  "mobile_icon": "<svg aria-hidden=\"true\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"size-6 shrink-0 text-muted-foreground transition-transform duration-300 group-hover/link:translate-x-1 group-hover/link:text-primary-ink\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg>",
+  "items": [
+   [
+    "Home",
+    "home",
+    ""
+   ],
+   [
+    "Activities",
+    "home",
+    "#activities"
+   ],
+   [
+    "Stay",
+    "home",
+    "#stay"
+   ],
+   [
+    "About",
+    "about",
+    ""
+   ],
+   [
+    "Booking",
+    "booking",
+    ""
+   ],
+   [
+    "Contact",
+    "contact",
+    ""
+   ]
+  ]
+ },
+ "seo": {
+  "home": {
+   "og_image_alt": "Adventure Park — Where Rishikesh gets wild. River rafting, bungee jumping, zip line, camps & cottages."
+  },
+  "about": {
+   "og_image_alt": "Adventure Park — Where Rishikesh gets wild. River rafting, bungee jumping, zip line, camps & cottages."
+  },
+  "booking": {
+   "og_image_alt": "Adventure Park — Where Rishikesh gets wild. River rafting, bungee jumping, zip line, camps & cottages."
+  },
+  "contact": {
+   "og_image_alt": "Adventure Park — Where Rishikesh gets wild. River rafting, bungee jumping, zip line, camps & cottages."
+  }
+ },
+ "photo_alts": {
+  "rafting_1": "A wave crashes over the front of an Adventure Park raft as the crew in Adventure Park life jackets holds on",
+  "rafting_2": "Adventure Park rafters in helmets and life jackets paddle into a big splash on the Ganga",
+  "rafting_3": "An Adventure Park crew paddles hard through white-water rapids between forested hills",
+  "rafting_4": "The guide stands at the front of an Adventure Park raft with arms raised as the crew paddles on",
+  "bungee_1": "A jumper dives off the bungee platform above a forested valley as the jump master looks on",
+  "bungee_2": "A smiling jumper hangs on the bungee cord above the turquoise river, seen from the platform",
+  "zipline_1": "A rider zip lining above a turquoise river valley",
+  "zipline_2": "A rider on a zip line above a river valley"
+ },
+ "rep_chip": "\n              <span class=\"absolute top-2 right-2 rounded-full bg-black/70 px-2 py-0.5 text-[11px] font-medium text-white\">Representative photo</span>",
+ "gallery_sizes": {
+  "rafting": "(min-width: 1024px) 704px, (min-width: 640px) calc(100vw - 48px), calc(100vw - 32px)",
+  "bungee": "(min-width: 1024px) 340px, (min-width: 640px) calc(50vw - 36px), calc(100vw - 32px)",
+  "zipline": null
+ },
+ "faq_markup": {
+  "details_class": "reveal group rounded-lg border bg-muted/20 px-4 transition-colors open:bg-card",
+  "summary_class": "flex cursor-pointer list-none items-center justify-between gap-4 py-5 text-lg font-medium [&::-webkit-details-marker]:hidden",
+  "icon": "<span class=\"grid size-7 shrink-0 place-items-center rounded-full border transition-transform duration-300 group-open:rotate-45\"><svg aria-hidden=\"true\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"size-4\"><path d=\"M5 12h14\"/><path d=\"M12 5v14\"/></svg></span>",
+  "answer_class": "pb-5 text-base text-muted-foreground group-open:animate-fade-up"
+ },
+ "contact_card": {
+  "card": "reveal flex gap-4 rounded-2xl border border-border/60 bg-card/50 p-5",
+  "icon_wrap": "grid size-11 shrink-0 place-items-center rounded-xl bg-primary/10 text-primary-ink"
+ }
+}

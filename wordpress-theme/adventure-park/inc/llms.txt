@@ -1,0 +1,67 @@
+# Adventure Park Rishikesh
+
+> Adventure activities and stays in Shivpuri, Rishikesh (Uttarakhand, India): river rafting on the Ganga, bungee jumping from 109 m, zip line, luxury camps & cottages with three meals a day, and hotel rooms. Founded in 2006 by Jagat Singh Bhandari (JSB). Tagline: "Where Rishikesh gets wild". Safety first, always.
+
+Key facts:
+
+- Founder: Jagat Singh Bhandari (JSB) — {years}+ years of experience, more than {people} lakh people served; Adventure Park has run since {founded}.
+- Location: Near Shiv Mandir, Badrinath Highway, Shivpuri, Rishikesh, Uttarakhand, India. Map: {map}
+- Phone: {phone}, {whatsapp} (also WhatsApp: {whatsapp_link})
+- Email: {email}
+- Instagram: {instagram_url}
+- All prices are in Indian rupees (INR, ₹), per person unless stated.
+- Booking: pay a {advance}% advance by UPI, then send the booking form with the payment screenshot attached (requests without a payment screenshot are not accepted). The team checks the payment and confirms the booking. The remaining {remaining}% is paid at Adventure Park.
+- Refund policy: cancel within {refund_hours} hours of booking (from when the booking request is sent) for a refund of the advance; after {refund_hours} hours the advance is non-refundable. Cancel by phone ({phone}) or WhatsApp ({whatsapp}).
+
+## Pages
+
+- [Home]({home}): activities and prices, stays, food menu, safety checklist, how booking works, FAQs
+- [About us]({url:about}): founder story, values and safety promise
+- [Booking]({url:booking}): booking request form — choose activities, group size, experience level, preferred date and contact method — and UPI payment QR code
+- [Contact us]({url:contact}): phone, WhatsApp, email, Instagram, office address and map, contact form
+
+## Activities and prices
+
+- River rafting (with an experienced guide on every raft):
+  - 12 km, Marine Drive → Shivpuri, about 1–1.5 hours: {rafting_12} per person
+  - 16 km, Shivpuri → Nim Beach, about 1.5–2 hours: {rafting_16} per person
+  - 26 km, Marine Drive → Nim Beach, about 2–2.5 hours: {rafting_26} per person
+  - 36 km, Kaudiyala → Nim Beach, about 2.5–3 hours: {rafting_36} per person
+  - Peak season (March–June): weekends and crowded days cost 15–20% more.
+- Bungee jumping: 109 m (360 ft), {bungee} per person, including a DSLR video of the jump and a jump certificate.
+- Zip line: {zip_student} per person for students, {zip_adult} per person for adults.
+- Other adventure activities: available on request — contact the team for details and prices.
+
+## Booking and payment
+
+1. Pay a {advance}% advance by UPI: scan the QR code on the [Booking page]({url:booking}#pay) with PhonePe, Google Pay, Paytm, BHIM or any UPI app. UPI ID: {upi_id}, payee name: {upi_name_caps}. Example: for a {bungee} bungee jump, the advance is {advance_example}. Not sure of the exact price (peak season, busy days)? Call or WhatsApp first.
+2. Send the booking request on the [Booking page]({url:booking}) (each activity and stay on the home page has its own "Book" button) with the payment screenshot attached. Requests without a payment screenshot are not accepted.
+3. The team checks the payment and confirms the booking.
+4. The remaining {remaining}% is paid at Adventure Park.
+5. Refunds: cancel within {refund_hours} hours of booking for a refund of the advance. After {refund_hours} hours, the advance is non-refundable. [Refund policy]({url:booking}#refund-policy)
+
+## Stay
+
+- Luxury camps & cottages, 200 m up from the river and 100 m up from the national highway (not riverside):
+  - Quad or triple sharing: {camp_shared_min}–{camp_shared_max} per person per night
+  - Double sharing: {camp_double_min}–{camp_double_max} per person per night
+  - Children aged 6–11 pay 50% of the adult price; the exact price depends on the season and weekend demand.
+  - Included: three meals a day, swimming pool, DJ party until 10 pm, attached washroom, fan, charging points. Non-AC camps have an air cooler; AC cottages have air conditioning.
+- Hotel rooms (room only — meals, pool and DJ party are not included):
+  - Non-AC room: {room_nonac} per room per night (busy days {room_nonac_busy_min}–{room_nonac_busy_max})
+  - AC room: {room_ac} per room per night (busy days {room_ac_busy_min}–{room_ac_busy_max})
+
+## Food (included with camp and cottage stays)
+
+- **Breakfast** (Served 8:30 – 10:00 AM): Hot drinks: Masala tea, coffee, milk; Main dishes: Aloo or gobhi parathas with butter, dahi and pickle, or puri bhaji; Continental & light: Eggs to order (omelette, boiled or scrambled), bread toast with butter and jam, poha or veg upma
+- **Buffet lunch** (Served 1:30 – 3:00 PM · 100% pure vegetarian): Main veg curry: Matar paneer / Shahi paneer / Kadhai paneer; Dry veg: Mix veg / Jeera aloo / Bhindi fry; Dal: Dal tadka / Yellow dal fry; Rice & breads: Steamed basmati rice / Jeera rice, tawa roti / chapati; Sides: Green salad, boondi raita, papad, mixed pickle
+- **Evening snacks** (Served 6:00 – 7:30 PM): Snacks: Hot veg pakoras (paneer, aloo or mix veg) or French fries; Drinks: Masala tea and coffee; Optional add-on: Live BBQ: chicken tikka and paneer tikka, for groups who request it in advance
+- **Buffet dinner** (Served 8:30 – 10:30 PM): Non-veg main: Chicken curry / Kadhai chicken / Butter chicken; Veg main: Kadhai paneer / Palak paneer / Dum aloo; Dal: Dal makhani / Panchmel dal; Rice & breads: Peas pulao / Veg biryani, fresh tawa roti; Sides & dessert: Green salad, papad, pickle; gulab jamun / kheer / sewaiyan
+
+## Safety
+
+Every activity starts with a safety briefing, uses equipment inspected before each use (helmets, life jackets, harnesses) and is led by experienced guides. Weather and river conditions are checked, and trips are rescheduled when conditions aren't safe.
+
+## FAQ
+
+{faq}

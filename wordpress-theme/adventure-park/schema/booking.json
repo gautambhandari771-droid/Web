@@ -1,0 +1,144 @@
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": [
+    "SportsActivityLocation",
+    "TouristAttraction"
+   ],
+   "@id": "{{url:home}}#business",
+   "name": "Adventure Park",
+   "alternateName": [
+    "Adventure Park Rishikesh",
+    "Adventure Park Shivpuri"
+   ],
+   "slogan": "Where Rishikesh gets wild",
+   "description": "Adventure activities and stays in Shivpuri, Rishikesh: river rafting on the Ganga (12–36 km), bungee jumping from 109 m, zip line, luxury camps & cottages with meals, and hotel rooms. Safety first, always.",
+   "url": "{{url:home}}",
+   "logo": {
+    "@type": "ImageObject",
+    "url": "{{asset}}/logo.png",
+    "width": 454,
+    "height": 192
+   },
+   "image": [
+    "{{asset}}/photos/rafting-1-1440.webp",
+    "{{asset}}/photos/rafting-2-1440.webp",
+    "{{asset}}/og-image.png",
+    "{{asset}}/logo.png"
+   ],
+   "telephone": "{{tel_dash_main}}",
+   "email": "{{email}}",
+   "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "{{street}}",
+    "addressLocality": "Shivpuri, Rishikesh",
+    "addressRegion": "Uttarakhand",
+    "addressCountry": "IN"
+   },
+   "hasMap": "{{map_url}}",
+   "areaServed": {
+    "@type": "City",
+    "name": "Rishikesh",
+    "containedInPlace": {
+     "@type": "State",
+     "name": "Uttarakhand"
+    }
+   },
+   "sameAs": [
+    "{{instagram_url}}"
+   ],
+   "founder": {
+    "@id": "{{url:about}}#founder"
+   },
+   "foundingDate": "{{founded}}",
+   "priceRange": "{{price_range}}",
+   "currenciesAccepted": "INR",
+   "paymentAccepted": "UPI (PhonePe, Google Pay, Paytm, BHIM or any UPI app)",
+   "contactPoint": [
+    {
+     "@type": "ContactPoint",
+     "telephone": "{{tel_dash_main}}",
+     "contactType": "customer service",
+     "areaServed": "IN"
+    },
+    {
+     "@type": "ContactPoint",
+     "telephone": "{{tel_dash_wa}}",
+     "contactType": "reservations",
+     "areaServed": "IN",
+     "description": "Phone and WhatsApp",
+     "url": "{{wa_plain}}"
+    }
+   ]
+  },
+  {
+   "@type": "WebSite",
+   "@id": "{{url:home}}#website",
+   "url": "{{url:home}}",
+   "name": "Adventure Park Rishikesh",
+   "alternateName": "Adventure Park",
+   "inLanguage": "en-IN",
+   "publisher": {
+    "@id": "{{url:home}}#business"
+   }
+  },
+  {
+   "@id": "{{url:booking}}#webpage",
+   "url": "{{url:booking}}",
+   "name": "Book Rafting, Bungee & Camps in Rishikesh | Adventure Park",
+   "description": "Request a booking for river rafting, bungee jumping, zip line, luxury camps & cottages or hotel rooms in Rishikesh. We confirm availability and prices.",
+   "inLanguage": "en-IN",
+   "isPartOf": {
+    "@id": "{{url:home}}#website"
+   },
+   "about": {
+    "@id": "{{url:home}}#business"
+   },
+   "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "{{asset}}/og-image.png",
+    "width": 1200,
+    "height": 630
+   },
+   "dateModified": "2026-10-09",
+   "@type": "WebPage",
+   "breadcrumb": {
+    "@id": "{{url:booking}}#breadcrumb"
+   },
+   "potentialAction": {
+    "@type": "ReserveAction",
+    "name": "Send a booking request",
+    "target": {
+     "@type": "EntryPoint",
+     "urlTemplate": "{{url:booking}}",
+     "actionPlatform": [
+      "https://schema.org/DesktopWebPlatform",
+      "https://schema.org/MobileWebPlatform"
+     ]
+    },
+    "object": {
+     "@id": "{{url:home}}#business"
+    }
+   }
+  },
+  {
+   "@type": "BreadcrumbList",
+   "@id": "{{url:booking}}#breadcrumb",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "{{url:home}}"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Booking",
+     "item": "{{url:booking}}"
+    }
+   ]
+  }
+ ]
+}

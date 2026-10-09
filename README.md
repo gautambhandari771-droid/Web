@@ -65,7 +65,8 @@ A static website: plain HTML, CSS and a little JavaScript. **Netlify publishes t
 ├── .well-known/
 │   └── security.txt      Where to report a security problem (renew "Expires" every year)
 ├── netlify.toml          Netlify settings: security headers, caching, hidden files
-├── .gitignore            Keeps the temporary node_modules folder out of git
+├── .gitignore            Keeps the temporary node_modules folder (and built theme zips) out of git
+├── wordpress-theme/      The same site as a WordPress theme, with its install guide — see "WordPress theme"
 └── assets/
     ├── theme.css         Colours, fonts, radius, shadows (tweakcn format)
     ├── tailwind.css      Source of the styles: theme mapping, animations, form fields
@@ -436,7 +437,7 @@ The site has **no server, database, login or payment of its own**. The "backend"
 
 ### Other protections
 
-- **Project files are hidden:** `README.md`, `netlify.toml`, `.gitignore`, `.git/` and `assets/tailwind.css` answer "not found" on the live site.
+- **Project files are hidden:** `README.md`, `netlify.toml`, `.gitignore`, `.git/`, `assets/tailwind.css` and the `wordpress-theme/` folder answer "not found" on the live site.
 - **Forms:** a hidden spam trap (`_honey`), length limits on every field, and validation before sending; the payment screenshot must be an image or PDF of up to 10 MB. What visitors type is only ever shown as text, never run as code.
 - **No cookies and no tracking.** The browser stores only the light/dark choice and the saved copy of the site's own pages and files (see [Caching and offline](#caching-and-offline)).
 - **The service worker (`sw.js`)** only answers requests for this site's own pages and files. Forms, FormSubmit and other websites always go straight to the network.
@@ -475,6 +476,15 @@ Tested on a local server that behaves like Netlify (same headers, Brotli compres
 | Look | After the speed and security changes, every page was compared pixel by pixel with the version before them (phone and desktop, light and dark): identical, apart from 1 pixel of the compressed logo and the new words "in 2006 … (JSB)" on the About page. New features (booking, payment, refunds) were checked visually on phone and desktop in both modes |
 
 **Still to check on the live site:** Safari on iPhone and Firefox (only Chrome was available here), the real FormSubmit service (activate both forms and send a test booking with a screenshot), a ₹1 test payment by scanning the QR code, and live-network speed. Netlify reports that every deploy applied all header and hidden-file rules without errors. Run the live address through [PageSpeed Insights](https://pagespeed.web.dev), [Security Headers](https://securityheaders.com), [Mozilla Observatory](https://developer.mozilla.org/en-US/observatory), [SSL Labs](https://www.ssllabs.com/ssltest/) and the [Rich Results Test](https://search.google.com/test/rich-results), and try the site on an iPhone and an Android phone.
+
+---
+
+## WordPress theme
+
+The `wordpress-theme/` folder holds the site as a WordPress theme (`adventure-park`), for moving to WordPress hosting with your own domain. It has the same design, forms, payment section, galleries, offline copy and search data. Prices, contact details, payment rules, photos and page text are edited in the WordPress dashboard.
+
+- **Install guide:** [wordpress-theme/README.md](wordpress-theme/README.md) covers installing, editing, updating and the test results. It was tested on WordPress 7.1.3 and 6.5, 31 of 31 checks each.
+- **After changing the website,** rebuild the theme so it keeps up: `python3 wordpress-theme/make_theme.py --zip`.
 
 ---
 
