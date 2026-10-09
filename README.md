@@ -1,7 +1,7 @@
 # Adventure Park — website
 
 **Where Rishikesh gets wild.**
-The website for Adventure Park, an adventure-activities brand in Rishikesh, Uttarakhand, running since 2006 and founded by Jagat Singh Bhandari (JSB — 25+ years of experience, more than 5 lakh people served). The site presents the activities, stays and prices, puts safety first, and lets visitors book online — pay a 50% advance by UPI and send a booking request with the payment screenshot — or get in touch.
+The website for Adventure Park, an adventure-activities brand in Rishikesh, Uttarakhand, running since 2006 and founded by Jagat Singh Bhandari (JSB — 25+ years of experience, more than 1 lakh people served). The site presents the activities, stays and prices, puts safety first, and lets visitors book online — pay a 50% advance by UPI and send a booking request with the payment screenshot — or get in touch.
 
 > **Status:** live at **https://adventureprk.netlify.app** (Netlify project `adventureprk`). Netlify publishes the `main` branch of this repository automatically — see [Deploying to Netlify](#deploying-to-netlify).
 
@@ -96,7 +96,7 @@ Every fact the site states, in one place — keep these up to date.
 | Detail | Value |
 |---|---|
 | Founder | Jagat Singh Bhandari (JSB) |
-| Experience / people served / running since | 25+ years · 5 lakh+ people · since 2006 |
+| Experience / people served / running since | 25+ years · 1 lakh+ people · since 2006 |
 | Office | Near Shiv Mandir, Badrinath Highway, Shivpuri, Uttarakhand · [Google Maps](https://maps.app.goo.gl/CKrMGT2h8CRNrcmi6) |
 | Phone / WhatsApp | +91 97623 88871, +91 87555 42743 (WhatsApp) |
 | Email / Instagram | adventurepark661@gmail.com · [@adventure_park771](https://www.instagram.com/adventure_park771/) |
@@ -120,7 +120,7 @@ All content is in the HTML files — open one in any text editor, change the wor
 
 ### Headline numbers
 
-The band under the Home hero shows **25+** years of experience, **5 lakh+** people served and **Since 2006 · Founded by JSB**. Edit them in the "NUMBERS" section of `index.html` (the About page has its own band in `about.html`). The `data-count` value is the number that counts up.
+The band under the Home hero shows **25+** years of experience, **1 lakh+** people served and **Since 2006 · Founded by JSB**. Edit them in the "NUMBERS" section of `index.html` (the About page has its own band in `about.html`). The `data-count` value is the number that counts up.
 
 ### Prices — where they appear
 

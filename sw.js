@@ -12,7 +12,7 @@
 //   straight to the network as if this file didn't exist.
 
 // ---- Filled in when the site is built: the version and the files every page needs ----
-const VERSION = 'c9406b0ba4';
+const VERSION = '697a8f49ec';
 const ASSETS = [
   "/assets/styles.css?v=330df259c6",
   "/assets/theme.css?v=f384fb99f1",
