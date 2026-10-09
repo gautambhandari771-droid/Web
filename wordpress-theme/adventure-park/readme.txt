@@ -50,6 +50,9 @@ page layout in the site's style.
 
 == Changelog ==
 
+= 1.0.1 =
+* People served: 1 lakh+.
+
 = 1.0.0 =
 * First version, made from the Adventure Park website.
 

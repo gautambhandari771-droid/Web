@@ -53,6 +53,9 @@ def strip_classes(fragment):
 
 # ---------------------------------------------------------------- split the pages
 pages = {n: read(n) for n in ['index.html', 'about.html', 'booking.html', 'contact.html', '404.html']}
+# People served (in lakh), as the Home page says it today
+PEOPLE = re.search(r'<span data-count="(\d+)">\1</span> lakh\+', pages['index.html']).group(1)
+LAKH = PEOPLE + ' lakh'
 
 
 def parts_of(page):
@@ -156,10 +159,10 @@ FIELDS['home'].append({'key': 'hero_intro', 'label': 'Intro under the headline',
 m = m.replace(intro.group(0), intro.group(1) + '\n          {{f:hero_intro}}\n        ' + intro.group(3))
 # Numbers
 m = sub(m, '<span data-count="25">25</span>+', '<span data-count="{{years}}">{{years}}</span>+')
-m = sub(m, '<span data-count="5">5</span> lakh+', '<span data-count="{{people}}">{{people}}</span> lakh+')
+m = sub(m, f'<span data-count="{PEOPLE}">{PEOPLE}</span> lakh+', '<span data-count="{{people}}">{{people}}</span> lakh+')
 m = sub(m, '</span> 2006</p>', '</span> {{founded}}</p>')
 m = sub(m, '</span>25+ years of experience</li>', '</span>{{years}}+ years of experience</li>')
-m = sub(m, '</span>5 lakh+ people served</li>', '</span>{{people}} lakh+ people served</li>')
+m = sub(m, f'</span>{LAKH}+ people served</li>', '</span>{{people}} lakh+ people served</li>')
 m = sub(m, 'A team backed by 25 years of adventure experience.', 'A team backed by {{years}} years of adventure experience.')
 m = sub(m, 'Rishikesh, Uttarakhand · 25+ years of experience', 'Rishikesh, Uttarakhand · {{years}}+ years of experience')
 # Prices: activities
@@ -248,20 +251,20 @@ intro = re.search(r'(<p class="mx-auto mt-6 max-w-2xl animate-fade-up[^"]*">)\s*
 FIELDS['about'].append({'key': 'hero_intro', 'label': 'Intro under the headline', 'type': 'textarea', 'default': collapse(intro.group(2))})
 m = m.replace(intro.group(0), intro.group(1) + '\n          {{f:hero_intro}}\n        ' + intro.group(3))
 FIELDS['about'] += [{'key': 'years', 'label': 'Years of experience', 'type': 'number', 'default': '25', 'help': 'Shown as "25+ years" on the Home and About pages.'},
-                    {'key': 'people', 'label': 'People served (in lakh)', 'type': 'number', 'default': '5', 'help': 'Shown as "5 lakh+ people served".'},
+                    {'key': 'people', 'label': 'People served (in lakh)', 'type': 'number', 'default': PEOPLE, 'help': f'Shown as "{LAKH}+ people served".'},
                     {'key': 'founded', 'label': 'Year founded', 'type': 'number', 'default': '2006'}]
 m = sub(m, '<p class="text-2xl font-extrabold text-primary-ink">25+ years</p>', '<p class="text-2xl font-extrabold text-primary-ink">{{years}}+ years</p>')
-m = sub(m, '<p class="text-2xl font-extrabold text-secondary-foreground">5 lakh+</p>', '<p class="text-2xl font-extrabold text-secondary-foreground">{{people}} lakh+</p>')
+m = sub(m, f'<p class="text-2xl font-extrabold text-secondary-foreground">{LAKH}+</p>', '<p class="text-2xl font-extrabold text-secondary-foreground">{{people}} lakh+</p>')
 m = sub(m, '<span data-count="25">25</span>+', '<span data-count="{{years}}">{{years}}</span>+')
-m = sub(m, '<span data-count="5">5</span> lakh+', '<span data-count="{{people}}">{{people}}</span> lakh+')
+m = sub(m, f'<span data-count="{PEOPLE}">{PEOPLE}</span> lakh+', '<span data-count="{{people}}">{{people}}</span> lakh+')
 m = sub(m, 'Come and see what 25 years of experience feels like', 'Come and see what {{years}} years of experience feels like')
 story = re.search(r'(<div class="mt-8 space-y-5 text-lg leading-relaxed text-muted-foreground)(">)(.*?)(\n          </div>)', m, re.S)
 paras = re.findall(r'<p>\s*(.*?)\s*</p>', story.group(3), re.S)
 for p in paras:
-    p = collapse(strip_classes(p)).replace('2006', '{founded}').replace('25 years', '{years} years').replace('5 lakh', '{people} lakh')
+    p = collapse(strip_classes(p)).replace('2006', '{founded}').replace('25 years', '{years} years').replace(LAKH, '{people} lakh')
     defaults['about_story'].append(p)
 m = m.replace(story.group(0), story.group(1) + ' [&_strong]:font-semibold [&_strong]:text-foreground [&_a]:font-semibold [&_a]:text-primary-ink [&_a]:underline-offset-4 hover:[&_a]:underline' + story.group(2) + '\n            {{about_story}}' + story.group(4))
-assert not re.search(r'25 years|5 lakh|2006', re.sub(r'<[^>]+>', '', m)), 'numbers left in about'
+assert not re.search(r'25 years|' + LAKH + '|2006', re.sub(r'<[^>]+>', '', m)), 'numbers left in about'
 mains['about.html'] = m
 
 # ---------------------------------------------------------------- booking
@@ -328,7 +331,7 @@ for name, key in [('index.html', 'home'), ('about.html', 'about'), ('booking.htm
     title = htmllib.unescape(re.search(r'<title>(.*?)</title>', p).group(1))
     desc = htmllib.unescape(re.search(r'<meta name="description" content="(.*?)"', p).group(1))
     desc = desc.replace('+91 97623 88871', '{phone}').replace('+91 87555 42743', '{whatsapp}').replace('adventurepark661@gmail.com', '{email}')
-    desc = desc.replace('₹520', '{rafting_12}').replace('50%', '{advance}%').replace('36 hours', '{refund_hours} hours').replace('2006', '{founded}').replace('25+', '{years}+').replace('5 lakh', '{people} lakh')
+    desc = desc.replace('₹520', '{rafting_12}').replace('50%', '{advance}%').replace('36 hours', '{refund_hours} hours').replace('2006', '{founded}').replace('25+', '{years}+').replace(LAKH, '{people} lakh')
     FIELDS[key] += [{'key': 'seo_title', 'label': 'Title in Google and browser tabs', 'type': 'text', 'default': title, 'group': 'search'},
                     {'key': 'seo_description', 'label': 'Description in Google and link previews', 'type': 'textarea', 'default': desc, 'group': 'search'}]
     defaults['seo'][key] = {'og_image_alt': htmllib.unescape(re.search(r'<meta property="og:image:alt" content="(.*?)"', p).group(1))}
@@ -381,7 +384,7 @@ def tokenize_json(node, path=''):
         assert '₹' not in s, s
         if path.endswith('/foundingDate'):
             s = '{{founded}}'
-        s = s.replace('25 years', '{{years}} years').replace('25+ years', '{{years}}+ years').replace('5 lakh', '{{people}} lakh').replace('in 2006', 'in {{founded}}')
+        s = s.replace('25 years', '{{years}} years').replace('25+ years', '{{years}}+ years').replace(LAKH, '{{people}} lakh').replace('in 2006', 'in {{founded}}')
         s = s.replace('50% advance', '{{advance}}% advance').replace('36 hours', '{{refund_hours}} hours')
         return s
     return node
@@ -428,7 +431,7 @@ reps = [
     ('https://wa.me/918755542743', '{whatsapp_link}'), ('+91 97623 88871', '{phone}'), ('+91 87555 42743', '{whatsapp}'),
     ('adventurepark661@gmail.com', '{email}'), ('8755542743@ybl', '{upi_id}'), ('M/S ADVENTURE PARK', '{upi_name_caps}'),
     ('https://maps.app.goo.gl/CKrMGT2h8CRNrcmi6', '{map}'), ('https://www.instagram.com/adventure_park771/', '{instagram_url}'), ('@adventure_park771', '@{instagram}'),
-    ('25+ years', '{years}+ years'), ('5 lakh', '{people} lakh'), ('since 2006', 'since {founded}'),
+    ('25+ years', '{years}+ years'), (LAKH, '{people} lakh'), ('since 2006', 'since {founded}'),
     ('about 1–1.5 hours: ₹520', 'about 1–1.5 hours: {rafting_12}'), ('about 1.5–2 hours: ₹720', 'about 1.5–2 hours: {rafting_16}'),
     ('about 2–2.5 hours: ₹1,200', 'about 2–2.5 hours: {rafting_26}'), ('about 2.5–3 hours: ₹2,400', 'about 2.5–3 hours: {rafting_36}'),
     ('109 m (360 ft), ₹4,000', '109 m (360 ft), {bungee}'), ('₹1,800 per person for students, ₹2,000 per person for adults', '{zip_student} per person for students, {zip_adult} per person for adults'),

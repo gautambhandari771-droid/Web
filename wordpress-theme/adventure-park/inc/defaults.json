@@ -135,8 +135,8 @@
     "key": "people",
     "label": "People served (in lakh)",
     "type": "number",
-    "default": "5",
-    "help": "Shown as \"5 lakh+ people served\"."
+    "default": "1",
+    "help": "Shown as \"1 lakh+ people served\"."
    },
    {
     "key": "founded",
