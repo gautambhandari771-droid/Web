@@ -42,7 +42,7 @@ A static website: plain HTML, CSS and a little JavaScript. **Netlify publishes t
 
 - **Tailwind CSS v4** styles the site. The styles are built ahead of time into `assets/styles.css`, so pages load fast and nothing is compiled in the visitor's browser. Changing words needs no rebuild; changing the design does (see [Changing the design](#changing-the-design-rebuilding-the-styles)).
 - **Theme** in the [tweakcn](https://tweakcn.com) / shadcn format, so colours can be swapped in one file.
-- **Fonts** (Plus Jakarta Sans and Instrument Serif) are stored on the site itself in `assets/fonts/`, so no request goes to Google when a page loads.
+- **Fonts** (Plus Jakarta Sans and Instrument Serif) are stored on the site itself in `assets/fonts/`, so no request goes to Google when a page loads. Each page fetches just two font files, both requested first thing (see [Fonts](#fonts)).
 - **Forms** are delivered by [FormSubmit](https://formsubmit.co) — no server of our own.
 - **Nothing else is loaded from outside the site**, and a security policy in `netlify.toml` enforces that (see [Security](#security)).
 
@@ -69,7 +69,7 @@ A static website: plain HTML, CSS and a little JavaScript. **Netlify publishes t
     ├── tailwind.css      Source of the styles: theme mapping, animations, form fields
     ├── styles.css        Built styles used by every page (made from tailwind.css — don't edit by hand)
     ├── fonts.css         Font definitions (included in styles.css; also used by preview.html)
-    ├── fonts/            Font files (woff2)
+    ├── fonts/            Font files (woff2) — see "Fonts" below
     ├── head.js           Sets light/dark mode before the page paints
     ├── site.js           Header, mobile menu, scroll reveals, counters, Book buttons, copy button, photo galleries, forms (incl. the screenshot upload)
     ├── hero-fx.js        Animated dash ring and glow in the page headers
@@ -150,9 +150,27 @@ The activity choices in the booking form are in `booking.html` (search for `name
 
 1. Design a theme at [tweakcn.com](https://tweakcn.com) and open **Code**.
 2. Copy the `:root { … }` and `.dark { … }` blocks and paste them over the same blocks in `assets/theme.css`. Colours take effect straight away — no rebuild.
-3. If the theme uses different fonts, download them as `.woff2` files into `assets/fonts/` (for example from [Google Fonts](https://fonts.google.com) or [Fontsource](https://fontsource.org)), update `assets/fonts.css` and the font `preload` line in each page's `<head>`, then [rebuild the styles](#changing-the-design-rebuilding-the-styles).
+3. If the theme uses different fonts, download them as `.woff2` files into `assets/fonts/` (for example from [Google Fonts](https://fonts.google.com) or [Fontsource](https://fontsource.org)), update `assets/fonts.css` and the two font `preload` lines in each page's `<head>`, then [rebuild the styles](#changing-the-design-rebuilding-the-styles).
 
 The current theme: "life-jacket" orange for buttons, Ganga jade accents, river-navy text; dark mode is "the river at night".
+
+### Fonts
+
+Every page shows text in two fonts on its first screen: **Plus Jakarta Sans** (all body text and headings) and **Instrument Serif italic** (the accent words in the page titles). Both files are requested at the very top of each page (the two `<link rel="preload" …>` lines in the `<head>`), so the first screen shows the right fonts as soon as possible. This is what keeps the speed index low: when a font is only found later, inside the styles, the browser waits a whole extra round trip before it can draw text in it.
+
+- `plus-jakarta-sans.woff2` (20 KB) holds English letters, accents, punctuation and the **₹ sign**, at weights 400–800. It's made from the official font file with [fontTools](https://github.com/fonttools/fonttools):
+  ```bash
+  pip install fonttools brotli
+  fonttools varLib.instancer "PlusJakartaSans[wght].ttf" wght=400:800 -o pjs.ttf
+  pyftsubset pjs.ttf --flavor=woff2 --output-file=plus-jakarta-sans.woff2 \
+    --layout-features=calt,ccmp,dnom,frac,liga,locl,numr,pnum,tnum,kern,mark \
+    --unicodes="U+0000-00FF,U+0102,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+2000-206F,U+20AC,U+20B9,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD"
+  ```
+  (`PlusJakartaSans[wght].ttf` is in [Google's font repository](https://github.com/google/fonts/tree/main/ofl/plusjakartasans).) Before, ₹ lived in a second 22 KB file, so every page with prices downloaded two body-font files.
+- `instrument-serif-italic-latin.woff2` (22 KB) is the Google Fonts file for English text.
+- The `…-latin-ext.woff2` files cover rarer accented letters. A page downloads one only if its text uses such a letter, and none does today. The upright (not italic) Instrument Serif files are not used by any page.
+
+**If you add a character that isn't in these files** (for example another currency sign), it shows in a fallback font. Add its code to `--unicodes` above and rebuild the file, then add the same code to the `unicode-range` of the "Plus Jakarta Sans normal – latin" block in `assets/fonts.css`.
 
 ### Payment (UPI QR code)
 
@@ -392,13 +410,14 @@ The site has **no server, database, login or payment of its own**. The "backend"
 
 ## Test results
 
-Tested on a local server that behaves like Netlify (same headers, compression and 404 handling), with Lighthouse's standard slow-phone and desktop settings. Last run after the activity photos were added.
+Tested on a local server that behaves like Netlify (same headers, Brotli compression and 404 handling), with Lighthouse's standard slow-phone and desktop settings. Last run after the font speed-up (three runs per page; the middle result is shown).
 
 | Check | Result |
 |---|---|
-| **Lighthouse — mobile** (performance / accessibility / best practices / SEO) | 99–100 / 100 / 100 / 100 on all four pages (performance was 78–84 before the styles were pre-built; one home-page run gave 95, the repeat 99) |
+| **Lighthouse — mobile** (performance / accessibility / best practices / SEO) | 99–100 / 100 / 100 / 100 on all four pages (performance was 78–84 before the styles were pre-built) |
 | **Lighthouse — desktop** | 100 / 100 / 100 / 100 on all four pages |
-| Speed on a slow phone | First text after 1.0–1.7 s (was 2.6–3.0 s), largest content after 1.8 s (was 3.0–3.3 s), no layout shift, blocking time 0–110 ms (was 220–290 ms) |
+| **Speed index** (how quickly the first screen looks complete) | Slow phone: Home 1.17 s (was 1.51 s), Booking 0.97 s (was 1.37 s), About and Contact 1.00 s (were 1.0–1.4 s, varying from run to run). Desktop: 0.30–0.41 s (was 0.37–0.45 s). The gain comes from fetching both fonts first thing and from the one-file body font with ₹ (see [Fonts](#fonts)); every page was checked pixel by pixel and looks exactly the same |
+| Speed on a slow phone | First text after 1.0–1.1 s (was 1.0–1.5 s before the font speed-up, 2.6–3.0 s before the styles were pre-built), largest content after 1.5–1.8 s (was 3.0–3.3 s), no layout shift, no blocking time |
 | Page weight | Home 293 KB on a phone in 15 requests, with the first rafting photo; 508 KB on a desktop, where the first bungee and zip line photos and the second rafting photo are also on screen. The other photos load only when the visitor browses the galleries; loading them all up front made the phone page 561 KB. Booking 168 KB, About and Contact 142 KB. Logo 126 KB → 25 KB with no visible change |
 | HTML and CSS — W3C validator | No errors or warnings on any page |
 | Accessibility — axe-core (WCAG 2.2 AA), light and dark, phone and desktop, menu open | No issues, apart from a report on the faded "01 02 03" step numbers: they are decoration (hidden from screen readers), which WCAG exempts from contrast rules |
