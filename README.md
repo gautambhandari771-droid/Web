@@ -21,6 +21,7 @@ The website for Adventure Park, an adventure-activities brand in Rishikesh, Utta
 ## What visitors can do
 
 - **See activities and prices** — rafting (12, 16, 26 and 36 km, 1 to 3 hours), bungee jumping (109 m), zip line, luxury camps & cottages (200 m up from the river, 100 m up from the national highway) and hotel rooms, all in ₹.
+- **See real photos** — the rafting card opens with four of Adventure Park's own rafting photos, and the zip line card with two photos marked "Representative photo". Swipe through them on a phone, or use the arrow buttons; the dots show which photo is in view (see [Photos](#photos)).
 - **See the food menu** — breakfast, buffet lunch (pure veg), evening snacks and buffet dinner (veg & non-veg), included with camp and cottage stays.
 - **Book any activity or stay** — every activity card (rafting, bungee, zip line, more adventures) and both stays (camps & cottages, hotel rooms) has its own **Book** button, which opens the booking form with that activity already ticked. In the form, rafting offers all four trips (12, 16, 26 and 36 km) with route, duration and price.
 - **Send a booking request** or **a contact message** — both forms email the details to the park (see [Forms](#forms-formsubmit)).
@@ -70,7 +71,7 @@ A static website: plain HTML, CSS and a little JavaScript. **Netlify publishes t
     ├── fonts.css         Font definitions (included in styles.css; also used by preview.html)
     ├── fonts/            Font files (woff2)
     ├── head.js           Sets light/dark mode before the page paints
-    ├── site.js           Header, mobile menu, scroll reveals, counters, Book buttons, copy button, forms (incl. the screenshot upload)
+    ├── site.js           Header, mobile menu, scroll reveals, counters, Book buttons, copy button, photo galleries, forms (incl. the screenshot upload)
     ├── hero-fx.js        Animated dash ring and glow in the page headers
     ├── preview.js        Device preview tool
     ├── preview.css       Device preview tool styles
@@ -78,6 +79,7 @@ A static website: plain HTML, CSS and a little JavaScript. **Netlify publishes t
     ├── icon-192.png      App icon
     ├── apple-touch-icon.png  Home-screen icon for iPhone/iPad
     ├── og-image.png      Link-preview picture (WhatsApp, Facebook, Google…), 1200×630
+    ├── photos/           Activity photos (WebP): rafting-1…4 at 640, 960 and 1440 px wide, zipline-1 and zipline-2
     ├── upi-qr.svg        UPI payment QR code shown on the Booking page (sharp at any size)
     └── upi-qr.png        Same QR code as an image, for the "Download QR code" button
 ```
@@ -208,6 +210,26 @@ Change the emoji or text inside that pill at the top of each page's first sectio
 
 Replace a file with one of the same name and size to update it.
 
+### Photos
+
+The photos are in `assets/photos/`, in the WebP format (about a third of the size of a JPG at the same quality). Each sits at the top of its activity card on the home page (`index.html`):
+
+| Card | Photos | Files |
+|---|---|---|
+| River rafting | 4 of Adventure Park's own rafting photos | `rafting-1` … `rafting-4`, each at 640, 960 and 1440 px wide (phones download a smaller size, big screens the 1440 px one) |
+| Zip line | 2 photos marked **"Representative photo"** — they were not taken at Adventure Park | `zipline-1-640.webp`, `zipline-2-629.webp` |
+| Bungee jumping | None yet | — |
+
+All the photos are cropped to a wide 16:9 shape and turned the right way up. Camera details, including the GPS location stored by the phone, were removed. Only the first photo of each card loads with the page. The second loads as the visitor scrolls near the card, and the rest as soon as they start browsing, so the home page stays fast on phones.
+
+**To replace a photo:** make a landscape picture in the 16:9 shape, save it as WebP at the same width and with the same file name, and upload it over the old one. On GitHub, open `assets/photos`, choose **Add file → Upload files**, and commit. Netlify publishes the change within about a minute. [Squoosh](https://squoosh.app) can resize, crop and convert a photo to WebP in the browser, and removes the location data. Also update the photo's description (the `alt="…"` text in `index.html`) so it matches the new picture: search engines, AI assistants and screen readers use it.
+
+**To add a photo to a card:** in `index.html`, copy one of the card's later photos (an `<img>` line whose `src` starts with `data:image/svg+xml`), change the file names in `data-src` and `data-srcset` and the `alt` text, add one more dot (a `<span data-gallery-dot …></span>`), and update the number in `aria-label="… photos, N pictures"`. A card without photos can copy the zip line card's `<div data-gallery …>` block.
+
+**When the zip line (or bungee) photos are your own:** delete the line `<span …>Representative photo</span>` from that card.
+
+**Photo rights:** only put up photos Adventure Park owns or has written permission to use. Guests can be recognised in the rafting photos, so check that they are happy to appear on the website. Photos taken at another company's site (for example the bungee jump operator's) need that company's permission. Don't edit their logo or watermark out.
+
 ### Animation
 
 Animation is kept subtle and fast:
@@ -268,7 +290,7 @@ The site is set up so that Google and Bing (SEO), and AI assistants and answer e
 
 | Page | What it describes |
 |---|---|
-| Home | **The business** (`SportsActivityLocation` + `TouristAttraction`): name, tagline, founder, founded in 2006, address, map link, phones, WhatsApp, email, Instagram, price range ₹520–₹4,000, accepted payment (UPI) and **a catalogue of all 11 prices** (4 rafting stretches, bungee, zip line ×2, camps ×2, hotel rooms ×2, each in INR). **The FAQ** (all 9 questions and answers, including booking, payment and refunds), **the camps & cottages** (`Campground` with every amenity) and **the food menu** (4 meals and their dishes, vegetarian dishes marked) |
+| Home | **The business** (`SportsActivityLocation` + `TouristAttraction`): name, tagline, founder, founded in 2006, address, map link, phones, WhatsApp, email, Instagram, price range ₹520–₹4,000, accepted payment (UPI), pictures (two rafting photos, the link-preview picture and the logo) and **a catalogue of all 11 prices** (4 rafting stretches, bungee, zip line ×2, camps ×2, hotel rooms ×2, each in INR). **The FAQ** (all 9 questions and answers, including booking, payment and refunds), **the camps & cottages** (`Campground` with every amenity) and **the food menu** (4 meals and their dishes, vegetarian dishes marked) |
 | About | The business, the About page and **the founder**, Jagat Singh Bhandari (JSB) |
 | Booking | The business, the Booking page and a "send a booking request" action |
 | Contact | The business and the Contact page |
@@ -370,20 +392,20 @@ The site has **no server, database, login or payment of its own**. The "backend"
 
 ## Test results
 
-Tested on a local server that behaves like Netlify (same headers, compression and 404 handling), with Lighthouse's standard slow-phone and desktop settings. Last run after the booking, payment and refund changes.
+Tested on a local server that behaves like Netlify (same headers, compression and 404 handling), with Lighthouse's standard slow-phone and desktop settings. Last run after the activity photos were added.
 
 | Check | Result |
 |---|---|
-| **Lighthouse — mobile** (performance / accessibility / best practices / SEO) | 99–100 / 100 / 100 / 100 on all four pages (performance was 78–84 before the styles were pre-built) |
+| **Lighthouse — mobile** (performance / accessibility / best practices / SEO) | 99–100 / 100 / 100 / 100 on all four pages (performance was 78–84 before the styles were pre-built; one home-page run gave 95, the repeat 99) |
 | **Lighthouse — desktop** | 100 / 100 / 100 / 100 on all four pages |
 | Speed on a slow phone | First text after 1.0–1.7 s (was 2.6–3.0 s), largest content after 1.8 s (was 3.0–3.3 s), no layout shift, blocking time 0–110 ms (was 220–290 ms) |
-| Page weight | Home 176 KB in 13 requests (was 326 KB in 14), Booking 168 KB, About and Contact 142 KB. Logo 126 KB → 25 KB with no visible change |
+| Page weight | Home 293 KB on a phone in 15 requests, with the first rafting photo; 477 KB on a desktop, where the first zip line photo and the second rafting photo are also on screen. The other photos load only when the visitor browses the galleries; loading them all up front made the phone page 561 KB. Booking 168 KB, About and Contact 142 KB. Logo 126 KB → 25 KB with no visible change |
 | HTML and CSS — W3C validator | No errors or warnings on any page |
 | Accessibility — axe-core (WCAG 2.2 AA), light and dark, phone and desktop, menu open | No issues, apart from a report on the faded "01 02 03" step numbers: they are decoration (hidden from screen readers), which WCAG exempts from contrast rules |
 | Structured data — checked against the schema.org vocabulary | No errors |
 | Links | Every internal link and `#section` link works; phone, email, WhatsApp, Instagram and Maps links are correct |
 | Crawlers | `robots.txt` lets every search engine and AI crawler read every page except the preview tool; all key facts (prices, phones, address, founder) are in the page HTML, so crawlers that don't run JavaScript see them too |
-| Forms, menu, dark mode, keyboard, 404, reduced motion, booking and payment | 75 automated checks pass (forms tested with a simulated FormSubmit), under the security policy — including every Book button ticking the right activity, all four rafting trips, the booking form refusing to send without a payment screenshot (or with a non-image or over-10 MB file), the screenshot arriving as an attachment and the visitor returning to the thank-you message, the UPI QR code decoding to the right account, "Copy UPI ID" copying exactly `8755542743@ybl`, and the 50% advance and 36-hour refund rules shown everywhere |
+| Forms, menu, dark mode, keyboard, 404, reduced motion, booking, payment and photos | 81 automated checks pass (forms tested with a simulated FormSubmit), under the security policy — including every Book button ticking the right activity, all four rafting trips, the booking form refusing to send without a payment screenshot (or with a non-image or over-10 MB file), the screenshot arriving as an attachment and the visitor returning to the thank-you message, the UPI QR code decoding to the right account, "Copy UPI ID" copying exactly `8755542743@ybl`, the 50% advance and 36-hour refund rules shown everywhere, and both photo galleries: every photo loads with its description, the arrows and swiping step through and wrap around, the dots follow, later photos wait until needed, and without JavaScript each card still shows its first photo |
 | **Security — OWASP ZAP** (crawl + active attack scan) | No high-risk findings. Fixed: inline styles allowed by the policy, project files reachable. Remaining reports don't apply: "anti-CSRF tokens" (no logins or sessions to protect), "HTTP to HTTPS form post" and "server version" (only on the plain-HTTP test server; the live site is HTTPS on Netlify), "suspicious comments" (ordinary code comments containing the word "from") |
 | **Security — attack tests** | 41 checks pass: script injection through every form field (including with an uploaded screenshot) and the page address, with normal and hostile form-service replies; framing by another website; tab-hijacking through outside links; cookies/storage |
 | **Security — code and history** | No unsafe HTML insertion in the site's JavaScript; no passwords, keys or tokens in any commit. The Tailwind build tool has a reported denial-of-service issue in a file-watching library it uses; it only runs on a computer when rebuilding the styles and is never part of the website |
