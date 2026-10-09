@@ -161,6 +161,43 @@
   // Footer year
   document.querySelectorAll('[data-year]').forEach((el) => (el.textContent = new Date().getFullYear()));
 
+  // Saved copy for slow connections (sw.js). Once this page has loaded, the service worker
+  // is registered and asked to save the other pages and the photos shown here, so the next
+  // visit opens instantly, even offline. When it finds that this page has changed since it
+  // was saved, a small notice offers to show the latest version.
+  if ('serviceWorker' in navigator && window.isSecureContext) {
+    const showUpdate = () => {
+      if (document.querySelector('[data-update]')) return;
+      const bar = document.createElement('div');
+      bar.dataset.update = '';
+      bar.setAttribute('role', 'status');
+      bar.className = 'fixed bottom-[calc(1.25rem+env(safe-area-inset-bottom,0px))] left-4 right-24 z-40 flex items-center justify-between gap-3 rounded-2xl border bg-card py-2 pl-4 pr-2 text-sm text-card-foreground shadow-lg sm:right-auto sm:max-w-md';
+      document.body.append(bar);
+      // Filled in a moment later so screen readers announce it
+      requestAnimationFrame(() => {
+        const text = document.createElement('span');
+        text.textContent = 'This page has been updated.';
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'shrink-0 rounded-full bg-primary px-3.5 py-1.5 font-semibold text-primary-foreground transition hover:-translate-y-0.5 hover:shadow-md';
+        button.textContent = 'Refresh';
+        button.addEventListener('click', () => location.reload());
+        bar.append(text, button);
+      });
+    };
+    navigator.serviceWorker.addEventListener('message', (event) => {
+      if (event.data?.type === 'page-updated') showUpdate();
+    });
+    addEventListener('load', () => {
+      navigator.serviceWorker.register('sw.js').catch(() => {});
+      navigator.serviceWorker.ready.then((registration) => {
+        const images = performance.getEntriesByType('resource').map((entry) => entry.name)
+          .filter((url) => /\/assets\/.+\.(png|webp|svg)$/.test(new URL(url).pathname));
+        registration.active?.postMessage({ type: 'save-for-later', saveData: Boolean(navigator.connection?.saveData), images });
+      });
+    });
+  }
+
   // Enquiry forms are emailed to the park by FormSubmit (formsubmit.co).
   // The browser validates fields first, then we send them in the background to
   // FormSubmit's AJAX endpoint, so visitors stay on the page. Without JavaScript the

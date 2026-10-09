@@ -31,6 +31,7 @@ The website for Adventure Park, an adventure-activities brand in Rishikesh, Utta
 - **Find the office** — Near Shiv Mandir, Badrinath Highway, Shivpuri, Uttarakhand, with the [Google Maps location](https://maps.app.goo.gl/CKrMGT2h8CRNrcmi6) linked from the Contact page, every footer and the mobile menu.
 - **Follow on Instagram** — [@adventure_park771](https://www.instagram.com/adventure_park771/), linked in the footer, the mobile menu and the Contact page.
 - **Use it on a phone** — a full-screen menu with big links, a "Book now" button and tap-to-call, WhatsApp, email and map links.
+- **Use it on slow mobile data, or offline** — after the first visit, pages open instantly from a copy saved on the phone, even with no signal (see [Caching and offline](#caching-and-offline)).
 - **Switch light/dark mode** — follows the visitor's device setting by default.
 - **Find the park on Google and in AI assistants** — every page carries search, link-preview and structured data, and the site is open to search engines and AI crawlers (see [Search engines and AI assistants](#search-engines-and-ai-assistants-seo-geo-aio)).
 
@@ -59,6 +60,7 @@ A static website: plain HTML, CSS and a little JavaScript. **Netlify publishes t
 ├── sitemap.xml           List of pages for search engines
 ├── llms.txt              Plain-text summary of the business for AI assistants
 ├── site.webmanifest      App name and icons (for "Add to Home screen")
+├── sw.js                 Service worker: saved copy of the site, for instant repeat visits and offline (see "Caching and offline")
 ├── 9ee9e31962946c13c7e1b3c5848a1f03.txt  IndexNow key (lets Bing know the site is ours when we announce updates)
 ├── .well-known/
 │   └── security.txt      Where to report a security problem (renew "Expires" every year)
@@ -149,7 +151,7 @@ The activity choices in the booking form are in `booking.html` (search for `name
 ### Colours and fonts (tweakcn)
 
 1. Design a theme at [tweakcn.com](https://tweakcn.com) and open **Code**.
-2. Copy the `:root { … }` and `.dark { … }` blocks and paste them over the same blocks in `assets/theme.css`. Colours take effect straight away — no rebuild.
+2. Copy the `:root { … }` and `.dark { … }` blocks and paste them over the same blocks in `assets/theme.css`. No rebuild is needed: just change the `?v=` value after `theme.css` in every page's `<head>` so returning visitors get the new colours (see [Caching and offline](#caching-and-offline)).
 3. If the theme uses different fonts, download them as `.woff2` files into `assets/fonts/` (for example from [Google Fonts](https://fonts.google.com) or [Fontsource](https://fontsource.org)), update `assets/fonts.css` and the two font `preload` lines in each page's `<head>`, then [rebuild the styles](#changing-the-design-rebuilding-the-styles).
 
 The current theme: "life-jacket" orange for buttons, Ganga jade accents, river-navy text; dark mode is "the river at night".
@@ -190,8 +192,8 @@ The "Book" buttons link to `booking.html?activity=…` (`bungee`, `zipline`, `ca
 
 Pages use the ready-made `assets/styles.css`. It contains the styles for every Tailwind class used in the HTML and JavaScript files.
 
-- **Changing words, prices, links or images** → no rebuild needed.
-- **Changing colours in `theme.css`** → no rebuild needed.
+- **Changing words, prices, links or images** → no rebuild needed. Returning visitors first see their saved copy, then a "This page has been updated" notice with a Refresh button.
+- **Changing colours in `theme.css`** → no rebuild needed; change the `?v=` value after `theme.css` in every page.
 - **Adding or changing Tailwind classes** in the HTML (e.g. `text-xl`, `bg-primary`), or editing `assets/tailwind.css` → rebuild `styles.css`, otherwise the new classes have no effect.
 
 To rebuild, install [Node.js](https://nodejs.org), open a terminal in this folder and run:
@@ -201,7 +203,7 @@ npm install --no-save tailwindcss@4.3.3 @tailwindcss/cli@4.3.3
 npx tailwindcss -i assets/tailwind.css -o assets/styles.css --minify
 ```
 
-Commit the updated `assets/styles.css` along with the HTML. (Add `--watch` to the second command to rebuild automatically while you edit.)
+Then change the `?v=` value after `styles.css` in every page (see [Caching and offline](#caching-and-offline)), and commit the updated `assets/styles.css` along with the HTML. (Add `--watch` to the second command to rebuild automatically while you edit.)
 
 **Don't use `style="…"` attributes or `<style>` blocks in the pages** — the security policy blocks them. Use a Tailwind class instead (for example `[--d:150ms]` rather than `style="--d:150ms"`), then rebuild.
 
@@ -240,7 +242,7 @@ The photos are in `assets/photos/`, in the WebP format (about a third of the siz
 
 All the photos are cropped to a wide 16:9 shape and turned the right way up. Camera details, including the GPS location stored by the phone, were removed. Only the first photo of each card loads with the page. The second loads as the visitor scrolls near the card, and the rest as soon as they start browsing, so the home page stays fast on phones.
 
-**To replace a photo:** make a landscape picture in the 16:9 shape, save it as WebP at the same width and with the same file name, and upload it over the old one. On GitHub, open `assets/photos`, choose **Add file → Upload files**, and commit. Netlify publishes the change within about a minute. [Squoosh](https://squoosh.app) can resize, crop and convert a photo to WebP in the browser, and removes the location data. Also update the photo's description (the `alt="…"` text in `index.html`) so it matches the new picture: search engines, AI assistants and screen readers use it.
+**To replace a photo:** make a landscape picture in the 16:9 shape, save it as WebP at the same width and with the same file name, and upload it over the old one. On GitHub, open `assets/photos`, choose **Add file → Upload files**, and commit. Netlify publishes the change within about a minute. People who visited before may keep seeing the old photo for a day or two (browsers keep photos that long); to show it to everyone at once, give the new photo a new file name instead and update the names in `index.html`. [Squoosh](https://squoosh.app) can resize, crop and convert a photo to WebP in the browser, and removes the location data. Also update the photo's description (the `alt="…"` text in `index.html`) so it matches the new picture: search engines, AI assistants and screen readers use it.
 
 **To add a photo to a card:** in `index.html`, copy one of the card's later photos (an `<img>` line whose `src` starts with `data:image/svg+xml`), change the file names in `data-src` and `data-srcset` and the `alt` text, add one more dot (a `<span data-gallery-dot …></span>`), and update the number in `aria-label="… photos, N pictures"`. To give another card photos (for example the camps), copy the bungee card's `<div data-gallery …>` block into it and change the photos.
 
@@ -376,6 +378,42 @@ Opening the HTML files directly also works for looking at the design, but the fo
 
 **On different devices** — open `preview.html` (e.g. http://localhost:8000/preview.html, or `/preview.html` on the live site). It shows the site inside phone, tablet and desktop frames, side by side, with page, light/dark and rotate controls.
 
+## Caching and offline
+
+Many visitors arrive on slow mobile data. The first visit has to come over the network, but after that the site doesn't need to:
+
+| What | How long browsers keep it | Why it's safe |
+|---|---|---|
+| Styles and scripts (`assets/*.css`, `assets/*.js`) | A year | Each page links them with a version, e.g. `assets/styles.css?v=330df259c6`. A changed file gets a new `?v=`, so browsers fetch it straight away |
+| Fonts (`assets/fonts/`) | A year | They never change under the same name |
+| Photos, logo and icons | A day, then shown at once while a newer copy is checked for (up to a week) | A replaced photo shows up within a day or two |
+| Pages (`*.html`) | Always checked with the website | — |
+
+**The offline copy (`sw.js`, a "service worker").** Once a page has finished loading, the browser installs `sw.js`. It saves the four pages, the styles, scripts, fonts and logo, and the photos the visitor has seen, so that:
+
+- **coming back, and moving between pages, is instant** (on slow 3G, 0.3 s instead of about 2.6 s, with nothing downloaded);
+- **the site still opens with no signal**, including the Booking page and its "Book" links. Only sending a form needs a connection;
+- **visitors still get updates.** The saved page is shown at once and checked against the website in the background. If it has changed, a small notice says "This page has been updated" with a Refresh button. A saved page more than a day old isn't shown straight away: the website is asked first, and the saved copy is used only if it doesn't answer within 4 seconds;
+- **data saver is respected.** Visitors who turned on "data saver" only keep the pages they actually open.
+
+`sw.js` only handles this site's own pages and files. The booking and contact forms, FormSubmit, WhatsApp, Maps and Instagram all go straight to the network, and nothing a visitor types is ever saved.
+
+**When you change something:**
+
+- **Words, prices, links in a page:** nothing extra to do.
+- **A style or script file** (`assets/theme.css`, `styles.css`, `site.js`, `head.js`, `hero-fx.js`): change the `?v=` value after its name in **every** page (any new value, the same in each page, e.g. `?v=2026-10-20`). Otherwise returning visitors keep the old file.
+- **`sw.js` itself:** change the `VERSION` value at the top so browsers install the new one. The list of files under it uses the same `?v=` values as the pages; keep them in step.
+
+**To switch the offline copy off** (if it ever causes trouble): replace everything in `sw.js` with the lines below and publish. Each visitor's browser then deletes its saved copy and removes the service worker on their next visit. Then delete the "Saved copy for slow connections" block from `assets/site.js`.
+
+```js
+self.addEventListener('install', () => self.skipWaiting());
+self.addEventListener('activate', (event) => event.waitUntil((async () => {
+  for (const name of await caches.keys()) await caches.delete(name);
+  await self.registration.unregister();
+})()));
+```
+
 ---
 
 ## Security
@@ -400,7 +438,8 @@ The site has **no server, database, login or payment of its own**. The "backend"
 
 - **Project files are hidden:** `README.md`, `netlify.toml`, `.gitignore`, `.git/` and `assets/tailwind.css` answer "not found" on the live site.
 - **Forms:** a hidden spam trap (`_honey`), length limits on every field, and validation before sending; the payment screenshot must be an image or PDF of up to 10 MB. What visitors type is only ever shown as text, never run as code.
-- **No cookies and no tracking.** The only thing stored in the browser is the light/dark choice.
+- **No cookies and no tracking.** The browser stores only the light/dark choice and the saved copy of the site's own pages and files (see [Caching and offline](#caching-and-offline)).
+- **The service worker (`sw.js`)** only answers requests for this site's own pages and files. Forms, FormSubmit and other websites always go straight to the network.
 - **No secrets in the code:** every commit was scanned for passwords, API keys and tokens — none.
 - **`/.well-known/security.txt`** tells security researchers how to report a problem (email and phone). It expires each year — update the `Expires` date by then.
 - **Recommended after activating FormSubmit:** FormSubmit emails you a private random address for the form. Replace `adventurepark661@gmail.com` in the two form `action`s with it, so spam bots can't harvest the email from the form (the email stays visible on the Contact page by choice).
@@ -410,14 +449,16 @@ The site has **no server, database, login or payment of its own**. The "backend"
 
 ## Test results
 
-Tested on a local server that behaves like Netlify (same headers, Brotli compression and 404 handling), with Lighthouse's standard slow-phone and desktop settings. Last run after the font speed-up (three runs per page; the middle result is shown).
+Tested on a local server that behaves like Netlify (same headers, Brotli compression and 404 handling), with Lighthouse's standard slow-phone and desktop settings. Last run after adding caching and the offline copy (Lighthouse figures: three runs per page, the middle result is shown).
 
 | Check | Result |
 |---|---|
-| **Lighthouse — mobile** (performance / accessibility / best practices / SEO) | 99–100 / 100 / 100 / 100 on all four pages (performance was 78–84 before the styles were pre-built) |
+| **Lighthouse — mobile** (performance / accessibility / best practices / SEO) | 100 / 100 / 100 / 100 on all four pages (performance was 78–84 before the styles were pre-built) |
 | **Lighthouse — desktop** | 100 / 100 / 100 / 100 on all four pages |
 | **Speed index** (how quickly the first screen looks complete) | Slow phone: Home 1.17 s (was 1.51 s), Booking 0.97 s (was 1.37 s), About and Contact 1.00 s (were 1.0–1.4 s, varying from run to run). Desktop: 0.30–0.41 s (was 0.37–0.45 s). The gain comes from fetching both fonts first thing and from the one-file body font with ₹ (see [Fonts](#fonts)); every page was checked pixel by pixel and looks exactly the same |
 | Speed on a slow phone | First text after 1.0–1.1 s (was 1.0–1.5 s before the font speed-up, 2.6–3.0 s before the styles were pre-built), largest content after 1.5–1.8 s (was 3.0–3.3 s), no layout shift, no blocking time |
+| **Slow mobile data** (3G: 300 ms delay, 0.7 Mbps, slow phone) | First visit: first text after about 3.2 s. **Coming back, or opening another page: 0.3 s** (was 2.6 s), with nothing downloaded (before, all 13 files were re-checked with the website, each costing a slow round trip). After the first visit, pages open offline too |
+| Offline copy (service worker) | 19 automated checks pass: the pages and files are saved after the first visit; repeat visits come entirely from the saved copy; every page opens offline with its styles, fonts and logo; "Book" links work offline; both forms still reach FormSubmit; a changed page shows the update notice (without covering the WhatsApp button) and Refresh shows the new version; day-old copies give way to the website; a new site version replaces the old saved copy; no script errors |
 | Page weight | Home 293 KB on a phone in 15 requests, with the first rafting photo; 508 KB on a desktop, where the first bungee and zip line photos and the second rafting photo are also on screen. The other photos load only when the visitor browses the galleries; loading them all up front made the phone page 561 KB. Booking 168 KB, About and Contact 142 KB. Logo 126 KB → 25 KB with no visible change |
 | HTML and CSS — W3C validator | No errors or warnings on any page |
 | Accessibility — axe-core (WCAG 2.2 AA), light and dark, phone and desktop, menu open | No issues, apart from a report on the faded "01 02 03" step numbers: they are decoration (hidden from screen readers), which WCAG exempts from contrast rules |
