@@ -132,7 +132,7 @@ function adventure_park_customizer_settings() {
 		'photo_zipline_2' => array( 'photos', __( 'Zip line photo 2', 'adventure-park' ), 'image', '' ),
 		'zip_representative' => array( 'photos', __( 'Label the zip line photos "Representative photo"', 'adventure-park' ), 'checkbox', __( 'Untick once the zip line photos are your own.', 'adventure-park' ) ),
 		// Security
-		'strict_csp'      => array( 'security', __( 'Strict security policy', 'adventure-park' ), 'checkbox', __( 'Only this website\'s own scripts may run, which blocks most attacks. If a plugin you add stops working for visitors (for example a chat widget or analytics), untick this.', 'adventure-park' ) ),
+		'strict_csp'      => array( 'security', __( 'Strict security policy', 'adventure-park' ), 'checkbox', __( 'Only this website\'s own scripts (and, on WordPress.com, its visitor statistics) may run, which blocks most attacks. If a plugin you add stops working for visitors (for example a chat widget or analytics), untick this.', 'adventure-park' ) ),
 	);
 }
 

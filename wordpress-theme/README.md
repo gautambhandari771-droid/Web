@@ -15,6 +15,7 @@ The Adventure Park website as a WordPress theme. It has the same design, pages, 
 - [Everyday changes](#everyday-changes)
 - [Updating the theme later](#updating-the-theme-later)
 - [Good to know](#good-to-know)
+- [On WordPress.com](#on-wordpresscom)
 - [Tests](#tests)
 - [For developers](#for-developers)
 
@@ -22,6 +23,7 @@ The Adventure Park website as a WordPress theme. It has the same design, pages, 
 
 1. **Hosting and a domain.**
    - Any WordPress hosting plan works. Most hosts install WordPress for you in one click when you set up the plan.
+   - **On WordPress.com**, the free plan can't install themes. The **Personal** plan or higher can (see [On WordPress.com](#on-wordpresscom)).
    - Buy the domain with the hosting or separately, for example `adventureparkrishikesh.com` or `.in`.
    - Make sure the plan includes free SSL (the padlock / `https://`).
 2. **Upload the theme.**
@@ -94,7 +96,10 @@ Your settings, page text, FAQ, photos and menu are kept.
   - An SEO plugin (Yoast SEO, Rank Math, All in One SEO, SEOPress) works: it takes over the titles, descriptions and link previews, and the theme keeps adding its structured data (prices, FAQ, business details).
   - If a plugin adds something visitors should see (a chat widget, analytics, a cookie banner) and it doesn't appear, untick **Customize → Adventure Park → Security → Strict security policy**.
   - With a caching plugin, exclude `/sw.js` from its cache.
-- **Addresses the theme serves.** `/sw.js` (the offline copy), `/llms.txt` (summary for AI assistants), `/robots.txt`, `/site.webmanifest`, `/.well-known/security.txt` and WordPress's `/wp-sitemap.xml`. They are built from your settings, so a new price reaches them too.
+- **Addresses the theme serves.**
+  - `/sw.js` (the offline copy) and `/site.webmanifest` (app name and icons). The pages load them as `/?ap-file=sw.js` and `/?ap-file=site.webmanifest`, which reach WordPress on every host.
+  - `/llms.txt` (summary for AI assistants), `/robots.txt`, `/.well-known/security.txt` and WordPress's `/wp-sitemap.xml`.
+  - All of them are built from your settings, so a new price reaches them too.
 - **Differences from the Netlify site.**
   - WordPress shows straight apostrophes as typographic ones (’) in the founder's story.
   - The sitemap is at `/wp-sitemap.xml` instead of `/sitemap.xml`.
@@ -102,13 +107,21 @@ Your settings, page text, FAQ, photos and menu are kept.
   - Everything else looks the same, pixel for pixel (see [Tests](#tests)).
 - **Not a "block" theme.** The designed pages come from the theme, so **Appearance → Editor** and page builders don't change them. Their text is edited as described above.
 
+## On WordPress.com
+
+- **Plan:** Personal or higher. The free plan can't install themes.
+- **Installing:** in the dashboard, go to **Appearance → Themes**, choose **Add New Theme → Upload Theme**, upload `adventure-park.zip`, then **Activate**.
+- **Starter content:** new WordPress.com sites come with an **About** page and a **Hello World!** post. Move them to the trash before activating the theme, so the theme's About page gets the address `/about/` rather than `/about-2/`.
+- **Visitor statistics:** on WordPress.com and on sites with Jetpack, the security policy also lets through WordPress.com's own scripts and images (`*.wp.com`), so **Stats** counts visitors and photos served by WordPress.com load.
+- **Going live:** new WordPress.com sites start as "Coming soon". Click **Launch site** in the dashboard when you're ready.
+
 ## Tests
 
 The theme was installed from `adventure-park.zip` through **Upload Theme** on a new WordPress site each time, and checked automatically in Chromium:
 
 | WordPress | PHP | Result |
 |---|---|---|
-| 7.1.3 (current) | 8.3 | 31 of 31 checks pass |
+| 7.1.3 (current) | 8.3 | 31 of 31 checks pass (theme 1.0.2) |
 | 6.5.5 | 7.4 | 31 of 31 checks pass |
 
 **Visitor checks:**

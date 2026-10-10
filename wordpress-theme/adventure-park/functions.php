@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'ADVENTURE_PARK_VERSION', '1.0.1' );
+define( 'ADVENTURE_PARK_VERSION', '1.0.2' );
 
 require_once __DIR__ . '/inc/settings.php';
 require_once __DIR__ . '/inc/fields.php';

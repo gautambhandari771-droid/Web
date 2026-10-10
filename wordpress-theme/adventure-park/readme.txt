@@ -50,6 +50,9 @@ page layout in the site's style.
 
 == Changelog ==
 
+= 1.0.2 =
+* Works on WordPress.com: the offline copy and app details load from an address WordPress.com passes to WordPress, and the security policy lets WordPress.com's visitor statistics and image service through.
+
 = 1.0.1 =
 * People served: 1 lakh+.
 
