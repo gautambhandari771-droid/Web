@@ -1,7 +1,9 @@
-# Netlify settings for the Adventure Park website.
+# Netlify settings for the Adventure Park website (the old host: the site is now published by
+# Cloudflare, see wrangler.jsonc). Kept so the site still works on Netlify if ever needed.
 # The site is plain HTML/CSS/JS and the styles are already built (assets/styles.css),
 # so there is no build step: Netlify publishes this folder as-is.
 # Unknown addresses automatically show 404.html.
+# Security headers and caching rules are in _headers, which Netlify reads too.
 
 [build]
   publish = "."
@@ -37,132 +39,14 @@
   status = 404
   force = true
 
-[[headers]]
-  for = "/*"
-  [headers.values]
-    X-Content-Type-Options = "nosniff"
-    X-Frame-Options = "SAMEORIGIN"
-    Referrer-Policy = "strict-origin-when-cross-origin"
-    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
-    # Browsers must always use HTTPS for this site (for a year after each visit)
-    Strict-Transport-Security = "max-age=31536000"
-    # Pages opened from this site (WhatsApp, Instagram, Maps) can't reach back into it
-    Cross-Origin-Opener-Policy = "same-origin"
-    # Only this site's own files may run or load; forms may talk to FormSubmit.
-    # If you add a new outside service (analytics, a map embed, a chat widget), add its address here.
-    Content-Security-Policy = "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://formsubmit.co; form-action 'self' https://formsubmit.co; frame-src 'self'; frame-ancestors 'self'; base-uri 'self'; object-src 'none'"
+[[redirects]]
+  from = "/wrangler.jsonc"
+  to = "/404.html"
+  status = 404
+  force = true
 
-# Font files never change, so browsers may keep them for a year
-[[headers]]
-  for = "/assets/fonts/*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
-# Styles and scripts: every page links them with a version number (…?v=…) that changes
-# whenever the file changes, so browsers may keep them for a year too. After editing one of
-# these files by hand, change its ?v= number in every page (see "Caching" in README.md).
-
-[[headers]]
-  for = "/assets/styles.css"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
-[[headers]]
-  for = "/assets/theme.css"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
-[[headers]]
-  for = "/assets/fonts.css"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
-[[headers]]
-  for = "/assets/head.js"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
-[[headers]]
-  for = "/assets/site.js"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
-[[headers]]
-  for = "/assets/hero-fx.js"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
-[[headers]]
-  for = "/assets/preview.css"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
-[[headers]]
-  for = "/assets/preview.js"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
-# Photos, logo and icons: kept for a day; for a week after that the browser shows its copy
-# straight away while it checks for a newer one in the background
-
-[[headers]]
-  for = "/assets/photos/*"
-  [headers.values]
-    Cache-Control = "public, max-age=86400, stale-while-revalidate=604800"
-
-[[headers]]
-  for = "/assets/logo.png"
-  [headers.values]
-    Cache-Control = "public, max-age=86400, stale-while-revalidate=604800"
-
-[[headers]]
-  for = "/assets/icon-192.png"
-  [headers.values]
-    Cache-Control = "public, max-age=86400, stale-while-revalidate=604800"
-
-[[headers]]
-  for = "/assets/apple-touch-icon.png"
-  [headers.values]
-    Cache-Control = "public, max-age=86400, stale-while-revalidate=604800"
-
-[[headers]]
-  for = "/assets/upi-qr.svg"
-  [headers.values]
-    Cache-Control = "public, max-age=86400, stale-while-revalidate=604800"
-
-[[headers]]
-  for = "/assets/upi-qr.png"
-  [headers.values]
-    Cache-Control = "public, max-age=86400, stale-while-revalidate=604800"
-
-[[headers]]
-  for = "/assets/og-image.png"
-  [headers.values]
-    Cache-Control = "public, max-age=86400, stale-while-revalidate=604800"
-
-[[headers]]
-  for = "/favicon.ico"
-  [headers.values]
-    Cache-Control = "public, max-age=86400, stale-while-revalidate=604800"
-
-# The service worker (offline copy): browsers must always check for a newer one
-[[headers]]
-  for = "/sw.js"
-  [headers.values]
-    Cache-Control = "no-cache"
-
-# Plain-text and crawler files: declare UTF-8 so ₹ and other symbols show correctly
-[[headers]]
-  for = "/llms.txt"
-  [headers.values]
-    Content-Type = "text/plain; charset=utf-8"
-
-[[headers]]
-  for = "/robots.txt"
-  [headers.values]
-    Content-Type = "text/plain; charset=utf-8"
-
-[[headers]]
-  for = "/site.webmanifest"
-  [headers.values]
-    Content-Type = "application/manifest+json; charset=utf-8"
+[[redirects]]
+  from = "/build-cloudflare.mjs"
+  to = "/404.html"
+  status = 404
+  force = true

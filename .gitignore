@@ -1,1 +1,4 @@
 node_modules/
+# Cloudflare: the built website and local working files
+dist/
+.wrangler/

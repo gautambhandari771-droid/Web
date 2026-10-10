@@ -1,0 +1,17 @@
+// Cloudflare settings for the Adventure Park website (a Worker that only serves the site's files).
+// Cloudflare runs the build command, then publishes the dist/ folder it creates.
+{
+  "name": "adventure-park",
+  "compatibility_date": "2026-09-01",
+  "build": {
+    "command": "node build-cloudflare.mjs"
+  },
+  "assets": {
+    "directory": "./dist",
+    // Serve about.html at /about.html exactly as linked, without redirecting to /about
+    // (the home page is mapped to / in _redirects)
+    "html_handling": "none",
+    // Unknown addresses show 404.html with a "not found" status
+    "not_found_handling": "404-page"
+  }
+}

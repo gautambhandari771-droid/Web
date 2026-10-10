@@ -1,0 +1,88 @@
+# Security and caching headers for every page and file.
+# Read by Cloudflare (and by Netlify, which uses the same format).
+# A path can match several rules; never set the same header in two rules that can match the same path.
+
+# Every page and file. Strict-Transport-Security: browsers must always use HTTPS for this site (for a year
+# after each visit). Cross-Origin-Opener-Policy: pages opened from this site (WhatsApp, Instagram, Maps)
+# can't reach back into it. Content-Security-Policy: only this site's own files may run or load; forms may
+# talk to FormSubmit. If you add a new outside service (analytics, a map embed, a chat widget), add its
+# address to the Content-Security-Policy line.
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
+  Strict-Transport-Security: max-age=31536000
+  Cross-Origin-Opener-Policy: same-origin
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://formsubmit.co; form-action 'self' https://formsubmit.co; frame-src 'self'; frame-ancestors 'self'; base-uri 'self'; object-src 'none'
+
+# Font files never change, so browsers may keep them for a year
+/assets/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Styles and scripts: every page links them with a version number (…?v=…) that changes
+# whenever the file changes, so browsers may keep them for a year too. After editing one of
+# these files by hand, change its ?v= number in every page (see "Caching" in README.md).
+/assets/styles.css
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/theme.css
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/fonts.css
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/head.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/site.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/hero-fx.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/preview.css
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/preview.js
+  Cache-Control: public, max-age=31536000, immutable
+
+# Photos, logo and icons: kept for a day; for a week after that the browser shows its copy
+# straight away while it checks for a newer one in the background
+/assets/photos/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/assets/logo.png
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/assets/icon-192.png
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/assets/apple-touch-icon.png
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/assets/upi-qr.svg
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/assets/upi-qr.png
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/assets/og-image.png
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/favicon.ico
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+# The service worker (offline copy): browsers must always check for a newer one
+/sw.js
+  Cache-Control: no-cache
+
+# Plain-text and crawler files: declare UTF-8 so ₹ and other symbols show correctly
+/llms.txt
+  Content-Type: text/plain; charset=utf-8
+
+/robots.txt
+  Content-Type: text/plain; charset=utf-8
+
+/site.webmanifest
+  Content-Type: application/manifest+json; charset=utf-8
