@@ -37,13 +37,6 @@
   status = 404
   force = true
 
-# The WordPress version of the site (its source, not part of this website)
-[[redirects]]
-  from = "/wordpress-theme/*"
-  to = "/404.html"
-  status = 404
-  force = true
-
 [[headers]]
   for = "/*"
   [headers.values]
