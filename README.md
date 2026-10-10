@@ -3,7 +3,7 @@
 **Where Rishikesh gets wild.**
 The website for Adventure Park, an adventure-activities brand in Rishikesh, Uttarakhand, running since 2006 and founded by Jagat Singh Bhandari (JSB — 25+ years of experience, more than 1 lakh people served). The site presents the activities, stays and prices, puts safety first, and lets visitors book online — pay a 50% advance by UPI and send a booking request with the payment screenshot — or get in touch.
 
-> **Status:** live at **https://adventureprk.netlify.app** (Netlify project `adventureprk`). Netlify publishes the `main` branch of this repository automatically — see [Deploying to Netlify](#deploying-to-netlify).
+> **Status:** moving from Netlify to **Cloudflare**, which will publish the `main` branch of this repository automatically. See [Publishing on Cloudflare](#publishing-on-cloudflare). Until the Cloudflare project is set up, the live address is still https://adventureprk.netlify.app.
 
 ---
 
@@ -39,13 +39,13 @@ The website for Adventure Park, an adventure-activities brand in Rishikesh, Utta
 
 ## How it's built
 
-A static website: plain HTML, CSS and a little JavaScript. **Netlify publishes the folder as-is — there is no build step on deploy.**
+A static website: plain HTML, CSS and a little JavaScript. **Nothing is compiled on deploy.** Before each deploy, Cloudflare runs `build-cloudflare.mjs`, which only copies the website's own files into `dist/` and publishes that folder.
 
 - **Tailwind CSS v4** styles the site. The styles are built ahead of time into `assets/styles.css`, so pages load fast and nothing is compiled in the visitor's browser. Changing words needs no rebuild; changing the design does (see [Changing the design](#changing-the-design-rebuilding-the-styles)).
 - **Theme** in the [tweakcn](https://tweakcn.com) / shadcn format, so colours can be swapped in one file.
 - **Fonts** (Plus Jakarta Sans and Instrument Serif) are stored on the site itself in `assets/fonts/`, so no request goes to Google when a page loads. Each page fetches just two font files, both requested first thing (see [Fonts](#fonts)).
 - **Forms** are delivered by [FormSubmit](https://formsubmit.co) — no server of our own.
-- **Nothing else is loaded from outside the site**, and a security policy in `netlify.toml` enforces that (see [Security](#security)).
+- **Nothing else is loaded from outside the site**, and a security policy in `_headers` enforces that (see [Security](#security)).
 
 ```
 .
@@ -64,7 +64,11 @@ A static website: plain HTML, CSS and a little JavaScript. **Netlify publishes t
 ├── 9ee9e31962946c13c7e1b3c5848a1f03.txt  IndexNow key (lets Bing know the site is ours when we announce updates)
 ├── .well-known/
 │   └── security.txt      Where to report a security problem (renew "Expires" every year)
-├── netlify.toml          Netlify settings: security headers, caching, hidden files
+├── _headers              Security headers and caching rules (Cloudflare; Netlify reads it too)
+├── _redirects            Address rules: / shows index.html, /about leads to about.html…
+├── wrangler.jsonc        Cloudflare settings: run the build script, publish dist/, 404 page
+├── build-cloudflare.mjs  Copies the website's files into dist/ for Cloudflare (nothing else)
+├── netlify.toml          Settings for the old host, Netlify
 ├── .gitignore            Keeps the temporary node_modules folder out of git
 └── assets/
     ├── theme.css         Colours, fonts, radius, shadows (tweakcn format)
@@ -242,7 +246,7 @@ The photos are in `assets/photos/`, in the WebP format (about a third of the siz
 
 All the photos are cropped to a wide 16:9 shape and turned the right way up. Camera details, including the GPS location stored by the phone, were removed. Only the first photo of each card loads with the page. The second loads as the visitor scrolls near the card, and the rest as soon as they start browsing, so the home page stays fast on phones.
 
-**To replace a photo:** make a landscape picture in the 16:9 shape, save it as WebP at the same width and with the same file name, and upload it over the old one. On GitHub, open `assets/photos`, choose **Add file → Upload files**, and commit. Netlify publishes the change within about a minute. People who visited before may keep seeing the old photo for a day or two (browsers keep photos that long); to show it to everyone at once, give the new photo a new file name instead and update the names in `index.html`. [Squoosh](https://squoosh.app) can resize, crop and convert a photo to WebP in the browser, and removes the location data. Also update the photo's description (the `alt="…"` text in `index.html`) so it matches the new picture: search engines, AI assistants and screen readers use it.
+**To replace a photo:** make a landscape picture in the 16:9 shape, save it as WebP at the same width and with the same file name, and upload it over the old one. On GitHub, open `assets/photos`, choose **Add file → Upload files**, and commit. Cloudflare publishes the change within a minute or two. People who visited before may keep seeing the old photo for a day or two (browsers keep photos that long); to show it to everyone at once, give the new photo a new file name instead and update the names in `index.html`. [Squoosh](https://squoosh.app) can resize, crop and convert a photo to WebP in the browser, and removes the location data. Also update the photo's description (the `alt="…"` text in `index.html`) so it matches the new picture: search engines, AI assistants and screen readers use it.
 
 **To add a photo to a card:** in `index.html`, copy one of the card's later photos (an `<img>` line whose `src` starts with `data:image/svg+xml`), change the file names in `data-src` and `data-srcset` and the `alt` text, add one more dot (a `<span data-gallery-dot …></span>`), and update the number in `aria-label="… photos, N pictures"`. To give another card photos (for example the camps), copy the bungee card's `<div data-gallery …>` block into it and change the photos.
 
@@ -374,6 +378,8 @@ python3 -m http.server 8000
 # then open http://localhost:8000
 ```
 
+To see the site exactly as Cloudflare serves it (same headers, addresses and 404 page), run `npx wrangler dev` instead and open http://localhost:8787.
+
 Opening the HTML files directly also works for looking at the design, but the forms won't send.
 
 **On different devices** — open `preview.html` (e.g. http://localhost:8000/preview.html, or `/preview.html` on the live site). It shows the site inside phone, tablet and desktop frames, side by side, with page, light/dark and rotate controls.
@@ -418,9 +424,9 @@ self.addEventListener('activate', (event) => event.waitUntil((async () => {
 
 ## Security
 
-The site has **no server, database, login or payment of its own**. The "backend" is Netlify (hosting) and FormSubmit (emails the two forms), so there is very little to attack: no passwords to steal, no database to break into, no code running on a server.
+The site has **no server, database, login or payment of its own**. The "backend" is Cloudflare (hosting) and FormSubmit (emails the two forms), so there is very little to attack: no passwords to steal, no database to break into, no code running on a server.
 
-### Headers (`netlify.toml`)
+### Headers (`_headers`)
 
 | Header | What it does |
 |---|---|
@@ -432,11 +438,11 @@ The site has **no server, database, login or payment of its own**. The "backend"
 | `Referrer-Policy` | Other sites only see the site's address, not the full page address, when a visitor follows a link |
 | `Permissions-Policy` | Camera, microphone, location, payment and USB access are switched off |
 
-**If you add an outside service later** (analytics, an embedded map or video, a chat widget), add its address to `Content-Security-Policy` in `netlify.toml` — otherwise the browser will block it.
+**If you add an outside service later** (analytics, an embedded map or video, a chat widget), add its address to `Content-Security-Policy` in `_headers` — otherwise the browser will block it.
 
 ### Other protections
 
-- **Project files are hidden:** `README.md`, `netlify.toml`, `.gitignore`, `.git/` and `assets/tailwind.css` answer "not found" on the live site.
+- **Project files are never published:** Cloudflare only receives the website's own files (`build-cloudflare.mjs` copies them into `dist/`), so `README.md`, the settings files, `.git/` and `assets/tailwind.css` answer "not found" on the live site.
 - **Forms:** a hidden spam trap (`_honey`), length limits on every field, and validation before sending; the payment screenshot must be an image or PDF of up to 10 MB. What visitors type is only ever shown as text, never run as code.
 - **No cookies and no tracking.** The browser stores only the light/dark choice and the saved copy of the site's own pages and files (see [Caching and offline](#caching-and-offline)).
 - **The service worker (`sw.js`)** only answers requests for this site's own pages and files. Forms, FormSubmit and other websites always go straight to the network.
@@ -450,6 +456,11 @@ The site has **no server, database, login or payment of its own**. The "backend"
 ## Test results
 
 Tested on a local server that behaves like Netlify (same headers, Brotli compression and 404 handling), with Lighthouse's standard slow-phone and desktop settings. Last run after adding caching and the offline copy (Lighthouse figures: three runs per page, the middle result is shown).
+
+**After the move to Cloudflare** (on Cloudflare's own local server, `wrangler dev`):
+- **Headers and addresses:** 30 addresses give the same status and the same security, caching and file-type headers as the Netlify setup.
+- **Browser tests:** all 82 pass.
+- **Offline copy:** 16 of its 19 checks pass. The 3 "website changed" checks can't run on the local server, because it sends no `Date` header and keeps old file tags after an edit. They need checking on the live site.
 
 | Check | Result |
 |---|---|
@@ -474,28 +485,38 @@ Tested on a local server that behaves like Netlify (same headers, Brotli compres
 | Layout | Nothing overflows sideways at 320, 360, 390, 768, 1024 and 1440 px wide |
 | Look | After the speed and security changes, every page was compared pixel by pixel with the version before them (phone and desktop, light and dark): identical, apart from 1 pixel of the compressed logo and the new words "in 2006 … (JSB)" on the About page. New features (booking, payment, refunds) were checked visually on phone and desktop in both modes |
 
-**Still to check on the live site:** Safari on iPhone and Firefox (only Chrome was available here), the real FormSubmit service (activate both forms and send a test booking with a screenshot), a ₹1 test payment by scanning the QR code, and live-network speed. Netlify reports that every deploy applied all header and hidden-file rules without errors. Run the live address through [PageSpeed Insights](https://pagespeed.web.dev), [Security Headers](https://securityheaders.com), [Mozilla Observatory](https://developer.mozilla.org/en-US/observatory), [SSL Labs](https://www.ssllabs.com/ssltest/) and the [Rich Results Test](https://search.google.com/test/rich-results), and try the site on an iPhone and an Android phone.
+**Still to check on the live site:** Safari on iPhone and Firefox (only Chrome was available here), the real FormSubmit service (activate both forms and send a test booking with a screenshot), a ₹1 test payment by scanning the QR code, and live-network speed. On the Cloudflare site, also check that the "This page has been updated. Refresh" notice appears after a change goes live: Cloudflare's local test server can't show it. Run the live address through [PageSpeed Insights](https://pagespeed.web.dev), [Security Headers](https://securityheaders.com), [Mozilla Observatory](https://developer.mozilla.org/en-US/observatory), [SSL Labs](https://www.ssllabs.com/ssltest/) and the [Rich Results Test](https://search.google.com/test/rich-results), and try the site on an iPhone and an Android phone.
 
 ---
 
-## Deploying to Netlify
+## Publishing on Cloudflare
 
-The site is set up for Netlify (`netlify.toml`): no build command, publish directory is the project root.
+The site is published by **Cloudflare** as a Worker that only serves files (free plan):
 
-**How it's published:** the Netlify project **`adventureprk`** is linked to this GitHub repository and publishes the `main` branch to **https://adventureprk.netlify.app**. Every change merged into `main` goes live within about a minute, and every pull request gets a private **Deploy Preview** link first (Netlify posts it on the pull request). To undo a change, open the project's **Deploys** page in Netlify and publish an earlier deploy.
+- **`wrangler.jsonc`** sets this up. Before each deploy Cloudflare runs `node build-cloudflare.mjs`, then publishes the `dist/` folder.
+- **`_headers`** adds the security headers and caching rules.
+- **`_redirects`** shows `index.html` at `/` and sends short addresses such as `/about` to `about.html`.
+- **Addresses:** pages keep their `about.html`-style addresses, exactly as every link uses them, with no extra redirect.
+- **Unknown addresses** show `404.html` with a "not found" status.
 
-**If a change doesn't go live** (the merge is on GitHub, but a few minutes later the site still shows the old version): open the project's **Deploys** page in Netlify.
-- If there's no new deploy at the top, Netlify missed the signal from GitHub: click **Trigger deploy → Deploy site**.
-- If the deploy shows as failed or blocked, open it and read the message.
-- If Netlify says the team has used up its free allowance, production deploys wait until the monthly reset or an upgrade (**Team → Usage** shows where it stands). Every project linked to this repository uses some of the allowance for each change, so delete projects you don't use.
+**Setting it up (once):**
+1. Sign in at [dash.cloudflare.com](https://dash.cloudflare.com) (a free account is enough).
+2. Go to **Workers & Pages → Create application → Import a repository**.
+3. Connect GitHub and choose this repository (`gautambhandari771-droid/Web`).
+4. Set the **project name** to `adventure-park`. It must match `name` in `wrangler.jsonc`.
+5. Leave the build settings as they are: the deploy command is `npx wrangler deploy`, and the build step comes from `wrangler.jsonc`.
+6. Click **Deploy**. After a minute the site is live at `https://adventure-park.<your-subdomain>.workers.dev`.
 
-**Other Netlify projects on the account:** `advenpark` is also linked to this repository (it builds every change too, but only team members can open it) and `adventurepark-rishikesh` is empty. Neither is needed — delete them under **Project configuration → General → Danger zone → Delete project** to avoid confusion and duplicate builds.
+**After that:**
+- Every change merged into `main` goes live within a minute or two.
+- To undo a change, open the Worker's **Deployments** page and roll back to an earlier version.
+- If a change doesn't go live, open the Worker's **Deployments** page (or **Builds** for the build log) and read the message there.
 
-**If the site address changes** (a new project name or your own domain): find-and-replace `https://adventureprk.netlify.app` with the new address in every `.html` file, `sitemap.xml`, `robots.txt`, `llms.txt` and `.well-known/security.txt`, and in the IndexNow link above (see [Keeping it accurate](#keeping-it-accurate)).
+**When the site address changes** (the first Cloudflare address, or your own domain later): find-and-replace the old address with the new one in every `.html` file, `sitemap.xml`, `robots.txt`, `llms.txt` and `.well-known/security.txt`, and in the IndexNow link above (see [Keeping it accurate](#keeping-it-accurate)).
 
-**Now that the site is live:** activate the forms (see above), do the [search and AI steps](#after-launch), and run through the launch checklist.
+**Own domain later:** buy a domain (for example through Cloudflare: **Domain Registration**), then add it to the Worker under **Settings → Domains & Routes → Add → Custom domain**. Then change the address in the pages and crawler files as above.
 
-**Own domain later:** buy a domain (e.g. `adventurepark.in`), then in Netlify go to **Domain management → Add a domain** and follow the steps. Then replace the Netlify address in the pages and crawler files (see [Keeping it accurate](#keeping-it-accurate)).
+**The old host, Netlify:** the Netlify project `adventureprk` still shows an older version at https://adventureprk.netlify.app. Once the Cloudflare site is live, delete the Netlify projects (`adventureprk`, `advenpark` and `adventurepark-rishikesh`) under **Project configuration → General → Danger zone → Delete project**, so nobody finds the old version. `netlify.toml` stays only in case you ever go back.
 
 ---
 
@@ -505,8 +526,8 @@ The site is set up for Netlify (`netlify.toml`): no build command, publish direc
 - [x] Instagram link in the footer, mobile menu and Contact page.
 - [ ] Confirm whether AC cottages cost the same per person as non-AC camps (the site shows one per-person range for both).
 - [ ] Check every safety statement matches what the team actually does.
-- [x] Netlify site live at https://adventureprk.netlify.app, publishing `main` automatically.
-- [ ] Delete the unused Netlify projects `advenpark` and `adventurepark-rishikesh`.
+- [ ] Cloudflare project `adventure-park` set up (see [Publishing on Cloudflare](#publishing-on-cloudflare)), then the site address changed in the pages and crawler files.
+- [ ] Delete the Netlify projects `adventureprk`, `advenpark` and `adventurepark-rishikesh` once the Cloudflare site is live.
 - [ ] Submit both forms once on the live site (the booking form with any image as the screenshot) and click FormSubmit's activation emails.
 - [x] Book buttons on every activity and stay; four rafting trips in the booking form.
 - [x] UPI payment QR code (M/S ADVENTURE PARK, `8755542743@ybl`), 50% advance rule, required payment screenshot, 36-hour refund policy.

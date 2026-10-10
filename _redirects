@@ -1,0 +1,8 @@
+# Address rules for Cloudflare (Netlify reads this file too, and already behaves this way).
+# The pages are published as about.html, booking.html…, and every link uses those addresses.
+# The home page is index.html, shown at /
+/ /index.html 200
+# Short addresses someone might type: send them to the page
+/about /about.html 301
+/booking /booking.html 301
+/contact /contact.html 301
