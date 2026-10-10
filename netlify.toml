@@ -1,52 +1,7 @@
-# Netlify settings for the Adventure Park website (the old host: the site is now published by
-# Cloudflare, see wrangler.jsonc). Kept so the site still works on Netlify if ever needed.
-# The site is plain HTML/CSS/JS and the styles are already built (assets/styles.css),
-# so there is no build step: Netlify publishes this folder as-is.
-# Unknown addresses automatically show 404.html.
-# Security headers and caching rules are in _headers, which Netlify reads too.
+# Netlify settings. The website now lives at https://adventureprk.in, so adventureprk.netlify.app
+# only forwards visitors there: Netlify publishes the netlify-forward/ folder, whose _redirects
+# file sends every address to the matching page on adventureprk.in (301, permanent).
+# Cloudflare doesn't read this file (see wrangler.jsonc), so its setup is unchanged.
 
 [build]
-  publish = "."
-
-# Files that are part of the project but not the website: answer "not found"
-[[redirects]]
-  from = "/README.md"
-  to = "/404.html"
-  status = 404
-  force = true
-
-[[redirects]]
-  from = "/netlify.toml"
-  to = "/404.html"
-  status = 404
-  force = true
-
-[[redirects]]
-  from = "/.gitignore"
-  to = "/404.html"
-  status = 404
-  force = true
-
-[[redirects]]
-  from = "/.git/*"
-  to = "/404.html"
-  status = 404
-  force = true
-
-[[redirects]]
-  from = "/assets/tailwind.css"
-  to = "/404.html"
-  status = 404
-  force = true
-
-[[redirects]]
-  from = "/wrangler.jsonc"
-  to = "/404.html"
-  status = 404
-  force = true
-
-[[redirects]]
-  from = "/build-cloudflare.mjs"
-  to = "/404.html"
-  status = 404
-  force = true
+  publish = "netlify-forward"

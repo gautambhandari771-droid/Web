@@ -1,0 +1,15 @@
+# adventureprk.netlify.app now forwards every address to the website at https://adventureprk.in.
+# Netlify publishes only this folder (see netlify.toml). Old pages go to the matching new page;
+# query strings such as ?activity=bungee are passed on, so the Book buttons keep working.
+# sw.js is not forwarded: it removes the old offline copy from returning visitors' browsers.
+/index.html     https://adventureprk.in/                301
+/about.html     https://adventureprk.in/about/          301
+/booking.html   https://adventureprk.in/booking/        301
+/contact.html   https://adventureprk.in/contact/        301
+/about          https://adventureprk.in/about/          301
+/booking        https://adventureprk.in/booking/        301
+/contact        https://adventureprk.in/contact/        301
+/404.html       https://adventureprk.in/                301
+/preview.html   https://adventureprk.in/                301
+/sitemap.xml    https://adventureprk.in/wp-sitemap.xml  301
+/*              https://adventureprk.in/:splat          301

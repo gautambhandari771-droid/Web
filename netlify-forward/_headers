@@ -1,0 +1,3 @@
+# Browsers check sw.js on every visit, so the old offline copy is removed promptly
+/sw.js
+  Cache-Control: no-cache

@@ -3,7 +3,7 @@
 **Where Rishikesh gets wild.**
 The website for Adventure Park, an adventure-activities brand in Rishikesh, Uttarakhand, running since 2006 and founded by Jagat Singh Bhandari (JSB — 25+ years of experience, more than 1 lakh people served). The site presents the activities, stays and prices, puts safety first, and lets visitors book online — pay a 50% advance by UPI and send a booking request with the payment screenshot — or get in touch.
 
-> **Status:** moving from Netlify to **Cloudflare**, which will publish the `main` branch of this repository automatically. See [Publishing on Cloudflare](#publishing-on-cloudflare). Until the Cloudflare project is set up, the live address is still https://adventureprk.netlify.app.
+> **Status:** the live website is **https://adventureprk.in**, on WordPress.com with the Adventure Park WordPress theme. The old address https://adventureprk.netlify.app forwards every page there: Netlify publishes only the `netlify-forward/` folder (see `netlify.toml`). The move to Cloudflare described in [Publishing on Cloudflare](#publishing-on-cloudflare) is not set up.
 
 ---
 
