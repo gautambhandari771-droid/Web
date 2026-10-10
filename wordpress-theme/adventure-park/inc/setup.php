@@ -58,7 +58,7 @@ add_action( 'wp_head', function () {
 	echo '<link rel="preload" href="' . esc_url( $fonts . 'instrument-serif-italic-latin.woff2' ) . '" as="font" type="font/woff2" crossorigin />' . "\n";
 	echo '<meta name="theme-color" content="#f7fbfc" media="(prefers-color-scheme: light)" />' . "\n";
 	echo '<meta name="theme-color" content="#0b151c" media="(prefers-color-scheme: dark)" />' . "\n";
-	echo '<link rel="manifest" href="' . esc_url( home_url( '/site.webmanifest' ) ) . '" />' . "\n";
+	echo '<link rel="manifest" href="' . esc_url( adventure_park_file_url( 'site.webmanifest' ) ) . '" />' . "\n";
 	if ( ! has_site_icon() ) {
 		echo '<link rel="icon" href="' . esc_url( get_theme_file_uri( 'assets/favicon.ico' ) ) . '" sizes="any" />' . "\n";
 		echo '<link rel="icon" href="' . esc_url( get_theme_file_uri( 'assets/icon-192.png' ) ) . '" type="image/png" sizes="192x192" />' . "\n";
@@ -81,7 +81,7 @@ add_filter( 'emoji_svg_url', '__return_false' );
 
 /** Body attributes: the theme's classes, plus where the offline copy (sw.js) lives. */
 function adventure_park_body_attributes() {
-	echo ' data-sw="' . esc_url( home_url( '/sw.js' ) ) . '"';
+	echo ' data-sw="' . esc_url( adventure_park_file_url( 'sw.js' ) ) . '"';
 }
 
 // The offline copy is only for visitors: in the dashboard, remove it from this browser
@@ -91,7 +91,15 @@ add_action( 'admin_enqueue_scripts', function () {
 
 /** Content-Security-Policy for visitors: only this site's scripts may run (see Customize → Adventure Park → Security). */
 function adventure_park_csp() {
-	return "default-src 'self'; script-src 'self' 'inline-speculation-rules'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://formsubmit.co; form-action 'self' https://formsubmit.co; frame-src 'self'; frame-ancestors 'self'; base-uri 'self'; object-src 'none'";
+	$script = "'self' 'inline-speculation-rules'";
+	$wpcom  = '';
+	// On WordPress.com (and sites with Jetpack): also its visitor statistics, which add a small inline script,
+	// and its image and file service (*.wp.com), so the Stats page counts visitors and photos keep loading
+	if ( defined( 'JETPACK__VERSION' ) || defined( 'IS_ATOMIC' ) || defined( 'WPCOMSH_VERSION' ) ) {
+		$script = "'self' 'unsafe-inline' https://*.wp.com";
+		$wpcom  = ' https://*.wp.com';
+	}
+	return "default-src 'self'; script-src $script; style-src 'self' 'unsafe-inline'$wpcom; img-src 'self' data:$wpcom; font-src 'self'$wpcom; connect-src 'self' https://formsubmit.co$wpcom; form-action 'self' https://formsubmit.co; frame-src 'self'; frame-ancestors 'self'; base-uri 'self'; object-src 'none'";
 }
 
 add_action( 'send_headers', function () {

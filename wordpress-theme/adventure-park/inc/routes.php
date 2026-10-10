@@ -21,6 +21,15 @@ function adventure_park_sw_version() {
 	return substr( md5( implode( '|', $parts ) ), 0, 10 );
 }
 
+/**
+ * Address of one of these files for the site's own pages to use: /?ap-file=sw.js rather than /sw.js, because
+ * some hosts (WordPress.com among them) answer requests for .js and similar files themselves, without asking WordPress.
+ * Both addresses work wherever WordPress gets the request.
+ */
+function adventure_park_file_url( $file ) {
+	return add_query_arg( 'ap-file', $file, home_url( '/' ) );
+}
+
 function adventure_park_sw() {
 	$assets = array();
 	foreach ( array( 'theme.css', 'styles.css', 'head.js', 'hero-fx.js', 'site.js' ) as $file ) {
@@ -86,6 +95,9 @@ add_action( 'parse_request', function () {
 		$path = substr( $path, strlen( $base ) );
 	}
 	$path = ltrim( $path, '/' );
+	if ( '' === $path && isset( $_GET['ap-file'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification -- compared against fixed names only
+		$path = (string) wp_unslash( $_GET['ap-file'] ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput,WordPress.Security.NonceVerification
+	}
 	$routes = array(
 		'sw.js'                     => array( 'application/javascript; charset=utf-8', 'adventure_park_sw', array( 'Cache-Control: no-cache', 'Service-Worker-Allowed: ' . ( $base ? $base : '/' ) ) ),
 		'llms.txt'                  => array( 'text/plain; charset=utf-8', 'adventure_park_llms', array( 'Cache-Control: public, max-age=3600' ) ),
